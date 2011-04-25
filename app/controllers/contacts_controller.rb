@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
     @contact = @customer.contacts.new(params[:contact])
     respond_to do |format|
       if @contact.save
-        format.html { redirect_to(customers_url, :notice => 'Contact was successfully created.') }
+        format.html { redirect_to(@customer, :notice => 'Contact was successfully created.') }
         format.js 
       else
         respond_to do |format|
