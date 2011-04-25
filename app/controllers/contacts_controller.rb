@@ -52,12 +52,11 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:customer_id])
-    @contact = @customer.contacts.find(params[:id])
+    @contact = Contact.find(params[:id])
 
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
-        format.html { redirect_to(@customer, :notice => 'Contact was successfully updated.') }
+        format.html { redirect_to(@contact.customer, :notice => 'Contact was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
