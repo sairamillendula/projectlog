@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   set_tab :customers 
   
   def index
-    @customers = @user.customers.all
+    @customers = current_user.customers.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = @user.customers.find(params[:id])
+    @customer = current_user.customers.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,11 +28,11 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_user.customers.find(params[:id])
   end
 
   def create
-    @customer = @user.customers.new(params[:customer])
+    @customer = current_user.customers.new(params[:customer])
 
     respond_to do |format|
       if @customer.save
@@ -44,7 +44,7 @@ class CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_user.customers.find(params[:id])
 
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
@@ -56,17 +56,12 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
+    @customer = current_user.customers.find(params[:id])
     @customer.destroy
 
     respond_to do |format|
       format.html { redirect_to(customers_url) }
     end
-  end  
-
- def projects
-   @customer = current_user.customers.all
-   @projects = @customer.projects.all
- end
+  end
  
 end

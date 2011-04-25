@@ -1,9 +1,8 @@
 class ContactsController < ApplicationController
   before_filter :authenticate_user!
-  #before_filter :load_customer
 
   def index
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contacts = @customer.contacts.all
 
     respond_to do |format|
@@ -12,7 +11,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contact = @customer.contacts.find(params[:id])
 
     respond_to do |format|
@@ -21,8 +20,7 @@ class ContactsController < ApplicationController
   end
 
   def new
-    #@contact = Contact.new
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contact = @customer.contacts.new
 
     respond_to do |format|
@@ -32,12 +30,12 @@ class ContactsController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contact = @customer.contacts.find(params[:id])
   end
 
   def create
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contact = @customer.contacts.new(params[:contact])
     respond_to do |format|
       if @contact.save
@@ -51,7 +49,7 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contact = @customer.contacts.find(params[:id])
     
     respond_to do |format|
@@ -64,7 +62,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:customer_id])
+    @customer = current_user.customers.find(params[:customer_id])
     @contact = @customer.contacts.find(params[:id])
     @contact.destroy
 
