@@ -36,12 +36,8 @@ class ContactsController < ApplicationController
   end
 
   def create
-    #@contact = Contact.new(params[:contact])
-    #@user = current_user
-    #@customer = @user.customers
-    #@customer = Customer.find(params[:customer_id])
-    #@contact = @customer.contact.new(params[:contact])
-    @contact = Contact.new(params[:contact])
+    @customer = Customer.find(params[:customer_id])
+    @contact = @customer.contacts.new(params[:contact])
     respond_to do |format|
       if @contact.save
         format.html { redirect_to(customers_url, :notice => 'Contact was successfully created.') }
