@@ -12,6 +12,6 @@
 <% end %>
 </div>
 
-<p><%= link_to 'Add Contact', new_customer_contact_path(@customer) %></p>
+<p id="new_contact_link"><%= link_to 'Add Contact', new_customer_contact_path(@customer) %> | <%= link_to 'New contact AJAX', new_customer_contact_path(@customer, @contact, :format => :js), :remote => true %></p>
 
 <% end %>
