@@ -1,0 +1,17 @@
+<% if @customer.contacts.empty? %>
+  <div class="no-occurence">
+     <p>No contacts found. Add a new <%= link_to 'Contact', new_customer_contact_path(@customer, @contact) %></p>
+  </div>
+<% else %>
+
+<h2>Contacts</h2>
+
+<div id="contacts">
+<% for contact in @customer.contacts %>
+  <%= render :partial => "contacts/contact", :locals => { :contact => contact } %>
+<% end %>
+</div>
+
+<p><%= link_to 'Add Contact', new_customer_contact_path(@customer) %></p>
+
+<% end %>

@@ -1,28 +1,13 @@
-<% if @customer.contacts.empty? %>
-  <div class="no-occurence">
-     <p>No contacts found. Add a new <%= link_to 'Contact', new_customer_contact_path(@customer, @contact) %></p>
-  </div>
+<div class="contact-info">
+<% if contact.title.present? %>
+  <p><strong><%= contact.full_name %></strong> - <%= contact.title %></p>
 <% else %>
-
-<h2>Contacts</h2>
-
-<div id="contacts">
-<% for contact in @customer.contacts %>
-  <div class="contact-info">
-	<% if contact.title.present? %>
-	  <p><strong><%= contact.full_name %></strong> - <%= contact.title %></p>
-	<% else %>
-	  <p><strong><%= contact.full_name %></strong>
-	<% end %>
-	<p><%= contact.phone %></p>
-	<p><a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
-	<%= link_to 'Show', customer_contact_path(@customer, contact) %> | 
-	<%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> |
-	<%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
-  <br/><br/>
-  </div>
+  <p><strong><%= contact.full_name %></strong>
 <% end %>
-<p><%= link_to 'Add Contact', new_customer_contact_path(@customer) %></p> 
-
-<% end %>
+<p><%= contact.phone %></p>
+<p><a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
+<%= link_to 'Show', customer_contact_path(@customer, contact) %> | 
+<%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> |
+<%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
+<br/><br/>
 </div>

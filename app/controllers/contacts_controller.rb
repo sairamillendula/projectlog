@@ -44,10 +44,8 @@ class ContactsController < ApplicationController
         format.html { redirect_to(@customer, :notice => 'Contact was successfully created.') }
         format.js 
       else
-        respond_to do |format|
-          format.html { redirect_to @customer, :alert => 'Unable to add contact' }
-          format.js { render 'fail_create.js.erb' }
-        end
+        format.html { redirect_to @customer, :alert => 'Unable to add contact' }
+        format.js
       end
     end
   end
