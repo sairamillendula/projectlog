@@ -1,0 +1,16 @@
+<header role="banner" id="header">
+  <hgroup class="subhead">
+    <div id="logo">    
+     <img id="header-logo" src="/images/rails.png" alt="Logo" width="50" height="55"> <h1><%= link_to "Project Log", root_path %></h1>
+    </div>
+  <div id="user-info">
+    <% if user_signed_in? %>
+      <strong>Welcome <%= current_user.first_name %>! </strong><br />
+      <li><%= link_to 'My profile', edit_user_registration_path %> | </li>
+      <li><%= link_to 'Logout', destroy_user_session_path %></li>
+    <% else %>
+      <%= link_to 'Login', new_user_session_path %> or <%= link_to 'Register', new_user_registration_path %>
+    <% end %>
+   </div>
+  </hgroup> 
+</header>

@@ -1,0 +1,39 @@
+one:
+  first_name: Erin
+  last_name: Kelly
+  title: Resource Manager
+  phone: 613 255 8455
+  email: erin.kelly@zylog.com
+  customer_id: 1
+
+two:
+  first_name: Eli
+  last_name: Kakou
+  title: Comédien
+  phone: 0325061478
+  email: eli@kakoo.com
+  customer_id: 1
+
+three:
+  first_name: Jean
+  last_name: Dupont
+  title: CEO
+  phone: 1 613 255 8455
+  email: erin.kelly@zylog.com
+  customer_id: 2
+
+four:
+  first_name: Deb
+  last_name: Bie
+  title: Consultant
+  phone: 0325061478
+  email: dddddddddd@orsay.com
+  customer_id: 3
+
+five:
+  first_name: John
+  last_name: DOE
+  title: CFO
+  phone: 613 255 8455
+  email: john@doe.com
+  customer_id: 3
