@@ -17,7 +17,8 @@
 	<p><%= contact.phone %></p>
 	<p><a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
 	<%= link_to 'Show', customer_contact_path(@customer, contact) %> | 
-	<%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> | <%= link_to 'Destroy', customer_contact_path(@customer, contact), :confirm => 'Are you sure?', :method => :delete %>
+	<%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> |
+	<%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
   <br/><br/>
   </div>
 <% end %>
