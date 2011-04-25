@@ -1,0 +1,11 @@
+one:
+ email: o@koopon.ca
+ encrypted_password: '$2a$10$fQFSM6V5pXvRKBxHRvuI4OnaM.TytEN5iIi1EUAkOIpX...' # '123456'
+ first_name: Michael
+ last_name: Jordan
+
+two:
+ email: g@koopon.ca
+ encrypted_password: '$2a$10$fQFSM6V5pXvRKBxHRvuI4OnaM.TytEN5iIi1EUAkOIpX...' # '123456'
+ first_name: Anne-Gaëlle
+ last_name: Gérvaiz

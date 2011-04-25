@@ -1,0 +1,34 @@
+one:
+  name: Customer #1
+  phone: 613 800 0845
+  address1: 333 Carling Ave.
+  address2: Suite 12
+  city: Ottawa
+  postal_code: K2N 5T2
+  province: Ottawa
+  country: Canada
+  note: GitHub is more than just a place to share code.
+  user_id: 1
+
+two:
+  name: Customer #2
+  phone: 613 800 0845
+  address1: 333 Carling Ave.
+  address2: Suite 12
+  city: Ottawa
+  postal_code: J8X3P4
+  province: Quebec
+  country: Canada
+  user_id: 1
+
+three:
+  name: Customer #3 (User2)
+  phone: 613 800 0845
+  address1: 333 Carling Ave.
+  address2: Suite 12
+  city: Gatineau
+  postal_code: K2N5T2
+  province: Ottawa
+  country: Canada
+  note: This is a very short note
+  user_id: 2

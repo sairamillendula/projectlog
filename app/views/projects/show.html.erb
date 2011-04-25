@@ -1,0 +1,37 @@
+<p>
+  <b>Title:</b>
+  <%= @project.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @project.project_status.name %>
+</p>
+
+<p>
+  <b>Default rate:</b>
+  <%= @project.default_rate %>
+</p>
+
+<p>
+  <b>Manager:</b>
+  <%= @project.manager %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @project.customer.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @project.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

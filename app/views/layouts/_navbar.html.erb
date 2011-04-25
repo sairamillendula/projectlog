@@ -1,0 +1,17 @@
+<div id="menu">
+  <% if user_signed_in? %>
+    
+     <%= tabs_tag do |tab| %>
+	  <%= tab.dashboard 'Dashboard', root_path %>
+	  <%= tab.projects 'Projects', projects_path %>
+	  <%= tab.customers 'Customers', customers_path %>
+	  <li><%= link_to 'Invoices' %></li>
+	  <li><%= link_to 'Help' %></li>
+     <% end %>
+	 
+  <% else %>
+     <li><a href="#">Projects</a></li>
+     <li><a href="#">Reports</a></li>
+     <li><a href="#">Blog</a></li>
+  <% end %>
+</div>

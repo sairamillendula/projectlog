@@ -1,0 +1,33 @@
+<h1>Edit your personal information</h1>
+
+<div id="column_left">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <h2><%= f.label :email %></h2>
+  <%= f.email_field :email %>
+
+  <h2><%= f.label :first_name %></h2>
+  <%= f.text_field :first_name %>
+  
+  <h2><%= f.label :last_name %></h2>
+  <%= f.text_field :last_name %>
+  
+  <h2><%= f.label :current_password %><i style="font-weight:normal; font-size:12px;"> (leave blank if you don't want to change it)</i></h2>
+  <%= f.password_field :current_password %>
+
+  <h2><%= f.label :password_confirmation %></h2>
+  <%= f.password_field :password_confirmation %>
+  
+  <p class="submit"><%= f.submit "Save changes" %></p>
+</div>
+
+<div id="column_right">
+	<h3>Cancel my account</h3> 
+
+	<p>Unhappy? Cancel your account anytime but make sure you have a backup first because this cannot be undone.</p>
+	<p class="submit"><%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :html => {:class => 'submit' } %></p>
+
+</div>
+  
+<% end %>

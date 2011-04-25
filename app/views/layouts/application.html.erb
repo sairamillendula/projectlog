@@ -1,0 +1,27 @@
+<!DOCTYPE>
+<html>
+  <head>
+   <title>Yafoy Project Log</title>
+   <%= stylesheet_link_tag "style" %> 
+   <%= javascript_include_tag :defaults %>
+   <%= csrf_meta_tag %>
+  </head>
+ <body>
+	
+	<%= render :partial => 'layouts/header' %>
+   
+  <section id="main-content">
+	<nav id="navbar" role="navigation">
+		<%= render 'layouts/navbar' %>
+	   </nav>
+	
+    <section id="content" role="main"> 
+  
+      <%= render 'layouts/flash' %>
+
+ 	  <%= yield %>
+   </section>
+  </section> <!-- main-content -->
+ 
+ </body>
+</html>

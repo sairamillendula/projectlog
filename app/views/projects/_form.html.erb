@@ -1,0 +1,47 @@
+<%= form_for(@project) do |f| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, :size => '100' %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :status_id %><br />
+    <%= collection_select(:project, :project_status_id, ProjectStatus.all, :id, :name, options = {:prompt => "Select Status"} ) %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :customer_id %><br />
+    <%= collection_select(:project, :customer_id, @user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
+    
+  </div>
+  <div class="field">
+    <%= f.label :default_rate, 'Hourly Rate' %><br />
+    <%= f.text_field :default_rate, :size => '8' %>
+  </div>
+  <div class="field">
+    <%= f.label :manager %><br />
+    <%= f.text_field :manager %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
