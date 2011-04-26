@@ -5,7 +5,7 @@
     </div>
   <div id="user-info">
     <% if user_signed_in? %>
-      <strong>Welcome <%= current_user.first_name %>! </strong><br />
+      <span id="username">Welcome <%= current_user.first_name %>! </span><br />
       <li><%= link_to 'My profile', edit_user_registration_path %> | </li>
       <li><%= link_to 'Logout', destroy_user_session_path %></li>
     <% else %>

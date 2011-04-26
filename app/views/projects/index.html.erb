@@ -1,4 +1,4 @@
-<% if @user.projects.empty? %>
+<% if current_user.projects.empty? %>
   <div class="no-occurence">
      <p>No projects found. Add a new <%= link_to 'Project', new_project_path %></p>
   </div>
@@ -18,7 +18,7 @@
     <th></th>
   </tr>
 
-<% @projects.each do |project| %>
+<% current_user.projects.each do |project| %>
   <tr>
     <td><%= project.title %></td>
     <td><%= project.project_status.name %></td>

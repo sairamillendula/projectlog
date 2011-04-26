@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :customer_id %><br />
-    <%= collection_select(:project, :customer_id, @user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
+    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
     
   </div>
   <div class="field">
@@ -36,10 +36,6 @@
   <div class="field">
     <%= f.label :manager %><br />
     <%= f.text_field :manager %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
   </div>
   <div class="actions">
     <%= f.submit %>

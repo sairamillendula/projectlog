@@ -1,10 +1,9 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :load_user
   set_tab :projects
   
   def index
-    @projects = @user.projects.all
+    @projects = current_user.projects.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = @user.projects.find(params[:id])
+    @project = current_user.projects.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -28,11 +27,11 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def create
-    @project = @user.projects.new(params[:project])
+    @project = current_user.projects.new(params[:project])
 
     respond_to do |format|
       if @project.save
@@ -44,7 +43,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
@@ -56,7 +55,7 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
     @project.destroy
 
     respond_to do |format|
