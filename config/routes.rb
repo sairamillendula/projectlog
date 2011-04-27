@@ -1,24 +1,22 @@
 Projectlog::Application.routes.draw do
 
   resources :project_statuses
-
-  resources :customers, :contacts, :projects
+  resources :profiles, :customers, :contacts, :projects, :activities
+  
   devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }, :layout => 'authentication'
   # Devise change to allow users edit their accounts without providing a password
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   get "pages/home"
   root :to => 'pages#home'
-  
-  # resources :users do 
-  #     resources :customers do
-  #       resources :contacts
-  #     end
-  #   end
 
  resources :customers do 
     resources :contacts
  end
+ 
+ resources :projects do 
+     resources :activities
+  end
  
   # allow "/users/login" and "/login"
   devise_scope :user do
@@ -27,4 +25,6 @@ Projectlog::Application.routes.draw do
     get "logout", :to => "devise/sessions#destroy"
   end
  
+ match '/profile' => "profiles#edit", :as => "profile" 
+  
 end

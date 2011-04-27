@@ -1,5 +1,4 @@
 <% if @contact.valid? %>
-  $("<%= escape_javascript(content_tag :div, 'Contact was successfully created.', :class => 'notice') %>").prependTo("#content");
   $("<%= escape_javascript render(:partial => 'contacts/contact', :locals => { :contact => @contact }) %>").appendTo('#contacts');
   $("#new_contact").remove();
   $('#new_contact_link').show();

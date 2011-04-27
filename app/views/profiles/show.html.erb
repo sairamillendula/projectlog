@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Company:</b>
+  <%= @profile.company %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @profile.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @profile.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <b>Province:</b>
+  <%= @profile.province %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%= @profile.postal_code %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @profile.country %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @profile.phone_number %>
+</p>
+
+<p>
+  <b>Localization:</b>
+  <%= @profile.localization %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @profile.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :customer
   belongs_to :project_status
+  has_many :activities, :dependent => :destroy
   
   attr_accessible :title, :description, :project_status_id, :default_rate, :manager, :customer_id
   

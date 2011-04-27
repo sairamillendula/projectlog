@@ -1,0 +1,7 @@
+<% if @activity.valid? %>
+  $("<%= escape_javascript render(:partial => 'activities/activities', :locals => { :activity => @activity }) %>").appendTo('#time-entries');
+  $("#new_activity").remove();
+  $('#new_activity_link').show();
+<% else %>
+  alert("Please fill in all the fields.");
+<% end %>

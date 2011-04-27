@@ -1,0 +1,36 @@
+<% if @project.activities.empty? %>
+  <div class="no-occurence">
+     <p>No activities found. Add a new <%= link_to 'Activity', new_project_activity_path(@project, @activity) %></p>
+  </div>
+<% else %>
+
+<h2>Time Entries</h2>
+<div id="time-entries">
+	<table>
+	  <tr>
+	    <th>Date</th>
+	    <th>Time</th>
+	    <th>Description</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	<% @project.activities.each do |activity| %>
+	  <tr>
+	    <td><%= activity.date %></td>
+	    <td><%= activity.time %></td>
+	    <td><%= activity.description %></td>
+	    <td><%= link_to 'Show', project_activity_path(@project, activity) %></td>
+	    <td><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
+	    <td><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+
+<p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 
+	<%= link_to 'New activity AJAX', new_project_activity_path(@project, @activity, :format => :js), :remote => true %>
+</p>
+
+<% end %>
