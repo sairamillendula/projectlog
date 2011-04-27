@@ -1,6 +1,6 @@
 <% if @customer.contacts.empty? %>
   <div class="no-occurence">
-     <p>No contacts found. Add a new <%= link_to 'Contact', new_customer_contact_path(@customer, @contact) %></p>
+     <p>No contacts found. Add a new <%= link_to 'Contact', new_customer_contact_path(@customer) %></p>
   </div>
 <% else %>
 
@@ -12,6 +12,6 @@
 <% end %>
 </div>
 
-<p id="new_contact_link"><%= link_to 'Add Contact', new_customer_contact_path(@customer) %> | <%= link_to 'New contact AJAX', new_customer_contact_path(@customer, @contact, :format => :js), :remote => true %></p>
+<p id="new_contact_link"><%= link_to 'Add Contact', new_customer_contact_path(@customer) %> | <%= link_to 'New contact AJAX', new_customer_contact_path(@customer, :format => :js), :remote => true %></p>
 
 <% end %>

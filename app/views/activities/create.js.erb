@@ -1,5 +1,5 @@
 <% if @activity.valid? %>
-  $("<%= escape_javascript render(:partial => 'activities/activities', :locals => { :activity => @activity }) %>").appendTo('#time-entries');
+  $("#time-entries").replaceWith($("<%= escape_javascript render(:partial => 'activities/activities', :locals => { :activity => @activity }) %>"));
   $("#new_activity").remove();
   $('#new_activity_link').show();
 <% else %>
