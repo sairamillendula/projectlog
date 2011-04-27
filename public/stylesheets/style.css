@@ -44,9 +44,9 @@ margin-bottom: 10px;
 }
 
 .alert {
-background-color: #FFEBE8; #ffcdd3;
-border: 1px solid #b10000; #8a0000;
-color: #b10000;
+background-color: #FFE3E2; #FFEBE8; #ffcdd3;
+border: 1px solid #EFB1AF; #b10000; #8a0000;
+color: #C00; #b10000;
 padding: 4px;
 margin-bottom: 20px;
 }
