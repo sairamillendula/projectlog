@@ -4,36 +4,35 @@
   </div>
 <% else %>
 
-<h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Status</th>
-    <th>Manager</th>
-    <th>User</th>
-    <th>Customer</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% current_user.projects.each do |project| %>
-  <tr>
-    <td><%= project.title %></td>
-    <td><%= project.project_status.name %></td>
-    <td><%= project.manager %></td>
-    <td><%= project.user_id %></td>
-    <td><%= project.customer.name %></td>
-    <td><%= link_to 'Show', project %></td>
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+   <% if current_user.projects.open.empty? %>
+     <div class="no-occurence">
+        <p>No Open Projects</p>
+     </div>
+   <% else %>
+     <h1>Open projects</h1>
+     <div id="open-projects">
+       <% current_user.projects.open.each do |project| %>
+          <div class='open-project'>
+	        <h3><%= link_to project.title, project %></h3>
+	        <p><%= project.customer.name %></p>
+          </div>
+     </div>
+   <% end %>
 <% end %>
-</table>
-
-<br />
 
 <%= link_to 'New Project', new_project_path %>
 
+<% if !current_user.projects.closed.empty? %>
+
+   <p id="closed_projects_toggle"><a href="#">Show/Hide Closed Projects</a></p>
+
+   <%= render :partial => 'projects/closed' %>
+
 <% end %>
+<% end %>
+
+<script>
+$("#closed_projects_toggle").click(function () {
+  $("#closed-projects").slideToggle("slow");
+});
+</script>
