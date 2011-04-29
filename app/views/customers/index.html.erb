@@ -12,8 +12,9 @@
     <th>Phone</th>
     <th>Address</th>
     <th></th>
-    <th>Postal code</th>
+    <th>City</th>
     <th>Province</th>
+    <th>Postal code</th>
     <th></th>
     <th></th>
     <th></th>
@@ -25,8 +26,9 @@
     <td><%= customer.phone %></td>
     <td><%= customer.address1 %></td>
     <td><%= customer.address2 %></td>
-    <td><%= customer.postal_code %></td>
+    <td><%= customer.city %></td>
     <td><%= customer.province %></td>
+    <td><%= customer.postal_code %></td>
     <td><%= link_to 'Show', customer %></td>
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
