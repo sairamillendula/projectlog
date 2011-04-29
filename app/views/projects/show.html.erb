@@ -7,29 +7,26 @@
 	   <b>Description:</b>
 	   <%= @project.description %>
 	</p>
-	<p>
-	   <b>Status:</b>
-	   <%= @project.project_status.name %>
-	</p>
+	
     <%= link_to 'Edit', edit_project_path(@project) %> |
 	<%= link_to 'Back', projects_path %>
 </div>
 <div id="column_right">
 	<p>
-	   <b>Default rate:</b>
-       <%= @project.default_rate %>
-	</p>
-	<p>
-	   <b>Manager:</b>
-	   <%= @project.manager %>
+	   <b>Status:</b>
+	   <%= @project.project_status.name %>
 	</p>
 	<p>
 	   <b>Customer:</b>
 	   <%= @project.customer.name %>
 	</p>
 	<p>
-	   <b>User:</b>
-	   <%= @project.user_id %>
+	   <b>Default rate:</b>
+       <%= @project.default_rate %>
+	</p>
+	<p>
+	   <b>Billing Method:</b>
+	   <%= @project.billing_code.name %>
 	</p>
 </div>
 <div id="activities">

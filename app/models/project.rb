@@ -4,9 +4,10 @@ class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :customer
   belongs_to :project_status
+  belongs_to :billing_code
   has_many :activities, :dependent => :destroy
   
-  attr_accessible :title, :description, :project_status_id, :default_rate, :manager, :customer_id
+  attr_accessible :title, :description, :project_status_id, :default_rate, :manager, :customer_id, :billing_code_id
   
   default_scope :order => 'project_status_id DESC'
   scope :open, where("projects.project_status_id = '1' ")

@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   set_tab :projects
   
   def index
-    @projects = current_user.projects.all
+    @projects = current_user.projects.all.paginate(:page => 6, :page => params[:page] ) 
 
     respond_to do |format|
       format.html # index.html.erb

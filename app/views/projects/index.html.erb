@@ -16,11 +16,12 @@
 	        <h3><%= link_to project.title, project %></h3>
 	        <p><%= project.customer.name %></p>
           </div>
+        <%= will_paginate @projects %>
      </div>
    <% end %>
 <% end %>
 
-<%= link_to 'New Project', new_project_path %>
+<p style="clear:both"><%= link_to 'New Project', new_project_path %></p>
 
 <% if !current_user.projects.closed.empty? %>
 

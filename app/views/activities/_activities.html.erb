@@ -3,7 +3,7 @@
      <p>No activities found. Add a new <%= link_to 'Activity', new_project_activity_path(@project) %></p>
   </div>
 <% else %>
-
+<br/>
 <div id="time-entries">
   <h2>Time Entries</h2>  
 	<table>
@@ -26,6 +26,16 @@
 	    <td><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
 	<% end %>
+	
+	<tr class="total">
+	    <th style="text-align:right" class="total">Total</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	</tr>
+	
 	</table>
 </div>
 

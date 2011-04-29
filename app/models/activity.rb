@@ -3,4 +3,7 @@ class Activity < ActiveRecord::Base
   default_scope order('date DESC')
   
   attr_accessible :date, :time, :description
+  
+  validates_numericality_of(:time)
+  
 end

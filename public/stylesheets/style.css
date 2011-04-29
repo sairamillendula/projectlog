@@ -345,6 +345,7 @@ margin-right: auto;
 
 .open-project {
 border: 1px solid #d8d8d8;
+border-radius: 5px;
 width: 266px;
 margin-right: 15px;
 margin-bottom: 20px;
@@ -619,6 +620,13 @@ background-image: url('../images/arrow-up.png');
 
 table th .desc {
 background-image: url('../images/arrow-down.png');
+}
+
+tr.total th {
+border-top: 1px solid #D8D8D8;
+font-weight: bold;
+color: #484848;
+border-bottom: none;
 }
 
 /* Single page layout */

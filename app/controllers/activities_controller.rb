@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
   
   def index
     @project = current_user.projects.find(params[:project_id])
-    @activities = @project.activities.all
+    @activities = @project.activities.all.paginate(:per_page => 2, :page => params[:page] )
 
     respond_to do |format|
       format.html # index.html.erb
@@ -78,5 +78,10 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to(@project) }
       format.xml  { head :ok }
     end
+  end
+
+  def calculate_hours
+    @project = current_user.projects.find(params[:project_id])
+    @activities = @project.activities.all(:sum)
   end
 end

@@ -34,8 +34,8 @@
     <%= f.text_field :default_rate, :size => '8' %>
   </div>
   <div class="field">
-    <%= f.label :manager %><br />
-    <%= f.text_field :manager %>
+    <%= f.label :billing_code_id %><br />
+    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing Method"} ) %>
   </div>
   <div class="actions">
     <%= f.submit %>
