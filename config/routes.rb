@@ -25,6 +25,6 @@ Projectlog::Application.routes.draw do
     get "logout", :to => "devise/sessions#destroy"
   end
  
- match '/profile' => "profiles#edit", :as => "profile" 
+ match '/settings' => "profiles#edit", :as => "settings" 
   
 end

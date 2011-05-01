@@ -28,11 +28,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = current_user.profiles.find(params[:id])
+    @profile = Profile.find(params[:id])
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to(@profile, :notice => 'Profile was successfully updated.') }
+        format.html { redirect_to(settings_path, :notice => 'Profile was successfully updated.') }
       else
         format.html { render :action => "edit" }
       end
