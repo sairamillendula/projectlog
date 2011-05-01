@@ -79,9 +79,4 @@ class ActivitiesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  # def total
-  #     @project = current_user.projects.find(params[:project_id])
-  #     @activities = @project.activities.all.sum(&:time)
-  #   end
 end

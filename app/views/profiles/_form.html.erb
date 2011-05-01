@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div id="column_left">
   <div class="field">
     <%= f.label :company %><br />
     <%= f.text_field :company %>
@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code %>
+    <%= f.text_field :postal_code, :size => 5 %>
   </div>
   <div class="field">
     <%= f.label :country %><br />
@@ -43,10 +43,19 @@
     <%= f.label :phone_number %><br />
     <%= f.phone_field :phone_number %>
   </div>
+</div>
+<div id="column_right">  
   <div class="field">
     <%= f.label :localization %><br />
-    <%= f.text_field :localization %>
+    <p class="info">Select currency, date and number format</p>
+    <%= collection_select(:profile, :localization, Localization.all, :reference, :name) %>
   </div>
+  <div class="field">
+    <%= f.label :hours_per_day %><br />
+    <p class="info">How many hours equals a full billable day</p>
+    <%= f.text_field :hours_per_day, :size => 5 %>
+  </div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

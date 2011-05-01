@@ -51,6 +51,17 @@ padding: 4px;
 margin-bottom: 20px;
 }
 
+.info {
+border: 1px solid #BEDCE7;
+padding: 3px;
+background: #EAF2F5 url('/images/info_background.gif') repeat;
+}
+
+p.info {
+padding-left: 4px;
+font-size: 11px;
+}
+
 .field_with_errors {
 padding: 2px;
 background-color: #ff6666;

@@ -10,6 +10,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :country
       t.string :phone_number
       t.string :localization
+      t.float :hours_per_day
       t.integer :user_id
 
       t.timestamps
