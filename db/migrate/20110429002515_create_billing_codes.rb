@@ -11,6 +11,7 @@ class CreateBillingCodes < ActiveRecord::Migration
     BillingCode.create(:label => 'Hourly')
     BillingCode.create(:label => 'Per Diem')
     BillingCode.create(:label => 'Fixed')
+    BillingCode.create(:label => 'Internal')
   end
 
   def self.down

@@ -259,7 +259,6 @@ margin-right: auto;
 float: left;
 width: 49%;
 padding-right: 6px;
-border-right: 1px solid #e2e2e2;
 }
 
 #column_right {
@@ -335,6 +334,16 @@ font-size: 20px;
 word-wrap: break-word;
 }
 
+/* Contact */
+.contact-info {
+border: 1px solid #d8d8d8;
+border-radius: 5px;
+margin-bottom: 20px;
+padding: 14px;
+-moz-box-shadow: 0px 0px 6px #e2e2e2;
+-webkit-box-shadow: 0px 0px 6px #e2e2e2;
+box-shadow: 0px 0px 6px #e2e2e2;
+}
 
 /* Project */
 #open-projects {
@@ -355,6 +364,14 @@ float: left;
 -webkit-box-shadow: 0px 0px 6px #e2e2e2;
 box-shadow: 0px 0px 6px #e2e2e2;
 }
+
+.open-project:hover {
+-moz-box-shadow: 0px 0px 6px #999;
+-webkit-box-shadow: 0px 0px 6px #999;
+box-shadow: 0px 0px 6px #999;
+cursor: pointer;
+}
+
 
 #closed-projects {
 clear: both;

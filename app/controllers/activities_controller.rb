@@ -80,8 +80,8 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  def calculate_hours
-    @project = current_user.projects.find(params[:project_id])
-    @activities = @project.activities.all(:sum)
-  end
+  # def total
+  #     @project = current_user.projects.find(params[:project_id])
+  #     @activities = @project.activities.all.sum(&:time)
+  #   end
 end

@@ -4,7 +4,7 @@
   </div>
 <% else %>
 
-<h2>Contacts</h2>
+<h1>Connections</h1>
 
 <div id="contacts">
 <% for contact in @customer.contacts %>
@@ -12,6 +12,6 @@
 <% end %>
 </div>
 
-<p id="new_contact_link"><%= link_to 'Add Contact', new_customer_contact_path(@customer) %> | <%= link_to 'New contact AJAX', new_customer_contact_path(@customer, :format => :js), :remote => true %></p>
+<p id="new_contact_link" style="clear:both"><%= link_to 'Add Contact', new_customer_contact_path(@customer) %> | <%= link_to 'New contact AJAX', new_customer_contact_path(@customer, :format => :js), :remote => true %></p>
 
 <% end %>

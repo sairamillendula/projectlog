@@ -37,3 +37,12 @@ $("#closed_projects_toggle").click(function () {
   $("#closed-projects").slideToggle("slow");
 });
 </script>
+<script>
+$(document).ready(function(){
+
+	$(".open-project").click(function(){
+	  window.location=$(this).find("a").attr("href"); return false;
+	});
+	
+});
+</script>

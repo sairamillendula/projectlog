@@ -1,8 +1,8 @@
 <div id="column_left">
 	<p>
-	   <b>Title:</b>
+	<h1>
 	   <%= @project.title %>
-	</p>
+	</h1></p>
 	<p>
 	   <b>Description:</b>
 	   <%= @project.description %>
@@ -26,7 +26,9 @@
 	</p>
 	<p>
 	   <b>Billing Method:</b>
-	   <%= @project.billing_code.name %>
+	   <% if @project.billing_code_id.present? %>
+	      <%= @project.billing_code.name %>
+	   <% end %>
 	</p>
 </div>
 <div id="activities">

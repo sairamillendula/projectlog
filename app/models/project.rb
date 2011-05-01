@@ -14,5 +14,10 @@ class Project < ActiveRecord::Base
   scope :closed, where("projects.project_status_id = '2' ")
   
   STATUS = [ 'Open', 'Closed' ]
+  
+  # Total hours. Add <%= @project.total_hours %> in Project view
+  def total_hours
+    activities.sum(:time)
+  end
 
 end

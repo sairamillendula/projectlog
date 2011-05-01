@@ -1,13 +1,12 @@
 <div class="contact-info">
-<% if contact.title.present? %>
-  <p><strong><%= contact.full_name %></strong> - <%= contact.title %></p>
-<% else %>
-  <p><strong><%= contact.full_name %></strong>
-<% end %>
-<p><%= contact.phone %></p>
-<p><a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
-<%= link_to 'Show', customer_contact_path(@customer, contact) %> | 
-<%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> |
-<%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
-<br/><br/>
+  <% if contact.title.present? %>
+    <h2><%= contact.full_name %><span style="font-weight:normal">- <%= contact.title %></span></h2>
+  <% else %>
+    <h2><%= contact.full_name %></h2>
+  <% end %>
+    <p><a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
+    <p><%= contact.phone %></p>
+  <%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> |
+  <%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
+  
 </div>

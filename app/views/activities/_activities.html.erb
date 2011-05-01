@@ -13,7 +13,6 @@
 	    <th>Description</th>
 	    <th></th>
 	    <th></th>
-	    <th></th>
 	  </tr>
 
 	<% @project.activities.each do |activity| %>
@@ -21,7 +20,6 @@
 	    <td><%= activity.date %></td>
 	    <td><%= activity.time %></td>
 	    <td><%= activity.description %></td>
-	    <td><%= link_to 'Show', project_activity_path(@project, activity) %></td>
 	    <td><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
 	    <td><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
@@ -29,8 +27,7 @@
 	
 	<tr class="total">
 	    <th style="text-align:right" class="total">Total</th>
-	    <th></th>
-	    <th></th>
+	    <th><%= @project.activities.sum(:time) %></th>
 	    <th></th>
 	    <th></th>
 	    <th></th>
