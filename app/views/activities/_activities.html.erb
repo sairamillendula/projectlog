@@ -4,9 +4,21 @@
   </div>
 <% else %>
 <br/>
+
+<div id="activity_search">
+  <%= render :partial => 'activities/search' %>
+</div>
+
 <div id="time-entries">
   <h2>Time Entries</h2>  
 	<table>
+	  <tr>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th></th>
+		<th><a href="#" id="activity_search_toggle">Search</a></th>
+	  </tr>
 	  <tr>
 	    <th>Date</th>
 	    <th>Time</th>
@@ -17,11 +29,11 @@
 
 	<% @project.activities.each do |activity| %>
 	  <tr>
-	    <td><%= l activity.date %></td>
-	    <td><%= activity.time %></td>
-	    <td><%= activity.description %></td>
-	    <td><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
-	    <td><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+	    <td class="date"><%= l activity.date %></td>
+	    <td class="time"><%= activity.time %></td>
+	    <td class="description"><%= activity.description %></td>
+	    <td class="actions"><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
+	    <td class="actions"><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
 	<% end %>
 	
@@ -33,7 +45,7 @@
 	    <th></th>
 	  </tr>
 	</table>
-	<%= will_paginate @project.activities %>
+		
 </div>
 
 <p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 
@@ -41,3 +53,8 @@
 </p>
 
 <% end %>
+<script>
+    $("#activity_search_toggle").click(function () {
+      $("#activity_search").slideToggle("slow");
+    });
+</script>

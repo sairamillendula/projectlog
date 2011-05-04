@@ -1,0 +1,7 @@
+<%= form_tag project_activity_path(@project), :method => "get" do %>
+  
+  
+  <%= text_field_tag :search, params[:search] %>
+  <p><%= submit_tag 'Create report', :name => nil %></p>
+
+<% end %>

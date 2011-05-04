@@ -1,40 +1,41 @@
-<div id="column_left">
-<h1><%= @customer.name %></h1>
+<div id="customer-info">
+ <h1><%= @customer.name %></h1>
 
-<p>
-  <b>Phone:</b>
-  <%= @customer.phone %>
-</p>
+ <div id="column_left">
+	  <% if @customer.note.present? %>
+		 <p><%= @customer.note %></p>
+		 <p id="note_toggle"><a href="#">Show/Hide Note</a></p>
+	  <% else %>
+	     <div><%= link_to "Add a Note", edit_customer_path(@customer) %></div>
+	  <% end %>
 
-<p>
-  <b>Address:</b>
-    <% if !@customer.address2.present? %>
-      <%= @customer.address1 %><br/>
-    <% else %> 
-	  <%= @customer.address1 %><br />
-	  <%= @customer.address2 %><br />
-    <% end %>
-  <%= @customer.city %> <%= @customer.province %> <%= @customer.postal_code %><br/>
-  <%= @customer.country %>
-</p>
+	<br/>
+	 <%= link_to 'Edit', edit_customer_path %> |
+	 <%= link_to 'All Customers', customers_path %>
+ </div>
 
-<div id="customer_note">
-  <% if @customer.note.present? %>
-	 <%= @customer.note %>
+ <div id="column_right">
+  	<p>
+	  <b>Phone:</b>
+	  <%= @customer.phone %>
+	</p>
+
+	<p>
+	  <b>Address:</b>
+	    <% if !@customer.address2.present? %>
+	      <%= @customer.address1 %><br/>
+	    <% else %> 
+		  <%= @customer.address1 %><br />
+		  <%= @customer.address2 %><br />
+	    <% end %>
+	  <%= @customer.city %> <%= @customer.province %> <%= @customer.postal_code %><br/>
+	  <%= @customer.country %>
+	</p>
+ </div>
 </div>
-	 <p id="note_toggle"><a href="#">Show/Hide Note</a></p>
-  <% else %>
-     <p><%= link_to "Add a Note", edit_customer_path(@customer) %></p>
-  <% end %>
 
-<br/>
- <%= link_to 'Edit', edit_customer_path %> |
- <%= link_to 'All Customers', customers_path %>
-</div>
-</div>
-
-<div id="column_right">
-  <%= render :partial => 'contacts/contacts' %>
+<div id="contacts">
+	<%= render :partial => 'contacts/contacts' %>
 </div>
 
 <script>

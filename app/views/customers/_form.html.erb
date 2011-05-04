@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div id="column_left">
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, :size => 60 %>
@@ -43,10 +43,13 @@
     <%= f.label :country %><br />
     <%= collection_select(:customer, :country, Country.all, :printable_name, :printable_name, options = {:prompt => ""}) %>
   </div>
+</div>
+<div id="column_right">
   <div class="field">
     <%= f.label :note %><br />
     <%= f.text_area :note %>
   </div>
+</div>
   <div class="actions">
     <%= f.submit %>
   </div>

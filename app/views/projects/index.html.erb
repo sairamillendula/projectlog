@@ -1,6 +1,6 @@
 <% if current_user.projects.empty? %>
   <div class="no-occurence">
-     <p>No projects found. Add a new <%= link_to 'Project', new_project_path %></p>
+     <p>Add a new <%= link_to 'Project', new_project_path %></p>
   </div>
 <% else %>
 
@@ -12,7 +12,7 @@
      <h1>Open projects</h1>
      <div id="open-projects">
        <% current_user.projects.open.each do |project| %>
-          <div class='open-project'>
+          <div class='occurence'>
 	        <h3><%= link_to project.title, project %></h3>
 	        <p><%= project.customer.name %></p>
           </div>
@@ -20,14 +20,11 @@
    <% end %>
 <% end %>
 
-<p style="clear:both"><%= link_to 'New Project', new_project_path %></p>
+<p class="clear"><%= link_to 'New Project', new_project_path %></p>
 
 <% if !current_user.projects.closed.empty? %>
-
    <p id="closed_projects_toggle"><a href="#">Show/Hide Closed Projects</a></p>
-
    <%= render :partial => 'projects/closed' %>
-
 <% end %>
 <% end %>
 
@@ -36,12 +33,10 @@ $("#closed_projects_toggle").click(function () {
   $("#closed-projects").slideToggle("slow");
 });
 </script>
-<script>
+<script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-
-	$(".open-project").click(function(){
+	$(".occurence").click(function(){
 	  window.location=$(this).find("a").attr("href"); return false;
 	});
-	
 });
 </script>
