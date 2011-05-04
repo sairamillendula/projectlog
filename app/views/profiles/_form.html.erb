@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :postal_code %><br />
-    <%= f.text_field :postal_code, :size => 5 %>
+    <%= f.text_field :postal_code, :size => 6 %>
   </div>
   <div class="field">
     <%= f.label :country %><br />
@@ -44,7 +44,8 @@
     <%= f.phone_field :phone_number %>
   </div>
 </div>
-<div id="column_right">  
+<div id="column_right">
+	<h2>You joined us <%= l @profile.created_at.to_date %></h2><br/>
   <div class="field">
     <%= f.label :localization %><br />
     <p class="info">Select currency, date and number format</p>

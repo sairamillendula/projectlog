@@ -94,8 +94,7 @@ list-style: square;
 
 /* Site structure */
 header {
-background: url('/images/header.jpg');
-background-color: #00b5d5;
+background: url('/images/header.jpg') #000;
 padding: 10px;
 height: 125px;
 display: block;

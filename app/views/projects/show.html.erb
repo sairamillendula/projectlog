@@ -22,7 +22,7 @@
 	</p>
 	<p>
 	   <b>Default rate:</b>
-       <%= @project.default_rate %>
+       <%= number_to_currency(@project.default_rate) unless @current_user.profile.localization.present? %>
 	</p>
 	<p>
 	   <b>Billing Method:</b>

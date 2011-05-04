@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
   
   def index
     @project = current_user.projects.find(params[:project_id])
-    @activities = @project.activities.all.paginate(:per_page => 2, :page => params[:page] )
+    @activities = @project.activities.all
 
     respond_to do |format|
       format.html # index.html.erb

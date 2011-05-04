@@ -17,7 +17,7 @@
 
 	<% @project.activities.each do |activity| %>
 	  <tr>
-	    <td><%= activity.date %></td>
+	    <td><%= l activity.date %></td>
 	    <td><%= activity.time %></td>
 	    <td><%= activity.description %></td>
 	    <td><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
@@ -25,15 +25,15 @@
 	  </tr>
 	<% end %>
 	
-	<tr class="total">
-	    <th style="text-align:right" class="total">Total</th>
+	  <tr class="total">
+	    <th style="text-align:right" class="total">TOTAL</th>
 	    <th><%= @project.activities.sum(:time) %></th>
 	    <th></th>
 	    <th></th>
 	    <th></th>
-	</tr>
-	
+	  </tr>
 	</table>
+	<%= will_paginate @project.activities %>
 </div>
 
 <p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 

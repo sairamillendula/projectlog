@@ -10,7 +10,7 @@
     <th></th>
   </tr>
 
-<% @activities.each do |activity| %>
+<% @project.activities.each do |activity| %>
   <tr>
     <td><%= activity.date %></td>
     <td><%= activity.time %></td>
@@ -19,10 +19,18 @@
     <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
     <td><%= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+
 <% end %>
-
+  <tr class="total">
+	 <th style="text-align:right" class="total">TOTAL</th>
+	 <th><%= @project.activities.sum(:time) %></th>
+	 <th></th>
+	 <th></th>
+	 <th></th>
+	 <th></th>
+  </tr>
 </table>
-
+<%= will_paginate @activities %>
 <br />
 
 <%= link_to 'New Activity', new_activity_path %>
