@@ -7,9 +7,9 @@
 	   <b>Description:</b>
 	   <%= @project.description %>
 	</p>
-	
+	<%= link_to 'All Projects', projects_path %> |
     <%= link_to 'Edit', edit_project_path(@project) %> |
-	<%= link_to 'Back', projects_path %>
+	<%= link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete %>
 </div>
 <div id="column_right">
 	<p>

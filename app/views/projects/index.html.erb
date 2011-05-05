@@ -13,7 +13,7 @@
      <div id="open-projects">
        <% current_user.projects.open.each do |project| %>
           <div class='occurence'>
-	        <h3><%= link_to project.title, project %></h3>
+	        <h1><%= link_to project.title, project %></h1>
 	        <p><%= project.customer.name %></p>
           </div>
      </div>
@@ -23,7 +23,8 @@
 <p class="clear"><%= link_to 'New Project', new_project_path %></p>
 
 <% if !current_user.projects.closed.empty? %>
-   <p id="closed_projects_toggle"><a href="#">Show/Hide Closed Projects</a></p>
+   <p id="closed_projects_toggle">
+	 <a href="#">Show/Hide Closed Projects</a></p>
    <%= render :partial => 'projects/closed' %>
 <% end %>
 <% end %>

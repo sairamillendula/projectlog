@@ -14,9 +14,9 @@
 	  <b>Phone:</b>
 	  <%= customer.phone %>
 	</p>
-    <p><%= link_to 'Show', customer %> | 
-       <%= link_to 'Edit', edit_customer_path(customer) %> | 
-       <%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></p>
+	<% if customer.projects.any? %>
+	   <p><%= pluralize(customer.projects.count, "project") %></p>
+	<% end %>
   </div>
 <% end %>
 

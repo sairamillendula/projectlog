@@ -1,0 +1,22 @@
+<% if current_user.activities.empty? %>
+  <div class="no-occurence">
+     <p>Add a new <%= link_to 'Activity' %></p>
+  </div>
+<% else %>
+<br/>
+
+<div id="activity_search">
+  <%= render :partial => 'reports/search' %>
+</div>
+
+<div id="time-entries">
+  <h2>Time Entries</h2>
+	
+	<p>Andrés please:</p>
+	<li>render current_user.activities</li>
+	<li>sort and paginate</li>
+	<li>I will try to add export to cvs and export to pdf ooptions</li>
+		
+</div>
+
+<% end %>

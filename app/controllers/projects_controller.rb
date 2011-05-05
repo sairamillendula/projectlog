@@ -63,5 +63,4 @@ class ProjectsController < ApplicationController
       format.html { redirect_to(projects_url) }
     end
   end
-  
 end

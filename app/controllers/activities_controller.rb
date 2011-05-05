@@ -79,12 +79,4 @@ class ActivitiesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-# def self.search(search)
-#   if search
-#     find(:all, :conditions => ['description LIKE ?', "%#{search}%"])
-#   else
-#     find(:all)
-#   end
-# end
 end

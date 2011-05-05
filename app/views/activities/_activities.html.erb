@@ -1,24 +1,14 @@
 <% if @project.activities.empty? %>
   <div class="no-occurence">
-     <p>No activities found. Add a new <%= link_to 'Activity', new_project_activity_path(@project) %></p>
+     <p>Add a new <%= link_to 'Activity', new_project_activity_path(@project) %></p>
   </div>
 <% else %>
 <br/>
 
-<div id="activity_search">
-  <%= render :partial => 'activities/search' %>
-</div>
-
 <div id="time-entries">
-  <h2>Time Entries</h2>  
+  <h2>Time Entries</h2>
+    <p><%= link_to 'Create Report', reports_path %></p> 
 	<table>
-	  <tr>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th></th>
-		<th><a href="#" id="activity_search_toggle">Search</a></th>
-	  </tr>
 	  <tr>
 	    <th>Date</th>
 	    <th>Time</th>
@@ -53,8 +43,3 @@
 </p>
 
 <% end %>
-<script>
-    $("#activity_search_toggle").click(function () {
-      $("#activity_search").slideToggle("slow");
-    });
-</script>

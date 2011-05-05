@@ -63,5 +63,4 @@ class CustomersController < ApplicationController
       format.html { redirect_to(customers_url) }
     end
   end
- 
 end
