@@ -13,7 +13,7 @@
 			<th></th>
 		</tr>
 
-		<% current_user.projects.closed.each do |project| %>
+		<% @closed_projects.each do |project| %>
 		<tr>
 			<td><%= project.title %></td>
 			<td><%= project.project_status.name %></td>
@@ -26,5 +26,5 @@
 		</tr>
 		<% end %>
 	</table>
-<%= will_paginate @closed_projects %>
+<%= paginate @closed_projects, :params => { :action => "closed" } %>
 </div>

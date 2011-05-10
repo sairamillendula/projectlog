@@ -3,9 +3,17 @@ class ProjectsController < ApplicationController
   set_tab :projects
   
   def index
-    @open_projects = current_user.projects.page(params[:page]).per(6)
-    @closed_projects = current_user.projects.closed.all.paginate(:page => 2, :page => params[:page] )
+    @open_projects = current_user.projects.open.page(params[:page]).per(6)
+    @closed_projects = current_user.projects.closed.page(1).per(10)
 
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+  
+  # Show only closed projects
+  def closed
+    @closed_projects = current_user.projects.closed.page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
     end
