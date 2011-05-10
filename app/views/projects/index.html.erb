@@ -33,8 +33,9 @@
 <% end %>
 
 <script>
-$("#closed_projects_toggle").click(function () {
+$("#closed_projects_toggle").click(function (e) {
   $("#closed-projects").slideToggle("slow");
+  e.preventDefault();
 });
 </script>
 <script type="text/javascript" charset="utf-8">
