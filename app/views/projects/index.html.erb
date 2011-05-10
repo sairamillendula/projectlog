@@ -4,25 +4,28 @@
   </div>
 <% else %>
 
-   <% if current_user.projects.open.empty? %>
+   <% if @open_projects.empty? %>
      <div class="no-occurence">
         <p>No Open Projects</p>
      </div>
    <% else %>
      <h1>Open projects</h1>
      <div id="open-projects">
-       <% current_user.projects.open.each do |project| %>
+       <% @open_projects.each do |project| %>
           <div class='occurence'>
 	        <h1><%= link_to project.title, project %></h1>
 	        <p><%= project.customer.name %></p>
           </div>
      </div>
    <% end %>
+   <div class="clear">
+     <%= paginate @open_projects %>   
+   </div>
 <% end %>
 
 <p class="clear"><%= link_to 'New Project', new_project_path %></p>
 
-<% if !current_user.projects.closed.empty? %>
+<% if !@closed_projects.empty? %>
    <p id="closed_projects_toggle">
 	 <a href="#">Show/Hide Closed Projects</a></p>
    <%= render :partial => 'projects/closed' %>

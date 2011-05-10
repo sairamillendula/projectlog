@@ -11,6 +11,7 @@ gem 'heroku'
 gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'will_paginate', '3.0.pre2'
+gem "kaminari"
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -3,8 +3,8 @@ class ProjectsController < ApplicationController
   set_tab :projects
   
   def index
-    @projects = current_user.projects.all
-    @projects_closed = current_user.projects.closed.all.paginate(:page => 2, :page => params[:page] )
+    @open_projects = current_user.projects.page(params[:page]).per(6)
+    @closed_projects = current_user.projects.closed.all.paginate(:page => 2, :page => params[:page] )
 
     respond_to do |format|
       format.html # index.html.erb

@@ -228,8 +228,8 @@ border-radius: 3px;
 font-weight: bold;
 padding: 6px;
 border: 1px solid #b5b5b5;
-border-right: #e2e2e2;
-border-bottom: #e2e2e2;
+border-right: 1px solid #e2e2e2;
+border-bottom: 1px solid #e2e2e2;
 }
 
 #main-content {
