@@ -4,9 +4,11 @@ $(function() {
     return false;
   });
   
-  $("#activities_search input").live("keyup", function() {
-    console.log($("#activities_search"));
+  var execute_remote_search = function() {
     $.get($("#activities_search").attr("action"), $("#activities_search").serialize(), null, "script");
     return false;
-  });  
+  };
+  
+  $("#activities_search").live("submit", execute_remote_search);
+  $("#activities_search input").live("keyup", execute_remote_search);  
 });

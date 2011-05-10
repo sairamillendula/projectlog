@@ -1,59 +1,65 @@
-<% if @activities.empty? %>
+<div id="time-entries">  
+  <h2>Time Entries</h2>  
+  <p><%= link_to 'Create Report', reports_path %></p> 
+
+  <%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
+  <p>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
+
+
+  <% if @activities.empty? %>
   <div class="no-occurence">
-     <p>Add a new <%= link_to 'Activity', new_project_activity_path(@project) %></p>
+    <p>
+    <% if params[:search] %>
+      No activity matches '<%= params[:search] %>'.
+    <% else %>
+      There are no activities yet.
+    <% end %>    
+    Add a new <%= link_to 'activity', new_project_activity_path(@project) %>.
+    </p>
   </div>
-<% else %>
-<br/>
+  <% else %>
+  <br/>   
+  <table>
+    <tr>
+      <th><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+      <th><%= sortable "time", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+      <th><%= sortable "description", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<div id="time-entries">
-  <h2>Time Entries</h2>
-    <p><%= link_to 'Create Report', reports_path %></p> 
-    
-    
-    <%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
-      <p>
-        <%= hidden_field_tag :direction, params[:direction] %>
-        <%= hidden_field_tag :sort, params[:sort] %>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search", :name => nil %>
-      </p>
+    <% @activities.each do |activity| %>
+    <tr>
+      <td class="date"><%= l activity.date %></td>
+      <td class="time"><%= activity.time %></td>
+      <td class="description"><%= activity.description %></td>
+      <td class="actions"><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
+      <td class="actions"><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
     <% end %>
-    
-	<table>
-	  <tr>
-	    <th><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
-	    <th><%= sortable "time", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
-	    <th><%= sortable "description", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
 
-	<% @activities.each do |activity| %>
-	  <tr>
-	    <td class="date"><%= l activity.date %></td>
-	    <td class="time"><%= activity.time %></td>
-	    <td class="description"><%= activity.description %></td>
-	    <td class="actions"><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
-	    <td class="actions"><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
-	<% end %>
-		
-	  <tr class="total">
-	    <th style="text-align:right" class="total">TOTAL</th>
-	    <th><%= @project.activities.sum(:time) %></th>
-	    <th></th>
-	    <th></th>
-	    <th></th>
-	  </tr>
-	</table>
-	
-	<div>
-	  <%= paginate @activities, :params => { :controller => "activities", :action => "index", :project_id => @project.id } %>
+    <tr class="total">
+      <th style="text-align:right" class="total">TOTAL</th>
+      <th><%= @project.activities.sum(:time) %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </table>
+
+  <div>
+    <%= paginate @activities, :params => { :controller => "activities", :action => "index", :project_id => @project.id } %>
   </div>
+
+  <p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 
+    <%= link_to 'New activity AJAX', new_project_activity_path(@project, :format => :js), :remote => true %>
+  </p>
+
+  <% end %>
 </div>
-
-<p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 
-	<%= link_to 'New activity AJAX', new_project_activity_path(@project, :format => :js), :remote => true %>
-</p>
-
-<% end %>

@@ -1,5 +1,5 @@
 <% if @activity.valid? %>
-  $("#time-entries").replaceWith($("<%= escape_javascript render(:partial => 'activities/activities') %>"));
+  $("#activities").html($("<%= escape_javascript render(:partial => 'activities/activities') %>"));
   $("#new_activity").remove();
   $('#new_activity_link').show();
   alert("Activity was succesfully created");
