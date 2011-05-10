@@ -1,45 +1,5 @@
 <h1><%= params[:search] ? "Listing activities that match '#{params[:search]}'" : "Listing activities" %></h1>
 
-<%= form_tag project_activities_path(@project), :method => 'get', :id => "products_search" do %>
-  <p>
-    <%= hidden_field_tag :direction, params[:direction] %>
-    <%= hidden_field_tag :sort, params[:sort] %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+<%= render "activities" %>
 
-<table>
-  <tr>
-    <th><%= sortable "date" %></th>
-    <th><%= sortable "time" %></th>
-    <th><%= sortable "description" %></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @activities.each do |activity| %>
-  <tr>
-    <td class="date"><%= activity.date %></td>
-    <td class="time"><%= activity.time %></td>
-    <td class="description"><%= activity.description %></td>
-    <td class="actons"><%= link_to 'Edit', edit_activity_path(activity) %></td>
-    <td class="actions"><%= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-
-<% end %>
-  <tr class="total">
-	 <th style="text-align:right" class="total">TOTAL</th>
-	 <th><%= @activities.sum(:time) %></th>
-	 <th></th>
-	 <th></th>
-	 <th></th>
-  </tr>
-</table>
-
-<%= paginate @activities %>
-
-<br />
-
-<%= link_to 'New Activity', new_project_activity_path(@project) %> |
 <%= link_to "Back to the project", project_path(@project) %>
