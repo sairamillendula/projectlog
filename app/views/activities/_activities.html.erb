@@ -10,7 +10,7 @@
     <p><%= link_to 'Create Report', reports_path %></p> 
     
     
-    <%= form_tag project_activities_path(@project), :method => 'get', :id => "products_search" do %>
+    <%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
       <p>
         <%= hidden_field_tag :direction, params[:direction] %>
         <%= hidden_field_tag :sort, params[:sort] %>
@@ -21,9 +21,9 @@
     
 	<table>
 	  <tr>
-	    <th><%= sortable "date" %></th>
-	    <th><%= sortable "time" %></th>
-	    <th><%= sortable "description" %></th>
+	    <th><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+	    <th><%= sortable "time", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+	    <th><%= sortable "description", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
 	    <th></th>
 	    <th></th>
 	  </tr>

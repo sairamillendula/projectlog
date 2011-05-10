@@ -1,5 +1,7 @@
 <h1><%= params[:search] ? "Listing activities that match '#{params[:search]}'" : "Listing activities" %></h1>
 
-<%= render "activities" %>
+<div id="activities">
+  <%= render "activities" %>
+</div>
 
 <%= link_to "Back to the project", project_path(@project) %>
