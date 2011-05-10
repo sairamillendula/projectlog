@@ -35,16 +35,19 @@
 	    <td class="actions"><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
 	  </tr>
 	<% end %>
-	
+		
 	  <tr class="total">
 	    <th style="text-align:right" class="total">TOTAL</th>
-	    <th><%= @activities.sum(:time) %></th>
+	    <th><%= @project.activities.sum(:time) %></th>
 	    <th></th>
 	    <th></th>
 	    <th></th>
 	  </tr>
 	</table>
-		
+	
+	<div>
+	  <%= paginate @activities, :params => { :controller => "projects", :action => "show", :id => @project } %>
+  </div>
 </div>
 
 <p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 

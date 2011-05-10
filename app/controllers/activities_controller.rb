@@ -46,7 +46,7 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to(@project, :notice => 'Activity was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @activity }
-        format.js { @activities = @project.activities }
+        format.js { @activities = @project.activities.page(params[:page]).per(10) }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }

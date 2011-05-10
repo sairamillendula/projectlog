@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = current_user.projects.find(params[:id])
-    @activities = @project.activities.order(sort_column + " " + sort_direction)
+    @activities = @project.activities.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # show.html.erb
