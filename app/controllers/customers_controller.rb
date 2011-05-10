@@ -57,10 +57,15 @@ class CustomersController < ApplicationController
 
   def destroy
     @customer = current_user.customers.find(params[:id])
-    @customer.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(customers_url) }
+    begin
+      @customer.destroy
+      respond_to do |format|
+        format.html { redirect_to(customers_url) }
+      end      
+    rescue ActiveRecord::DeleteRestrictionError => e
+      respond_to do |format|
+        format.html { redirect_to(customer_url(@customer), :alert => e.to_s) }
+      end      
     end
   end
 end
