@@ -1,9 +1,16 @@
 class Activity < ActiveRecord::Base
   belongs_to :project
-  default_scope order('date DESC')
   
   attr_accessible :date, :time, :description
   
   validates_numericality_of(:time)
+  
+  def self.search(search)
+    if search
+      where('description LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
   
 end

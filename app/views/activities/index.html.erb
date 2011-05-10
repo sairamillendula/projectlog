@@ -1,15 +1,22 @@
-<h1>Listing activities</h1>
+<h1><%= params[:search] ? "Listing activities that match '#{params[:search]}'" : "Listing activities" %></h1>
+
+<%= form_tag project_activities_path(@project), :method => 'get', :id => "products_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
 
 <table>
   <tr>
-    <th>Date</th>
-    <th>Time</th>
-    <th>Description</th>
+    <th><%= sortable "date" %></th>
+    <th><%= sortable "time" %></th>
+    <th><%= sortable "description" %></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @project.activities.each do |activity| %>
+<% @activities.each do |activity| %>
   <tr>
     <td class="date"><%= activity.date %></td>
     <td class="time"><%= activity.time %></td>
@@ -21,7 +28,7 @@
 <% end %>
   <tr class="total">
 	 <th style="text-align:right" class="total">TOTAL</th>
-	 <th><%= @project.activities.sum(:time) %></th>
+	 <th><%= @activities.sum(:time) %></th>
 	 <th></th>
 	 <th></th>
 	 <th></th>
@@ -30,4 +37,5 @@
 
 <br />
 
-<%= link_to 'New Activity', new_activity_path %>
+<%= link_to 'New Activity', new_project_activity_path(@project) %> |
+<%= link_to "Back to the project", project_path(@project) %>

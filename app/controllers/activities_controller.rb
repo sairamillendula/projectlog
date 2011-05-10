@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   
   def index
     @project = current_user.projects.find(params[:project_id])
-    @activities = @project.activities.all
+    @activities = @project.activities.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -83,7 +83,7 @@ class ActivitiesController < ApplicationController
   
   private
   def sort_column
-    Activity.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end
   
   def sort_direction

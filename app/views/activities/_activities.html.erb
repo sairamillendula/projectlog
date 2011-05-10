@@ -8,6 +8,15 @@
 <div id="time-entries">
   <h2>Time Entries</h2>
     <p><%= link_to 'Create Report', reports_path %></p> 
+    
+    
+    <%= form_tag project_activities_path(@project), :method => 'get', :id => "products_search" do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
+    <% end %>
+    
 	<table>
 	  <tr>
 	    <th><%= sortable "date" %></th>
