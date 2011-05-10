@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   
-  validates_presence_of :title, :customer_id
+  validates_presence_of :title, :customer_id, :project_status_id
   belongs_to :user
   belongs_to :customer
   belongs_to :project_status
