@@ -4,11 +4,12 @@ class ActivitiesController < ApplicationController
   
   def index
     @project = current_user.projects.find(params[:project_id])
-    @activities = @project.activities.search(params[:search])
+    @activities = @project.activities.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @activities }
+      format.js
     end
   end
 

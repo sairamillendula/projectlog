@@ -31,6 +31,12 @@
 	   <% end %>
 	</p>
 </div>
-<div id="activities">
-	<%= render :partial => 'activities/activities' %>
+
+<div>
+  <%= link_to "See this project's activities", project_activities_path(@project) %>
 </div>
+
+<!--
+<div id="activities">
+  <%= render :partial => 'activities/activities' %>
+</div>-->
