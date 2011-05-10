@@ -1,4 +1,4 @@
-<% if @project.activities.empty? %>
+<% if @activities.empty? %>
   <div class="no-occurence">
      <p>Add a new <%= link_to 'Activity', new_project_activity_path(@project) %></p>
   </div>
@@ -10,14 +10,14 @@
     <p><%= link_to 'Create Report', reports_path %></p> 
 	<table>
 	  <tr>
-	    <th>Date</th>
-	    <th>Time</th>
-	    <th>Description</th>
+	    <th><%= sortable "date" %></th>
+	    <th><%= sortable "time" %></th>
+	    <th><%= sortable "description" %></th>
 	    <th></th>
 	    <th></th>
 	  </tr>
 
-	<% @project.activities.each do |activity| %>
+	<% @activities.each do |activity| %>
 	  <tr>
 	    <td class="date"><%= l activity.date %></td>
 	    <td class="time"><%= activity.time %></td>
@@ -29,7 +29,7 @@
 	
 	  <tr class="total">
 	    <th style="text-align:right" class="total">TOTAL</th>
-	    <th><%= @project.activities.sum(:time) %></th>
+	    <th><%= @activities.sum(:time) %></th>
 	    <th></th>
 	    <th></th>
 	    <th></th>

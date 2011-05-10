@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :sort_column, :sort_direction
   
   def index
     @project = current_user.projects.find(params[:project_id])
@@ -45,7 +46,7 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to(@project, :notice => 'Activity was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @activity }
-        format.js
+        format.js { @activities = @project.activities }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
@@ -78,5 +79,14 @@ class ActivitiesController < ApplicationController
       format.html { redirect_to(@project) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def sort_column
+    Activity.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end

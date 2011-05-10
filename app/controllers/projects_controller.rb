@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
+  helper_method :sort_column, :sort_direction  
   set_tab :projects
   
   def index
@@ -21,6 +22,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = current_user.projects.find(params[:id])
+    @activities = @project.activities.order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -70,5 +72,14 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(projects_url) }
     end
+  end
+  
+  private
+  def sort_column
+    Activity.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 end
