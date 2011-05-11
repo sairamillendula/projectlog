@@ -1,22 +1,61 @@
-<% if current_user.activities.empty? %>
+<div id="activities">  
+  <h2>Time Entries</h2>  
+  
+  
+  <%= form_tag search_reports_path, :method => "get", :remote => true, :id => "activities_search" do %>
+  <p>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= hidden_field_tag :project_id, params[:project_id] %>
+    <%= hidden_field_tag :start_date, params[:start_date] %>
+    <%= hidden_field_tag :end_date, params[:end_date] %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Filter", :name => nil %>
+  </p>
+  <% end %>
+
+  <% if @activities.empty? %>
   <div class="no-occurence">
-     <p>Add a new <%= link_to 'Activity' %></p>
+    <p>
+      No activity matches your search criteria.
+    </p>
   </div>
-<% else %>
-<br/>
+  <% else %>
+  
+  <br/>   
+  <table>
+    <tr>
+      <th><%= sortable "date", { :action => "search", :controller => "reports" } %></th>
+      <th><%= sortable "time", { :action => "search", :controller => "reports" } %></th>
+      <th><%= sortable "description", { :action => "search", :controller => "reports" } %></th>
+      <th><%= sortable "project_id", { :action => "search", :controller => "reports" }, "Project" %>
+      <th></th>
+      <th></th>
+    </tr>
 
-<div id="activity_search">
-  <%= render :partial => 'reports/search' %>
+    <% @activities.each do |activity| %>
+    <tr>
+      <td class="date"><%= l activity.date %></td>
+      <td class="time"><%= activity.time %></td>
+      <td class="description"><%= activity.description %></td>
+      <td class="project"><%= activity.project.title %></td>      
+      <td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity) %></td>
+      <td class="actions"><%= link_to 'Destroy', project_activity_path(activity.project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+    <% end %>
+
+    <tr class="total">
+      <th style="text-align:right" class="total">TOTAL</th>
+      <th><%= @total_time %></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </table>
+
+  <div>
+    <%= paginate @activities, :params => { :action => "search", :controller => "reports" } %>
+  </div>
+  <% end %>
 </div>
-
-<div id="time-entries">
-  <h2>Time Entries</h2>
-	
-	<p>Andrés please:</p>
-	<li>render current_user.activities</li>
-	<li>sort and paginate</li>
-	<li>I will try to add export to cvs and export to pdf ooptions</li>
-		
-</div>
-
-<% end %>

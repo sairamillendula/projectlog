@@ -1,6 +1,0 @@
-<p>Show  <%= collection_select(:project, :project_id, current_user.projects.all, :id, :title) %> project hours from <%= date_select :search, params[:search] %> to <%= date_select :search, params[:search] %></p>
-
-<p>Andrés, if no project selected then take them all</p>
-<p>Show activities for <b>month-year</b><i> add dropdowdon to pick a month, order by most recent period up</i></p>
-
-<p><%= submit_tag 'Create report' %></p>
