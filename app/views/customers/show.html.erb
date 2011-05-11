@@ -6,7 +6,7 @@
 		 <p><%= @customer.note %></p>
 		 <p id="note_toggle"><a href="#">Show/Hide Note</a></p>
 	  <% else %>
-	     <div><%= link_to "Add a Note", edit_customer_path(@customer) %></div>
+	     <p><%= link_to "Add a Note", edit_customer_path(@customer) %></p>
 	  <% end %>
 
 	<br/>
@@ -17,20 +17,20 @@
 
  <div id="column_right">
   	<p>
-	  <b>Phone:</b>
+	  <label class="label">Phone:</label>
 	  <%= @customer.phone %>
 	</p>
 
 	<p>
-	  <b>Address:</b>
+	  <label class="label">Address:</label>
 	    <% if !@customer.address2.present? %>
 	      <%= @customer.address1 %><br/>
 	    <% else %> 
 		  <%= @customer.address1 %><br />
-		  <%= @customer.address2 %><br />
+		  <span class="indent_line"><%= @customer.address2 %></span><br />
 	    <% end %>
-	  <%= @customer.city %> <%= @customer.province %> <%= @customer.postal_code %><br/>
-	  <%= @customer.country %>
+	  <span class="indent_line"><%= @customer.city %> <%= @customer.province %> <%= @customer.postal_code %><br/></span>
+	  <span class="indent_line"><%= @customer.country %></span>
 	</p>
  </div>
 </div>
