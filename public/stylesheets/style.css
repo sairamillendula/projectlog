@@ -683,7 +683,7 @@ color: #4183C4;
 text-decoration: none;
 }
 
-table th .current {
+table th .sort {
 color: #999;
 background-repeat: no-repeat;
 background-position: right center;
