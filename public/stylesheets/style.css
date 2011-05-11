@@ -337,6 +337,17 @@ background: none;
 color: inherit;
 }
 
+.label {
+width: 70px;
+display: block;
+float: left;
+font-weight: bold;
+}
+
+.indent_line{
+padding-left: 70px;
+}
+
 #summary {
 height: 120px;
 margin-top:20px;
