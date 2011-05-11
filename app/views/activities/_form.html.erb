@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br />
-    <%= f.text_field :time, :size => 5 %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description, :size => 80 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+  <tr>
+    <td><%= f.date_select :date %></td>
+    <td><%= f.text_field :time, :size => 4 %></td>
+    <td><%= f.text_field :description, :size => 65 %></td>
+    <td><%= f.submit %></td>
+  </tr>
+</table>
+
 <% end %>
