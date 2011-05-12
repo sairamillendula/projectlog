@@ -1,6 +1,5 @@
 <div id="activities">  
-  <h2>Time Entries</h2>  
-  
+  <h2>Activities</h2>
   
   <%= form_tag search_reports_path, :method => "get", :remote => true, :id => "activities_search" do %>
   <p>
@@ -22,7 +21,7 @@
   </div>
   <% else %>
   
-  <br/>   
+    
   <table>
     <tr>
       <th><%= sortable "date", { :action => "search", :controller => "reports" } %></th>
@@ -59,3 +58,7 @@
   </div>
   <% end %>
 </div>
+
+<p class="right">
+  Export to CSV | Download PDF
+</p>

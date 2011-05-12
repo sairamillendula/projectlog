@@ -1,6 +1,5 @@
 <div id="time-entries">  
-  <h2>Time Entries</h2>  
-  <p><%= link_to 'Create Report', reports_path %></p> 
+  <h2>Activities</h2>
 
   <%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
   <p>
@@ -24,7 +23,7 @@
     </p>
   </div>
   <% else %>
-  <br/>   
+     
   <table>
     <tr>
       <th><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
@@ -58,7 +57,8 @@
   </div>
 
   <p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 
-    <%= link_to 'New activity AJAX', new_project_activity_path(@project, :format => :js), :remote => true %>
+    <%= link_to 'New activity AJAX', new_project_activity_path(@project, :format => :js), :remote => true %> |
+    <%= link_to 'Create Report', reports_path %>
   </p>
 
   <% end %>
