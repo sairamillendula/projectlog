@@ -11,6 +11,8 @@ gem 'heroku'
 gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'kaminari'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -18,6 +18,7 @@ class ReportsController < ApplicationController
     @total_time = @activities.sum(:time) # Calculate time before pagination.
     respond_to do |format|
       format.js { @activities = @activities.page(params[:page]).per(10) }
+      format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
     end
   end
   

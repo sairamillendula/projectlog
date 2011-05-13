@@ -1,0 +1,50 @@
+<style>
+  @media print {
+    table th {
+      font-weight: bold;
+    }
+    
+    table td {
+      padding: 10px;
+    }
+  }
+</style>
+
+<div id="activities">  
+  <h2>Time Entries</h2>  
+
+  <% if @activities.empty? %>
+  <div class="no-occurence">
+    <p>
+      No activity matches your search criteria.
+    </p>
+  </div>
+  <% else %>
+  
+  <br/>   
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Description</th>
+      <th>Project</th>
+    </tr>
+
+    <% @activities.each do |activity| %>
+    <tr>
+      <td class="date"><%= l activity.date %></td>
+      <td class="time"><%= activity.time %></td>
+      <td class="description"><%= activity.description %></td>
+      <td class="project"><%= activity.project.title %></td>      
+    </tr>
+    <% end %>
+
+    <tr class="total">
+      <th style="text-align:right" class="total">TOTAL</th>
+      <th><%= @total_time %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </table>
+  <% end %>
+</div>
