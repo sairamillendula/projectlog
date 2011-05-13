@@ -56,9 +56,11 @@
   <div>
     <%= paginate @activities, :params => { :action => "search", :controller => "reports" } %>
   </div>
-  <% end %>
+
+  <p class="right">
+    Export to CSV | Download PDF
+  </p>
+<% end %>
 </div>
 
-<p class="right">
-  Export to CSV | Download PDF
-</p>
+

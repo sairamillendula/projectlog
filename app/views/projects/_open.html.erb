@@ -1,3 +1,12 @@
-<div class='open-project'>
-	<h3><%= project.title %></h3><br/>
+<h1>Open projects</h1>
+ <div id="open-projects">
+   <% @open_projects.each do |project| %>
+      <div class='occurence'>
+        <h1><%= link_to project.title, project %></h1>
+        <p><%= project.customer.name %></p>
+      </div>
+ </div>
+<% end %>
+<div class="clear">
+ <%= paginate @open_projects %>   
 </div>

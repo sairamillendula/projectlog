@@ -12,11 +12,11 @@
   <% end %>
 <div id="column_left">
   <div class="field">
-    <%= f.label :company %><br />
+    <%= f.label :company %><br/>
     <%= f.text_field :company %>
   </div>
   <div class="field">
-    <%= f.label :address1 %><br />
+    <%= f.label :address1 %><br/>
     <%= f.text_field :address1 %>
   </div>
   <div class="field">
@@ -24,7 +24,7 @@
     <%= f.text_field :address2 %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
+    <%= f.label :city %><br/>
     <%= f.text_field :city %>
   </div>
   <div class="field">
@@ -45,7 +45,7 @@
   </div>
 </div>
 <div id="column_right">
-	<h2>You joined us <%= l @profile.created_at.to_date %></h2><br/>
+	<h2>Member since <%= l @profile.created_at.to_date %></h2><br/>
   <div class="field">
     <%= f.label :localization %><br />
     <p class="info">Select currency, date and number format</p>
@@ -58,6 +58,6 @@
   </div>
 </div>
   <div class="actions">
-    <p class="submit"><%= f.submit "Update Profile" %></p>
+    <p class="submit"><%= f.submit "Update Settings" %></p>
   </div>
 <% end %>

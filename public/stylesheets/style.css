@@ -311,6 +311,7 @@ box-shadow: 0px 0px 6px #e2e2e2;
 width: 380px;
 height: 120px;
 float: left;
+background: #f1f1f1;
 }
 
 .occurence:hover {
@@ -782,6 +783,10 @@ background-color: #e0d0ea;
 padding: 10px;
 margin-bottom: 14px;
 position: relative;
+}
+
+div.field {
+margin-bottom: 0px;
 }
 
 #account_fiscal_end_day, #account_fiscal_end_month, #account_localization {

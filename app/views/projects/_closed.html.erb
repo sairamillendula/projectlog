@@ -4,9 +4,6 @@
 	<table>
 		<tr>
 			<th>Title</th>
-			<th>Status</th>
-			<th>Manager</th>
-			<th>User</th>
 			<th>Customer</th>
 			<th></th>
 			<th></th>
@@ -16,9 +13,6 @@
 		<% @closed_projects.each do |project| %>
 		<tr>
 			<td><%= project.title %></td>
-			<td><%= project.project_status.name %></td>
-			<td><%= project.manager %></td>
-			<td><%= project.user_id %></td>
 			<td><%= project.customer.name %></td>
 			<td><%= link_to 'Show', project %></td>
 			<td><%= link_to 'Edit', edit_project_path(project) %></td>
