@@ -58,7 +58,7 @@
   </div>
 
   <p class="right">
-    Export to CSV | Download PDF
+    Export to CSV | <%= link_to "Download PDF", params.merge(:format => :pdf) %>
   </p>
 <% end %>
 </div>
