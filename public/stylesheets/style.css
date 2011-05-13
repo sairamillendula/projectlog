@@ -269,12 +269,14 @@ margin-right: auto;
 float: left;
 width: 49%;
 padding-right: 6px;
+padding-bottom: 30px;
 }
 
 #column_right {
 float: right;
 width: 49%;
 padding-left: 6px;
+padding-bottom: 30px;
 }
 
 .no-occurence {
@@ -294,12 +296,7 @@ font-size: 16px;
 }
 
 #activities {
-padding-top: 30px;
 clear: right;
-}
-
-.clear {
-clear: both;
 }
 
 .occurence {
@@ -314,6 +311,7 @@ box-shadow: 0px 0px 6px #e2e2e2;
 width: 380px;
 height: 120px;
 float: left;
+background: #f1f1f1;
 }
 
 .occurence:hover {
@@ -321,10 +319,6 @@ float: left;
 -webkit-box-shadow: 0px 0px 6px #999;
 box-shadow: 0px 0px 6px #999;
 cursor: pointer;
-}
-
-.footer {
-
 }
 
 .occurence h1 a {
@@ -337,8 +331,27 @@ background: none;
 color: inherit;
 }
 
+.clear {
+clear: both;
+}
+
+.footer {
+
+}
+
+.right {
+text-align: right;
+}
+
 .label {
 width: 70px;
+display: block;
+float: left;
+font-weight: bold;
+}
+
+.label-wide {
+width: 100px;
 display: block;
 float: left;
 font-weight: bold;
@@ -431,9 +444,10 @@ padding-top: 10px;
 }
 
 #activity_search {
-background-color: #EAEAEA;
-padding: 4px;
+padding: 6px;
 margin-bottom: 20px;
+border: 1px solid #BEDCE7;
+background: #EAF2F5 url('/images/info_background.gif') no-repeat;
 }
 
 form #activity_search {
@@ -632,7 +646,7 @@ margin-left: 1em;
 table {
 border: 1px solid #D8D8D8;
 font-size: 90%;
-margin-bottom: 1em;
+margin-bottom: 20px;
 width: 100%;
 border-spacing: 0px;
 }
@@ -769,6 +783,10 @@ background-color: #e0d0ea;
 padding: 10px;
 margin-bottom: 14px;
 position: relative;
+}
+
+div.field {
+margin-bottom: 0px;
 }
 
 #account_fiscal_end_day, #account_fiscal_end_month, #account_localization {

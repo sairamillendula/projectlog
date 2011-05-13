@@ -13,19 +13,24 @@
 </div>
 <div id="column_right">
 	<p>
-	   <b>Status:</b>
+	   <label class="label-wide">Status:</label>
 	   <%= @project.project_status.name %>
 	</p>
 	<p>
-	   <b>Customer:</b>
+	   <label class="label-wide">Customer:</label>
 	   <%= @project.customer.name %>
 	</p>
 	<p>
-	   <b>Default rate:</b>
-       <%= number_to_currency(@project.default_rate) unless @current_user.profile.localization.present? %>
+	   <label class="label-wide">Default Rate:</label>
+       <% if @current_user.profile.localization.present? %>
+	      <%= number_to_currency(@project.default_rate) %>
+	   <% else %>
+	      <%= @project.default_rate %>
+	    <% end %>
+	   <br/>
 	</p>
 	<p>
-	   <b>Billing Method:</b>
+	   <label class="label-wide">Billing:</label>
 	   <% if @project.billing_code_id.present? %>
 	      <%= @project.billing_code.name %>
 	   <% end %>
