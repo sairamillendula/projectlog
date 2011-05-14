@@ -35,7 +35,7 @@
 
     <% @activities.each do |activity| %>
     <tr>
-      <td class="date"><%= l activity.date %></td>
+      <td class="date"><%= l activity.date, :format => :short %></td>
       <td class="time"><%= activity.time %></td>
       <td class="description"><%= activity.description %></td>
       <td class="actions"><%= link_to 'Edit', edit_project_activity_path(@project, activity) %></td>
@@ -52,7 +52,7 @@
     </tr>
   </table>
 
-  <div>
+  <div class="right">
     <%= paginate @activities, :params => { :controller => "activities", :action => "index", :project_id => @project.id } %>
   </div>
 

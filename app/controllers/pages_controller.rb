@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  def home
-  end
+  before_filter :authenticate_user!
+  before_filter :load_user
+  set_tab :dashboard
 
 end

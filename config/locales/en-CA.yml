@@ -1,4 +1,12 @@
 en-CA:    
+    views:
+        pagination:
+          previous: "&laquo; Prev"
+          next: "Next &raquo;"
+          truncate: "..."
+          last: "Last &raquo;"
+          first: "&laquo; First"
+          
     date:
       formats:
         default: "%Y-%m-%d"
