@@ -4,6 +4,7 @@ class Activity < ActiveRecord::Base
   attr_accessible :date, :time, :description
   
   validates_numericality_of(:time)
+  validates_presence_of(:date, :time, :description)
   
   def self.search(search)
     if search

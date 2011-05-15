@@ -23,7 +23,12 @@
     </p>
   </div>
   <% else %>
-     
+  
+  	<p id="new_activity_link">
+	    <%= link_to 'New Activity', new_project_activity_path(@project, :format => :js), :remote => true %> |
+	    <%= link_to 'Create Report', reports_path %>
+	</p>
+   
   <table>
     <tr>
       <th><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
@@ -53,13 +58,8 @@
   </table>
 
   <div class="right">
-    <%= paginate @activities, :params => { :controller => "activities", :action => "index", :project_id => @project.id } %>
-  </div>
-
-  <p id="new_activity_link"><%= link_to 'New Activity', new_project_activity_path(@project) %> | 
-    <%= link_to 'New activity AJAX', new_project_activity_path(@project, :format => :js), :remote => true %> |
-    <%= link_to 'Create Report', reports_path %>
-  </p>
+     <%= paginate @activities, :params => { :controller => "activities", :action => "index", :project_id => @project.id } %>
+  </div>  
 
   <% end %>
 </div>
