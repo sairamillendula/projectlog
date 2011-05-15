@@ -23,6 +23,7 @@ margin-bottom: 10px;
 h1 {
 font-size: 20px;
 letter-spacing: -1px;
+margin-bottom: 25px;
 }
 
 h2 {
@@ -359,6 +360,29 @@ font-weight: bold;
 
 .indent_line{
 padding-left: 70px;
+}
+
+.inline-form label {
+width: 95px;
+display: block;
+float: left;
+height: 27px;
+line-height: 27px;
+margin-right: 10px;
+}
+
+.inline-form select {
+height: 27px;
+vertical-align: middle;
+margin-top: 4px;
+}
+
+.inline-form textarea {
+margin-bottom: 20px;
+}
+
+.mandatory {
+font-weight: bold;
 }
 
 #summary {
@@ -782,16 +806,27 @@ width: 100px;
 
 td.time {
 width: 48px;
-font-weight: bold;
 }
 
-td.description {
-
+td.project {
+width: 190px;
 }
 
 td.actions {
 width: 50px;
 }
+
+/* Report */
+#activity-filter input{
+margin-bottom: 0px;
+}
+
+#export {
+float: right;
+vertical-align: text-bottom;
+line-height: 29px;
+}
+
 
 /* Single page layout */
 .dialog {

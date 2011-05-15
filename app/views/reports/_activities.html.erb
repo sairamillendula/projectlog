@@ -1,8 +1,14 @@
 <div id="activities">  
-  <h2>Activities</h2>
   
-  <%= form_tag search_reports_path, :method => "get", :remote => true, :id => "activities_search" do %>
-  <p>
+  <% if @activities.empty? %>
+  <div class="no-occurence">
+    <p>No activity matches your search criteria.</p>
+  </div>
+  <% else %>
+
+  <h2>Activities</h2>
+     <%= form_tag search_reports_path, :method => "get", :remote => true, :id => "activities_search" do %>
+  <div id="activity-filter">
     <%= hidden_field_tag :direction, params[:direction] %>
     <%= hidden_field_tag :sort, params[:sort] %>
     <%= hidden_field_tag :project_id, params[:project_id] %>
@@ -10,18 +16,12 @@
     <%= hidden_field_tag :end_date, params[:end_date] %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Filter", :name => nil %>
-  </p>
-  <% end %>
-
-  <% if @activities.empty? %>
-  <div class="no-occurence">
-    <p>
-      No activity matches your search criteria.
-    </p>
+	<div id="export" class="right">
+	    Export this table to CSV | <%= link_to "Download PDF", params.merge(:format => :pdf) %>
+	</div>
   </div>
-  <% else %>
-  
-    
+  <% end %>
+   
   <table>
     <tr>
       <th><%= sortable "date", { :action => "search", :controller => "reports" } %></th>
@@ -34,7 +34,7 @@
 
     <% @activities.each do |activity| %>
     <tr>
-      <td class="date"><%= l activity.date %></td>
+      <td class="date"><%= l activity.date, :format => :short %></td>
       <td class="time"><%= activity.time %></td>
       <td class="description"><%= activity.description %></td>
       <td class="project"><%= activity.project.title %></td>      
@@ -53,13 +53,10 @@
     </tr>
   </table>
 
-  <div>
+  <div class="right">
     <%= paginate @activities, :params => { :action => "search", :controller => "reports" } %>
   </div>
-
-  <p class="right">
-    Export to CSV | <%= link_to "Download PDF", params.merge(:format => :pdf) %>
-  </p>
+  
 <% end %>
 </div>
 

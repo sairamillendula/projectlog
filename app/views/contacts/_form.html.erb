@@ -11,27 +11,29 @@
     </div>
   <% end %>
 
+<div class="inline-form">
   <div class="field">
-    <b><%= f.label :first_name %></b>
-    <%= f.text_field :first_name %><br />
+    <%= f.label :first_name, :class => 'mandatory' %>
+    <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone %>
     <%= f.phone_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>
 <% end %>
+</div>

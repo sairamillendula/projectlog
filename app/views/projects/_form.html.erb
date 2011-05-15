@@ -11,33 +11,35 @@
     </div>
   <% end %>
 
+<div class="inline-form">
   <div class="field">
-    <b><%= f.label :title %></b><br />
+    <%= f.label :title %>
     <%= f.text_field :title, :size => '100' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description, :cols => '88', :rows => '6' %>
   </div>
   <div class="field">
-    <%= f.label :status_id %><br />
+    <%= f.label :status_id %>
     <%= collection_select(:project, :project_status_id, ProjectStatus.all, :id, :name, options = {:prompt => "Select Status"} ) %>
     
   </div>
   <div class="field">
-    <%= f.label :customer_id %><br />
+    <%= f.label :customer_id %>
     <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
     
   </div>
   <div class="field">
-    <%= f.label :default_rate, 'Hourly Rate' %><br />
+    <%= f.label :default_rate, 'Hourly Rate' %>
     <%= f.text_field :default_rate, :size => '8' %>
   </div>
   <div class="field">
-    <%= f.label :billing_code_id %><br />
+    <%= f.label :billing_code_id %>
     <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing Method"} ) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>
 <% end %>
+</div>

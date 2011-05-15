@@ -11,38 +11,43 @@
     </div>
   <% end %>
 <div id="column_left">
+<div class="inline-form">
+  <h2>Company contact & billing information</h2>
+  <p class="info">This is used to personalize timesheet and invoice</p>
+
   <div class="field">
-    <%= f.label :company %><br/>
+    <%= f.label :company %>
     <%= f.text_field :company %>
   </div>
   <div class="field">
-    <%= f.label :address1 %><br/>
+    <%= f.label :address1 %>
     <%= f.text_field :address1 %>
   </div>
   <div class="field">
-    <%= f.label :address2 %><br />
+    <%= f.label :address2 %>
     <%= f.text_field :address2 %>
   </div>
   <div class="field">
-    <%= f.label :city %><br/>
+    <%= f.label :city %>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :province %><br />
+    <%= f.label :province %>
     <%= collection_select(:profile, :province, Province.all, :name, :name, options = {:prompt => ""}) %>
   </div>
   <div class="field">
-    <%= f.label :postal_code %><br />
+    <%= f.label :postal_code %>
     <%= f.text_field :postal_code, :size => 6 %>
   </div>
   <div class="field">
-    <%= f.label :country %><br />
+    <%= f.label :country %>
     <%= collection_select(:profile, :country, Country.all, :printable_name, :printable_name, options = {:prompt => ""}) %>
   </div>
   <div class="field">
-    <%= f.label :phone_number %><br />
+    <%= f.label :phone_number %>
     <%= f.phone_field :phone_number %>
   </div>
+</div>
 </div>
 <div id="column_right">
 	<h2>Member since <%= l @profile.created_at.to_date %></h2><br/>
