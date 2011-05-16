@@ -27,7 +27,13 @@ Projectlog::Application.routes.draw do
       get "search"
     end
   end
-
+  
+  resources :reports do
+    member do
+      post :timesheet
+    end
+  end
+  
   # allow "/users/login" and "/login"
   devise_scope :user do
     get "register", :to => "devise/registrations#new"

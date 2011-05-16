@@ -1,5 +1,5 @@
 <div id="quick_search">
-  <h2>Quick search</h2>
+  <h2>Quick Search</h2>
   <%= form_tag search_reports_path, :method => "get", :remote => true do %>
     <p>Show hours for <%= report_project_select :project_id, current_user.projects.all, :selected => params[:project_id], :id => "quick_search_project_id" %> during 
     <%= last_months_select :start_date, :selected => params[:start_date], :id => "quick_search_start_date" %></p>
@@ -9,7 +9,7 @@
 </div>
 
 <div id="advanced_search" style="display: none">
-  <h2>Advanced search</h2>
+  <h2>Advanced Search</h2>
   <%= form_tag search_reports_path, :method => "get", :remote => true do %>
  
  <p>Show hours for <%= report_project_select :project_id, current_user.projects.all, :selected => params[:project_id], :id => "advanced_search_project_id" %>
