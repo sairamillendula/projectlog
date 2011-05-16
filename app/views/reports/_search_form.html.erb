@@ -4,7 +4,7 @@
     <p>Show hours for <%= report_project_select :project_id, current_user.projects.all, :selected => params[:project_id], :id => "quick_search_project_id" %> during 
     <%= last_months_select :start_date, :selected => params[:start_date], :id => "quick_search_start_date" %></p>
     
-    <p><%= submit_tag "Create report" %></p>
+    <p class="submit"><%= submit_tag "Create Report" %></p>
   <% end %>  
 </div>
 
@@ -15,10 +15,9 @@
  <p>Show hours for <%= report_project_select :project_id, current_user.projects.all, :selected => params[:project_id], :id => "advanced_search_project_id" %>
    from <%= text_field_tag :start_date, params[:start_date], :size => 12, :class => "date" %>
    to <%= text_field_tag :end_date, params[:end_date], :size => 12, :class => "date" %></p>
-
   
-  <p><%= submit_tag 'Create report' %></p>
+  <p class="submit"><%= submit_tag 'Create Report' %></p>
   <% end %>
 </div>
 
-<%= link_to "Show/hide advanced search form", "#", :id => "toggle_search_form" %>
+<%= link_to "Show/Hide Advanced Search", "#", :id => "toggle_search_form" %>

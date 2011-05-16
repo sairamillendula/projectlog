@@ -1,17 +1,46 @@
+<head>
+	<title>Timesheet</title>
 <style>
   @media print {
-    table th {
+   table {
+	border-spacing: 0px;
+	width: 100%;
+	text-align: left;
+	font: 11px;
+   } 
+   table th {
       font-weight: bold;
+      padding: 8px;
     }
-    
+    #header th {
+	border-bottom: 1px solid #eaeaea;
+    }
+    #total th {
+	border-top: 2px solid #eaeaea;
+    }
     table td {
-      padding: 10px;
+    padding: 8px;
+    margin-right: 10px; 
     }
+    #period {
+	font-weight: bold;
+	}
+	.date {
+	width:80px;
+	}
+	.time {
+	width:40px;
+	}
+	.sum {
+	text-align:right; 
+	padding-left:10px;
+	}
   }
 </style>
+</head>
 
 <div id="activities">  
-  <h2>Time Entries</h2>  
+  <h1>Timesheet</h1>  
 
   <% if @activities.empty? %>
   <div class="no-occurence">
@@ -21,28 +50,28 @@
   </div>
   <% else %>
   
-  <br/>   
+  <p id='period'><%= current_user.full_name %>'s hours from <%= :start_date %> to <%= :end_date %></p>
+  <p>Project: <b><%= :project_title %></b></p>
+  <br/>
+
   <table>
-    <tr>
+    <tr id="header">
       <th>Date</th>
       <th>Time</th>
       <th>Description</th>
-      <th>Project</th>
     </tr>
 
     <% @activities.each do |activity| %>
     <tr>
-      <td class="date"><%= l activity.date %></td>
+      <td class="date"><%= l activity.date, :format => :short %></td>
       <td class="time"><%= activity.time %></td>
-      <td class="description"><%= activity.description %></td>
-      <td class="project"><%= activity.project.title %></td>      
+      <td class="description"><%= activity.description %></td>      
     </tr>
     <% end %>
 
-    <tr class="total">
-      <th style="text-align:right" class="total">TOTAL</th>
+    <tr id="total">
+      <th class="sum">TOTAL</th>
       <th><%= @total_time %></th>
-      <th></th>
       <th></th>
     </tr>
   </table>

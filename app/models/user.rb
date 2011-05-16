@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
     new_record?
   end
   
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   
 private
   def build_profile
