@@ -20,15 +20,15 @@
     <%= f.label :description %>
     <%= f.text_area :description, :cols => '88', :rows => '6' %>
   </div>
-  <div class="field">
-    <%= f.label :status_id %>
-    <%= collection_select(:project, :project_status_id, ProjectStatus.all, :id, :name, options = {:prompt => "Select Status"} ) %>
-    
-  </div>
+  <% if !@project.new_record? %>
+  	  <div class="field">
+	    <%= f.label :status_id %>
+	    <%= collection_select(:project, :project_status_id, ProjectStatus.all, :id, :name, options = {:prompt => "Select Status"} ) %>
+	  </div>
+  <% end %>
   <div class="field">
     <%= f.label :customer_id %>
     <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
-    
   </div>
   <div class="field">
     <%= f.label :default_rate, 'Hourly Rate' %>

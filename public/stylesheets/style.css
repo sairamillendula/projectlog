@@ -801,11 +801,11 @@ border-bottom: none;
 }
 
 td.date {
-width: 100px;
+width: 80px;
 }
 
 td.time {
-width: 48px;
+width: 40px;
 }
 
 td.project {
