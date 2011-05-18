@@ -1,2 +1,1 @@
-$("<%= escape_javascript render(:partial => 'fields_edit.js') %>").insertBefore('#time-entries');
-$('#new_activity_link').hide();
+$("#activities").prepend("<%= escape_javascript render(:partial => "form") %>");

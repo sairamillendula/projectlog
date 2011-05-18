@@ -37,6 +37,10 @@ class ActivitiesController < ApplicationController
   def edit
     @project = current_user.projects.find(params[:project_id])
     @activity = @project.activities.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
