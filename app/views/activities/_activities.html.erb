@@ -1,4 +1,19 @@
 <div id="time-entries">  
+  
+  <% if @activities.present? || params[:search].present? %>
+    <h2>Activities</h2>
+
+    <%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
+    <p>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+    <% end %>
+  <% end %>
+	
+  
   <% if @activities.empty? %>
   <div class="no-occurence">
     <p>
@@ -10,20 +25,8 @@
     Add a new <%= link_to 'activity', new_project_activity_path(@project) %>.
     </p>
   </div>
-  <% else %>
-  
-  	<h2>Activities</h2>
-
-	  <%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
-	  <p>
-	    <%= hidden_field_tag :direction, params[:direction] %>
-	    <%= hidden_field_tag :sort, params[:sort] %>
-	    <%= text_field_tag :search, params[:search] %>
-	    <%= submit_tag "Search", :name => nil %>
-	  </p>
-	  <% end %>
-	
-    <p id="new_activity_link">
+  <% else %>	
+  <p id="new_activity_link">
 	    <%= link_to 'New Activity', new_project_activity_path(@project, :format => :js), :remote => true %> |
 	    <%= link_to 'Create Report', reports_path %>
 	</p>
