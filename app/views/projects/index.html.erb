@@ -9,7 +9,9 @@
         <p>No Open Projects</p>
      </div>
    <% else %>
-     <%= render :partial => 'projects/open' %>
+     <div id="open-projects-container">
+       <%= render :partial => 'projects/open' %>
+     </div>
    <% end %>
 
 <p class="clear"><%= link_to 'New Project', new_project_path %></p>
