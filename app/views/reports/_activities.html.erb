@@ -17,7 +17,7 @@
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Filter", :name => nil %>
 	<div id="export" class="right">
-	    Export this table to CSV | 
+	    <%= link_to "Export this table to CSV", params.merge(:format => :csv) %> | 
 	<%= link_to 'Email Report', '#', :onclick => "$('#email_timesheet').dialog()" %> <%= render :partial => 'reports/timesheet' %> |
 	<%= link_to "Download PDF", params.merge(:format => :pdf) %>
 	</div>
