@@ -11,7 +11,7 @@
     <th></th>
   </tr>
   <tr>
-    <td><%= f.date_select :date %></td>
+    <td><%= f.text_field :date, :class => "date" %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
     <td><%= collection_select(nil, :project_id, current_user.projects.open.all, :id, :title, {:prompt => "Select Project"} ) %></td>
     <td><%= f.text_field :description, :size => 65 %></td>
