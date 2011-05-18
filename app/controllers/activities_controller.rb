@@ -55,6 +55,15 @@ class ActivitiesController < ApplicationController
       end
     end
   end
+  
+  def quick_create
+    @project = current_user.projects.find_by_id(params[:project_id])
+    @activity = @project.blank? ? current_user.activities.new(params[:activity]) : @project.activities.new(params[:activity])
+    @activity.save
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def update
     @project = current_user.projects.find(params[:project_id])

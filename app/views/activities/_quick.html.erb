@@ -1,4 +1,4 @@
-<%= form_for([@activity, @current_user.activities.new]) do |f| %>
+<%= form_for(current_user.activities.new, :url => quick_create_activities_path, :method => :post, :remote => true) do |f| %>
 
 <div class="alert">Andrés, can you please add JS calendar for date field and fix the bug. I want to post AJAX notification and render form again</div>
 
