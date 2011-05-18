@@ -1,0 +1,4 @@
+date,time,description
+<% @activities.each do |activity| %>
+<%= l activity.date %>,<%= activity.time %>,"<%= activity.description %>"
+<% end %>

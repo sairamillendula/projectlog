@@ -19,6 +19,7 @@ class ReportsController < ApplicationController
     respond_to do |format|
       format.js { @activities = @activities.page(params[:page]).per(10) }
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
+      format.csv
     end
   end
   
