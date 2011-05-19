@@ -23,7 +23,7 @@ class Report < ActiveRecord::Base
   end
   
   def project_title
-    project.present? ? project.title : "all projects"
+    project.present? ? project.title : "All Projects"
   end
     
   def description

@@ -4,5 +4,5 @@
   $('#new_activity_link').show();
   alert("Activity was succesfully created");
 <% else %>
-  alert("Could not save. Please check your input");
+  alert("Please fill in all the fields: <%= @activity.errors.full_messages.to_sentence %>.");
 <% end %>

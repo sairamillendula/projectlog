@@ -13,10 +13,10 @@
 <div id="quick_search">
   <h2>Quick Search</h2>
   <%= form_for @report, :url => reports_path, :html => { :method => :post, :id => "new_quick_report" } do |f| %>
-    <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "all projects", :id => "quick_search_project_id" %> during 
-    <%= last_months_select :"report[start_date]", :selected => @report.start_date, :id => "quick_search_start_date" %></p>
+    <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "quick_search_project_id" %> during 
+    <%= last_months_select :"report[start_date]", :selected => @report.start_date, :id => "quick_search_start_date" %> <span class="submit"><%= f.submit "Create Report" %></span></p>
     
-    <p class="submit"><%= f.submit "Create Report" %></p>
+    
   <% end %>  
 </div>
 
@@ -24,11 +24,11 @@
   <h2>Advanced Search</h2>
   <%= form_for @report, :url => reports_path, :html => { :method => :post, :id => "new_advanced_report" } do |f| %>
 
- <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "all projects", :id => "advanced_search_project_id" %>
+ <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "advanced_search_project_id" %>
    from <%= f.text_field :start_date, :size => 12, :class => "date" %>
-   to <%= f.text_field :end_date, :size => 12, :class => "date" %></p>
-
-  <p class="submit"><%= f.submit 'Create Report' %></p>
+   to <%= f.text_field :end_date, :size => 12, :class => "date" %>
+  <span class="submit"><%= f.submit 'Create Report' %></span>
+ </p>
   <% end %>
 </div>
 
@@ -36,9 +36,9 @@
 
 <% if current_user.reports.any? %>
   <h4>Recent reports</h4>
-  <ul>
+  <ul id="recent-reports">
   <% current_user.reports.order("created_at DESC").limit(5).each do |report| %>
-    <li><%= link_to report.description, report %> <b><%= time_ago_in_words(report.created_at) %> ago</b></li>
+    <li><%= link_to report.description, report %> <span id="report-age"><%= time_ago_in_words(report.created_at) %> ago</span></li>
   <% end %>
   </ul>
 <% end %>

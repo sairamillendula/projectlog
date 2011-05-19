@@ -10,6 +10,6 @@ module ReportsHelper
   end
   
   def report_project_select(field_name, projects, options = {})
-    select_tag(field_name, options_for_select([["all projects", ""]] + projects.collect { |project| [project.title, project.id] }, options[:selected]), options)
+    select_tag(field_name, options_for_select([["All Projects", ""]] + projects.collect { |project| [project.title, project.id] }, options[:selected]), options)
   end
 end

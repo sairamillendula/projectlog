@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20110518225238) do
     t.string   "country"
     t.string   "phone_number"
     t.string   "localization"
+    t.float    "hours_per_day"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

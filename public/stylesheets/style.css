@@ -945,3 +945,13 @@ margin: auto;
 #report_chart {
 height:200px;
 }
+
+#report-age {
+font-size: 10px;
+font-weight: bold;
+}
+
+#recent-reports a {
+text-decoration: none;
+margin-right: 8px;
+}

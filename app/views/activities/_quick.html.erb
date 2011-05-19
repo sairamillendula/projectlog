@@ -10,7 +10,7 @@
     <th>Description</th>
     <th></th>
   </tr>
-  <tr>
+  <tr id="activity-fields">
     <td><%= f.text_field :date, :class => "date", :size => 12 %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
     <td><%= collection_select(nil, :project_id, current_user.projects.open.all, :id, :title, {:prompt => "Select Project"} ) %></td>
