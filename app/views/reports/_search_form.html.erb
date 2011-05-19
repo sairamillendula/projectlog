@@ -33,3 +33,12 @@
 </div>
 
 <%= link_to "Show/Hide Advanced Search", "#", :id => "toggle_search_form" %>
+
+<% if current_user.reports.any? %>
+  <h4>Recent reports</h4>
+  <ul>
+  <% current_user.reports.order("created_at DESC").limit(5).each do |report| %>
+    <li><%= link_to report.description, report %> <b><%= time_ago_in_words(report.created_at) %> ago</b></li>
+  <% end %>
+  </ul>
+<% end %>
