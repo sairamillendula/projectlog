@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :projects, :dependent => :destroy
   has_many :connections, :through => :customers, :source => :contacts
   has_many :activities, :through => :projects
+  has_many :reports, :dependent => :destroy
   
   
   # Devise change to allow users edit their accounts without providing a password
