@@ -1,6 +1,6 @@
 <%= form_for(current_user.activities.new, :url => quick_create_activities_path, :method => :post, :remote => true) do |f| %>
 
-<div class="alert">Andrés, can you please add JS calendar for date field and fix the bug. I want to post AJAX notification and render form again</div>
+<h2>Add a New Activity</h2><br/>
 
 <table>
   <tr>
@@ -11,7 +11,7 @@
     <th></th>
   </tr>
   <tr>
-    <td><%= f.text_field :date, :class => "date" %></td>
+    <td><%= f.text_field :date, :class => "date", :size => 12 %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
     <td><%= collection_select(nil, :project_id, current_user.projects.open.all, :id, :title, {:prompt => "Select Project"} ) %></td>
     <td><%= f.text_field :description, :size => 65 %></td>
