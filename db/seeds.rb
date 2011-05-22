@@ -17,7 +17,7 @@ Contact.create(:customer_id => '3', :first_name => 'Pauline', :last_name => 'Del
 
 15.times do |p|
   project = user1.projects.create(
-    :title => "Project#{p}",
+    :title => "Project #{p}",
     :customer_id => [ 1, 2, 3 ].sample,
     :status => [ true, false ].sample,
     :default_rate => [ 10, 20, 30, 40, 50 ].sample,
@@ -27,12 +27,13 @@ Contact.create(:customer_id => '3', :first_name => 'Pauline', :last_name => 'Del
   project.save!
 end
 
+project1 = user1.projects.first
+
 100.times do |a|
-  activity = Activity.create(
-    :description => "Activity numero#{id}",
-    :project_id = [ 1, 2, 3, 4, 5 ].sample,
-    :time = [ 1, 2, 3, 3.5, 4.5, 10, 7.5, 1.5, 8 ].sample,
-    :date = Time.now.to_date,
+  activity = project1.activities.create(
+    :description => "Activity numéro #{a}",
+    :time => [ 1, 2, 3, 3.5, 4.5, 10, 7.5, 1.5, 8 ].sample,
+    :date => Time.now.to_date
   )
   activity.save!
 end
