@@ -13,8 +13,16 @@
 
 <div class="inline-form">
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :title, :class => 'mandatory' %>
     <%= f.text_field :title, :size => '100' %>
+  </div>
+  <div class="field">
+    <%= f.label :internal, 'Internal?' %>
+    <%= f.check_box :internal %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_id, :class => 'mandatory' %>
+    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
   </div>
   <div class="field">
     <%= f.label :description %>
@@ -22,20 +30,16 @@
   </div>
   <% if !@project.new_record? %>
   	  <div class="field">
-	    <%= f.label :status_id %>
-	    <%= collection_select(:project, :project_status_id, ProjectStatus.all, :id, :name, options = {:prompt => "Select Status"} ) %>
+	    <%= f.label :status %>
+	    <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
 	  </div>
   <% end %>
-  <div class="field">
-    <%= f.label :customer_id %>
-    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
-  </div>
   <div class="field">
     <%= f.label :default_rate, 'Hourly Rate' %>
     <%= f.text_field :default_rate, :size => '8' %>
   </div>
   <div class="field">
-    <%= f.label :billing_code_id %>
+    <%= f.label :billing_code_id, 'Billing' %>
     <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing Method"} ) %>
   </div>
   <div class="actions">

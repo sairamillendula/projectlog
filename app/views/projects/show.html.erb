@@ -1,8 +1,14 @@
+<div>
+   <h1><%= @project.title %>
+     <% if @project.internal? %><span class="internal">INTERNAL</span> <% end %>
+     <% if @project.status? %>
+       <span class="status open">OPEN</span>
+     <% else %>
+       <span class="status">CLOSED</span> 
+     <% end %>
+   </h1>
+<div>
 <div id="column_left">
-	<p>
-	<h1>
-	   <%= @project.title %>
-	</h1></p>
 	<p>
 	   <b>Description:</b>
 	   <%= @project.description %>
@@ -11,32 +17,31 @@
     <%= link_to 'Edit', edit_project_path(@project) %> |
 	<%= link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete %>
 </div>
+	<% if !@project.internal? %>
 <div id="column_right">
-	<p>
-	   <label class="label-wide">Status:</label>
-	   <%= @project.project_status.name %>
-	</p>
-	<p>
-	   <label class="label-wide">Customer:</label>
-	   <%= @project.customer.name %>
-	</p>
-	<p>
-	   <label class="label-wide">Default Rate:</label>
-       <% if @current_user.profile.localization.present? %>
-	      <%= number_to_currency(@project.default_rate) %>
-	   <% else %>
-	      <%= @project.default_rate %>
-	    <% end %>
-	   <br/>
-	</p>
-	<p>
-	   <label class="label-wide">Billing:</label>
-	   <% if @project.billing_code_id.present? %>
-	      <%= @project.billing_code.name %>
-	   <% end %>
-	</p>
-</div>
 
+	  <p>
+		<label class="label-wide">Customer:</label>
+	    <%= @project.customer.name %>
+	  </p>
+	  <p>
+	    <label class="label-wide">Default Rate:</label>
+          <% if @current_user.profile.localization.present? %>
+	        <%= number_to_currency(@project.default_rate) %>
+	      <% else %>
+	        <%= @project.default_rate %>
+	      <% end %>
+	    <br/>
+	  </p>
+	  <p>
+	     <label class="label-wide">Billing:</label>
+	       <% if @project.billing_code_id.present? %>
+	         <%= @project.billing_code.name %>
+	       <% end %>
+	  </p>
+	
+</div>
+<% end %>
 <div id="activities">
   <%= render "activities/activities" %>
 </div>

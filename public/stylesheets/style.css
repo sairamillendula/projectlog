@@ -381,6 +381,11 @@ margin-top: 4px;
 margin-bottom: 20px;
 }
 
+#project_internal {
+margin-top: 8px;
+}
+
+
 .mandatory {
 font-weight: bold;
 }
@@ -476,6 +481,45 @@ background: #EAF2F5 url('/images/info_background.gif') no-repeat;
 
 form #activity_search {
 margin-bottom: 0;
+}
+
+.status {
+float: right;
+display: block;
+padding: 7px 10px;
+font-size: 12px;
+font-weight: bold;
+color: white;
+text-align: center;
+background: #666;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+.open {
+background: #6CC644;
+}
+
+.internal {
+float: right;
+display: block;
+padding: 7px 10px;
+font-size: 12px;
+font-weight: bold;
+color: white;
+text-align: center;
+background: #000;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+margin-left: 10px;
+}
+
+
+/* Activities */
+#time-entries {
+clear: both;
 }
 
 /*Add transaction*/

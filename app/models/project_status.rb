@@ -1,6 +1,6 @@
 class ProjectStatus < ActiveRecord::Base
 
-  has_many :projects
+  #has_many :projects
 
   attr_accessible :name, :position
   validates :name, :presence => true, :uniqueness => true

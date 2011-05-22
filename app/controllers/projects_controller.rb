@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
     end
   end
   
-  private
+private
   def sort_column
     Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end
@@ -83,4 +83,5 @@ class ProjectsController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
+      
 end
