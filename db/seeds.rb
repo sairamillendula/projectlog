@@ -14,3 +14,25 @@ Contact.create(:customer_id => '1', :first_name => 'Bonny', :last_name => 'Wong-
 Contact.create(:customer_id => '2', :first_name => 'Ron', :last_name => 'Lewis', :title => 'GIS Business OPS Team Lead', :phone => '415 400 0845', :email => 'Ron.Lewis@aafc-aagc.gc.ca')
 
 Contact.create(:customer_id => '3', :first_name => 'Pauline', :last_name => 'Delaire', :title => 'Directrice', :phone => '819 400 0845', :email => 'pauline@agapvieuxgatineau.ca')
+
+15.times do |p|
+  project = user1.projects.create(
+    :title => "Project#{p}",
+    :customer_id => [ 1, 2, 3 ].sample,
+    :status => [ true, false ].sample,
+    :default_rate => [ 10, 20, 30, 40, 50 ].sample,
+    :billing_code_id => [ 1, 2, 3, 4 ].sample,
+    :internal => [ true, false ].sample
+  )
+  project.save!
+end
+
+100.times do |a|
+  activity = Activity.create(
+    :description => "Activity numero#{id}",
+    :project_id = [ 1, 2, 3, 4, 5 ].sample,
+    :time = [ 1, 2, 3, 3.5, 4.5, 10, 7.5, 1.5, 8 ].sample,
+    :date = Time.now.to_date,
+  )
+  activity.save!
+end

@@ -1,1 +1,17 @@
-<%= render :partial => 'activities/quick' %>
+<% if current_user.projects.any? %>
+  <%= render :partial => 'activities/quick' %>
+<% else %>
+  <%= render :partial => 'pages/introduction' %>
+<% end %>
+
+<img src="images/buttons.png"></img>
+
+<p class="blue">Blue Button</p>
+
+<p class="green">Download</p>
+
+<p class="blue2">Download</p><br /><br/><br/>
+
+<p class="orange">Download</p>
+
+<p><a href="#" class="largebuttonorange">Download</a></p>
