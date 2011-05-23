@@ -23,6 +23,9 @@ Projectlog::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
   
+  # Dev Host
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
   # Gmail SMTP server setup
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {  
@@ -30,7 +33,7 @@ Projectlog::Application.configure do
     :port                 => 587,  
     #:domain               => "koopon.ca",  
     :user_name            => "gaelledeals@gmail.com",  
-    :password             => "socrate",  
+    :password             => "socrate19",  
     :authentication       => "plain",  
     :enable_starttls_auto => true  
   } 

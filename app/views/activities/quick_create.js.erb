@@ -1,6 +1,7 @@
 <% if @activity.valid? %>
   $("form#new_activity").get(0).reset(); // Clear out the form
   $("#activity-fields").effect("highlight", {}, 1000);
+  $("#recent-activities").html($("<%= escape_javascript render(:partial => 'activities/recent') %>"));
 <% else %>
   alert("Please fill in all the fields: <%= @activity.errors.full_messages.to_sentence %>.");
 <% end %>

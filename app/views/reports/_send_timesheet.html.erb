@@ -1,0 +1,18 @@
+<%= form_tag(:id => 'send_timesheet_form', :style => 'display:none') do %>
+  <div class="field">
+    <%= label_tag :email, "Recipient" %><br />
+    <%= select_field_tag :email %>
+  </div>
+  <div class="field">
+    <%= label_tag :subject %><br />
+    <%= text_field_tag :subject %>
+  </div>
+  <div class="field">
+    <%= label_tag :message %><br />
+    <%= text_field_tag :message %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Send' %> or
+    <%= link_to 'Cancel', '#', :onclick => "$('#send_timesheet_form').slideUp()" %>
+  </div>
+<% end %>

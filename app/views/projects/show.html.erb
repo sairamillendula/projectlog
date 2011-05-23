@@ -15,7 +15,7 @@
 	</p>
 	<%= link_to 'All Projects', projects_path %> |
     <%= link_to 'Edit', edit_project_path(@project) %> |
-	<%= link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete %>
+	<%= link_to 'Destroy', @project, :confirm => 'You are about to delete a project and all activities associated. You will not be able to report nor search on these activities anymore and tis can not be undone. Are you sure you want to do this?', :method => :delete %>
 </div>
 	<% if !@project.internal? %>
 <div id="column_right">

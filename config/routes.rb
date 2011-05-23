@@ -11,9 +11,9 @@ Projectlog::Application.routes.draw do
   root :to => 'pages#dashboard'
 
   resources :customers do 
-    resources :contacts
+    resources :contacts, :projects
   end
-
+  
   resources :projects do 
     collection do
       get "closed"

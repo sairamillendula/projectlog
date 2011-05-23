@@ -1,8 +1,21 @@
+<% if current_user.customers.empty? %>
+   <p>1- Create your first customer</p>
+<% end %>
+
 <% if current_user.projects.any? %>
   <%= render :partial => 'activities/quick' %>
 <% else %>
-  <%= render :partial => 'pages/introduction' %>
+  <p>2- Create your first project</p>
+<% end %> 
+
+<% if current_user.activities.any? %>
+  <h2>Recent Activities</h2><br />
+     <%= render :partial => 'activities/recent' %>
+<% else %>
+  <p>3- Track Time</p> 
 <% end %>
+
+<p>4- Get Paid</p>
 
 <img src="images/buttons.png"></img>
 
