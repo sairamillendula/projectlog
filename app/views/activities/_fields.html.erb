@@ -7,7 +7,7 @@
     <th></th>
   </tr>
   <tr>
-    <td><%= f.date_select :date %></td>
+    <td><%= f.text_field :date, :class => "date" %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
     <td><%= f.text_field :description, :size => 65 %></td>
     <td><%= f.submit %></td>

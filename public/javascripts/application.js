@@ -10,7 +10,10 @@ $(function() {
   };
   $("#activities_search input").live("keyup", execute_remote_search);  
   
-  $("input.date").datepicker({dateFormat : "yy-mm-dd"});
+  
+  $("input.date").live('click', function() {
+    $(this).datepicker({showOn:'focus', dateFormat : "yy-mm-dd"}).focus();
+  });
   
   $("#toggle_search_form").click(function(e){
     $("#quick_search").toggle("fast");
