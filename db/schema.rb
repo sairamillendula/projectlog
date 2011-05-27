@@ -81,8 +81,14 @@ ActiveRecord::Schema.define(:version => 20110521224257) do
     t.string   "country"
     t.string   "phone_number"
     t.string   "localization"
-    t.float    "hours_per_day"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_statuses", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
