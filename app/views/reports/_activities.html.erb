@@ -12,12 +12,12 @@
            <%= text_field_tag :search, params[:search] %>
            <%= submit_tag "Filter", :name => nil %>
 	       <div id="export" class="right">
-	         <%= link_to "Export this table to CSV", params.merge(:format => :csv) %> | 
-	         <%= link_to 'Email Report', '#', :onclick => "alert('Just send this link in an email: #{report_url(@report, :format => :pdf)}');" %> |
-	         <%= link_to "Download PDF", params.merge(:format => :pdf) %> 
+	         <%= link_to "Export this table to CSV", params.merge(:format => :csv, :action => "shared") %> | 
+	         <%= link_to 'Email Report', '#', :onclick => "alert('Just send this link in an email: #{shared_report_url(@report)}');" %> |
+	         <%= link_to "Download PDF", params.merge(:format => :pdf, :action => "shared") %> 
 	      </div>
         </div>
-  <% end %>
+     <% end %>
    
   <table>
     <tr>

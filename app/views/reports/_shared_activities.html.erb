@@ -1,0 +1,35 @@
+<% if @activities.empty? %>
+  <div class="no-occurence">
+    <p>No activity matches your search criteria.</p>
+  </div>
+<% else %>   
+  <table>
+    <tr>
+      <th><%= sortable "date" %></th>
+      <th><%= sortable "time" %></th>
+      <th><%= sortable "description" %></th>
+      <th><%= sortable "project_id", { }, "Project" %></th>
+    </tr>
+
+    <% @activities.each do |activity| %>
+    <tr>
+      <td class="date"><%= l activity.date, :format => :short %></td>
+      <td class="time"><%= activity.time %></td>
+      <td class="description"><%= activity.description %></td>
+      <td class="project"><%= activity.project.title %></td>      
+    </tr>
+    <% end %>
+
+    <tr class="total">
+      <th class="total right">TOTAL</th>
+      <th><%= @report.total_time %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </table>
+
+  <div class="right">
+    <%= paginate @activities %>
+  </div>
+  
+<% end %>

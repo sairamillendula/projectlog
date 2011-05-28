@@ -30,6 +30,9 @@ Projectlog::Application.routes.draw do
     collection do
       get "search"
     end
+    member do
+      get "shared"
+    end
   end
   
   resources :reports do

@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_filter :authenticate_user!, :except => :show
+  before_filter :authenticate_user!, :except => :shared
   set_tab :reports
   helper_method :sort_column, :sort_direction
   before_filter :send_timesheet
@@ -25,11 +25,20 @@ class ReportsController < ApplicationController
     respond_to do |format|
       format.html { @activities = @activities.page(params[:page]).per(10) }
       format.js { @activities = @activities.page(params[:page]).per(10) }
-      format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
-      format.csv      
     end
   end
   
+  def shared # Like show, except is public for everybody.
+    @report = Report.find_by_slug!(params[:id])
+    @activities = @report.activities.search(params[:search]).order(sort_column + " " + sort_direction)
+    respond_to do |format|
+      format.html { @activities = @activities.page(params[:page]).per(10) }
+      format.js { @activities = @activities.page(params[:page]).per(10) }
+      format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
+      format.csv      
+    end    
+  end
+    
   def send_timesheet
     
   end
