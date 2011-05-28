@@ -1,1 +1,1 @@
-$("#activities").prepend("<%= escape_javascript render(:partial => "form") %>");
+$("#row_for_activity_<%= @activity.id %>").html("<%= escape_javascript render(:partial => "edit_form") %>");

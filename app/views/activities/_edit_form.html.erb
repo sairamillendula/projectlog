@@ -1,0 +1,8 @@
+<td colspan="5">
+  <%= form_for([@project, @activity], :remote => true) do |f| %>
+    <%= f.text_field :date, :class => "date", :size => 12 %>
+    <%= f.text_field :time, :size => 4 %>
+    <%= f.text_field :description, :size => 85 %>
+    <%= f.submit %>
+  <% end %>
+</td>

@@ -76,9 +76,11 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.update_attributes(params[:activity])
         format.html { redirect_to(@project, :notice => 'Activity was successfully updated.') }
+        format.js
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
+        format.js
         format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
       end
     end

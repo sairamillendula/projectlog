@@ -1,15 +1,10 @@
 <div id="recent-activities">
 
  <table>
-   <% current_user.activities.order("created_at DESC").limit(5).each do |activity| %>
-     
-    <tr>
-      <td class="date"><%= l activity.date, :format => :short %></td>
-      <td class="time"><%= activity.time %></td>
-      <td class="description"><%= activity.description %></td>
-      <td class="actions"><%= link_to 'Edit', edit_activity_path(activity), :remote => true %></td>
-      <td class="actions"><%= link_to 'Destroy', activity_path(activity), :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+   <% current_user.activities.order("created_at DESC").limit(5).each do |activity| %>     
+     <%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
+        <%= render :partial => "activities/activity", :locals => { :activity => activity } %>
+     <% end %>
    <% end %>
  </table>
 </div>

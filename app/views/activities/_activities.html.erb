@@ -40,13 +40,9 @@
     </tr>
 
     <% @activities.each do |activity| %>
-    <tr>
-      <td class="date"><%= l activity.date, :format => :short %></td>
-      <td class="time"><%= activity.time %></td>
-      <td class="description"><%= activity.description %></td>
-      <td class="actions"><%= link_to 'Edit', edit_project_activity_path(@project, activity), :remote => true %></td>
-      <td class="actions"><%= link_to 'Destroy', project_activity_path(@project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+      <% content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
+        <%= render activity %>
+      <% end %>
     <% end %>
 
     <tr class="total">
