@@ -9,6 +9,10 @@ class Reports::EmailsController < ApplicationController
   end
   
   def create
+    @email = Reports::Email.new(params[:reports_email].merge(:from => current_user.name_with_email))
+    if @email.valid?
+      # TODO: Send the real email here.
+    end
     respond_to do |format|
       format.js
     end

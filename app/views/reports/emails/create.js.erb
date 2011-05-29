@@ -1,1 +1,5 @@
-alert("Sorry, the message was not sent because the developer has not implemented this functionality yet!");
+<% if @email.valid? %>
+  alert("The fields are valid. The email will be sent in one sec!");
+<% else %>
+  alert("Please fix the following errors: <%= @email.errors.full_messages.to_sentence %>.");
+<% end %>
