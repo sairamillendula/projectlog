@@ -13,7 +13,7 @@
            <%= submit_tag "Filter", :name => nil %>
 	       <div id="export" class="right">
 	         <%= link_to "Export this table to CSV", params.merge(:format => :csv, :action => "shared") %> | 
-	         <%= link_to 'Email Report', '#', :onclick => "alert('Just send this link in an email: #{shared_report_url(@report)}');" %> |
+	         <%= link_to 'Email Report', new_report_email_path(@report), :remote => true %> |
 	         <%= link_to "Download PDF", params.merge(:format => :pdf, :action => "shared") %> 
 	      </div>
         </div>

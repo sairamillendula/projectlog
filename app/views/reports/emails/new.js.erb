@@ -1,0 +1,10 @@
+alert("You are going to send an email.");
+
+var d = $('<div></div>')
+		.html('This dialog will show every time!')
+		.dialog({
+			autoOpen: false,
+			title: 'Basic Dialog'
+		});
+
+d.dialog("open");
