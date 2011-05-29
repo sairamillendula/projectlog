@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   end
   alias_method :name, :full_name
   
+  def name_with_email
+    "#{full_name} <#{email}>"
+  end
+  
 private
   def build_profile
     logger.debug "It's time to create the account."
