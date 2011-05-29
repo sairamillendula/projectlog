@@ -1,10 +1,6 @@
-alert("You are going to send an email.");
-
-var d = $('<div></div>')
-		.html('This dialog will show every time!')
+$('<div></div>')
+		.html('<%= escape_javascript render("form") %>')
 		.dialog({
-			autoOpen: false,
-			title: 'Basic Dialog'
-		});
-
-d.dialog("open");
+			autoOpen: true,
+			title: 'Share this report via email'
+    });

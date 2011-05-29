@@ -1,0 +1,9 @@
+<%= form_tag report_emails_path(@report), :remote => :true do %>
+  <%= label_tag :"email[to]", "To" %>
+  <%= text_field_tag :"email[to]" %> <br />
+  <%= label_tag :"email[subject]", "Subject" %>
+  <%= text_field_tag :"email[subject]" %> <br />
+  <%= label_tag :"email[body]", "Message" %>
+  <%= text_area_tag :"email[body]" %> <br />
+  <%= submit_tag "Send!" %>
+<% end %>
