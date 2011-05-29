@@ -33,6 +33,7 @@ Projectlog::Application.routes.draw do
     member do
       get "shared"
     end
+    resources :emails, :only => [ :new, :create ], :controller => "reports/emails"
   end
   
   resources :reports do
