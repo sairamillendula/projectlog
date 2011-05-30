@@ -1,6 +1,6 @@
 <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
   <%= f.label :to %>
-  <%= f.text_field :to %> <br />
+  <%= f.select :to, current_user.connections.select { |c| c.email.present? }.collect { |c| [c.full_name, c.email] }, { :prompt => "Select a contact" } %> <br />
   <%= f.label :subject %>
   <%= f.text_field :subject %> <br />
   <%= f.label :body, "Message" %> <br />
