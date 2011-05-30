@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = current_user.projects.new
-
+    @project.customer = current_user.customers.find_by_id(params[:customer_id])
     respond_to do |format|
       format.html # new.html.erb
     end

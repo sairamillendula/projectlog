@@ -20,10 +20,19 @@
     <%= f.label :internal, 'Internal?' %>
     <%= f.check_box :internal %>
   </div>
-  <div class="field">
-    <%= f.label :customer_id, :class => 'mandatory' %>
-    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
-  </div>
+  
+  <% if @project.persisted? || @project.customer.blank?  %>
+  <%# Hide the customer field if it's a new project but already has the customer set up. %>
+    <div class="field">
+      <%= f.label :customer_id, :class => 'mandatory' %>
+      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
+    </div>
+  <% else %>
+      <b>Customer</b>
+      <%= @project.customer.name %>
+    </div>
+  <% end %>
+  
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description, :cols => '88', :rows => '6' %>
