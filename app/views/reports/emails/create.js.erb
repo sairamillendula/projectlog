@@ -1,5 +1,7 @@
 <% if @email.valid? %>
-  alert("The fields are valid. The email will be sent in one sec!");
+  alert("Email sent!");
+  $("#send_report_email_dialog").dialog("close");
 <% else %>
+  $("#send_report_email_dialog .status_indicator").html("");  
   alert("Please fix the following errors: <%= @email.errors.full_messages.to_sentence %>.");
 <% end %>

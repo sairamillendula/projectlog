@@ -13,6 +13,10 @@ class Reports::Email
     end
   end
   
+  def deliver
+    ReportsMailer.report_shared_with_you(self).deliver
+  end
+  
   def persisted?
     false
   end  
