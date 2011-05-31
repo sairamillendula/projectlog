@@ -2,7 +2,6 @@ class ReportsController < ApplicationController
   before_filter :authenticate_user!, :except => :shared
   set_tab :reports
   helper_method :sort_column, :sort_direction
-  before_filter :send_timesheet
   
   def new
     @report = Report.new
@@ -38,10 +37,7 @@ class ReportsController < ApplicationController
       format.csv      
     end    
   end
-    
-  def send_timesheet
-    
-  end
+
   
   private
   def sort_column
