@@ -31,7 +31,10 @@ class ReportsController < ApplicationController
     @report = Report.find_by_slug!(params[:id])
     @activities = @report.activities.search(params[:search]).order(sort_column + " " + sort_direction)
     respond_to do |format|
-      format.html { @activities = @activities.page(params[:page]).per(10) }
+      format.html do
+        @activities = @activities.page(params[:page]).per(10)
+        render :layout => false
+      end
       format.js { @activities = @activities.page(params[:page]).per(10) }
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
       format.csv      
