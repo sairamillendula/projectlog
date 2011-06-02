@@ -42,6 +42,10 @@ Projectlog::Application.routes.draw do
     end
   end
   
+  namespace :admin do
+    resource :settings
+  end
+  
   # allow "/users/login" and "/login"
   devise_scope :user do
     get "register", :to => "devise/registrations#new"

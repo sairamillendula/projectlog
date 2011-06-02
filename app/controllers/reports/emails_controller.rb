@@ -1,7 +1,7 @@
 class Reports::EmailsController < ApplicationController
   def new
     @report = Report.find_by_slug!(params[:report_id])
-    @email = Reports::Email.new(:body => "Hello,\n\nTake a look at this report: #{shared_report_url(@report)}\n\nTalk soon,\n\n#{current_user.name}", :subject => "I want to share this report with you", :report_link => shared_report_url(@report))
+    @email = Reports::Email.new(:body => Settings["reports.email.body"], :subject => Settings["reports.email.subject"], :report_link => shared_report_url(@report))
     respond_to do |format|
       format.html
       format.js

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110521224257) do
+ActiveRecord::Schema.define(:version => 20110602005519) do
 
   create_table "activities", :force => true do |t|
     t.date     "date"
@@ -81,8 +81,14 @@ ActiveRecord::Schema.define(:version => 20110521224257) do
     t.string   "country"
     t.string   "phone_number"
     t.string   "localization"
-    t.float    "hours_per_day"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_statuses", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,6 +124,17 @@ ActiveRecord::Schema.define(:version => 20110521224257) do
     t.string   "slug"
   end
 
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
+
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
@@ -132,6 +149,7 @@ ActiveRecord::Schema.define(:version => 20110521224257) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

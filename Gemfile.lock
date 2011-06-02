@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/100hz/rails-settings.git
+  revision: 381949bf9d0f32e8ebf6e93bd2ce62940b245f46
+  specs:
+    rails-settings (0.1.1)
+      rails (>= 3.0.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -116,6 +123,7 @@ DEPENDENCIES
   kaminari
   pdfkit
   rails (= 3.0.3)
+  rails-settings!
   rb-fsevent
   sqlite3-ruby
   tabs_on_rails
