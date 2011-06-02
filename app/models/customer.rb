@@ -6,7 +6,7 @@ class Customer < ActiveRecord::Base
   
   attr_accessible :name, :phone, :address1, :address2, :postal_code, :city, :province, :country, :note
   
-  validates :name, :presence => true, :uniqueness => true
+  validates :name, :presence => true
   default_scope order('name')
   
 end
