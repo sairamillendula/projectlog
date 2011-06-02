@@ -6,6 +6,7 @@ class Reports::Email
   attr_accessor :to, :subject, :body, :from, :report_link
   
   validates_presence_of :to, :subject, :body, :from, :report_link
+  validate :body_must_contain_report_link
   
   def initialize(attributes = {})
     attributes.each do |name, value|
@@ -19,6 +20,10 @@ class Reports::Email
   
   def deliver
     ReportsMailer.report_shared_with_you(self).deliver
+  end
+  
+  def body_must_contain_report_link
+    errors.add(:body, "must contain a link to the report") unless body.include?(report_link)
   end
   
   def persisted?
