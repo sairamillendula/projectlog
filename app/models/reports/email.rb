@@ -13,6 +13,10 @@ class Reports::Email
     end
   end
   
+  def body
+    (@body || "").gsub("%{report_link}", report_link)
+  end
+  
   def deliver
     ReportsMailer.report_shared_with_you(self).deliver
   end
