@@ -1024,3 +1024,7 @@ td form.edit_activity {
   padding: 0;
   height: 30px;
 }
+
+#send_report_email_dialog input[type=submit] {
+  display: none; /* Hide the Send button on the AJAX dialog to send a report via email */
+}
