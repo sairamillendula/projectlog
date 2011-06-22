@@ -4,20 +4,22 @@
   </div>
 <% else %>
 
-<h1>Listing customers</h1>
-
+<h1>Listing Customers</h1>
 
 <% @customers.each do |customer| %>
-  <div class="occurence">
-	<h1><%= link_to customer.name, customer %></h1>
-	<p>
-	  <b>Phone:</b>
-	  <%= customer.phone %>
-	</p>
-	<% if customer.projects.any? %>
-	   <p><%= pluralize(customer.projects.count, "project") %></p>
-	<% end %>
-  </div>
+  	<ul id="card-entries">
+	  <li id="card">
+	    <div class="card-inner">
+	      <h1><%= link_to customer.name, customer %></h1>
+	        <p>
+	          <b>Phone:</b> <%= customer.phone %>
+	        </p>
+	           <% if customer.projects.any? %>
+	             <p><%= pluralize(customer.projects.count, "project") %></p>
+	           <% end %>
+        </div>
+      </li>
+    </ul>
 <% end %>
 
 <br />
@@ -30,7 +32,7 @@
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-	$(".occurence").click(function(){
+	$(".card-inner").click(function(){
 	  window.location=$(this).find("a").attr("href"); return false;
 	});
 });

@@ -1,12 +1,16 @@
-<h1>Open projects</h1>
-<div id="open-projects">
+<h1>Open Projects</h1>
+
   <% @open_projects.each do |project| %>
-    <div class='occurence'>
-      <h1><%= link_to project.title, project %></h1>
-      <p><%= project.customer.name %></p>
-    </div>
+    <ul id="card-entries">
+	  <li id="card">
+	    <div class="card-inner">
+	  	  <h1><%= link_to project.title, project %></h1>
+	      <p><%= project.customer.name %></p>
+	    </div>
+	  </li>
+	</ul>
   <% end %>
-</div>
+
 <div class="clear right">
  <%= paginate @open_projects, :remote => true %>   
 </div>

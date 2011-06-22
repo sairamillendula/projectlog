@@ -9,22 +9,8 @@
 <% end %> 
 
 <% if current_user.activities.any? %>
-  <h2>Recent Activities</h2><br />
+  <h1>Recent Activities</h1>
      <%= render :partial => 'activities/recent' %>
 <% else %>
   <p>3- Track Time</p> 
 <% end %>
-
-<p>4- Get Paid</p>
-
-<img src="images/buttons.png"></img>
-
-<p class="blue">Blue Button</p>
-
-<p class="green">Download</p>
-
-<p class="blue2">Download</p><br /><br/><br/>
-
-<p class="orange">Download</p>
-
-<p><a href="#" class="largebuttonorange">Download</a></p>
