@@ -9,6 +9,8 @@
         <p>No Open Projects</p>
      </div>
    <% else %>
+     <%= render :partial => 'layouts/submenu' %>
+
      <div id="open-projects-container">
        <%= render :partial => 'projects/open' %>
      </div>

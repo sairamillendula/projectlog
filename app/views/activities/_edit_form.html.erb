@@ -2,7 +2,7 @@
   <%= form_for([@project, @activity], :remote => true) do |f| %>
     <%= f.text_field :date, :class => "date", :size => 12 %>
     <%= f.text_field :time, :size => 4 %>
-    <%= f.text_field :description, :size => 65 %>
+    <%= f.text_field :description, :size => 76 %>
     <%= f.submit %>
     or <%= link_to "Cancel", project_activity_path(@project, @activity), :method => :put, :remote => true %>
   <% end %>

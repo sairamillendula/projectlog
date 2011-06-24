@@ -1,7 +1,7 @@
 <% if @contact.valid? %>
   $("<%= escape_javascript render(:partial => 'contacts/contact', :locals => { :contact => @contact }) %>").appendTo('#contacts');
-  $("#new_contact").remove();
-  $('#new_contact_link').show();
+  $("#new_contact_dialog").dialog("close");
+  $("#no-contact").remove();
 <% else %>
   alert("Please fill in all the fields.");
 <% end %>

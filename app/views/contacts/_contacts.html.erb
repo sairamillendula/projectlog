@@ -1,6 +1,6 @@
 <% if @customer.contacts.empty? %>
-  <div class="no-occurence">
-     <p>Add a new <%= link_to 'Contact', new_customer_contact_path(@customer) %></p>
+  <div id="no-contact" class="no-occurence">
+     <p>Add a new <%= link_to 'Contact', new_customer_contact_path(@customer), :remote => true %></p>
   </div>
 <% else %>
 

@@ -4,12 +4,12 @@
   </div>
 <% else %>
 
-<h1>Listing Customers</h1>
+<%= render :partial => 'layouts/submenu' %>
 
 <% @customers.each do |customer| %>
   	<ul id="card-entries">
-	  <li id="card">
-	    <div class="card-inner">
+	  <li id="card" class='customer'>
+	    <div class="card-inner customer">
 	      <h1><%= link_to customer.name, customer %></h1>
 	        <p>
 	          <b>Phone:</b> <%= customer.phone %>
@@ -24,9 +24,7 @@
 
 <br />
 
-<p class ="clear"><%= link_to 'New Customer', new_customer_path %></p>
-
-<a href="#" id="modal_link">Open modal window</a>
+<p class ="clear"><%= link_to 'New Customer', new_customer_path %> | <a href="#" id="modal_link">Open modal window</a></p>
 
 <% end %>
 
@@ -41,7 +39,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function() {
 		var $dialog = $('<div></div>')
-			.html('This dialog will show every time!')
+			.html('Here goes the content')
 			.dialog({
 				autoOpen: false,
 				title: 'Basic Dialog',

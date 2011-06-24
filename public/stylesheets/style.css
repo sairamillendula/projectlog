@@ -93,7 +93,7 @@ font-size: 12px;
 list-style: square;
 }
 
-/* Site structure */
+/* Header */
 header {
 background: white;
 padding: 10px;
@@ -226,6 +226,47 @@ border-radius: 3px;
 
 }
 
+/* Sub-menu*/
+#sub-menu {
+margin-bottom: 45px;
+-webkit-padding-start: 0px;
+}
+
+#sub-menu li {
+text-decoration: none;
+display: inline;
+text-align: right;
+margin-right: 15px;
+}
+
+.buttonorange {
+-moz-border-radius: 5px 5px 5px 5px;
+-moz-box-sizing:content-box;
+-webkit-box-sizing: content-box;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+#border:1px solid #BBBBBB;
+color:#464646;
+background:url("/images/yellow2.png") repeat-x scroll left top #F2F2F2;
+cursor:pointer;
+font-family:"Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+font-size:14px !important;
+line-height:16px;
+padding:6px 12px;
+text-decoration:none;
+}
+
+.buttonorange a {
+text-decoration: none;
+background: none;
+}
+
+.buttonorange a:hover {
+border-color: #666;
+color: #000;
+}
+
+/* Site Layout */
 #main-content {
 min-height: 800px; /* change this to avoid scrollbar issue with ajax new#transactions */
 background-color: #ffffff;
@@ -290,7 +331,6 @@ font-size: 16px;
 clear: right;
 }
 
-
 #card-entries {
 width: 925px;
 background-color: aqua;
@@ -310,8 +350,12 @@ padding: 5px;
 list-style: none;
 display: inline;
 float: left;
+height: 105px;
 }
 
+.customer {
+
+}
 
 .card-inner {
 background: white;
@@ -323,6 +367,10 @@ padding: 20px;
 text-align: left;
 color: black;
 display: block;
+}
+
+.card-inner customer {
+#height: 120px;
 }
 
 #card:hover {
@@ -475,7 +523,6 @@ word-wrap: break-word;
 /* Contact */
 #contacts {
 clear: both;
-padding-top: 30px;
 }
 
 .contact-info {

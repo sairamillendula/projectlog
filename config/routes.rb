@@ -1,5 +1,8 @@
 Projectlog::Application.routes.draw do
 
+  get "dashboard/show"
+  root :to => 'dashboard#show'
+
   resources :project_statuses
   resources :profiles, :contacts
 
@@ -8,7 +11,6 @@ Projectlog::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations" }
 
   get "pages/dashboard"
-  root :to => 'pages#dashboard'
 
   resources :customers do 
     resources :contacts, :projects

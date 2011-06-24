@@ -1,2 +1,11 @@
-$("<%= escape_javascript render(:partial => 'fields.js') %>").insertAfter('#contacts');
-$('#new_activity_link').hide();
+$('<div id="new_contact_dialog"><p>Test</p></div>')
+		.html('<%= escape_javascript render(:partial => 'fields.js') %>')
+		.dialog({
+			autoOpen: true,
+			modal: true,
+			title: 'Add a New Contact',
+			buttons: { 'Create Contact' :  function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+			width: 420
+    });
