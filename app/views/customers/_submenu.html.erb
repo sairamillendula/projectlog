@@ -1,0 +1,7 @@
+<ul id="sub-menu">
+	<li class="buttonorange"><%= link_to '+ New Customer', new_customer_path %></li>
+	<li class="buttonorange"><%= link_to 'Edit', edit_customer_path %></li>
+	<li class="buttonorange"><%= link_to 'All Customers', customers_path %>
+	<li class="buttonorange"><%= link_to 'Create Project', new_customer_project_path(@customer) %></li>
+	<li class="buttonorange"><%= link_to 'Destroy', @customer, :confirm => 'Are you sure?', :method => :delete %></li>
+</ul>

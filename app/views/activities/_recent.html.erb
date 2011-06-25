@@ -1,5 +1,7 @@
 <div id="recent-activities">
 
+<h1>Recent Activities</h1>
+
  <table class='activities'>
    <% current_user.activities.order("created_at DESC").limit(5).each do |activity| %>     
      <%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>

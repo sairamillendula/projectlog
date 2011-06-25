@@ -54,7 +54,7 @@
   <div class="field">
     <%= f.label :localization %><br />
     <p class="info">Select currency, date and number format</p>
-    <%= collection_select(:profile, :localization, Localization.all, :reference, :name) %>
+    <%= collection_select(:profile, :localization, Localization.all, :reference, :name, options = {:prompt => ""}) %>
   </div>
   <div class="field">
     <%= f.label :hours_per_day %><br />

@@ -1,3 +1,5 @@
+<%= render :partial => 'submenu' %>
+
 <div id="customer-info">
  <h1><%= @customer.name %></h1>
 
@@ -9,10 +11,7 @@
 	  <% end %>
 
 	<br/>
-	 <%= link_to 'All Customers', customers_path %> |
-	 <%= link_to 'Edit', edit_customer_path %> |
-	 <%= link_to 'Destroy', @customer, :confirm => 'Are you sure?', :method => :delete %> |
-	 <%= link_to 'Create Project', new_customer_project_path(@customer) %>
+	 
  </div>
 
  <div id="column_right">

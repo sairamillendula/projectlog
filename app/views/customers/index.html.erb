@@ -8,14 +8,14 @@
 
 <% @customers.each do |customer| %>
   	<ul id="card-entries">
-	  <li id="card" class='customer'>
+	  <li id="card">
 	    <div class="card-inner customer">
 	      <h1><%= link_to customer.name, customer %></h1>
 	        <p>
 	          <b>Phone:</b> <%= customer.phone %>
 	        </p>
 	           <% if customer.projects.any? %>
-	             <p><%= pluralize(customer.projects.count, "project") %></p>
+	             <p class="tagline"><%= pluralize(customer.projects.count, "project") %></p>
 	           <% end %>
         </div>
       </li>

@@ -1,15 +1,10 @@
-<%= render :partial => 'layouts/submenu' %>
-<%= render :partial => 'introduction' %>
-
-<% if current_user.projects.any? %>
-  <%= render :partial => 'activities/quick' %>
-<% else %>
-  <p>2- Create your first project</p>
-<% end %> 
-
 <% if current_user.activities.any? %>
-  <h1>Recent Activities</h1>
-     <%= render :partial => 'activities/recent' %>
+  <%= render :partial => 'layouts/submenu' %>
+  
+  <%= render :partial => 'activities/quick' %>
+
+  <%= render :partial => 'activities/recent' %>
+  
 <% else %>
-  <p>3- Track Time</p> 
+  <%= render :partial => 'introduction' %>
 <% end %>
