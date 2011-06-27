@@ -1,8 +1,12 @@
-<div id="activity_search">
-  <%= render :partial => "search_form" %>
+<% if @current_user.activities.empty? %>
+  <div class="no-occurence">
+    <p>You will be able to create reports as soon as you log Activities.</p>
+  </div>
+<% else %>
+  <div id="activity_search">
+    <%= render :partial => "search_form" %>
+  </div>
+   <div id="activities">
+  <p>Enter search criteria and hit "Create Report"</p>
 </div>
-
-
-<div id="activities">
-  <p>Select your search criteria and hit "Create Report"</p>
-</div>
+<% end %>

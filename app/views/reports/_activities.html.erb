@@ -2,7 +2,7 @@
   
   <% if @activities.empty? %>
   <div class="no-occurence">
-    <p>No activity matches your search criteria.</p>
+    <p>No Activities found.</p>
   </div>
   <% else %>
      <%= form_tag report_path(@report), :method => "get", :remote => true, :id => "activities_search" do %>

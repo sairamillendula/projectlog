@@ -1,20 +1,18 @@
 <%= render :partial => 'submenu' %>
 
+
+
 <div id="customer-info">
- <h1><%= @customer.name %></h1>
+  <div class="title">
+    <h1><%= @customer.name %></h1>
+    <span class="edit">
+      <%= link_to '← All Customers', customers_path %> | 
+      <%= link_to 'Edit', edit_customer_path %> | 
+      <%= link_to 'Destroy', @customer, :confirm => 'Are you sure?', :method => :delete %>
+    </span>
+  </div>
 
- <div id="column_left">
-	  <% if @customer.note.present? %>
-		 <p><%= @customer.note %></p>
-	  <% else %>
-	     <p><%= link_to "Add a Note", edit_customer_path(@customer) %></p>
-	  <% end %>
-
-	<br/>
-	 
- </div>
-
- <div id="column_right">
+  <div id="column_left">
   	<p>
 	  <label class="label">Phone:</label>
 	  <%= @customer.phone %><br/>
@@ -31,7 +29,17 @@
 	  <span class="indent_line"><%= @customer.city %> <%= @customer.province %> <%= @customer.postal_code %><br/></span>
 	  <span class="indent_line"><%= @customer.country %></span>
 	</p>
- </div>
+  </div>
+
+  <div id="column_right">
+	<% if @customer.note.present? %>
+	   <p><%= @customer.note %></p>
+	<% else %>
+	   <p><%= link_to "Add a Note", edit_customer_path(@customer) %></p>
+	<% end %>
+	<br/>
+  </div>
+
 </div>
 
 <div id="contacts">

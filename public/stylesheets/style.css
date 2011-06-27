@@ -268,6 +268,10 @@ color: #000;
 }
 
 /* Introduction */
+#introduction {
+padding-top:30px;
+}
+
 #introduction h1 {
 color: white;
 font-size: 16px;
@@ -386,7 +390,7 @@ margin-top: 20px;
 margin-bottom: 20px;
 margin-left: auto;
 margin-right: auto;
-width: 250px;
+width: 300px;
 }
 
 .no-occurence p {
@@ -582,9 +586,23 @@ font-size: 20px;
 word-wrap: break-word;
 }
 
-#customer-info {
+.title {
+display: block;
 }
 
+#customer-info h1 {
+width: 620px;
+float: left;
+margin-top: 0;
+}
+
+.edit {
+float: right;
+width: 230px;
+position: relative;
+text-align: right;
+line-height: 24px;
+}
 
 /* Contact */
 #contacts {
@@ -614,11 +632,11 @@ margin-right: auto;
 
 #closed-projects {
 clear: both;
-padding-top: 10px;
 }
 
 #activity_search {
 padding: 6px;
+margin-top: 20px;
 margin-bottom: 20px;
 border: 1px solid #BEDCE7;
 background: #EAF2F5 url('/images/info_background.gif') no-repeat;
@@ -665,6 +683,14 @@ margin-left: 10px;
 /* Activities */
 #time-entries {
 clear: both;
+}
+
+#quick-activity {
+margin-bottom: 45px;
+}
+
+#_project_id {
+width: 103px;
 }
 
 /*Add transaction*/

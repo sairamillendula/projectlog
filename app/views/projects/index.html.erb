@@ -9,18 +9,18 @@
         <p>No Open Projects</p>
      </div>
    <% else %>
-     <%= render :partial => 'layouts/submenu' %>
+     <%= render :partial => 'projects/submenu' %>
 
      <div id="open-projects-container">
        <%= render :partial => 'projects/open' %>
      </div>
    <% end %>
 
-<p class="clear"><%= link_to 'New Project', new_project_path %></p>
 
    <% if !@closed_projects.empty? %>
        <p id="closed_projects_toggle">
-	      <a href="#">Show/Hide Closed Projects</a></p>
+	      <a href="#">Show/Hide Closed Projects</a>
+	   </p>
      <%= render :partial => 'projects/closed' %>
    <% end %>
 <% end %>

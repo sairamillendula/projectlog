@@ -1,7 +1,9 @@
 <% if current_user.activities.any? %>
-  <%= render :partial => 'layouts/submenu' %>
+  <%= render :partial => 'submenu' %>
   
-  <%= render :partial => 'activities/quick' %>
+  <div id="quick-activity">
+    <%= render :partial => 'activities/quick' %>
+  </div>
 
   <%= render :partial => 'activities/recent' %>
   
