@@ -98,6 +98,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.8.7)
     rb-fsevent (0.4.0)
+    redcarpet (1.17.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     sqlite3 (1.3.3)
@@ -125,6 +126,7 @@ DEPENDENCIES
   rails (= 3.0.3)
   rails-settings!
   rb-fsevent
+  redcarpet
   sqlite3-ruby
   tabs_on_rails
   wkhtmltopdf-binary

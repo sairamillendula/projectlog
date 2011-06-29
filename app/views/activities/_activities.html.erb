@@ -36,7 +36,6 @@
       <th><%= sortable "time", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
       <th><%= sortable "description", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
       <th></th>
-      <th></th>
     </tr>
 
     <% @activities.each do |activity| %>
@@ -48,7 +47,6 @@
     <tr class="total">
       <th style="text-align:right" class="total">TOTAL</th>
       <th id="project_total_time"><%= @project.activities.sum(:time) %></th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>

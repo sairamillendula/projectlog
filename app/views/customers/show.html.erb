@@ -1,14 +1,10 @@
 <%= render :partial => 'submenu' %>
 
-
-
 <div id="customer-info">
   <div class="title">
     <h1><%= @customer.name %></h1>
     <span class="edit">
-      <%= link_to '← All Customers', customers_path %> | 
-      <%= link_to 'Edit', edit_customer_path %> | 
-      <%= link_to 'Destroy', @customer, :confirm => 'Are you sure?', :method => :delete %>
+
     </span>
   </div>
 
@@ -33,7 +29,7 @@
 
   <div id="column_right">
 	<% if @customer.note.present? %>
-	   <p><%= @customer.note %></p>
+	   <p><%= markdown(@customer.note) %></p>
 	<% else %>
 	   <p><%= link_to "Add a Note", edit_customer_path(@customer) %></p>
 	<% end %>

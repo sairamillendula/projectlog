@@ -1,5 +1,7 @@
 <td class="date"><%= l activity.date, :format => :short %></td>
 <td class="time"><%= activity.time %></td>
 <td class="description"><%= activity.description %></td>
-<td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity), :remote => true %></td>
-<td class="actions"><%= link_to 'Destroy', project_activity_path(activity.project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+
+<td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity), :remote => true %> <%= link_to image_tag("bin.png"), project_activity_path(activity.project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+
+

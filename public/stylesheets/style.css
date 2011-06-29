@@ -228,15 +228,18 @@ border-radius: 3px;
 
 /* Sub-menu*/
 #sub-menu {
-margin-bottom: 45px;
+margin-bottom: 0;
+padding-bottom: 25px;
 -webkit-padding-start: 0px;
+font-size: 14px;
 }
 
 #sub-menu li {
 text-decoration: none;
 display: inline;
 text-align: right;
-margin-right: 15px;
+margin-left: 15px;
+float: right;
 }
 
 .buttonorange {
@@ -623,7 +626,7 @@ height: 120px;
 float: left;
 }
 
-/* Project */
+/* Projects */
 #open-projects {
 width: 880px;
 margin-left: auto;
@@ -632,6 +635,19 @@ margin-right: auto;
 
 #closed-projects {
 clear: both;
+}
+
+#hide_closed {
+font-size: 13px;
+font-weight: normal;
+text-decoration: none;
+color: #A3A5AA;
+}
+
+#hide_closed:hover {
+background: none;
+#text-decoration: underline;
+color: inherit;
 }
 
 #activity_search {
@@ -1067,7 +1083,9 @@ width: 190px;
 }
 
 td.actions {
-width: 50px;
+width: 60px;
+text-align: right;
+padding-right: 10px;
 }
 
 /* Report */

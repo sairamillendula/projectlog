@@ -1,5 +1,7 @@
 <div id="closed-projects">
-	<h1>Closed projects</h1>
+	<h1>Closed projects
+	  <a href="#" id="hide_closed" onclick="$('#closed-projects').hide('slow'); $('#show_closed').show();"> Hide</a>
+	</h1>
 
 	<table class='activities'>
 		<tr>
@@ -22,3 +24,4 @@
 	</table>
 <%= paginate @closed_projects, :params => { :action => "closed" } %>
 </div>
+

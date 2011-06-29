@@ -9,28 +9,23 @@
         <p>No Open Projects</p>
      </div>
    <% else %>
-     <%= render :partial => 'projects/submenu' %>
+     <ul id="sub-menu">
+		<li class="buttonorange"><%= link_to '+ New Project', new_project_path %>
+	</ul>
 
-     <div id="open-projects-container">
+     <div id="open-projects">
        <%= render :partial => 'projects/open' %>
      </div>
    <% end %>
 
 
    <% if !@closed_projects.empty? %>
-       <p id="closed_projects_toggle">
-	      <a href="#">Show/Hide Closed Projects</a>
-	   </p>
+	 <a href="#" id="show_closed" style="display:none" onclick="$('#closed-projects').show('slow'); $('#show_closed_').hide('slow');">Show Closed Projects</a>  
      <%= render :partial => 'projects/closed' %>
    <% end %>
 <% end %>
 
-<script>
-$("#closed_projects_toggle").click(function (e) {
-  $("#closed-projects").slideToggle("slow");
-  e.preventDefault();
-});
-</script>
+
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
 	$(".card-inner").click(function(){

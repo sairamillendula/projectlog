@@ -4,7 +4,9 @@
   </div>
 <% else %>
 
-<%= render :partial => 'submenu' %>
+<ul id="sub-menu">
+	<li class="buttonorange"><%= link_to '+ New Customer', new_customer_path %></li>
+</ul>
 
 <% @customers.each do |customer| %>
   	<ul id="card-entries">

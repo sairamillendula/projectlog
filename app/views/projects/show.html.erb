@@ -1,3 +1,5 @@
+<%= render :partial => 'submenu' %>
+
 <div>
    <h1><%= @project.title %>
      <% if @project.internal? %><span class="internal">INTERNAL</span> <% end %>
@@ -11,15 +13,12 @@
 <div id="column_left">
 	<p>
 	   <b>Description:</b>
-	   <%= @project.description %>
+	   <%= markdown(@project.description) %>
 	</p>
-	<%= link_to 'All Projects', projects_path %> |
-    <%= link_to 'Edit', edit_project_path(@project) %> |
-	<%= link_to 'Destroy', @project, :confirm => 'You are about to delete a project and all activities associated. You will not be able to report nor search on these activities anymore and tis can not be undone. Are you sure you want to do this?', :method => :delete %>
 </div>
 	<% if !@project.internal? %>
+	
 <div id="column_right">
-
 	  <p>
 		<label class="label-wide">Customer:</label>
 	    <%= @project.customer.name %>
@@ -38,10 +37,10 @@
 	       <% if @project.billing_code_id.present? %>
 	         <%= @project.billing_code.name %>
 	       <% end %>
-	  </p>
-	
+	  </p>	
 </div>
 <% end %>
+
 <div id="activities">
   <%= render "activities/activities" %>
 </div>

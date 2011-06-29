@@ -13,7 +13,8 @@ gem 'tabs_on_rails'
 gem 'kaminari'
 gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
-gem "rails-settings", :git => "git://github.com/100hz/rails-settings.git"
+gem 'rails-settings', :git => 'git://github.com/100hz/rails-settings.git'
+gem 'redcarpet'
 
 # Use unicorn as the web server
 # gem 'unicorn'
