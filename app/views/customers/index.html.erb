@@ -8,6 +8,7 @@
 	<li class="buttonorange"><%= link_to '+ New Customer', new_customer_path %></li>
 </ul>
 
+<div id="customers">
 <% @customers.each do |customer| %>
   	<ul id="card-entries">
 	  <li id="card">
@@ -23,6 +24,7 @@
       </li>
     </ul>
 <% end %>
+</div>
 
 <br />
 

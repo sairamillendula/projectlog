@@ -1,24 +1,62 @@
 <%= render :partial => 'submenu' %>
 
-<div>
+
+<div id="project-title">
    <h1><%= @project.title %>
-     <% if @project.internal? %><span class="internal">INTERNAL</span> <% end %>
+     <% if @project.internal? %><span class="status internal">INTERNAL</span> <% end %>
      <% if @project.status? %>
        <span class="status open">OPEN</span>
      <% else %>
-       <span class="status">CLOSED</span> 
+       <span class="status closed">CLOSED</span> 
      <% end %>
    </h1>
-<div>
-<div id="column_left">
-	<p>
-	   <b>Description:</b>
-	   <%= markdown(@project.description) %>
-	</p>
 </div>
-	<% if !@project.internal? %>
+
+<div id="project-meta">
+
+<% if @project.internal? && @project.description.empty? %>
+  <%= render :partial => 'description' %>
+
+<% elsif @project.internal? && !@project.description.empty? %>
+  <div id="project_description">
+	 <%= markdown(@project.description) %>
+  </div>
+
+<% elsif !@project.internal? && @project.description.empty? %>
+  <div id="column_left">
+	  <%= render :partial => 'description' %>
+  </div>
 	
-<div id="column_right">
+  <div id="column_right">
+   <p>
+	<label class="label-wide">Customer:</label>
+    <%= @project.customer.name %>
+   </p>
+   <p>
+    <label class="label-wide">Default Rate:</label>
+         <% if @current_user.profile.localization.present? %>
+        <%= number_to_currency(@project.default_rate) %>
+      <% else %>
+        <%= @project.default_rate %>
+      <% end %>
+    <br/>
+   </p>
+   <p>
+     <label class="label-wide">Billing:</label>
+       <% if @project.billing_code_id.present? %>
+         <%= @project.billing_code.name %>
+       <% end %>
+   </p>	
+</div>
+	
+<% else %>
+<div id="project-meta">
+  <div id="column_left">
+    <div id="project_description">
+	 <%= markdown(@project.description) %>
+    </div>
+  </div>
+  <div id="column_right">
 	  <p>
 		<label class="label-wide">Customer:</label>
 	    <%= @project.customer.name %>
@@ -38,9 +76,11 @@
 	         <%= @project.billing_code.name %>
 	       <% end %>
 	  </p>	
-</div>
+  </div>
 <% end %>
+</div>
+</div>
 
 <div id="activities">
-  <%= render "activities/activities" %>
+  <%= render :partial => "activities/activities" %>
 </div>

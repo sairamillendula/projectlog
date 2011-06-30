@@ -228,10 +228,11 @@ border-radius: 3px;
 
 /* Sub-menu*/
 #sub-menu {
-margin-bottom: 0;
-padding-bottom: 25px;
+margin: 0;
+padding-bottom: 20px;
 -webkit-padding-start: 0px;
 font-size: 14px;
+line-height: 30px;
 }
 
 #sub-menu li {
@@ -338,7 +339,7 @@ box-shadow: 0 1px 0 white;
 /* Site Layout */
 #main-content {
 min-height: 800px; /* change this to avoid scrollbar issue with ajax new#transactions */
-background-color: #ffffff;
+background-color: #fdfdfd;
 width: 900px;
 margin-top: -30px;
 margin-left: auto;
@@ -370,14 +371,14 @@ margin-right: auto;
 float: left;
 width: 49%;
 padding-right: 6px;
-padding-bottom: 30px;
+#padding-bottom: 30px;
 }
 
 #column_right {
 float: right;
 width: 49%;
 padding-left: 6px;
-padding-bottom: 30px;
+#padding-bottom: 30px;
 }
 
 .no-occurence {
@@ -402,6 +403,7 @@ font-size: 16px;
 
 #activities {
 clear: right;
+margin-top: 30px;
 }
 
 #card-entries {
@@ -440,6 +442,11 @@ height: 69px;
 
 .card-inner.customer {
 height: 96px;
+}
+
+.card-inner.project {
+width: 795px;
+height: auto;
 }
 
 .tagline {
@@ -538,7 +545,6 @@ margin-bottom: 20px;
 margin-top: 8px;
 }
 
-
 .mandatory {
 font-weight: bold;
 }
@@ -585,6 +591,10 @@ font-size: 20px;
 }
 
 /* Customer */
+#customers {
+margin-top: 30px;
+}
+
 #customer_note {
 word-wrap: break-word;
 }
@@ -650,6 +660,39 @@ background: none;
 color: inherit;
 }
 
+#project-title {
+line-height: 18px;
+}
+
+#project-meta {
+margin-bottom: 40px;
+background: #F1F1F3;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+padding: 5px;
+display: inline;
+float: left;
+width: 100%;
+}
+
+#description-intro {
+margin-top: 8px;
+}
+
+#project-description p {
+margin-bottom: 0;
+}
+
+#project-description input {
+margin-bottom: 4;
+}
+
+#project-description textarea {
+width: 100%;
+height: 100px;
+}
+
 #activity_search {
 padding: 6px;
 margin-top: 20px;
@@ -670,28 +713,22 @@ font-size: 12px;
 font-weight: bold;
 color: white;
 text-align: center;
-background: #666;
 -webkit-border-radius: 3px;
 -moz-border-radius: 3px;
 border-radius: 3px;
+margin-top: -7px;
 }
 
-.open {
+.status.open {
 background: #6CC644;
 }
 
-.internal {
-float: right;
-display: block;
-padding: 7px 10px;
-font-size: 12px;
-font-weight: bold;
-color: white;
-text-align: center;
+.status.closed {
+background: #666;
+}
+
+.status.internal {
 background: #000;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
 margin-left: 10px;
 }
 
@@ -1089,16 +1126,28 @@ padding-right: 10px;
 }
 
 /* Report */
-#activity-filter input{
+#activity-search input{
 margin-bottom: 0px;
 }
 
 #export {
 float: right;
 vertical-align: text-bottom;
-line-height: 29px;
+line-height: 31px;
 }
 
+#activity-search {
+line-height: 31px;
+text-align: bottom;
+}
+
+#activity-search input{
+margin-bottom: 0px;
+}
+
+#search {
+#float: right;
+}
 
 /* Single page layout */
 .dialog {
@@ -1173,6 +1222,12 @@ text-decoration:none;
 width: auto;
 }
 
+.small.submit input {
+font-size:12px !important;
+line-height:12px;
+padding:4px 10px;
+}
+
 .submit input:hover {
 border-color: #666;
 color: black;
@@ -1193,6 +1248,11 @@ font-size: 12px;
 .extra a:hover {color: #03C;}
 .extra a:visited {color: #03C;}
 
+
+/* Settings */
+#profile_submit {
+margin-top: 30px;
+}
 
 /* Settings tabs */
 #settings {

@@ -5,8 +5,8 @@
     <p>No Activities found.</p>
   </div>
   <% else %>
-     <%= form_tag report_path(@report), :method => "get", :remote => true, :id => "activities_search" do %>
-        <div id="activity-filter">
+        <div id="activity-search">
+	       <%= form_tag report_path(@report), :method => "get", :remote => true, :id => "activities_search" do %>
            <%= hidden_field_tag :direction, params[:direction] %>
            <%= hidden_field_tag :sort, params[:sort] %>
            <%= text_field_tag :search, params[:search] %>
@@ -53,5 +53,3 @@
   
 <% end %>
 </div>
-
-
