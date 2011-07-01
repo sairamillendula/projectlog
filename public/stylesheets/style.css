@@ -664,7 +664,7 @@ color: inherit;
 line-height: 18px;
 }
 
-#project-meta {
+#meta {
 margin-bottom: 40px;
 background: #F1F1F3;
 -webkit-border-radius: 3px;
@@ -1125,6 +1125,14 @@ text-align: right;
 padding-right: 10px;
 }
 
+.admin {
+#font-size: 90%;
+}
+
+.admin td {
+font-size: 12px;
+}
+
 /* Report */
 #activity-search input{
 margin-bottom: 0px;
@@ -1248,6 +1256,14 @@ font-size: 12px;
 .extra a:hover {color: #03C;}
 .extra a:visited {color: #03C;}
 
+.markdown {
+height: 27px; 
+line-height: 27px;
+}
+
+textarea#customer_note, textarea#project_description {
+margin-left: 103px;
+}
 
 /* Settings */
 #profile_submit {

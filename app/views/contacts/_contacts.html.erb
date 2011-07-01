@@ -5,10 +5,9 @@
 <% else %>
 
   <h1>Contacts</h1>
+   <p id="new_contact_link" class="clear"><%= link_to 'New Contact', new_customer_contact_path(@customer, :format => :js), :remote => true %></p>
      <% for contact in @customer.contacts %>
-     <%= render :partial => "contacts/contact", :locals => { :contact => contact } %>
-<% end %>
-
-<p id="new_contact_link" class="clear"><%= link_to 'New Contact', new_customer_contact_path(@customer, :format => :js), :remote => true %></p>
+       <%= render :partial => "contacts/contact", :locals => { :contact => contact } %>
+     <% end %>
 
 <% end %>

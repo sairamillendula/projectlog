@@ -1,0 +1,51 @@
+<h1>Clients</h1>
+
+<table id="clients-summary" class="activities">
+  <tr>
+    <th></th>
+    <th>Total</th>
+    <th>Today</th>
+    <th>This Week</th>
+    <th>This Month</th>
+  </tr>
+
+  <tr>
+    <td>Clients created</td>
+    <td><b><%= @users.count %></b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
+<br/>
+<p class="right">Server Time: <b><%= Time.now %></b></p>
+
+<table id="clients" class="admin">
+  <tr>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Sign in count</th>
+    <th>Last Sign in</th>
+    <th>Current IP</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% for user in @users %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td style="text-align:center"><%= user.sign_in_count %></td>
+    <td><%= user.last_sign_in_at %></td>
+    <td><%= user.current_sign_in_ip %></td>
+    <td><%= user.created_at.strftime("%d-%m-%y %H:%M") %></td>
+    <td><%= user.updated_at.strftime("%d-%m-%y %H:%M") %></td>
+  </tr>
+<% end %>
+</table>
+

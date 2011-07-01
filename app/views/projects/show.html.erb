@@ -12,7 +12,7 @@
    </h1>
 </div>
 
-<div id="project-meta">
+<div id="meta">
 
 <% if @project.internal? && @project.description.empty? %>
   <%= render :partial => 'description' %>
@@ -50,7 +50,7 @@
 </div>
 	
 <% else %>
-<div id="project-meta">
+<div id="meta">
   <div id="column_left">
     <div id="project_description">
 	 <%= markdown(@project.description) %>

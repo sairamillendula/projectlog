@@ -10,7 +10,6 @@ Projectlog::Application.routes.draw do
   # Devise change to allow users edit their accounts without providing a password
   devise_for :users, :controllers => { :registrations => "registrations" }
 
-  get "pages/dashboard"
 
   resources :customers do 
     resources :contacts, :projects
@@ -48,6 +47,10 @@ Projectlog::Application.routes.draw do
     resource :settings
   end
   
+  namespace :admin do
+    resource :dashboard, :only => [ :show ], :controller => "dashboard"
+  end
+  
   # allow "/users/login" and "/login"
   devise_scope :user do
     get "register", :to => "devise/registrations#new"
@@ -55,5 +58,6 @@ Projectlog::Application.routes.draw do
     get "logout", :to => "devise/sessions#destroy"
   end
 
+  match 'admin/clients' => "admin/clients#index", :as => '/admin/clients'
   match '/settings' => "profiles#edit", :as => "settings" 
 end

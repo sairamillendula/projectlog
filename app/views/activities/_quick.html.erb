@@ -15,7 +15,7 @@
     <td><%= f.text_field :time, :size => 4 %></td>
     <td><%= collection_select(nil, :project_id, current_user.projects.open.all, :id, :title, {:prompt => "Select Project"} ) %></td>
     <td><%= f.text_field :description, :size => 80 %></td>
-    <td><%= f.submit 'Log it' %></td>
+    <td><span class="small submit"><%= f.submit 'Log it' %></span></td>
   </tr>
 </table>
 

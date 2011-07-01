@@ -35,6 +35,7 @@
   
   <div class="field">
     <%= f.label :description %>
+    <span class="markdown"><a href="#" >Markdown accepted</a></span><br/>
     <%= f.text_area :description, :cols => '88', :rows => '6' %>
   </div>
   <% if !@project.new_record? %>
