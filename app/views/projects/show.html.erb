@@ -14,71 +14,47 @@
 
 <div id="meta">
 
-<% if @project.internal? && @project.description.empty? %>
-  <%= render :partial => 'description' %>
-
-<% elsif @project.internal? && !@project.description.empty? %>
-  <div id="project_description">
-	 <%= markdown(@project.description) %>
-  </div>
-
-<% elsif !@project.internal? && @project.description.empty? %>
-  <div id="column_left">
-	  <%= render :partial => 'description' %>
-  </div>
-	
-  <div id="column_right">
-   <p>
-	<label class="label-wide">Customer:</label>
-    <%= @project.customer.name %>
-   </p>
-   <p>
-    <label class="label-wide">Default Rate:</label>
-         <% if @current_user.profile.localization.present? %>
-        <%= number_to_currency(@project.default_rate) %>
-      <% else %>
-        <%= @project.default_rate %>
-      <% end %>
-    <br/>
-   </p>
-   <p>
-     <label class="label-wide">Billing:</label>
-       <% if @project.billing_code_id.present? %>
-         <%= @project.billing_code.name %>
-       <% end %>
-   </p>	
-</div>
-	
-<% else %>
-<div id="meta">
-  <div id="column_left">
+<% if @project.internal? %>
+  <% if @project.description.blank? %>
+	<%= render :partial => 'description' %>
+  <% else %>
     <div id="project_description">
-	 <%= markdown(@project.description) %>
-    </div>
-  </div>
-  <div id="column_right">
-	  <p>
+	   <%= markdown(@project.description) %>
+	</div>
+  <% end %>
+<% else %>
+	  <div id="column_left">
+		<% if @project.description.blank? %>
+			<%= render :partial => 'description' %>
+		<% else %>
+	      <div id="project_description">
+		    <%= markdown(@project.description) %>
+	      </div>
+	    <% end %>
+	  </div>
+	
+	<div id="column_right">
+	   <p>
 		<label class="label-wide">Customer:</label>
 	    <%= @project.customer.name %>
-	  </p>
-	  <p>
+	   </p>
+	   <p>
 	    <label class="label-wide">Default Rate:</label>
-          <% if @current_user.profile.localization.present? %>
+	         <% if @current_user.profile.localization.present? %>
 	        <%= number_to_currency(@project.default_rate) %>
 	      <% else %>
 	        <%= @project.default_rate %>
 	      <% end %>
 	    <br/>
-	  </p>
-	  <p>
+	   </p>
+	   <p>
 	     <label class="label-wide">Billing:</label>
 	       <% if @project.billing_code_id.present? %>
 	         <%= @project.billing_code.name %>
 	       <% end %>
-	  </p>	
-  </div>
+	   </p>	
+	</div>
 <% end %>
-</div>
 </div>
 
 <div id="activities">

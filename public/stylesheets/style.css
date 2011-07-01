@@ -667,13 +667,15 @@ line-height: 18px;
 #meta {
 margin-bottom: 40px;
 background: #F1F1F3;
--webkit-border-radius: 3px;
--moz-border-radius: 3px;
-border-radius: 3px;
+-webkit-border-radius: 3px;	
 padding: 5px;
 display: inline;
 float: left;
 width: 100%;
+}
+
+#project-description {
+height: 120px;
 }
 
 #description-intro {
@@ -685,7 +687,7 @@ margin-bottom: 0;
 }
 
 #project-description input {
-margin-bottom: 4;
+margin-bottom: 6;
 }
 
 #project-description textarea {
@@ -1234,6 +1236,7 @@ width: auto;
 font-size:12px !important;
 line-height:12px;
 padding:4px 10px;
+margin-bottom: 0;
 }
 
 .submit input:hover {

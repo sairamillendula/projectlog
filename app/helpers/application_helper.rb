@@ -12,7 +12,7 @@ module ApplicationHelper
     form.submit + " or " + link_to(name, 'javascript:history.go(-1);', :class => 'cancel')
   end
   
-  # Markdown method #
+  # Markdown method
   def markdown(text)
     options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis]
     Redcarpet.new(text, *options).to_html.html_safe
