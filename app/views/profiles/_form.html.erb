@@ -11,7 +11,7 @@
     </div>
   <% end %>
 <div id="settings-list">
-<div id="column_left">
+<div id="column_left" class="border">
 <div class="inline-form">
   <h2>Company contact & billing information</h2>
   <p class="info">Add contact information on timesheets and invoices</p>
@@ -59,7 +59,7 @@
   </div>
   <div class="field">
     <%= f.label :hours_per_day %><br />
-    <p class="info">How many hours equals a full billable day</p>
+    <p class="info">How many hours within a full day at work? Convert hours worked to days.</p>
     <%= f.text_field :hours_per_day, :size => 5 %>
   </div>
 </div>

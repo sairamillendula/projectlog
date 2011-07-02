@@ -31,7 +31,7 @@
     <% @activities.each do |activity| %>
     <tr>
       <td class="date"><%= l activity.date, :format => :short %></td>
-      <td class="time"><%= activity.time %></td>
+      <td class="time"><%= number_with_delimiter(activity.time) %></td>
       <td class="description"><%= activity.description %></td>
       <td class="project"><%= activity.project.title %></td>      
       <td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity), :remote => true %> <%= link_to image_tag("bin.png"), project_activity_path(activity.project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
@@ -40,8 +40,8 @@
 
     <tr class="total">
       <th class="total right">TOTAL</th>
-      <th><%= @report.total_time %></th>
-      <th></th>
+      <th><%= number_with_delimiter(@report.total_time) %></th>
+      <th class="total_in_days">[<%= activities_in_days(@report.total_time) %>]</th>
       <th></th>
       <th></th>
     </tr>
