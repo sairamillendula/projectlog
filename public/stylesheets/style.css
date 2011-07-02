@@ -671,7 +671,7 @@ background: #F1F1F3;
 padding: 5px;
 display: inline;
 float: left;
-width: 100%;
+width: 870px;
 }
 
 #project-description {
@@ -964,7 +964,7 @@ width: 318px;
 
 /* Pagination */
 .pagination {
-
+font-size: 12px;
 }
 
 .pagination a {
@@ -978,7 +978,7 @@ background-color: none;
 .page, .first, .last, .prev, .next {
 border: 1px solid #eaeaea;
 margin-right: 8px;
-padding: 4px;
+padding: 3px;
 padding-left: 7px;
 }
 
@@ -995,9 +995,6 @@ border-color: #eaeaea;
 color: #EAEAEA;
 background-color: #2C2D31; #333;
 text-decoration: none;
-border-radius: 0px;
--moz-border-radius: 0px;
--webkit-border-radius: 0px;
 font-weight: normal;
 }
 
@@ -1061,6 +1058,14 @@ border-bottom: 1px solid #E1E1E1;
 
 table.activities tr {
 background: none;
+}
+
+#activity-fields input, #activity-fields select {
+margin-bottom: 0;
+}
+
+#activity-fields {
+height: 60px;
 }
 
 table td {

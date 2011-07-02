@@ -2,7 +2,7 @@
 
 <h1>Add a New Activity</h1>
 
-<table class='borders'>
+<table id="new-activity" class='borders'>
   <tr>
     <th>Date</th>
     <th>Time</th>
@@ -14,7 +14,7 @@
     <td><%= f.text_field :date, :class => "date", :size => 12 %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
     <td><%= collection_select(nil, :project_id, current_user.projects.open.all, :id, :title, {:prompt => "Select Project"} ) %></td>
-    <td><%= f.text_field :description, :size => 80 %></td>
+    <td><%= f.text_field :description, :size => 78 %></td>
     <td><span class="small submit"><%= f.submit 'Log it' %></span></td>
   </tr>
 </table>

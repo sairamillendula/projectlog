@@ -1,16 +1,16 @@
 <h1>Add a New Activity</h1>
 
-<table class='borders'>
+<table id="new-activity" class='borders'>
   <tr>
     <th>Date</th>
     <th>Time</th>
     <th>Description</th>
     <th></th>
   </tr>
-  <tr>
+  <tr id="activity-fields">
     <td><%= f.text_field :date, :class => "date", :size => 12 %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
-    <td><%= f.text_field :description, :size => 90 %></td>
-    <td><%= f.submit %></td>
+    <td><%= f.text_field :description, :size => 88 %></td>
+    <td><span class="small submit"><%= f.submit %></span></td>
   </tr>
 </table>
