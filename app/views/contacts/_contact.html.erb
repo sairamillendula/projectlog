@@ -1,4 +1,7 @@
-<div class="contact-info">
+<ul id="card-entries">
+   <li id="card">
+	  <div class="card-inner customer">
+
   <% if contact.title.present? %>
     <h2><%= contact.full_name %><span style="font-weight:normal"> - <%= contact.title %></span></h2>
   <% else %>
@@ -8,5 +11,6 @@
     <p><%= contact.phone %></p>
   <%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %> |
   <%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
-  
-</div>
+      </div>
+    </li>
+</ul>

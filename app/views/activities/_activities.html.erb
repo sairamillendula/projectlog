@@ -46,7 +46,7 @@
     <tr class="total">
       <th style="text-align:right" class="total">TOTAL</th>
       <th id="project_total_time"><%= number_with_delimiter(@project.activities.sum(:time)) %></th>
-      <th class="total_in_days">[<%= activities_in_days(@project.activities.sum(:time)) %>]</th>
+      <th class="total_in_days">[<%= activities_to_days(@project.activities.sum(:time)) %>]</th>
       <th></th>
     </tr>
   </table>

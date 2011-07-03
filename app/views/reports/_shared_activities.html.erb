@@ -22,8 +22,8 @@
 
     <tr class="total">
       <th class="total right">TOTAL</th>
-      <th><%= @report.total_time %></th>
-      <th></th>
+      <th><%= number_with_delimiter(@report.total_time) %></th>
+      <th class="total_in_days">[<%= activities_to_days(@report.total_time) %>]</th>
       <th></th>
     </tr>
   </table>
