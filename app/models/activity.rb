@@ -19,7 +19,7 @@ class Activity < ActiveRecord::Base
   end
   
   def self.before(some_date)
-    where("date < ?", some_date)
+    where("date <= ?", some_date)
   end
   
   def self.belonging_to_projects(some_projects)

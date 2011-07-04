@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
   def create
     @report = current_user.reports.new(params[:report])
     @report.start_date ||= Date.today.beginning_of_month
-    @report.end_date ||= @report.start_date + 1.month
+    @report.end_date ||= @report.start_date + (1.month - 1.second) # End date is the last second of the current month
     if @report.save
       redirect_to @report
     else
