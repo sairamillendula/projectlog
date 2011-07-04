@@ -93,7 +93,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(@project) }
-      format.xml  { head :ok }
+      format.js
     end
   end
   
