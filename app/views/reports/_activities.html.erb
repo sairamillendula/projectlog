@@ -1,49 +1,47 @@
-<div id="activities">  
-  
+<div id="activities">    
   <% if @activities.empty? %>
-  <div class="no-occurence">
-    <p>No Activities found.</p>
-  </div>
-  <% else %>
-  <div id="activity-search">
-    <div id="export" class="right">
-      <%= link_to "Export this table to CSV", params.merge(:format => :csv, :action => "shared") %> | 
-      <%= link_to 'Email Report', new_report_email_path(@report), :remote => true %> |
-      <%= link_to "Download PDF", params.merge(:format => :pdf, :action => "shared") %> 
+    <div class="no-occurence">
+      <p>No Activities found.</p>
     </div>
-  </div>
+  <% else %>
+    <div id="activity-search">
+      <div id="export" class="right">
+        <%= link_to "Export this table to CSV", params.merge(:format => :csv, :action => "shared") %> | 
+        <%= link_to 'Email Report', new_report_email_path(@report), :remote => true %> |
+        <%= link_to "Download PDF", params.merge(:format => :pdf, :action => "shared") %> 
+      </div>
+    </div>
            
-  <table class='activities'>
-    <tr>
-      <th><%= sortable "date" %></th>
-      <th><%= sortable "time" %></th>
-      <th><%= sortable "description" %></th>
-      <th><%= sortable "project_id", { }, "Project" %></th>
-      <th></th>
-    </tr>
+    <table class='activities'>
+      <tr>
+        <th><%= sortable "date" %></th>
+        <th><%= sortable "time" %></th>
+        <th><%= sortable "description" %></th>
+        <th><%= sortable "project_id", { }, "Project" %></th>
+        <th></th>
+      </tr>
 
-    <% @activities.each do |activity| %>
-    <tr>
-      <td class="date"><%= l activity.date, :format => :short %></td>
-      <td class="time"><%= number_with_delimiter(activity.time) %></td>
-      <td class="description"><%= activity.description %></td>
-      <td class="project"><%= activity.project.title %></td>      
-      <td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity), :remote => true %> <%= link_to image_tag("bin.png"), project_activity_path(activity.project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-    <% end %>
+      <% @activities.each do |activity| %>
+      <tr>
+        <td class="date"><%= l activity.date, :format => :short %></td>
+        <td class="time"><%= number_with_delimiter(activity.time) %></td>
+        <td class="description"><%= activity.description %></td>
+        <td class="project"><%= activity.project.title %></td>      
+        <td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity), :remote => true %> <%= link_to image_tag("bin.png"), project_activity_path(activity.project, activity), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+      <% end %>
 
-    <tr class="total">
-      <th class="total right">TOTAL</th>
-      <th><%= number_with_delimiter(@report.total_time) %></th>
-      <th class="total_in_days">[<%= activities_to_days(@report.total_time) %>]</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </table>
+      <tr class="total">
+        <th class="total right">TOTAL</th>
+        <th><%= number_with_delimiter(@report.total_time) %></th>
+        <th class="total_in_days">[<%= activities_to_days(@report.total_time) %>]</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </table>
 
-  <div class="right">
-    <%= paginate @activities %>
-  </div>
-  
-<% end %>
+    <div class="right">
+      <%= paginate @activities %>
+    </div>
+  <% end %>
 </div>
