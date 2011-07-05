@@ -1,5 +1,5 @@
 et:
- views:
+  views:
     pagination:
       previous: "&laquo; Prev"
       next: "Next &raquo;"
