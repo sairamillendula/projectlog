@@ -43,12 +43,10 @@ Projectlog::Application.routes.draw do
     end
   end
   
-  namespace :admin do
-    resource :settings
-  end
-  
-  namespace :admin do
+  namespace :administr8te do
     resource :dashboard, :only => [ :show ], :controller => "dashboard"
+    resource :settings
+    resource :clients, :only => [ :index ]
   end
   
   # allow "/users/login" and "/login"
@@ -58,6 +56,6 @@ Projectlog::Application.routes.draw do
     get "logout", :to => "devise/sessions#destroy"
   end
 
-  match 'admin/clients' => "admin/clients#index", :as => '/admin/clients'
+  match 'administr8te/clients' => "administr8te/clients#index", :as => '/administr8te/clients'
   match '/settings' => "profiles#edit", :as => "settings" 
 end

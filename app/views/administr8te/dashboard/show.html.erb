@@ -1,0 +1,4 @@
+<% if current_user.admin? %>
+  <li> <%= link_to "Users", administr8te_clients_path %></li> 
+  <li> <%= link_to "Settings", edit_administr8te_settings_path %></li>
+<% end %>

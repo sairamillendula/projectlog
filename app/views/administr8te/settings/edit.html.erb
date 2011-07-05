@@ -1,0 +1,22 @@
+<%= form_tag administr8te_settings_path, :method => :put do %>
+  <div>
+    <h3>Report email settings</h3>
+    <p>These fields are shown by default when an user tries to send a report via email.</p>
+
+    <p>
+      <%= label_tag :"settings[reports.email.subject]", "Default subject" %>
+      <%= text_field_tag :"settings[reports.email.subject]", Settings['reports.email.subject'], :size => 80 %>
+    </p>
+    
+    <p>
+      <%= label_tag :"settings[reports.email.body]", "Default body" %><br />
+      <small>The <code>%{report_link}</code> tag will be dynamically replaced with the actual link to the report.</small> <br />
+      <%= text_area_tag :"settings[reports.email.body]", Settings['reports.email.body'], :size => "60x10" %>
+    </p>
+    
+    <p>
+      <span class="submit"><%= submit_tag "Save settings" %></span>
+    </p>
+  </div>
+
+<% end %>
