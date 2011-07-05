@@ -1,10 +1,12 @@
-# Korean (한글) translations for Ruby on Rails
-# by John Hwang (jhwang@tavon.org)
-# http://github.com/tavon
-# and Sunghee Kang(paranoiase@gmail.com)
-# http://www.twitter.com/paranoiase
-
 ko:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+      
   date:
     formats:
       default: "%Y/%m/%d"

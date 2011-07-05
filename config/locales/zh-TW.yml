@@ -1,7 +1,12 @@
-# Chinese (Taiwan) translations for Ruby on Rails
-# by tsechingho (http://github.com/tsechingho)
-
 zh-TW:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: "%Y-%m-%d"

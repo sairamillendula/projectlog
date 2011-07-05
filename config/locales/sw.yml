@@ -1,8 +1,12 @@
-# Swahili translations for Ruby on Rails
-# - Initially sketched by Joachim Mangilima (joachimm3@gmail.com) and Matthew Todd (http://matthewtodd.org)
-# - Vastly improved by Joram (namtih58@gmail.com)
-
 sw:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: '%d-%m-%Y'

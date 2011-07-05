@@ -1,6 +1,14 @@
 # Australian English translations for Ruby on Rails
 
-"en-AU":
+en-AU:
+  views:
+    pagination:
+        previous: "&laquo; Prev"
+        next: "Next &raquo;"
+        truncate: "..."
+        last: "Last &raquo;"
+        first: "&laquo; First"
+  
   date:
     formats:
       default: "%d-%m-%Y"

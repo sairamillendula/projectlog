@@ -1,8 +1,12 @@
-# European Portuguese translations for Ruby on Rails
-#
-#
-
-"pt-PT":
+pt-PT:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:      
       default: "%d/%m/%Y"

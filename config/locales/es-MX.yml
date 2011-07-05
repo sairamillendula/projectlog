@@ -1,13 +1,11 @@
-# Spanish as spoken in Mexico (es-MX) translations for Rails
-# by Edgar J. Suárez (edgar.js@gmail.com)
-# Fixed currency format (Can't convert string to symbol)
-# by Ivan Torres (mexpolk@gmail.com)
-# Added datetime / prompts for time_select helper
-# by Daniel Roux ( daniel.roux@gmail.com)
-# Added missing translations for Rails 2 and 3
-# by Carlos González ( carlosdavid.gonzalez@gmail.com)
-
 es-MX:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
   number:
     percentage:
       format:

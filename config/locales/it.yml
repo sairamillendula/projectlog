@@ -1,12 +1,12 @@
-# Italian translations for Ruby on Rails
-#
-# created by Claudio Poli (masterkain@gmail.com)
-#
-# This localization file targets Rails 2 and 3.
-#
-# Rails 3 version by Davide Guerri (d.guerri@caspur.it)
-
 it:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   number:
     format:
       delimiter: ""

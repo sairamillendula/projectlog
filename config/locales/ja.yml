@@ -1,10 +1,12 @@
-# Japanese translations for Ruby on Rails
-# by Akira Matsuda (ronnie@dio.jp)
-# AR error messages are basically taken from Ruby-GetText-Package. Thanks to Masao Mutoh.
-# contributors:
-#  - Tsutomu Kuroda (t-kuroda@oiax.jp)
-
 ja:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: "%Y/%m/%d"

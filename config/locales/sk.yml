@@ -1,7 +1,12 @@
-# Slovak translations for Ruby on Rails (inspired by the Czech localization - thanx to Karel Minařík)
-# by Jozef Fulop (jofi-rails@silake.com)
- 
-"sk":
+sk:
+    views:
+        pagination:
+          previous: "&laquo; Prev"
+          next: "Next &raquo;"
+          truncate: "..."
+          last: "Last &raquo;"
+          first: "&laquo; First"
+    
     # Date
     date:
         formats:

@@ -1,6 +1,12 @@
-# Spanish as spoken in Colombia (es-CO) translations for Rails
-
 es-CO:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   number:
     percentage:
       format:

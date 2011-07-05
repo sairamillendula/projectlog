@@ -1,9 +1,12 @@
-# Estonian localization for Ruby on Rails 2 and 3
-# by Zahhar Kirillov <zahhar@gmail.com>
-# contributors:
-#  - Mart Karu - http://github.com/martkaru <karu@metal.ee>
-
 et:
+ views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: "%d.%m.%Y"

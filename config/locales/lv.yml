@@ -1,7 +1,12 @@
-# Latvian translations for Ruby on Rails
-# by Kaspars Bankovskis (kaspars@kei.lv)
-
 lv:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: "%d.%m.%Y."

@@ -2,6 +2,14 @@
 # by Lars Hoeg (larshoeg@gmail.com, http://www.lenio.dk/)
 
 da:
+  views:
+    pagination:
+        previous: "&laquo; Prev"
+        next: "Next &raquo;"
+        truncate: "..."
+        last: "Last &raquo;"
+        first: "&laquo; First"
+  
   # active_support
   date:
     # See http://sproget.dk/svarbase/SV00000046/ and http://en.wikipedia.org/wiki/Date_formats

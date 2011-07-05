@@ -18,7 +18,6 @@ class CreateLocalizations < ActiveRecord::Migration
     Localization.create(:name => 'Estonia', :reference => 'et', :country_id => '')
     Localization.create(:name => 'France', :reference => 'fr', :country_id => '68')
     Localization.create(:name => 'Germany', :reference => 'de', :country_id => '')
-    #Localization.create(:name => 'Great Britain', :reference => 'en-GB', :country_id => '') -- Needed but not Rails3 yet
     Localization.create(:name => 'India', :reference => 'hi-IN', :country_id => '')
     Localization.create(:name => 'Italy', :reference => 'it', :country_id => '')
     Localization.create(:name => 'Japan', :reference => 'ja', :country_id => '')

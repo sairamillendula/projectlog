@@ -1,10 +1,12 @@
-# Swedish translation.
-# By Johan Lundström (johanlunds@gmail.com) with parts taken from http://github.com/daniel/swe_rails.
-# With contributions by:
-#   * Sven Dahlstrand (sven.dahlstrand@gmail.com)
-#   * Henrik Nyh (henrik@nyh.se)
+sv-SE:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"    
 
-"sv-SE":
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'

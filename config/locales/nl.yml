@@ -1,9 +1,12 @@
-# Dutch translations for Ruby on Rails, based on US English template
-# Original version by Ariejan de Vroom <ariejan@ariejan.net>
-#  - Sponsored by Kabisa ICT - http://kabisa.nl
-# Rails 3 update by Floris Huetink <floris@avocado.nl> (github: florish)
-
 nl:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: "%d/%m/%Y"

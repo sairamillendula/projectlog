@@ -4,6 +4,14 @@
 #  - Alexander Dreher - http://github.com/alexdreher - Rails 3 update
 
 de:
+  views:
+    pagination:
+        previous: "&laquo; Prev"
+        next: "Next &raquo;"
+        truncate: "..."
+        last: "Last &raquo;"
+        first: "&laquo; First"
+            
   date:
     formats:
       default: "%d.%m.%Y"

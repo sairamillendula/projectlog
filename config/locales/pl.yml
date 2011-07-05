@@ -1,8 +1,12 @@
-# Polish translations for Ruby on Rails
-# by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
-# Minor changes and adjustments for Rails 3 by Piotrek Okoński (http://github.com/pokonski)
-
 pl:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
+  
   date:
     formats:
       default: "%d-%m-%Y"

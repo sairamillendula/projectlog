@@ -1,8 +1,12 @@
-# US English translations for Ruby on Rails
-#
-# Use this as the base for the locale file of your language.
+en-US:
+  views:
+    pagination:
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+      last: "Last &raquo;"
+      first: "&laquo; First"
 
-"en-US":
   date:
     formats:
       default: "%Y-%m-%d"

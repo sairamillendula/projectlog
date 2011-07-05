@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
 private
   def load_user
     @user = current_user
-  end
-  
+  end 
   
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
