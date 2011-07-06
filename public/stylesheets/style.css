@@ -442,7 +442,7 @@ display: block;
 height: 69px;
 }
 
-.card-inner.customer {
+.card-inner.customer, .card-inner.contact {
 height: 96px;
 }
 
@@ -460,6 +460,13 @@ margin-bottom: 0;
 -webkit-box-shadow: 0px 0px 6px #999;
 box-shadow: 0px 0px 6px #999;
 cursor: pointer;
+}
+
+#card.contact:hover {
+-moz-box-shadow: none;
+-webkit-box-shadow: none;
+box-shadow: none;
+cursor: inherit;
 }
 
 .card-inner h1 {
