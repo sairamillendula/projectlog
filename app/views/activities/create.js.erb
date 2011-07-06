@@ -1,8 +1,9 @@
 <% if @activity.valid? %>
+  $("form#new_activity").get(0).reset(); // Clear out the form
+  $("#activity-fields").effect("highlight", {}, 1000);
   $("#activities").html($("<%= escape_javascript render(:partial => 'activities/activities') %>"));
-  $("#new_activity").remove();
+  $("#new_activity_link").remove();
   $('#new_activity_link').show();
-  alert("Activity was succesfully created");
 <% else %>
   alert("Please fill in all the fields: <%= @activity.errors.full_messages.to_sentence %>.");
 <% end %>

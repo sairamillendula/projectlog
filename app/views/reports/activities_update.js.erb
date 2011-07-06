@@ -1,0 +1,7 @@
+<% if @activity.valid? %>
+  $("#row_for_activity_<%= @activity.id %>").html("<%= escape_javascript render(@activity) %>");
+  // Update total sum
+  $("#report_total_time").html('<%= number_with_delimiter(@report.total_time) %>');
+<% else %>
+  alert("Please fix the following1 errors: <%= @activity.errors.full_messages.to_sentence %>.");
+<% end %>

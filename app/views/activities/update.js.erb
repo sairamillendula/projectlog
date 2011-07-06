@@ -1,7 +1,7 @@
 <% if @activity.valid? %>
   $("#row_for_activity_<%= @activity.id %>").html("<%= escape_javascript render(@activity) %>");
   // Update total sum
-  $("#project_total_time").html('<%= @activity.project.activities.sum(:time) %>');
+  $("#project_total_time").html('<%= number_with_delimiter(@project.activities.sum(:time)) %>');
 <% else %>
   alert("Please fix the following errors: <%= @activity.errors.full_messages.to_sentence %>.");
 <% end %>

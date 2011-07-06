@@ -27,7 +27,7 @@ class Report < ActiveRecord::Base
   end
     
   def description
-    "Activities for #{project_title} from #{I18n.l start_date, :format => :long} to #{I18n.l end_date, :format => :long}"
+    "#{project_title} from #{I18n.l start_date, :format => :long} to #{I18n.l end_date, :format => :long}"
   end
   
   private

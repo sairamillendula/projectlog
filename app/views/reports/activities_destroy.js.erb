@@ -1,0 +1,3 @@
+$("#row_for_activity_<%= @activity.id %>").fadeOut();
+$("#report_total_time").html('<%= number_with_delimiter(@report.total_time) %>');
+$(".total_in_days").html('<%= activities_to_days(@report.total_time) %>');
