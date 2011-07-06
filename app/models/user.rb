@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
     "#{full_name} <#{email}>"
   end
   
+  def created_today
+    User.where { ("users.created_at > ?", 1.day.ago.to_date) }
+  end
+  
+  scope :today, lambda where { "users.created_at > ?" 1.day.ago.to_date }
+  
 private
   def build_profile
     logger.debug "It's time to create the account."
