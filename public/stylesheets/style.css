@@ -410,7 +410,6 @@ margin-top: 30px;
 
 #card-entries {
 width: 925px;
-background-color: aqua;
 padding: 0;
 margin: 0;
 }
@@ -1340,6 +1339,35 @@ td form.edit_activity {
   height: 30px;
 }
 
+/* Modal popup*/
 #send_report_email_dialog input[type=submit] {
-  display: none; /* Hide the Send button on the AJAX dialog to send a report via email */
+display: none; /* Hide the Send button on the AJAX dialog to send a report via email */
+}
+
+#send_report_email_dialog input, textarea {
+width: 100%;
+max-width: 392px;
+}
+
+#send_report_email_dialog textarea {
+height: 150px;
+}
+
+#send_report_email_dialog select {
+width: 200px;
+}
+
+#send_report_email_dialog label {
+font-weight: bold;
+}
+
+.status_indicator p {
+border: 1px solid #BEDCE7;
+padding: 3px;
+background: #EAF2F5;
+width: 386px;
+margin-left: auto;
+margin-right: auto;
+font-weight: bold;
+text-align: center;
 }

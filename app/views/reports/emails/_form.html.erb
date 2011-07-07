@@ -1,15 +1,18 @@
-<%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
-  <%= f.label :to %>
-  <%= f.select :to, current_user.connections.select { |c| c.email.present? }.collect { |c| [c.full_name, c.email] }, { :prompt => "Select a contact" } %> <br />
-  <%= f.label :subject %><br />
-  <%= f.text_field :subject, :size => 35 %> <br />
-  <%= f.label :body, "Message" %> <br />
-  <%= f.text_area :body, :rows => 10, :cols => 36 %> <br />
-  <%= f.hidden_field :report_link %>
-  <div>
-    ...or copy-paste the link on Skype:
-    <div><%= text_area_tag :report_link, shared_report_url(@report), :size => "36x2", :readonly => true %></pre></div>
-  </div>
-  <div class="status_indicator"></div>
-  <%= f.submit "Send" %>
+ <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
+    <br /><%= f.label :to %>
+    <%= f.select :to, current_user.connections.select { |c| c.email.present? }.collect { |c| [c.full_name, c.email] }, { :prompt => "Select a contact" } %> <br />
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject %> <br />
+    <%= f.label :body, "Message" %> <br />
+    <%= f.text_area :body %> <br />
+    <%= f.hidden_field :report_link %>
+
+ <br />
+ <div>
+   <h2>Or share the link:</h2>
+   <p> <%= shared_report_url(@report) %></p>
+ </div>
+
+ <div class="status_indicator"></div>
+   <%= f.submit "Send" %>
 <% end %>
