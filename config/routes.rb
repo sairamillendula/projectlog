@@ -52,10 +52,10 @@ Projectlog::Application.routes.draw do
   end
   
   # allow "/users/login" and "/login"
-  devise_scope :user do
-    get "register", :to => "devise/registrations#new"
-    get "login", :to => "devise/sessions#new"
-    get "logout", :to => "devise/sessions#destroy"
+  devise_for :user do
+    get "/register", :to => "devise/registrations#new"
+    get "/login", :to => "devise/sessions#new"
+    get "/logout", :to => "devise/sessions#destroy"
   end
 
   match 'administr8te/clients' => "administr8te/clients#index", :as => '/administr8te/clients'

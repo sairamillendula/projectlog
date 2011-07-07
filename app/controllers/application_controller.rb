@@ -7,6 +7,10 @@ private
     @user = current_user
   end
   
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(user)
+    login_path
+  end
   
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
