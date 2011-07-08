@@ -11,7 +11,6 @@
 	  <label class="label">Phone:</label>
 	  <span><%= @customer.phone %></span><br/>
 	</p>
-
 	<p>
 	  <label class="label">Address:</label>
 	    <% if !@customer.address2.present? %>
@@ -29,7 +28,7 @@
 	<% if @customer.note.present? %>
 	   <p><%= markdown(@customer.note) %></p>
 	<% else %>
-	   <p><%= link_to "Add a Note", edit_customer_path(@customer) %></p>
+	   <p><%= render :partial => 'note' %></p>
 	<% end %>
 	<br/>
   </div>

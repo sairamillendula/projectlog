@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   
   validates_presence_of :title, :customer_id
+  validates_uniqueness_of :title, :scope => :user_id
   belongs_to :user
   belongs_to :customer
   belongs_to :billing_code

@@ -35,22 +35,16 @@
 	<div id="column_right">
 	   <p>
 		<label class="label-wide">Customer:</label>
-	    <%= @project.customer.name %>
+	      <%= @project.customer.name %>
 	   </p>
 	   <p>
 	    <label class="label-wide">Default Rate:</label>
-	         <% if @current_user.profile.localization.present? %>
-	        <%= number_to_currency(@project.default_rate) %>
-	      <% else %>
-	        <%= @project.default_rate %>
-	      <% end %>
+	      <%= number_to_currency(@project.default_rate) unless @project.default_rate.empty? %>
 	    <br/>
 	   </p>
 	   <p>
 	     <label class="label-wide">Billing:</label>
-	       <% if @project.billing_code_id.present? %>
-	         <%= @project.billing_code.name %>
-	       <% end %>
+	       <%= @project.billing_code.name unless !@project.billing_code_id.present? %>
 	   </p>	
 	</div>
 <% end %>

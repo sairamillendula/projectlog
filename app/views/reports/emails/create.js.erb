@@ -1,7 +1,21 @@
 <% if @email.valid? %>
-  alert("Email sent!");
+  $('<div id="email-sent"></div>')
+		.html('<div class="notice">Email successfully sent!</div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+    });
   $("#send_report_email_dialog").dialog("close");
 <% else %>
-  $("#send_report_email_dialog .status_indicator").html("");  
-  alert("Please fix the following errors: <%= @email.errors.full_messages.to_sentence %>.");
+  $("#send_report_email_dialog .status_indicator").html("");
+  $('<div id="email-error"></div>')
+		.html('<div class="alert">Please fix the following errors: <br /><%= @email.errors.full_messages.to_sentence %></div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+    });
 <% end %>

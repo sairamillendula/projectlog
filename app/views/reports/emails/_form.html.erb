@@ -1,13 +1,13 @@
  <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
-    <br /><%= f.label :to %>
+    <br />
+    <%= f.label :to %>
     <%= f.select :to, current_user.connections.select { |c| c.email.present? }.collect { |c| [c.full_name, c.email] }, { :prompt => "Select a contact" } %> <br />
     <%= f.label :subject %><br />
     <%= f.text_field :subject %> <br />
     <%= f.label :body, "Message" %> <br />
     <%= f.text_area :body %> <br />
-    <%= f.hidden_field :report_link %>
-
- <br />
+    <%= f.hidden_field :report_link %><br />
+ 
  <div>
    <h2>Or share the link:</h2>
    <p> <%= shared_report_url(@report) %></p>

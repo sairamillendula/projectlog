@@ -3,5 +3,12 @@
   $("#new_contact_dialog").dialog("close");
   $("#no-contact").remove();
 <% else %>
-  alert("Please fill in all the fields.");
+   $('<div id="contact-error"></div>')
+		.html('<div class="alert">Please fix the following errors: <br /><%= @contact.errors.full_messages.to_sentence %></div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+    });
 <% end %>
