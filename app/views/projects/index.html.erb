@@ -1,3 +1,9 @@
+<% if current_user.customers.empty? %>
+  <div class="no-occurence">
+     <p>You need to create a <%= link_to 'Customer', new_customer_path %> first</p>
+  </div>
+<% else %>
+
 <% if current_user.projects.empty? %>
   <div class="no-occurence">
      <p>Add a new <%= link_to 'Project', new_project_path %></p>
@@ -17,7 +23,7 @@
        <%= render :partial => 'projects/open' %>
      </div>
    <% end %>
-
+<% end %>
 
    <% if !@closed_projects.empty? %>
 	 <a href="#" id="show_closed" style="display:none" onclick="$('#closed-projects').show('slow'); $('#show_closed_').hide('slow');">Show Closed Projects</a>  
