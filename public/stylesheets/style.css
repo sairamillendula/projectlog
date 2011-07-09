@@ -63,35 +63,10 @@ padding-left: 4px;
 font-size: 11px;
 }
 
-.field_with_errors {
-padding: 2px;
-background-color: #ff6666;
-display: table;
-}
-
-#error_explanation {
-border: 2px solid red;
-padding: 7px;
-padding-bottom: 0;
-margin-bottom: 10px;
-background-color: #f0f0f0;
-}
-
-#error_explanation h2 {
-text-align: left;
-font-weight: bold;
-padding: 5px 5px 5px 15px;
-font-size: 12px;
-margin: -7px;
-margin-bottom: 0px;
-background-color: #c00;
-color: #fff;
-}
-
-#error_explanation ul li {
-font-size: 12px;
-list-style: square;
-}
+.field_with_errors label {
+#background-color: #FFE3E2;
+color: #c00;
+} 
 
 /* Header */
 header {
@@ -251,8 +226,6 @@ border-color: #E3AE43;
 border-top-color: #F0C851;
 border-bottom-color: #E0A235;
 background: -moz-linear-gradient(center top,#FAE37A 20%,#F6CB4F 100%);
-font-family: sans-serif;
-font-weight: bold;
 display: inline-block;
 line-height: 16px;
 color: #895B2C !important;
@@ -410,6 +383,7 @@ width: 300px;
 
 .no-occurence p {
 font-size: 16px;
+line-height: 26px;
 }
 
 #activities {
@@ -1371,9 +1345,9 @@ font-weight: bold;
 }
 
 .status_indicator p {
-border: 1px solid #BEDCE7;
 padding: 3px;
-background: #EAF2F5;
+color: #f26535;
+background-color: #fffdc1;
 width: 386px;
 margin-left: auto;
 margin-right: auto;
