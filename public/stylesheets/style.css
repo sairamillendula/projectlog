@@ -1354,3 +1354,7 @@ margin-right: auto;
 font-weight: bold;
 text-align: center;
 }
+
+form.new_report .field_with_errors, form.new_report p {
+  display: inline;
+}
