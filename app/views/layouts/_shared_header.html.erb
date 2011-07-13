@@ -1,0 +1,12 @@
+<header role="banner" id="header">
+  <hgroup class="subhead">
+    <div id="title">    
+     <h1>TIMESHEET
+       <div id="actions">
+         <%= link_to image_tag("file_download.png") + " Download PDF", params.merge(:format => :pdf, :action => "shared") %>
+       </div>
+     </h1>
+     <div id="intro" class="info"><h2>Hello there, <%= @report.user.name %> shared this report with you.</h2></div>
+</div>
+  </hgroup> 
+</header>
