@@ -47,29 +47,19 @@ padding: 4px;
 margin-bottom: 10px;
 }
 
-.alert {
-background-color: #FFE3E2; #FFEBE8; #ffcdd3;
-border: 1px solid #EFB1AF; #b10000; #8a0000;
-color: #C00; #b10000;
-padding: 4px;
-margin-bottom: 20px;
-}
-
 .info {
 border: 1px solid #BEDCE7;
 padding: 3px;
 background: #EAF2F5;
+border-radius: 3px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
 }
 
 p.info {
 padding-left: 4px;
 font-size: 11px;
 }
-
-.field_with_errors label {
-#background-color: #FFE3E2;
-color: #c00;
-} 
 
 /* Header */
 #header {
@@ -80,6 +70,7 @@ color: #5E6066;
 width: 910px;
 margin-top: 45px;
 margin-bottom: 20px;
+position: relative;
 }
 
 #header h1 {
@@ -110,12 +101,18 @@ font-weight: normal;
 #actions {
 float: right;
 text-align: right;
-vertical-align:middle;
+height: 30px;
+}
+
+#actions img {
+vertical-align: middle;
+height: 30px;
+margin-right: 5px;
 }
 
 #actions a {
 line-height: 30px;
-font-size: 18px;
+font-size: 14px;
 font-weight: normal;
 }
 
@@ -150,52 +147,8 @@ margin-right: auto;
 text-align: center;
 }
 
-
-
-
-/* Pagination */
-.pagination {
-font-size: 12px;
-}
-
-.pagination a {
-text-decoration: none;
-}
-
-.pagination: a:hover {
-background-color: none;
-}
-
-.page, .first, .last, .prev, .next {
-border: 1px solid #eaeaea;
-margin-right: 8px;
-padding: 3px;
-padding-left: 7px;
-}
-
-.last {
-margin-right: 0;
-}
-
-.page:hover, .first:hover, .last:hover, .prev:hover, .next:hover {
-background-color: #eaeaea;
-}
-
-.page.current {
-border-color: #eaeaea;
-color: #EAEAEA;
-background-color: #2C2D31; #333;
-text-decoration: none;
-font-weight: normal;
-}
-
-.page a {
-text-decoration: none;
-}
-
-.page a:hover, .first a:hover, .last a:hover, .prev a:hover, .next a:hover {
-background: none;
-color: inherit;
+#total_report {
+float:right;
 }
 
 /* This is a table */

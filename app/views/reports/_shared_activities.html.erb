@@ -5,10 +5,10 @@
 <% else %>   
   <table class='activities'>
     <tr>
-      <th><%= sortable "date" %></th>
-      <th><%= sortable "time" %></th>
-      <th><%= sortable "description" %></th>
-      <th><%= sortable "project_id", { }, "Project" %></th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Description</th>
+      <th>Project</th>
     </tr>
 
     <% @activities.each do |activity| %>
@@ -27,9 +27,5 @@
       <th></th>
     </tr>
   </table>
-
-  <div class="right">
-    <%= paginate @activities %>
-  </div>
   
 <% end %>

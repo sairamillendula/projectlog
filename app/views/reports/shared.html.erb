@@ -1,12 +1,7 @@
-   <h1><%= @report.description %></h1>
+<h1><%= @report.description %> 
+	<span id="total_report">TOTAL <%= number_with_delimiter(@report.total_time) %></span>
+</h1>
 
-   <%= form_tag shared_report_path(@report), :method => "get", :remote => true, :id => "activities_search" do %>
-      <div id="activity-filter">
-         <%= hidden_field_tag :direction, params[:direction] %>
-         <%= hidden_field_tag :sort, params[:sort] %>
-      </div>
-   <% end %>
-
-   <div id="activities">  
-     <%= render "shared_activities" %>
-   </div>
+  <div id="activities">  
+    <%= render "shared_activities" %>
+  </div>
