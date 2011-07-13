@@ -9,7 +9,6 @@ margin-right: auto;
 }
 
 body, p, ol, ul, td, h2 {
-#font-family: 'Lucida Grande', Lucida, Verdana, sans-serif;
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 13px;
 line-height: 18px;
@@ -25,8 +24,6 @@ margin-bottom: 10px;
 
 h1 {
 font-size: 20px;
-#letter-spacing: -1px;
-#margin-bottom: 25px;
 }
 
 h2 {
