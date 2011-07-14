@@ -1,3 +1,6 @@
+//= require jquery  
+//= require jquery_ujs  
+
 $(function() {
   $("#activities th a, #activities .pagination a").live("click", function() {
     $.getScript(this.href);
