@@ -1,8 +1,0 @@
-<p>
-<% if user_signed_in? %>
-  Welcome!
-<% else %>
-<%= link_to 'Login', new_user_session_path %> | <%= link_to 'Sign up', new_user_registration_path %></p>
-<% end %>
-
-<%= render :partial => 'activities/quick' %>
