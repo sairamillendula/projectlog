@@ -50,7 +50,7 @@
     </tr>
 
     <% @activities.each do |activity| %>
-      <% content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
+      <%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
         <%= render activity %>
       <% end %>
     <% end %>

@@ -29,7 +29,7 @@
     </tr>
 
     <% @activities.each do |activity| %>
-    <% content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
+    <%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
       <td class="date"><%= l activity.date, :format => :short %></td>
       <td class="time"><%= number_with_delimiter(activity.time) %></td>
       <td class="description"><%= activity.description %></td>
