@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   set_tab :projects
   
   def index
-    @open_projects = current_user.projects.open.page(params[:page]).per(6)
+    @open_projects = current_user.projects.scoped.open.page(params[:page]).per(6)
     @closed_projects = current_user.projects.closed.page(1).per(10)
 
     respond_to do |format|
