@@ -161,7 +161,7 @@ border: 1px solid #D8D8D8;
 }
 
 table.borders tr {
-background: #F8F8F8 url("../images/row_bg.png") repeat-x 0px 100%;	
+background: #F8F8F8 url('<%= asset_path 'row_bg.png' %>') repeat-x 0px 100%;	
 }
 
 table.activities {
@@ -241,11 +241,11 @@ font-weight: normal;
 }
 
 table th .asc {
-background-image: url('../images/arrow-up.png');
+background-image:  url('<%= asset_path 'arrow-up.png' %>');
 }
 
 table th .desc {
-background-image: url('../images/arrow-down.png');
+background-image: url('<%= asset_path 'arrow-down.png' %>');
 }
 
 tr.total th {
