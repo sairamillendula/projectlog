@@ -1,4 +1,4 @@
-<h1>Clients</h1>
+<h1>Manage Users</h1>
 
 <table id="clients-summary" class="activities">
   <tr>
@@ -10,7 +10,7 @@
   </tr>
 
   <tr>
-    <td>Clients created</td>
+    <td>Users signup</td>
     <td><b><%= @users.count %></b></td>
     <td><%= User.count(:conditions => ["created_at > ?", Date.today]) %></td>
     <td><%= User.count(:conditions => ["created_at > ?", 1.week.ago.to_date]) %></td>
