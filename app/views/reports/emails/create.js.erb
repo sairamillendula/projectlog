@@ -11,7 +11,7 @@
 <% else %>
   $("#send_report_email_dialog .status_indicator").html("");
   $('<div id="email-error"></div>')
-		.html('<div class="alert">Please fix the following errors: <br /><%= @email.errors.full_messages.to_sentence %></div>')
+		.html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @email.errors.full_messages.to_sentence %></div>')
 		.dialog({
 			autoOpen: true,
 			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
