@@ -5,31 +5,45 @@
 	<ul>
 		<li id="customers" class="step">
 			<div class="step-inner">
-				<span style="border-radius: 50px; background: #dedede; padding: 5px; margin-bottom: 15px;">-1-</span>
+				<span class="step-id">-1-</span>
 				<h2>Customers</h2>
 				<p>We all need Customers to operate so this is the starting point</p>
-				<p class="buttonorange"><%= link_to '+ New Customer', new_customer_path %></p>
+				<% if current_user.customers.any? %><p class="check"><%= image_tag "check.png" %></p>
+				<% else %><p class="buttonorange"><%= link_to '+ New Customer', new_customer_path %></p>
+				<% end %>
 			</div>
 		</li>
 		<li id="projects"class="step">
 			<div class="step-inner">
+				<span class="step-id">-2-</span>
 				<h2>Projects</h2>
 				<p>Projects are fun wether they are Billable or Internal</p>
-				<p class="buttonorange"><%= link_to '+ New Project', new_project_path %></p>
+				<% if !current_user.projects.any? && current_user.customers.any? %> 
+				  <p class="buttonorange"><%= link_to '+ New Project', new_project_path %></p>
+				<% end %>
+				<% if current_user.projects.any? %>  
+				  <p class="check"><%= image_tag "check.png" %></p>
+				<% end %>
+				<% if !current_user.customers.any? %><p class="buttonorange inactive">+ New Project</p><% end %>
 			</div>
 		</li>
 		<li id="time" class="step">
 			<div class="step-inner">
+				<span class="step-id">-3-</span>
 				<h2>Time Tracking</h2>
 				<p>Timesheet should be easy & speedy. Same goes with reporting</p>
-				<p class="buttonorange"><%= link_to '+ New Activity', new_activity_path %></p>
+				<% if current_user.projects.any? %><p class="buttonorange"><%= link_to '+ New Activity', new_quick_activity_path %></p>
+				<% else %><p class="buttonorange inactive">+ New Activity</p>
+				<% end %>
+				<p class="check"><%= image_tag "check.png" unless !current_user.activities.any? %></p>
 			</div>
 		</li>
 		<li id="invoice" class="step">
 			<div class="step-inner">
+				<span class="step-id">-4-</span>
 				<h2>Invoices</h2>
 				<p>Get rewarded. Send invoices to customers and track payments</p>
-				<p>Coming soon...</p>
+				<p><b>Coming soon...</b></p>
 			</div>
 		</li>
 	</ul>

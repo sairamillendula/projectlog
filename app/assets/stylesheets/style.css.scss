@@ -232,10 +232,9 @@ border: 1px solid;
 border-color: #E3AE43;
 border-top-color: #F0C851;
 border-bottom-color: #E0A235;
-background: -moz-linear-gradient(center top,#FAE37A 20%,#F6CB4F 100%);
 display: inline-block;
 line-height: 16px;
-color: #895B2C !important;
+color: #895B2C;
 text-align: center;
 text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 text-decoration: none !important;
@@ -249,16 +248,28 @@ box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3) /*Top*/, inset 0 0 2px rgba(25
   &:hover {
   background: -webkit-gradient(linear,left top,left bottom,color-stop(.2, #f6cb4f),color-stop(1, #fae37a));
   background: -moz-linear-gradient(center top, #f6cb4f 20%, #fae37a 100%);
+  color: #895B2C;
   }
+  
+  &:visited {
+  color: #895B2C;
+}
   
   a {
   text-decoration: none;
   background: none;
-  color: #996633;     
+  color: #895B2C;    
   }
 }
 
+.buttonorange.inactive {
+border: 1px solid #bbbbbb;
+background: #f2f2f2;
+}
 
+p.buttonorange.inactive {
+ color: #464646;
+}
 
 /* Introduction */
 .intro-title {
@@ -303,6 +314,10 @@ background: #f1f1f3;
 padding: 5px;
 }
 
+.step-id {
+font-style: italic;
+}
+
 .step-inner {
 background: white;
 height: 180px;
@@ -310,6 +325,10 @@ border: 1px solid #cbcecf;
 @include rounded-corners(2px);
 padding: 25px 23px 0 23px;
 text-align: center;
+}
+
+.check {
+padding-top: 13px;
 }
 
 /* Site Layout */
@@ -805,6 +824,7 @@ text-decoration: none;
 font-size: 14px;
 color: #fff;
 }
+
 
 #manage-categories {
 font-size: 11px;
