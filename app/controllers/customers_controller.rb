@@ -60,7 +60,7 @@ class CustomersController < ApplicationController
     begin
       @customer.destroy
       respond_to do |format|
-        format.html { redirect_to(customers_url) }
+        format.html { redirect_to customers_url }
       end      
     rescue ActiveRecord::DeleteRestrictionError => e
       respond_to do |format|

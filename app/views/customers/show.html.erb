@@ -28,9 +28,9 @@
 	<% if @customer.note.present? %>
 	   <p><%= markdown(@customer.note) %></p>
 	<% else %>
-	   <p><%= render :partial => 'note' %></p>
+	   <%= render :partial => 'note' %>
 	<% end %>
-	<br/>
+	
   </div>
 </div>
 </div>

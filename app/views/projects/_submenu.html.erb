@@ -1,6 +1,6 @@
 <ul id="sub-menu">
 	<%= link_to '← All Projects', projects_path %> |
     <%= link_to 'Edit', edit_project_path %> |
-	<%= link_to 'Destroy', @project, :confirm => 'You are about to delete a project and all activities associated. You will not be able to report nor search on these activities anymore and tis can not be undone. Are you sure you want to do this?', :method => :delete %>
+	<%= link_to 'Destroy', @project, :confirm => 'You are about to delete a project and all activities associated. You will not be able to report nor search on these activities anymore and this can not be undone. Are you sure you want to do this?', :method => :delete %>
 	<li class="buttonorange"><%= link_to '+ New Project', new_project_path %></li>
 </ul>
