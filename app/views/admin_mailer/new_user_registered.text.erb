@@ -1,0 +1,12 @@
+Hello admin,
+
+A new user just registered. Here's everything there is to know about him:
+
+<% @user.attributes.each do |key, value| %>
+  <% next unless [:id, :email, :first_name, :last_name].include?(key.to_sym) %>
+  * <%= key.to_s.humanize %>: <%= value %>
+<% end %>
+
+Talk soon,
+
+Projectlog.
