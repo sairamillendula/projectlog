@@ -12,6 +12,10 @@ private
     login_path
   end
   
+  def after_sign_in_path_for(user)
+    user.admin? ? administr8te_dashboard_path : super
+  end
+  
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
     I18n.locale = current_user.profile.localization if user_signed_in?
