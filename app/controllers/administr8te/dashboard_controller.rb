@@ -1,5 +1,4 @@
-class Administr8te::DashboardController < ApplicationController
-  before_filter :require_admin
+class Administr8te::DashboardController < Administr8te::BaseController
   def show
   end
 end

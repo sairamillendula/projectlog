@@ -1,5 +1,4 @@
-class Administr8te::SettingsController < ApplicationController
-  before_filter :require_admin
+class Administr8te::SettingsController < Administr8te::BaseController
   def edit
   end
   

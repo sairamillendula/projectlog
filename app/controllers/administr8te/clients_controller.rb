@@ -1,5 +1,4 @@
-class Administr8te::ClientsController < ApplicationController
-  before_filter :require_admin
+class Administr8te::ClientsController < Administr8te::BaseController
   helper_method :sort_column, :sort_direction
   
   def index
