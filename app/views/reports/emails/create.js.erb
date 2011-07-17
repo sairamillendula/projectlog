@@ -10,6 +10,8 @@
   $("#send_report_email_dialog").dialog("close");
 <% else %>
   $("#send_report_email_dialog .status_indicator").html("");
+  //Enable Send button again
+  $("#send_report_email_dialog").parent().find("button:contains('Send')").button("enable");  
   $('<div id="email-error"></div>')
 		.html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @email.errors.full_messages.to_sentence %></div>')
 		.dialog({
