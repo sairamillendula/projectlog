@@ -3,7 +3,7 @@ class Reports::Email
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
-  attr_accessor :to, :subject, :body, :from, :report_link
+  attr_accessor :to, :subject, :body, :from, :report_link, :reply_to
   
   validates_presence_of :to, :subject, :body, :from, :report_link
   validate :body_must_contain_report_link

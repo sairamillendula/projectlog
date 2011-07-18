@@ -1,7 +1,9 @@
 class Reports::EmailsController < ApplicationController
   def new
     @report = Report.find_by_slug!(params[:report_id])
-    @email = Reports::Email.new(:body => Settings["reports.email.body"], :subject => Settings["reports.email.subject"], :report_link => shared_report_url(@report))
+    @email = Reports::Email.new(:body => Settings["reports.email.body"],
+                                :subject => Settings["reports.email.subject"], 
+                                :report_link => shared_report_url(@report))
     respond_to do |format|
       format.html
       format.js
