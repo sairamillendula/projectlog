@@ -18,13 +18,10 @@
 				<span class="step-id">-2-</span>
 				<h2>Projects</h2>
 				<p>Projects are fun wether they are Billable or Internal</p>
-				<% if !current_user.projects.any? && current_user.customers.any? %> 
-				  <p class="buttonorange"><%= link_to '+ New Project', new_project_path %></p>
+				<% if current_user.customers.any? %><p class="buttonorange"><%= link_to '+ New Project', new_project_path %></p>
+				<% else %><p class="buttonorange inactive">+ New Project</p>
 				<% end %>
-				<% if current_user.projects.any? %>  
-				  <p class="check"><%= image_tag "check.png" %></p>
-				<% end %>
-				<% if !current_user.customers.any? %><p class="buttonorange inactive">+ New Project</p><% end %>
+				<p class="check"><%= image_tag "check.png" unless !current_user.projects.any? %></p>
 			</div>
 		</li>
 		<li id="time" class="step">
@@ -32,10 +29,9 @@
 				<span class="step-id">-3-</span>
 				<h2>Time Tracking</h2>
 				<p>Timesheet should be easy & speedy. Same goes with reporting</p>
-				<% if current_user.projects.any? %><p class="buttonorange"><%= link_to '+ New Activity', new_quick_activity_path %></p>
+				<% if current_user.activities.any? %><p class="check"><%= image_tag "check.png" %></p>
 				<% else %><p class="buttonorange inactive">+ New Activity</p>
 				<% end %>
-				<p class="check"><%= image_tag "check.png" unless !current_user.activities.any? %></p>
 			</div>
 		</li>
 		<li id="invoice" class="step">

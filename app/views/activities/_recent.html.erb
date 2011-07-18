@@ -1,5 +1,6 @@
 <div id="recent-activities">
 
+<% if current_user.activities.any? %>
 <h1>Recent Activities</h1>
 
  <table class='activities'>
@@ -10,3 +11,5 @@
    <% end %>
  </table>
 </div>
+
+<% end %>
