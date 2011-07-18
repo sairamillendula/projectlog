@@ -1,4 +1,5 @@
 class Administr8te::ClientsController < Administr8te::BaseController
+  set_tab :admin_users
   helper_method :sort_column, :sort_direction
   
   def index

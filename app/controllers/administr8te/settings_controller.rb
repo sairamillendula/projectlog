@@ -1,4 +1,6 @@
 class Administr8te::SettingsController < Administr8te::BaseController
+  set_tab :admin_settings
+  
   def edit
   end
   
