@@ -25,18 +25,29 @@ Projectlog::Application.configure do
   # Dev Host
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
-  # Gmail SMTP server setup
+  # # Gmail SMTP server setup
+  #   config.action_mailer.delivery_method = :smtp
+  #   ActionMailer::Base.smtp_settings = {  
+  #     :address              => "smtp.gmail.com",  
+  #     :port                 => 587,  
+  #     #:domain               => "koopon.ca",  
+  #     :user_name            => "gaelledeals@gmail.com",  
+  #     :password             => "socrate19",  
+  #     :authentication       => "plain",  
+  #     :enable_starttls_auto => true  
+  #   }
+  
+  # Getprojectlog Email server setup
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {  
-    :address              => "smtp.gmail.com",  
-    :port                 => 587,  
-    #:domain               => "koopon.ca",  
-    :user_name            => "gaelledeals@gmail.com",  
-    :password             => "socrate19",  
+    :address              => "mail.getprojectlog.com",  
+    :port                 => 587,
+    :user_name            => "no-reply+getprojectlog.com",  
+    :password             => "10eytd10",  
     :authentication       => "plain",  
-    :enable_starttls_auto => true  
+    :enable_starttls_auto => false  
   }
-
+  
   # Do not compress assets
   config.assets.compress = false  
 end

@@ -51,4 +51,18 @@ Projectlog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.action_mailer.default_url_options = { :host => 'getprojectlog.com' }
+  
+  # Getprojectlog Email server setup
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {  
+    :address              => "mail.getprojectlog.com",  
+    :port                 => 587,
+    :user_name            => "no-reply+getprojectlog.com",  
+    :password             => "10eytd10",  
+    :authentication       => "plain",  
+    :enable_starttls_auto => false  
+  }
+  
 end

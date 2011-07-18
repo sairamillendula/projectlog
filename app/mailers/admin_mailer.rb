@@ -3,6 +3,6 @@ class AdminMailer < ActionMailer::Base
   
   def new_user_registered(new_user)
     @user = new_user
-    mail(:to => "admin@getprojectlog.com", :subject => "[Projectlog] New user joined")
+    mail(:to => "app@getprojectlog.com", :subject => "[Projectlog] New user joined")
   end
 end
