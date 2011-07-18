@@ -1,5 +1,5 @@
 <div id="menu">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && current_user.admin? %>
     
      <%= tabs_tag do |tab| %>
 	  	<%= tab.admin_dashboard 'Dashboard', administr8te_dashboard_path %>
