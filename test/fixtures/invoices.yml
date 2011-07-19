@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  issued_date: 2011-07-19
+  date_due: 2011-07-19
+  subject: MyString
+  balance: MyString
+  status: MyString
+  note: MyText
+
+two:
+  issued_date: 2011-07-19
+  date_due: 2011-07-19
+  subject: MyString
+  balance: MyString
+  status: MyString
+  note: MyText

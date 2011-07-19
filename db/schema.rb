@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110705175346) do
+ActiveRecord::Schema.define(:version => 20110719224322) do
 
   create_table "activities", :force => true do |t|
     t.date     "date"
@@ -62,6 +62,23 @@ ActiveRecord::Schema.define(:version => 20110705175346) do
     t.string   "city"
     t.text     "note"
   end
+
+  create_table "invoices", :force => true do |t|
+    t.date     "issued_date", :null => false
+    t.date     "due_date",    :null => false
+    t.string   "subject",     :null => false
+    t.float    "balance",     :null => false
+    t.integer  "status",      :null => false
+    t.text     "note"
+    t.integer  "currency_id", :null => false
+    t.integer  "customer_id"
+    t.integer  "user_id",     :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invoices", ["customer_id"], :name => "index_invoices_on_customer_id"
+  add_index "invoices", ["id"], :name => "index_invoices_on_id", :unique => true
 
   create_table "localizations", :force => true do |t|
     t.string   "name"
