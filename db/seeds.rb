@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 user1 = User.create!(:email => "user@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan', :admin => 'true')
 user2 = User.create!(:email => "user2@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan')
 

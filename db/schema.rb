@@ -10,23 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706193223) do
+ActiveRecord::Schema.define(:version => 20110705175346) do
 
   create_table "activities", :force => true do |t|
     t.date     "date"
     t.float    "time"
     t.text     "description"
     t.integer  "project_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "administr8te_plans", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.text     "features"
-    t.string   "price"
-    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
