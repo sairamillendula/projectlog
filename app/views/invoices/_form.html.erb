@@ -16,8 +16,12 @@
     <%= f.date_select :issued_date %>
   </div>
   <div class="field">
-    <%= f.label :date_due %><br />
-    <%= f.date_select :date_due %>
+    <%= f.label :due_date %><br />
+    <%= f.date_select :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_id %><br />
+    <%= collection_select(nil, :customer_id, current_user.customers.all, :id, :name, {:prompt => "Select Customer"} ) %>
   </div>
   <div class="field">
     <%= f.label :subject %><br />
