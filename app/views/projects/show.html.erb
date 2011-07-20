@@ -45,6 +45,10 @@
 	   <p>
 	     <label class="label-wide">Billing:</label>
 	       <%= @project.billing_code.name unless !@project.billing_code_id.present? %>
+	   </p>
+	   <p>
+		 <label class="label-wide">Created:</label>
+	       <%= l @project.created_at.to_date, :format => :long %>
 	   </p>	
 	</div>
 <% end %>
