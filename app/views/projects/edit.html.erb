@@ -1,3 +1,9 @@
 <h1>Editing project</h1>
 
 <%= render 'form' %>
+
+<% if @project.internal? %>
+<script type="text/javascript" charset="utf-8">
+ $('#billing').hide();
+</script>
+<% end %>

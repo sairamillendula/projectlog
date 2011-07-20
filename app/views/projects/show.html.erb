@@ -38,14 +38,15 @@
 	      <%= @project.customer.name %>
 	   </p>
 	   <p>
-	    <label class="label-wide">Default Rate:</label>
+	  <% if !@project.internal? %>
+	    <label class="label-wide">Default Rate:</label> <br/>
 	      <%= number_to_currency(@project.default_rate) unless @project.default_rate.empty? %>
-	    <br/>
 	   </p>
 	   <p>
-	     <label class="label-wide">Billing:</label>
+	     <label class="label-wide">Billing:</label> <br />
 	       <%= @project.billing_code.name unless !@project.billing_code_id.present? %>
 	   </p>
+	  <% end %>
 	   <p>
 		 <label class="label-wide">Created:</label>
 	       <%= l @project.created_at.to_date, :format => :long %>

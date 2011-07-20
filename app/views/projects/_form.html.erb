@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :internal, 'Internal?' %>
-    <%= f.check_box :internal %>
+    <%= f.check_box :internal, :id => 'internal' %> <i>Internal projects are <b>not</b> billable</i>
   </div>
   
   <% if @project.persisted? || @project.customer.blank?  %>
@@ -44,16 +44,24 @@
 	    <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
 	  </div>
   <% end %>
-  <div class="field">
-    <%= f.label :default_rate, 'Rate' %>
-    <%= f.text_field :default_rate, :size => '8' %>
-  </div>
-  <div class="field">
-    <%= f.label :billing_code_id, 'Billing' %>
-    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing Method"} ) %>
+  <div id="billing">
+  	  <div class="field">
+	    <%= f.label :default_rate, 'Rate' %>
+	    <%= f.text_field :default_rate, :size => '8' %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :billing_code_id, 'Billing' %>
+	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing Method"} ) %>
+	  </div>
   </div>
   <div class="actions">
     <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>
 <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function(){
+$("#internal").change(function() { $("#billing").toggle() } );
+});
+</script>
