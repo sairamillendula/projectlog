@@ -1,33 +1,4 @@
-<h1>Listing invoices</h1>
-
-<table>
-  <tr>
-    <th>Issued date</th>
-    <th>Date due</th>
-    <th>Subject</th>
-    <th>Balance</th>
-    <th>Status</th>
-    <th>Note</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @invoices.each do |invoice| %>
-  <tr>
-    <td><%= invoice.issued_date %></td>
-    <td><%= invoice.date_due %></td>
-    <td><%= invoice.subject %></td>
-    <td><%= invoice.balance %></td>
-    <td><%= invoice.status %></td>
-    <td><%= invoice.note %></td>
-    <td><%= link_to 'Show', invoice %></td>
-    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-    <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Invoice', new_invoice_path %>
+<div class="no-occurence">
+  <p>Ahhhh! Invoices are not quite ready yet and will be shipped in release 2.<br />Stay tuned.</p>
+  <p>If you wish to provide feedback please email <%= mail_to("support@getprojectlog.com") %></p>
+</div>
