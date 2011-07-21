@@ -6,11 +6,10 @@ Projectlog::Application.routes.draw do
   resources :project_statuses
   resources :profiles, :contacts, :invoices
 
-  devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }
+  devise_for :user, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }
   # Devise change to allow users edit their accounts without providing a password
-  devise_for :users, :controllers => { :registrations => "registrations" }
-
-
+  devise_for :user, :controllers => { :registrations => "registrations" }
+  
   resources :customers do 
     resources :contacts, :projects
   end

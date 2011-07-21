@@ -12,6 +12,8 @@ class Project < ActiveRecord::Base
   default_scope :order => 'created_at DESC'
   scope :open, where( :status => true )
   scope :closed, where( :status => false )
+  scope :billable, where( :internal => false)
+  scope :unbillable, where( :internal => true)
   
   #STATUS = [ 'Open', 'Closed' ]
   
