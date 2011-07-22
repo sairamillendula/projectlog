@@ -25,6 +25,9 @@ class Activity < ActiveRecord::Base
   def self.belonging_to_projects(some_projects)
     some_projects = [some_projects] unless some_projects.is_a?(Array)
     where("project_id in (?)", some_projects.collect(&:id))
-  end
+  end  
   
+  def self.total_time_grouped_by_date
+    group("date").sum(:time)
+  end
 end

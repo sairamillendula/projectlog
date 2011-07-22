@@ -5,9 +5,24 @@
     <%= render :partial => 'activities/quick' %>
   </div>
   
-  Billable
-  <%= @billable %>
-  <%= @message %>
+  <h3>Billable time in the last week</h3>
+  <% if billable_time_grouped_by_date_in_the_last_days(7).empty? %>
+    You haven't worked in the last 7 days. You lazy donkey!
+  <% else %>
+    <table>
+      <tr>
+        <th>Day</th>      
+        <th>Billable hours</th>
+      </tr>
+      <% billable_time_grouped_by_date_in_the_last_days(7).each do |day, time| %>
+        <tr>
+          <td><%= l(day, :format => :short) %></td>
+          <td><%= time %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% end %>
+
   
   <%= render :partial => 'activities/recent' %>
   
