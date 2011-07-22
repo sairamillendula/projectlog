@@ -16,10 +16,6 @@
     <%= f.label :title, :class => 'mandatory' %>
     <%= f.text_field :title, :size => '100' %>
   </div>
-  <div class="field">
-    <%= f.label :internal, 'Internal?' %>
-    <%= f.check_box :internal, :id => 'internal' %> <i>Internal projects are <b>not</b> billable</i>
-  </div>
   
   <% if @project.persisted? || @project.customer.blank?  %>
   <%# Hide the customer field if it's a new project but already has the customer set up. %>
@@ -44,15 +40,21 @@
 	    <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
 	  </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :internal, 'Internal?' %>
+    <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none">Internal projects are not billable</i>
+  </div>
   <div id="billing">
-  	  <div class="field">
-	    <%= f.label :default_rate, 'Rate' %>
-	    <%= f.text_field :default_rate, :size => '8' %>
-	  </div>
 	  <div class="field">
-	    <%= f.label :billing_code_id, 'Billing' %>
-	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing Method"} ) %>
+	    <%= f.label :billing_code_id, 'Billing Cycle' %>
+	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select billing method"} ) %>
+		<%= @project.billing_code_id == 3 ? " Budget " : " Rate " %> <%= f.text_field :default_rate, :size => '8' %>
+		<% if current_user.profile.hours_per_day.nil? && @project.billing_code_id == 2 %>
+		   <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %></span>
+		<% end %>
 	  </div>
+	 </div>
   </div>
   <div class="actions">
     <p class="submit"><%= submit_or_cancel(f) %></p>
@@ -62,6 +64,9 @@
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-$("#internal").change(function() { $("#billing").toggle() } );
+$("#internal").change(function() { 
+	$("#billing").toggle();
+	$("#internal-notice").toggle(); 
+	} );
 });
 </script>

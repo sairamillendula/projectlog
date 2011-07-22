@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
   belongs_to :billing_code
   has_many :activities, :dependent => :destroy
   
+  before_save :clears_default_rate_if_internal
+  
   attr_accessible :title, :description, :status, :default_rate, :manager, :customer_id, :billing_code_id, :internal, :billing_estimate
   
   default_scope :order => 'created_at DESC'
@@ -21,16 +23,22 @@ class Project < ActiveRecord::Base
   def total_hours
     activities.sum(:time)
   end
-  
-  # Calculate Project total based on billing_code_id
-  def billing_estimate
-    if billing_code_id == 1 # Hourly
-      @billing_estimate = "#{total_hours} * #{default_rate}"
-    elsif billing_code_id == 2 # Per Diem
-      @billing_estimate = total_hours * @current_user.profile.hours_per_day
-    else
-      @billing_estimate = default_rate # Fixed price
-    end
-  end
-  
+
+   # Calculate Project total based on billing_code_id
+   def billing_estimate
+     if billing_code_id == 1 # Hourly
+       self.billing_estimate = total_hours.to_f * default_rate.to_f
+     elsif billing_code_id == 2 # Per Diem
+       self.billing_estimate = total_hours.to_f / user.profile.hours_per_day.to_f * default_rate.to_f unless user.profile.hours_per_day.nil?
+     else
+       self.billing_estimate = default_rate # Fixed price
+     end
+   end
+   
+   # Clears default_rate for internal project
+   def clears_default_rate_if_internal
+     if internal?
+       self.default_rate = nil
+     end
+   end
 end

@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
-  helper_method :sort_column, :sort_direction  
+  helper_method :sort_column, :sort_direction
+  #before_save :clears_default_rate_if_internal 
   set_tab :projects
   
   def index
@@ -83,5 +84,5 @@ private
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
-      
+   
 end

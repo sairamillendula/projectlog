@@ -3,7 +3,14 @@
 <%= render 'form' %>
 
 <% if @project.internal? %>
-<script type="text/javascript" charset="utf-8">
- $('#billing').hide();
-</script>
+	<script type="text/javascript" charset="utf-8">
+	 $('#billing').hide();
+	 $('#internal-notice').show();
+	</script>
+<% end %>
+
+<% if @project.billing_code_id == 2 %>
+	<script type="text/javascript" charset="utf-8">
+	 $('#hours-per-day-notice').show();
+	</script>
 <% end %>

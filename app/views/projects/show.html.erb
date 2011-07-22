@@ -37,14 +37,14 @@
 		<label class="label-wide">Customer:</label>
 	      <%= @project.customer.name %>
 	   </p>
-	   <p>
+	   <p id="budget">
 	  <% if !@project.internal? %>
-	    <label class="label-wide">Default Rate:</label>
-	      <%= number_to_currency(@project.default_rate) unless @project.default_rate.empty? %> <br />
+	    <label class="label-wide">Budget:</label>
+	      <%= number_to_currency(@project.billing_estimate) unless @project.default_rate.empty? %> <br />
 	   </p>
 	   <p>
 	     <label class="label-wide">Billing:</label>
-	       <%= @project.billing_code.name unless !@project.billing_code_id.present? %> <br /><%= @project.billing_estimate %>
+	       <%= @project.billing_code.name unless !@project.billing_code_id.present? %> <br />
 	   </p>
 	  <% end %>
 	   <p>
