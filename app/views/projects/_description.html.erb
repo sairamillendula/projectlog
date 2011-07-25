@@ -1,4 +1,4 @@
-<%= form_for(@project, :url => project_path, :method => :post) do |f| %>
+<%= form_for @project do |f| %>
 
   <div id="project-description">
     <p id="description-intro">Description (<a href="#">Markdown accepted</a>) <span class="small submit"><%= f.submit "Save" %></span></p>
