@@ -17,8 +17,6 @@ class Project < ActiveRecord::Base
   scope :billable, where( :internal => false)
   scope :unbillable, where( :internal => true)
   
-  #STATUS = [ 'Open', 'Closed' ]
-  
   # Total hours. Add <%= @project.total_hours %> in Project view
   def total_hours
     activities.sum(:time)

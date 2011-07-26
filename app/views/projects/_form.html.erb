@@ -43,11 +43,11 @@
   
   <div class="field">
     <%= f.label :internal, 'Internal?' %>
-    <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none">Internal projects are not billable</i>
+    <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
   </div>
   <div id="billing">
 	  <div class="field">
-	    <%= f.label :billing_code_id, 'Billing Cycle' %>
+	    <%= f.label :billing_code_id, 'Billing Method' %>
 	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select billing method"} ) %>
 		<%= @project.billing_code_id == 3 ? " Budget " : " Rate " %> <%= f.text_field :default_rate, :size => '8' %>
 		<% if current_user.profile.hours_per_day.nil? && @project.billing_code_id == 2 %>
