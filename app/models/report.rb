@@ -33,7 +33,6 @@ class Report < ActiveRecord::Base
   private
   
   def generate_random_slug
-    self.slug = SecureRandom.hex(10)
+    self.slug = Devise.friendly_token.downcase
   end
-  
 end
