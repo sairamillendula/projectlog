@@ -21,7 +21,8 @@
   <%# Hide the customer field if it's a new project but already has the customer set up. %>
     <div class="field">
       <%= f.label :customer_id, :class => 'mandatory' %>
-      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
+      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, 
+                            options = {:prompt => "Select Customer", :include_blank => "Internal" } ) %>
     </div>
   <% else %>
       <b>Customer</b>
