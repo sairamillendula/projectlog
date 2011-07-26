@@ -2,7 +2,7 @@
 
 <div id="project-title">
    <h1><%= @project.title %>
-     <% if @project.internal? %><span class="status internal">INTERNAL</span> <% end %>
+     <% if !@project.billable? %><span class="status internal">INTERNAL</span> <% end %>
      <% if @project.status? %>
        <span class="status open">OPEN</span>
      <% else %>
@@ -13,7 +13,7 @@
 
 <div id="meta">
 
-<% if @project.internal? %>
+<% if !@project.billable? %>
   <% if @project.description.blank? %>
 	<%= render :partial => 'description' %>
   <% else %>
@@ -38,7 +38,7 @@
 	      <%= @project.customer.name %>
 	   </p>
 	   <p id="budget">
-	  <% if !@project.internal? %>
+	  <% if @project.billable? %>
 	    <label class="label-wide">Budget:</label>
 	      <%= number_to_currency(@project.billing_estimate) unless @project.default_rate.empty? %> <br />
 	   </p>

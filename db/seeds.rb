@@ -24,7 +24,7 @@ Contact.create(:customer_id => '3', :first_name => 'Pauline', :last_name => 'Del
     :status => [ true, false ].sample,
     :default_rate => [ 10, 20, 30, 40, 50 ].sample,
     :billing_code_id => [ 1, 2, 3 ].sample,
-    :internal => [ true, false ].sample
+    :billable => [ true, false ].sample
   )
   project.save!
 end
