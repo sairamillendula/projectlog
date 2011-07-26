@@ -500,12 +500,14 @@ text-align: right;
 
 .label {
 width: 70px;
+#display: block;
 float: left;
 font-weight: bold;
 }
 
 .label-wide {
 width: 100px;
+#display: block;
 float: left;
 font-weight: bold;
 }
@@ -519,14 +521,14 @@ width: 95px;
 display: block;
 float: left;
 height: 27px;
-#line-height: 27px;
+line-height: 27px;
 margin-right: 10px;
 }
 
 .inline-form select {
 height: 27px;
 #vertical-align: middle;
-#margin-top: 4px;
+margin-top: 4px;
 }
 
 .inline-form textarea {
@@ -1195,8 +1197,8 @@ margin-bottom: 0px;
 margin-bottom:10px;
 }
 
-#billable-options {
-margin-left: 105px;
+#internal {
+height: 27px;
 }
 
 /* Submit button */
@@ -1256,11 +1258,11 @@ margin-left: 0;
 
 .markdown {
 height: 27px; 
-#line-height: 27px;
+line-height: 27px;
 }
 
 textarea#customer_note, textarea#project_description {
-#margin-left: 103px;
+margin-left: 103px;
 }
 
 /* Settings */

@@ -7,15 +7,15 @@ class Project < ActiveRecord::Base
   belongs_to :billing_code
   has_many :activities, :dependent => :destroy
   
-  before_save :clears_default_rate_if_unbillable
+  before_save :clears_default_rate_if_internal
   
-  attr_accessible :title, :description, :status, :default_rate, :manager, :customer_id, :billing_code_id, :billable, :billing_estimate
+  attr_accessible :title, :description, :status, :default_rate, :manager, :customer_id, :billing_code_id, :internal, :billing_estimate
   
   default_scope :order => 'created_at DESC'
   scope :open, where( :status => true )
   scope :closed, where( :status => false )
-  scope :billable, where( :billable => true )
-  scope :unbillable, where( :billable => false )
+  scope :billable, where( :internal => false)
+  scope :unbillable, where( :internal => true)
   
   # Total hours. Add <%= @project.total_hours %> in Project view
   def total_hours
@@ -33,9 +33,9 @@ class Project < ActiveRecord::Base
      end
    end
    
-   # Clears default_rate for unbillable project
-   def clears_default_rate_if_unbillable
-     if !billable?
+   # Clears default_rate for internal project
+   def clears_default_rate_if_internal
+     if internal?
        self.default_rate = nil
      end
    end

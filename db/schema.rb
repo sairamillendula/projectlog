@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726180847) do
+ActiveRecord::Schema.define(:version => 20110722035649) do
 
   create_table "activities", :force => true do |t|
     t.date     "date"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(:version => 20110726180847) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "billing_code_id"
-    t.boolean  "billable",         :default => true
+    t.boolean  "internal",         :default => false
     t.boolean  "status",           :default => true
     t.string   "billing_estimate"
   end

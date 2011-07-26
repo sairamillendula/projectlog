@@ -2,9 +2,10 @@
 
 <%= render 'form' %>
 
-<% if !@project.billable? %>
+<% if @project.internal? %>
 	<script type="text/javascript" charset="utf-8">
 	 $('#billing').hide();
+	 $('#internal-notice').show();
 	</script>
 <% end %>
 

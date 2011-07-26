@@ -43,11 +43,8 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :billable, 'Billable?' %>
-    <div id="billable-options">
-      <%= f.radio_button :billable, 'true', :checked => true, :id => 'billable' %> This is a Billable Project <br />
-      <%= f.radio_button :billable, 'false' %> This is an Internal Project
-    </div>
+    <%= f.label :internal, 'Internal?' %>
+    <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
   </div>
   <div id="billing">
 	  <div class="field">
@@ -55,9 +52,10 @@
 	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select billing method"} ) %>
 		<%= @project.billing_code_id == 3 ? " Budget " : " Rate " %> <%= f.text_field :default_rate, :size => '8' %>
 		<% if current_user.profile.hours_per_day.nil? && @project.billing_code_id == 2 %>
-		 <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %> to convert Hours to Days</span>
+		   <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %></span>
 		<% end %>
 	  </div>
+	 </div>
   </div>
   <div class="actions">
     <p class="submit"><%= submit_or_cancel(f) %></p>
@@ -67,8 +65,9 @@
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){
-$("#billable").change(function() { 
+$("#internal").change(function() { 
 	$("#billing").toggle();
+	$("#internal-notice").toggle(); 
 	} );
 });
 </script>
