@@ -24,7 +24,7 @@
 
 <div id="advanced_search" style="display: none">
   <h2>Advanced Search</h2>
-  <%= form_for @report, :url => reports_path, :html => { :method => :post, :id => "new_advanced_report" } do |f| %>
+  <%= form_for @report, :url => reports_path(:form => "advanced"), :html => { :method => :post, :id => "new_advanced_report" } do |f| %>
 
  <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "advanced_search_project_id" %>
    from <%= f.text_field :start_date, :size => 12, :class => "date" %>

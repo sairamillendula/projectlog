@@ -1,7 +1,7 @@
 //= require jquery  
 //= require jquery-ui
 //= require jquery_ujs  
-
+//= require_tree .
 
 $(function() {
   $("#activities th a, #activities .pagination a").live("click", function() {
@@ -19,13 +19,7 @@ $(function() {
   $("input.date").live('click', function() {
     $(this).datepicker({showOn:'focus', dateFormat : "yy-mm-dd"}).focus();
   });
-  
-  $("#toggle_search_form").click(function(e){
-    $("#quick_search").toggle("fast");
-    $("#advanced_search").toggle("fast");
-    e.preventDefault();
-  });
-  
+    
   $("#quick_search_start_date").change(function(){
     var start_date = new Date(Date.parse($(this).val()));
     var end_date = new Date(start_date.getFullYear(), start_date.getMonth() + 1, 1); // First day of the next month
