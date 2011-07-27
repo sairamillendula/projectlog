@@ -1,8 +1,7 @@
 class Project < ActiveRecord::Base
   
-  validates_presence_of :title, :customer_id
-  #validates_presence_of :customer_id, :unless => Proc.new { |project| project.internal? }
-  validates_presence_of :customer_id unless :project_internal?  
+  validates_presence_of :title
+  validates_presence_of :customer_id, :unless => :internal?
   validates_uniqueness_of :title, :scope => :user_id
   belongs_to :user
   belongs_to :customer
@@ -22,12 +21,7 @@ class Project < ActiveRecord::Base
   # Total hours. Add <%= @project.total_hours %> in Project view
   def total_hours
     activities.sum(:time)
-  end
-
-  def project_internal?
-    @project.internal?
-  end
-    
+  end    
 
    # Calculate Project total based on billing_code_id
    def billing_estimate
