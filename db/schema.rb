@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727184952) do
+ActiveRecord::Schema.define(:version => 20110727191430) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -32,15 +32,18 @@ ActiveRecord::Schema.define(:version => 20110727184952) do
   end
 
   create_table "contacts", :force => true do |t|
-    t.string   "first_name"
+    t.text     "first_name",  :limit => 255, :null => false
     t.string   "last_name"
     t.string   "title"
     t.string   "phone"
     t.string   "email"
-    t.integer  "customer_id"
+    t.integer  "customer_id",                :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "contacts", ["customer_id"], :name => "index_contacts_on_customer_id"
+  add_index "contacts", ["id"], :name => "index_contacts_on_id", :unique => true
 
   create_table "countries", :force => true do |t|
     t.string   "iso"

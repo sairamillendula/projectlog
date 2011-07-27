@@ -6,7 +6,7 @@ class AddIndexOnActivities < ActiveRecord::Migration
     change_column :activities, :date, :date, :null => false
     change_column :activities, :time, :float, :null => false
     change_column :activities, :description, :text, :null => false
-    change_column :activities, :project_id, :interger, :null => false
+    change_column :activities, :project_id, :integer, :null => false
   end
 
   def down
@@ -16,6 +16,6 @@ class AddIndexOnActivities < ActiveRecord::Migration
     change_column :activities, :date, :date
     change_column :activities, :time, :float
     change_column :activities, :description, :text
-    change_column :activities, :project_id, :interger
+    change_column :activities, :project_id, :integer
   end
 end
