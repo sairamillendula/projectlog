@@ -35,7 +35,7 @@ class ContactTest < ActiveSupport::TestCase
   end
   
   test "should show contact" do
-    get :show, "id => @contact.to_param
+    get :show, :id => @contact.to_param
     assert_response :success
     assert_template 'show'
     assert_not_nil assigns(:contact)
@@ -44,7 +44,7 @@ class ContactTest < ActiveSupport::TestCase
 
   test "should update contact" do
     contact = customers(:one)
-    assert contact.update_attributes(:email => 'test@test.com)
+    assert contact.update_attributes(:email => 'test@test.com')
   end
 
   test "should destroy contact" do
