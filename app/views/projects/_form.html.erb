@@ -17,36 +17,25 @@
     <%= f.text_field :title, :size => '100' %>
   </div>
   
-  <% if @project.persisted? || @project.customer.blank?  %>
-  <%# Hide the customer field if it's a new project but already has the customer set up. %>
-    <div class="field">
-      <%= f.label :customer_id, :class => 'mandatory' %>
-      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, 
-                            options = {:prompt => "Select Customer", :include_blank => "Internal" } ) %>
-    </div>
-  <% else %>
-      <b>Customer</b>
-      <%= @project.customer.name %>
-    </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :description %>
-    <span class="markdown"><a href="#" >Markdown accepted</a></span><br/>
-    <%= f.text_area :description, :cols => '88', :rows => '6' %>
-  </div>
-  <% if !@project.new_record? %>
-  	  <div class="field">
-	    <%= f.label :status %>
-	    <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
-	  </div>
-  <% end %>
-  
   <div class="field">
     <%= f.label :internal, 'Internal?' %>
     <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
   </div>
+
   <div id="billing">
+    <% if @project.persisted? || @project.customer.blank?  %>
+	<%# Hide the customer field if it's a new project but already has the customer set up. %>
+	  <div class="field">
+	    <%= f.label :customer_id, :class => 'mandatory' %>
+	    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, 
+	                          options = { :prompt => "Select Customer" } ) %>
+	  </div>
+	<% else %>
+	   <b>Customer</b>
+	   <%= @project.customer.name %>
+	  </div>
+	<% end %>
+	
 	  <div class="field">
 	    <%= f.label :billing_code_id, 'Billing Method' %>
 	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select billing method"} ) %>
@@ -55,8 +44,22 @@
 		   <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %></span>
 		<% end %>
 	  </div>
-	 </div>
+
   </div>
+  
+  <% if !@project.new_record? %>
+  	  <div class="field">
+	    <%= f.label :status %>
+	    <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
+	  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %>
+    <span class="markdown"><a href="#" >Markdown accepted</a></span><br/>
+    <%= f.text_area :description, :cols => '88', :rows => '6' %>
+  </div>
+
   <div class="actions">
     <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>
