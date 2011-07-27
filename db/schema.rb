@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727203620) do
+ActiveRecord::Schema.define(:version => 20110727204115) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -140,8 +140,7 @@ ActiveRecord::Schema.define(:version => 20110727203620) do
     t.string   "title"
     t.string   "description"
     t.string   "default_rate"
-    t.string   "manager"
-    t.integer  "user_id"
+    t.integer  "user_id",                             :null => false
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -150,6 +149,16 @@ ActiveRecord::Schema.define(:version => 20110727203620) do
     t.boolean  "status",           :default => true
     t.string   "billing_estimate"
   end
+
+  add_index "projects", ["billing_code_id"], :name => "index_projects_on_billing_code_id"
+  add_index "projects", ["customer_id"], :name => "index_projects_on_customer_id"
+  add_index "projects", ["default_rate"], :name => "index_projects_on_default_rate"
+  add_index "projects", ["description"], :name => "index_projects_on_description"
+  add_index "projects", ["id"], :name => "index_projects_on_id"
+  add_index "projects", ["internal"], :name => "index_projects_on_internal"
+  add_index "projects", ["status"], :name => "index_projects_on_status"
+  add_index "projects", ["title"], :name => "index_projects_on_title"
+  add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
 
   create_table "provinces", :force => true do |t|
     t.string   "name"
