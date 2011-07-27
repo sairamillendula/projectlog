@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727205036) do
+ActiveRecord::Schema.define(:version => 20110727205401) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -193,7 +193,11 @@ ActiveRecord::Schema.define(:version => 20110727205036) do
     t.datetime "updated_at"
   end
 
+  add_index "settings", ["thing_id"], :name => "index_settings_on_thing_id"
   add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
+  add_index "settings", ["thing_type"], :name => "index_settings_on_thing_type"
+  add_index "settings", ["value"], :name => "index_settings_on_value"
+  add_index "settings", ["var"], :name => "index_settings_on_var"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
