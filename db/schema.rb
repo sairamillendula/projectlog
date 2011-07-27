@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727200517) do
+ActiveRecord::Schema.define(:version => 20110727202839) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -47,13 +47,17 @@ ActiveRecord::Schema.define(:version => 20110727200517) do
 
   create_table "countries", :force => true do |t|
     t.string   "iso"
-    t.string   "name"
-    t.string   "printable_name"
+    t.string   "name",           :null => false
+    t.string   "printable_name", :null => false
     t.string   "iso3"
     t.integer  "numcode"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "countries", ["id"], :name => "index_countries_on_id", :unique => true
+  add_index "countries", ["name"], :name => "index_countries_on_name"
+  add_index "countries", ["printable_name"], :name => "index_countries_on_printable_name"
 
   create_table "customers", :force => true do |t|
     t.text     "name",        :limit => 255, :null => false
