@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727203233) do
+ActiveRecord::Schema.define(:version => 20110727203620) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -118,10 +118,23 @@ ActiveRecord::Schema.define(:version => 20110727203233) do
     t.string   "phone_number"
     t.string   "localization"
     t.float    "hours_per_day"
-    t.integer  "user_id"
+    t.integer  "user_id",       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "profiles", ["address1"], :name => "index_profiles_on_address1"
+  add_index "profiles", ["address2"], :name => "index_profiles_on_address2"
+  add_index "profiles", ["city"], :name => "index_profiles_on_city"
+  add_index "profiles", ["company"], :name => "index_profiles_on_company"
+  add_index "profiles", ["country"], :name => "index_profiles_on_country"
+  add_index "profiles", ["hours_per_day"], :name => "index_profiles_on_hours_per_day"
+  add_index "profiles", ["id"], :name => "index_profiles_on_id", :unique => true
+  add_index "profiles", ["localization"], :name => "index_profiles_on_localization"
+  add_index "profiles", ["phone_number"], :name => "index_profiles_on_phone_number"
+  add_index "profiles", ["postal_code"], :name => "index_profiles_on_postal_code"
+  add_index "profiles", ["province"], :name => "index_profiles_on_province"
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.string   "title"
