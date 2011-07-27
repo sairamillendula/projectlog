@@ -1,15 +1,15 @@
 class Project < ActiveRecord::Base
   
-  validates_presence_of :title, :customer_id
+  validates_presence_of :title
   #validates_presence_of :customer_id, :unless => Proc.new { |project| project.internal? }
-  validates_presence_of :customer_id unless :project_internal?  
+  #validates_presence_of :customer_id unless :project_internal?  
   validates_uniqueness_of :title, :scope => :user_id
   belongs_to :user
   belongs_to :customer
   belongs_to :billing_code
   has_many :activities, :dependent => :destroy
   
-  before_save :clears_default_rate_if_internal
+  before_save :clears_if_internal
   
   attr_accessible :title, :description, :status, :default_rate, :manager, :customer_id, :billing_code_id, :internal, :billing_estimate
   
@@ -23,12 +23,11 @@ class Project < ActiveRecord::Base
   def total_hours
     activities.sum(:time)
   end
-
+  
   def project_internal?
-    @project.internal?
-  end
-    
-
+      @project.internal?
+    end
+  
    # Calculate Project total based on billing_code_id
    def billing_estimate
      if billing_code_id == 1 # Hourly
@@ -40,10 +39,11 @@ class Project < ActiveRecord::Base
      end
    end
    
-   # Clears default_rate for internal project
-   def clears_default_rate_if_internal
+   # Clears customer and default rate for internal project
+   def clears_if_internal
      if internal?
        self.default_rate = nil
+       self.customer_id = nil
      end
    end
 end

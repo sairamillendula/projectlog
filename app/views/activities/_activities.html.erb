@@ -28,7 +28,7 @@
   <% if @activities.present? || params[:search].present? %>
     <h2>Activities</h2>
 	<div id="activity-search">	
-		<%= link_to 'New Activity', new_project_activity_path(@project, :format => :js), :remote => true %> |
+		<%= link_to 'New Activity', new_project_activity_path(@project, :format => :js), :remote => true, :id => 'new_activity_link' %> |
 		<%= link_to 'Create Report', new_report_path %> 
 		<span id="export" class="right">
 			<%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>

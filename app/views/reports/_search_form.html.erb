@@ -1,6 +1,6 @@
 <% if @report.errors.any? %>
   <div id="error_explanation" class="alert">
-    <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being saved:</h2>
+    <h2><%= pluralize(@report.errors.count, "error") %> prohibited this report from being generated:</h2>
 
     <ul>
     <% @report.errors.full_messages.each do |msg| %>
