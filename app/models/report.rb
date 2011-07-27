@@ -3,6 +3,7 @@ class Report < ActiveRecord::Base
   belongs_to :user
   
   validates_presence_of :start_date, :end_date, :user_id, :slug
+  validate :start_date_must_be_smaller_than_end_date
   
   before_validation :generate_random_slug, :on => :create
   
@@ -33,7 +34,12 @@ class Report < ActiveRecord::Base
   private
   
   def generate_random_slug
-    self.slug = SecureRandom.hex(10)
+    self.slug = Devise.friendly_token.downcase
   end
   
+  def start_date_must_be_smaller_than_end_date
+    if start_date.present? && end_date.present? && start_date > end_date
+      errors.add(:start_date, "must be smaller than end date")
+    end
+  end
 end
