@@ -38,10 +38,10 @@
 	
 	  <div class="field">
 	    <%= f.label :billing_code_id, 'Billing Method' %>
-	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select billing method"} ) %>
-		<%= @project.billing_code_id == 3 ? " Budget " : " Rate " %> <%= f.text_field :default_rate, :size => '8' %>
+	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
+		<span style="margin-left:105px">Rate/Budget: <%= f.text_field :default_rate, :size => '8' %>
 		<% if current_user.profile.hours_per_day.nil? && @project.billing_code_id == 2 %>
-		   <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %></span>
+		   <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %> to convert Hours to Days</span>
 		<% end %>
 	  </div>
 

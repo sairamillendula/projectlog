@@ -10,16 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722035649) do
+ActiveRecord::Schema.define(:version => 20110727184952) do
 
   create_table "activities", :force => true do |t|
-    t.date     "date"
-    t.float    "time"
-    t.text     "description"
-    t.integer  "project_id"
+    t.date     "date",        :null => false
+    t.float    "time",        :null => false
+    t.text     "description", :null => false
+    t.integer  "project_id",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "activities", ["date"], :name => "index_activities_on_date"
+  add_index "activities", ["id"], :name => "index_activities_on_id", :unique => true
+  add_index "activities", ["project_id"], :name => "index_activities_on_project_id"
 
   create_table "billing_codes", :force => true do |t|
     t.string   "name"

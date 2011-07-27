@@ -20,7 +20,7 @@ Contact.create(:customer_id => '3', :first_name => 'Pauline', :last_name => 'Del
 15.times do |p|
   project = user1.projects.create(
     :title => "Project #{p}",
-    :customer_id => [ 1, 2, 3, "" ].sample,
+    :customer_id => [ 1, 2, 3 ].sample,
     :status => [ true, false ].sample,
     :default_rate => [ 10, 20, 30, 40, 50 ].sample,
     :billing_code_id => [ 1, 2, 3 ].sample,
