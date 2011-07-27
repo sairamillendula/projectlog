@@ -6,9 +6,7 @@
 	    <div class="card-inner">
 	  	  <h1><%= link_to project.title, project %></h1>
 	      <p class="tagline">
-	        
-	          <%= project.customer.name %>
-	       
+	          <%= project.customer_id.present? ? project.customer.name : 'Internal' %>
 	      </p>
 	    </div>
 	  </li>
