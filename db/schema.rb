@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727204825) do
+ActiveRecord::Schema.define(:version => 20110727205036) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -176,8 +176,13 @@ ActiveRecord::Schema.define(:version => 20110727204825) do
     t.integer  "project_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "slug"
+    t.string   "slug",       :null => false
   end
+
+  add_index "reports", ["id"], :name => "index_reports_on_id"
+  add_index "reports", ["project_id"], :name => "index_reports_on_project_id"
+  add_index "reports", ["slug"], :name => "index_reports_on_slug"
+  add_index "reports", ["user_id"], :name => "index_reports_on_user_id"
 
   create_table "settings", :force => true do |t|
     t.string   "var",                      :null => false
