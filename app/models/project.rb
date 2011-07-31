@@ -10,7 +10,7 @@ class Project < ActiveRecord::Base
   
   before_save :clears_if_internal
   
-  attr_accessible :title, :description, :status, :default_rate, :manager, :customer_id, :billing_code_id, :internal, :billing_estimate
+  attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :billing_estimate
   
   default_scope :order => 'created_at DESC'
   scope :open, where( :status => true )

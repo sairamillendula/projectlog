@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(:version => 20110727205401) do
   end
 
   create_table "contacts", :force => true do |t|
-    t.text     "first_name",  :limit => 255, :null => false
+    t.string   "first_name",  :null => false
     t.string   "last_name"
     t.string   "title"
     t.string   "phone"
     t.string   "email"
-    t.integer  "customer_id",                :null => false
+    t.integer  "customer_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(:version => 20110727205401) do
   add_index "countries", ["printable_name"], :name => "index_countries_on_printable_name"
 
   create_table "customers", :force => true do |t|
-    t.text     "name",        :limit => 255, :null => false
+    t.string   "name",        :null => false
     t.string   "phone"
     t.string   "address1"
     t.string   "address2"
     t.string   "postal_code"
     t.string   "province"
     t.string   "country"
-    t.integer  "user_id",                    :null => false
+    t.integer  "user_id",     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
