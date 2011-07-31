@@ -4,7 +4,7 @@
   <% if billable_time_grouped_by_date_in_the_last_days(7).empty? %>
     You haven't worked in the last 7 days. You lazy donkey!
   <% else %>
-    <table>
+    <table id="acti">
       <tr>
         <th>Day</th>      
         <th>Billable hours</th>
@@ -19,3 +19,8 @@
   <% end %>
 
 </div>
+
+<%= image_tag Gchart.pie(:data => [0, 40, 10, 70, 20]) %>
+
+<%= image_tag Gchart.line(billable_time_grouped_by_date_in_the_last_days(7) )%>
+
