@@ -5,12 +5,6 @@ GIT
     rails-settings (0.1.1)
       rails (>= 3.0.0)
 
-GIT
-  remote: git://github.com/mattetti/googlecharts.git
-  revision: 338c38cc6daf12bc861b8f8eeb03316ee8144fbc
-  specs:
-    googlecharts (1.6.7)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -64,6 +58,7 @@ GEM
     eventmachine (0.12.10)
     execjs (1.2.0)
       multi_json (~> 1.0)
+    google_visualr (2.0.6)
     guard (0.5.0)
       thor (~> 0.14.6)
     guard-livereload (0.2.0)
@@ -152,7 +147,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-script
   devise
-  googlecharts!
+  google_visualr (>= 2.0)
   guard-livereload
   heroku
   jquery-rails

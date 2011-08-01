@@ -3,5 +3,13 @@
   // Update total sum
   $("#project_total_time").html('<%= number_with_delimiter(@project.activities.sum(:time)) %>');
 <% else %>
-  alert("Please fix the following errors: <%= @activity.errors.full_messages.to_sentence %>.");
+  $('<div id="activity-error"></div>')
+		.html('<div class="alert">Please fix the following errors: <%= escape_javascript @activity.errors.full_messages.to_sentence %></div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			modal: true,
+			show: "fade",
+			hide: "fade",
+    });
 <% end %>

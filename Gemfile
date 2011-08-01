@@ -19,7 +19,7 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'rails-settings', :git => 'git://github.com/100hz/rails-settings.git'
 gem 'redcarpet'
-gem 'googlecharts', :git => 'git://github.com/mattetti/googlecharts.git', :require => 'gchart'
+gem 'google_visualr', '>= 2.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
