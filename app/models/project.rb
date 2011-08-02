@@ -12,7 +12,6 @@ class Project < ActiveRecord::Base
   
   attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :billing_estimate
   
-  default_scope :order => 'created_at DESC'
   scope :open, where( :status => true )
   scope :closed, where( :status => false )
   scope :billable, where( :internal => false)

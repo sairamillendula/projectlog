@@ -11,7 +11,7 @@ class Reports::EmailsController < ApplicationController
   end
   
   def create
-    @email = Reports::Email.new(params[:reports_email].merge(:from => "#{current_user.name} <notification@getprojectlog.com>"))
+    @email = Reports::Email.new(params[:reports_email].merge(:from => "#{current_user.name} <notification@getprojectlog.com>", :reply_to => current_user.email))
     if @email.valid?
       @email.deliver
     end

@@ -5,7 +5,7 @@ class Reports::Email
   
   attr_accessor :to, :subject, :body, :from, :report_link, :reply_to
   
-  validates_presence_of :to, :subject, :body, :from, :report_link
+  validates_presence_of :to, :subject, :body, :from, :report_link, :reply_to
   validate :body_must_contain_report_link
   
   def initialize(attributes = {})
