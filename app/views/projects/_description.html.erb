@@ -1,8 +1,9 @@
 <%= form_for @project do |f| %>
 
-  <div id="project-description">
-    <p id="description-intro">Description (<a href="#">Markdown accepted</a>) <span class="small submit"><%= f.submit "Save" %></span></p>
-    <%= f.text_area :description, :id => "description" %>
+ <div id="project-description">
+   <p id="description-intro">Description (<a href="http://getprojectlog.com/help/knowledgebase/markdown/?src=app" target="_blank">Markdown accepted</a>) 
+	 <span class="small submit"><%= f.submit "Save" %></span></p>
+     <%= f.text_area :description, :id => "description" %>
   </div>
 
 <% end %>
