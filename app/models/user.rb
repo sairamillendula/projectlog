@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :reports, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
   
+  scope :standard, where(:admin => false)
   
   # Devise change to allow users edit their accounts without providing a password
   def password_required?

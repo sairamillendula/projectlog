@@ -11,14 +11,14 @@
 
   <tr>
     <td>Users signup</td>
-    <td><b><%= @users.count %></b></td>
-    <td><%= User.count(:conditions => ["created_at > ?", Date.today]) %></td>
-    <td><%= User.count(:conditions => ["created_at > ?", 1.week.ago.to_date]) %></td>
-    <td><%= User.count(:conditions => ["created_at > ?", 1.month.ago.to_date]) %></td>
+    <td><b><%= User.standard.size %></b></td>
+    <td><%= total_users_created(Date.today) %></td>
+    <td><%= total_users_created(1.week.ago.to_date) %></td>
+    <td><%= total_users_created(1.month.ago.to_date) %></td>
   </tr>
 </table>
 <br/>
-<p class="right">Server Time: <b><%= Time.now %></b></p>
+<p class="right">Server Time: <b><%= Time.zone.now %></b></p>
 
 <table id="clients" class="admin">
   <tr>
