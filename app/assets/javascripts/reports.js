@@ -17,4 +17,10 @@ $(function(){
     $("#quick_search_end_date").val(end_date.getFullYear() + "-" + (end_date.getMonth() + 1) + "-" + end_date.getDate()); // Convert the date to 'YYYY-MM-DD' format
     return false;
   });
+  
+  // Show loading indicator while creating report
+  $("#new_quick_report, #new_advanced_report").submit(function(){
+    $("img.loading").slideDown();
+    return true;
+  });
 });
