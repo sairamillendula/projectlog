@@ -23,3 +23,5 @@
 Active Users: <%= active_users %>
 
 
+<div id='users-chart'></div>
+<%= raw @users_chart.to_js('users-chart') %>
