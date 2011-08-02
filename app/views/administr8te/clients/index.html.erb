@@ -2,8 +2,11 @@
 
 <p class="right">Server Time: <b><%= Time.zone.now %></b></p>
 
+<p>Total of <b><%= User.standard.size %></b> standard users. Total of <b><%= pluralize(User.admin.size, 'administrator') %></b></p>
+
 <table id="clients" class="admin">
   <tr>
+    <th><%= sortable "" %></th>
     <th><%= sortable "email" %></th>
     <th><%= sortable "first_name" %></th>
     <th><%= sortable "last_name" %></th>
@@ -19,6 +22,7 @@
 
 <% for user in @users %>
   <tr>
+    <td><% if user.admin%><span style="font-size: 9px; color: #fff; background: red; padding: 0 4 0 4;"><% end %></td>
     <td><%= user.email %></td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
