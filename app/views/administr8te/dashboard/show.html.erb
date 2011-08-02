@@ -10,7 +10,6 @@
     <th>This Week</th>
     <th>This Month</th>
   </tr>
-
   <tr>
     <td>Users signup</td>
     <td><b><%= User.standard.size %></b></td>
@@ -18,15 +17,67 @@
     <td><%= total_users_created(1.week.ago.to_date) %></td>
     <td><%= total_users_created(1.month.ago.to_date) %></td>
   </tr>
+  <tr>
+    <td>Cancellations</td>
+    <td><b></b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Users with Free plan</td>
+    <td><b></b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Users with Paid plan</td>
+    <td><b></b></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
 </table>
 
-Active Users: <%= active_users %>
+<%= render :partial => 'revenues' %>
 
+<table class="activities">
+  <tr>
+    <th></th>
+    <th>Free plan</th>
+    <th>Paid plan</th>
+  </tr>
+  <tr>
+    <td>Active Users</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Average Projects per User</td>
+    <td><%= average_projects_per_user %></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Churn (number of clients who unsubscribe)</td>
+    <td>Total cancellations / Total users %</td>
+    <td>Total cancellations / Total users %</td>
+  </tr>
+  <tr>
+    <td>Churn (number of clients who unsubscribe)</td>
+    <td>Total cancellations / Total users %</td>
+    <td>Total cancellations / Total users %</td>
+  </tr>
+  <tr>
+    <td>Subscription average</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Lifetime Value</td>
+    <td></td>
+    <td></td>
+  </tr>
 
 <div id='users-chart'></div>
 <%= raw @users_chart.to_js('users-chart') %>
-
-
-
-<div id='users-chart2'></div>
-<%= raw @chart2.to_js('users-chart2') %>
