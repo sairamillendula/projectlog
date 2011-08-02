@@ -1,23 +1,5 @@
 <h1>Manage Users</h1>
 
-<table id="clients-summary" class="activities">
-  <tr>
-    <th></th>
-    <th>Total</th>
-    <th>Today</th>
-    <th>This Week</th>
-    <th>This Month</th>
-  </tr>
-
-  <tr>
-    <td>Users signup</td>
-    <td><b><%= User.standard.size %></b></td>
-    <td><%= total_users_created(Date.today) %></td>
-    <td><%= total_users_created(1.week.ago.to_date) %></td>
-    <td><%= total_users_created(1.month.ago.to_date) %></td>
-  </tr>
-</table>
-<br/>
 <p class="right">Server Time: <b><%= Time.zone.now %></b></p>
 
 <table id="clients" class="admin">
