@@ -13,6 +13,11 @@ module Administr8te::DashboardHelper
     @average_projects_per_user = @projects_belonging_to_standard_users.to_f / User.standard.size.to_f
   end
   
+  def average_subscription_time_in_days
+    users = User.standard.all
+    average_subscription = average(Date.today  -  users.created_at.to_date).to_i
+  end
+  
   def total_users_created(timeframe)
     @total_users_created = User.standard.where("created_at > ?", timeframe).size
   end

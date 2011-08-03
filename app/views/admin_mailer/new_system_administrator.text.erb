@@ -1,0 +1,6 @@
+New Administrator granted:
+
+<% @user.attributes.each do |key, value| %>
+  <% next unless [:id, :email, :first_name, :last_name].include?(key.to_sym) %>
+  * <%= key.to_s.humanize %>: <%= value %>
+<% end %>
