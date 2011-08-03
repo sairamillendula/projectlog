@@ -12,10 +12,10 @@ class Project < ActiveRecord::Base
   
   attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :billing_estimate
   
-  scope :open, where( :status => true )
-  scope :closed, where( :status => false )
-  scope :billable, where( :internal => false)
-  scope :unbillable, where( :internal => true)
+  scope :open, where(:status => true)
+  scope :closed, where(:status => false)
+  scope :billable, where(:internal => false)
+  scope :unbillable, where(:internal => true)
   
   # Total hours. Add <%= @project.total_hours %> in Project view
   def total_hours
