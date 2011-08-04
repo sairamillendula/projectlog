@@ -24,6 +24,9 @@ Projectlog::Application.configure do
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = false
 
+  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+  config.force_ssl = true
+  
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
@@ -39,18 +42,6 @@ Projectlog::Application.configure do
   
   # Dev Host
   config.action_mailer.default_url_options = { :host => 'getprojectlog.com' }
-  
-  # # Gmail SMTP server setup
-  #   config.action_mailer.delivery_method = :smtp
-  #   ActionMailer::Base.smtp_settings = {  
-  #     :address              => "smtp.gmail.com",  
-  #     :port                 => 587,  
-  #     #:domain               => "koopon.ca",  
-  #     :user_name            => "gaelledeals@gmail.com",  
-  #     :password             => "socrate19",  
-  #     :authentication       => "plain",  
-  #     :enable_starttls_auto => true  
-  #   }
   
   # Getprojectlog Email server setup
   config.action_mailer.delivery_method = :smtp

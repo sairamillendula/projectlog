@@ -36,6 +36,9 @@ module Projectlog
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     
+    # SSL: Off in Dev, On in Test & Prod
+    config.force_ssl = false
+    
     # Devise Layout
     config.to_prepare do
       Devise::SessionsController.layout "login"
