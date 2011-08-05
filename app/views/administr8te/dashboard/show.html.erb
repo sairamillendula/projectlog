@@ -42,6 +42,8 @@
 
 <%= render :partial => 'revenues' %>
 
+<%= render :partial => 'user_chart' %>
+
 <table class="activities">
   <tr>
     <th></th>
@@ -78,6 +80,3 @@
     <td></td>
     <td></td>
   </tr>
-
-<div id='users-chart'></div>
-<%= raw @users_chart.to_js('users-chart') %>

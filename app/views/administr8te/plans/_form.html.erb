@@ -1,0 +1,37 @@
+<%= form_for(@administr8te_plan) do |f| %>
+  <% if @administr8te_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@administr8te_plan.errors.count, "error") %> prohibited this administr8te_plan from being saved:</h2>
+
+      <ul>
+      <% @administr8te_plan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :features %><br />
+    <%= f.text_area :features %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.text_field :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

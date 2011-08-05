@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110802031701) do
+ActiveRecord::Schema.define(:version => 20110805183251) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -106,6 +106,20 @@ ActiveRecord::Schema.define(:version => 20110802031701) do
   add_index "localizations", ["country_id"], :name => "index_localizations_on_country_id"
   add_index "localizations", ["id"], :name => "index_localizations_on_id", :unique => true
   add_index "localizations", ["name"], :name => "index_localizations_on_name"
+
+  create_table "plans", :force => true do |t|
+    t.string   "name",                           :null => false
+    t.text     "description"
+    t.text     "features"
+    t.float    "price",                          :null => false
+    t.boolean  "active",      :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "plans", ["id"], :name => "index_plans_on_id"
+  add_index "plans", ["name"], :name => "index_plans_on_name"
+  add_index "plans", ["price"], :name => "index_plans_on_price"
 
   create_table "profiles", :force => true do |t|
     t.string   "company"
@@ -214,6 +228,7 @@ ActiveRecord::Schema.define(:version => 20110802031701) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "admin",                               :default => false
+    t.integer  "plan_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

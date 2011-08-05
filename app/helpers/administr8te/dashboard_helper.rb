@@ -22,4 +22,14 @@ module Administr8te::DashboardHelper
     @total_users_created = User.standard.where("created_at > ?", timeframe).size
   end
   
+  def users_chart_series(users, start_time)
+    users_by_day = users.where(:created_at => start_time.beginning_of_day..Time.zone.now.end_of_day).
+                   group("date(created_at)").
+                   select("created_at, count(id) as total_users")
+    (start_time.to_date..Date.today).map do |date|
+      user = users_by_day.detect { |user| user.created_at.to_date == date }
+      user && user.total_users.to_i || 0
+    end.inspect
+  end
+  
 end

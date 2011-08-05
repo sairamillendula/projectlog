@@ -46,6 +46,7 @@ Projectlog::Application.routes.draw do
     resource :dashboard, :only => [ :show ], :controller => "dashboard"
     resource :settings
     resource :clients, :only => [ :index ]
+    resources :plans
   end
   
   # allow "/users/login" and "/login"

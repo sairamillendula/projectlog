@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @administr8te_plan.name %>
+</p>
+
+<p>
+  <b>Features:</b>
+  <%= @administr8te_plan.features %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @administr8te_plan.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @administr8te_plan.price %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @administr8te_plan.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_administr8te_plan_path(@administr8te_plan) %> |
+<%= link_to 'Back', administr8te_plans_path %>

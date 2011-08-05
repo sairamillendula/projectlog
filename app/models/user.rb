@@ -7,17 +7,18 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name,
-                  :created_at, :updated_at, :last_sign_in_at, :current_sign_in_ip, :sign_in_count
+                  :created_at, :updated_at, :last_sign_in_at, :current_sign_in_ip, :sign_in_count, :plan_id
   
-  after_create :build_profile
+  after_create :build_profile_and_set_default_plan
   
-  has_one :profile, :dependent => :destroy
+  has_one  :profile, :dependent => :destroy
   has_many :customers, :dependent => :destroy
   has_many :projects, :dependent => :destroy, :order => 'created_at DESC'
   has_many :connections, :through => :customers, :source => :contacts
   has_many :activities, :through => :projects
   has_many :reports, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
+  belongs_to :plan
   
   scope :standard, where(:admin => false)
   scope :admin, where(:admin => true)
@@ -37,10 +38,18 @@ class User < ActiveRecord::Base
   end
   
 private
-  def build_profile
+  def build_profile_and_set_default_plan
     logger.debug "It's time to create the account."
        self.create_profile
     logger.debug "The account should be created now."
+    
+    logger.debug "It's time to select a plan."
+       self.update_attributes(:plan_id => '1')
+    logger.debug "Default plan should be added."
+  end
+  
+  def self.count_on(date)
+    where("date(created_at) = ?", date).count(:id)
   end
   
 end
