@@ -1,4 +1,5 @@
 class Administr8te::PlansController < ApplicationController
+  before_filter :require_admin
   set_tab :admin_plans
 
   def index
