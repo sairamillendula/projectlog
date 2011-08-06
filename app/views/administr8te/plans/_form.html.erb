@@ -11,27 +11,30 @@
     </div>
   <% end %>
 
+<div class="inline-form">
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name, :class => 'mandatory' %>
+    <%= f.text_field :name, :size => '50' %>
   </div>
   <div class="field">
-    <%= f.label :features %><br />
-    <%= f.text_area :features %>
+    <%= f.label :features %>
+    <%= f.text_area :features, :cols => '88', :rows => '6' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, :cols => '88', :rows => '6' %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.label :price, :class => 'mandatory' %>
+    <%= f.text_field :price, :size => '8' %>
   </div>
   <div class="field">
-    <%= f.label :active %><br />
-    <%= f.text_field :active %>
+    <%= f.label :active, :class => 'mandatory' %>
+    <%= f.radio_button :active, true %> Active
+    <%= f.radio_button  :active, false %> Inactive
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>
+</div>
 <% end %>
