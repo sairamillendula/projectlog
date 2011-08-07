@@ -3,7 +3,7 @@ class Administr8te::PlansController < ApplicationController
   set_tab :admin_plans
 
   def index
-    @administr8te_plans = Administr8te::Plan.all
+    @plans = Administr8te::Plan.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,7 +11,7 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def show
-    @administr8te_plan = Administr8te::Plan.find(params[:id])
+    @plan = Administr8te::Plan.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -19,7 +19,7 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def new
-    @administr8te_plan = Administr8te::Plan.new
+    @plan = Administr8te::Plan.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -27,15 +27,15 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def edit
-    @administr8te_plan = Administr8te::Plan.find(params[:id])
+    @plan = Administr8te::Plan.find(params[:id])
   end
 
   def create
-    @administr8te_plan = Administr8te::Plan.new(params[:administr8te_plan])
+    @plan = Administr8te::Plan.new(params[:administr8te_plan])
 
     respond_to do |format|
-      if @administr8te_plan.save
-        format.html { redirect_to @administr8te_plan, notice: 'Plan was successfully created.' }
+      if @plan.save
+        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -43,11 +43,11 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def update
-    @administr8te_plan = Administr8te::Plan.find(params[:id])
+    @plan = Administr8te::Plan.find(params[:id])
 
     respond_to do |format|
-      if @administr8te_plan.update_attributes(params[:administr8te_plan])
-        format.html { redirect_to @administr8te_plan, notice: 'Plan was successfully updated.' }
+      if @plan.update_attributes(params[:administr8te_plan])
+        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
       else
         format.html { render action: "edit" }
       end
@@ -55,8 +55,8 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def destroy
-    @administr8te_plan = Administr8te::Plan.find(params[:id])
-    @administr8te_plan.destroy
+    @plan = Administr8te::Plan.find(params[:id])
+    @plan.destroy
 
     respond_to do |format|
       format.html { redirect_to administr8te_plans_url, notice: 'Plan was successfully deleted.' }

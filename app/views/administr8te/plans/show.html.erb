@@ -6,25 +6,25 @@
 
 <p>
   <b>Name:</b>
-  <%= @administr8te_plan.name %>
+  <%= @plan.name %>
 </p>
 
 <p>
   <b>Features:</b>
-  <%= @administr8te_plan.features %>
+  <%= markdown(@plan.features) %>
 </p>
 
 <p>
   <b>Description:</b>
-  <%= @administr8te_plan.description %>
+  <%= @plan.description %>
 </p>
 
 <p>
   <b>Price:</b>
-  <%= @administr8te_plan.price %>
+  <%= @plan.price %>
 </p>
 
 <p>
   <b>Status:</b>
-  <%= @administr8te_plan.active? ? 'Active' : 'Inactive' %>
+  <%= @plan.active? ? 'Active' : 'Inactive' %>
 </p>

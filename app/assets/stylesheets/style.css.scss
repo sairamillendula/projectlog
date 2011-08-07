@@ -1263,9 +1263,16 @@ textarea#customer_note, textarea#project_description {
 #margin-left: 103px;
 }
 
-/* Settings */
+/* Account */
 #profile_submit {
 margin-top: 30px;
+}
+
+#current_plan {
+padding: 6px;
+margin-bottom: 20px;
+border: 1px solid #BEDCE7;
+background: #EAF2F5 url('info_background.gif') no-repeat;
 }
 
 /* Settings tabs */

@@ -1,4 +1,4 @@
-<h1>Edit your personal information</h1>
+<h1>Edit your Account</h1>
 
 <div id="column_left">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
@@ -19,14 +19,19 @@
   <h2><%= f.label :password_confirmation %></h2>
   <%= f.password_field :password_confirmation %>
   
-  <p class="submit"><%= f.submit "Save changes" %></p>
+  <p class="submit left"><%= f.submit "Save changes" %></p>
 </div>
 
 <div id="column_right">
-	<h3>Cancel my account</h3> 
-
-	<p>Unhappy? Cancel your account anytime but make sure you have a backup first because this action can not be undone.</p>
-	<p class="submit"><%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :html => {:class => 'submit' } %></p>
+  <div id="current_plan">
+    <h2>Your Plan</h2>
+    <p style="font-weight:bold; font-size: 15px;"><%= current_user.plan.name %></p>
+    <li><%= markdown(current_user.plan.features) %></li>
+  </div>
+  
+  <h3>Cancel my account</h3> 
+    <p>Unhappy? Cancel your account anytime but make sure you have a backup first because <span style="color:red">all of your account information will be permanently deleted.</p>
+	<p class="submit left"><%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete, :html => {:class => 'submit' } %></p>
 
 </div>
   
