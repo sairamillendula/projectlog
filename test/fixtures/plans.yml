@@ -4,8 +4,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+free:
+  name: "Free"
+  description: "Basic Plan free for everyone who sign up"
+  features: "A very interesting plan because you don't have to pay."
+  price: 0.0
+  active: true
+   

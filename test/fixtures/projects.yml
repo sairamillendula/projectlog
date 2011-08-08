@@ -1,19 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  description: MyString
-  status: MyString
-  default_rate: MyString
-  manager: MyString
+  title: Projectlog
+  description: "A very interesting project."
+  status: open
+  default_rate: "10"
   user_id: 1
   customer_id: 1
-
-two:
-  title: MyString
-  description: MyString
-  status: MyString
-  default_rate: MyString
-  manager: MyString
-  user_id: 1
-  customer_id: 1
+  internal: false

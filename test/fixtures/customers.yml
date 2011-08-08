@@ -8,7 +8,7 @@ one:
   province: Ottawa
   country: Canada
   note: GitHub is more than just a place to share code.
-  user_id: 1
+  user: one
 
 two:
   name: Customer #2
@@ -19,7 +19,7 @@ two:
   postal_code: J8X3P4
   province: Quebec
   country: Canada
-  user_id: 1
+  user: one
 
 three:
   name: Customer #3 (User2)
@@ -31,4 +31,4 @@ three:
   province: Ottawa
   country: Canada
   note: This is a very short note
-  user_id: 2
+  user: two

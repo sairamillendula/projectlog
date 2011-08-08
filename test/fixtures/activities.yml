@@ -3,9 +3,5 @@
 one:
   date: 2011-04-26
   time: 1.5
-  description: MyText
-
-two:
-  date: 2011-04-26
-  time: 1.5
-  description: MyText
+  description: Testing my app.
+  project: one
