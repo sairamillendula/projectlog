@@ -22,6 +22,14 @@ module Administr8te::DashboardHelper
     @total_users_created = User.standard.where("created_at > ?", timeframe).size
   end
   
+  def total_users_with_free_plan_created(timeframe)
+    @total_users_with_free_plan_created = User.with_free_plan.where("created_at > ?", timeframe).size
+  end
+  
+  def total_users_with_paid_plan_created(timeframe)
+    @total_users_with_paid_plan_created = User.with_free_plan.where("created_at > ?", timeframe).size
+  end
+  
   def users_chart_series(users, start_time)
     users_by_day = users.where(:created_at => start_time.beginning_of_day..Time.zone.now.end_of_day).
                    group("date(created_at)").
