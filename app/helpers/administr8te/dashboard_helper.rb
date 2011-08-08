@@ -23,11 +23,11 @@ module Administr8te::DashboardHelper
   end
   
   def total_users_with_free_plan_created(timeframe)
-    @total_users_with_free_plan_created = User.with_free_plan.where("created_at > ?", timeframe).size
+    @total_users_with_free_plan_created = User.standard.with_free_plan.where("created_at > ?", timeframe).size
   end
   
   def total_users_with_paid_plan_created(timeframe)
-    @total_users_with_paid_plan_created = User.with_free_plan.where("created_at > ?", timeframe).size
+    @total_users_with_paid_plan_created = User.standard.with_paid_plan.where("created_at > ?", timeframe).size
   end
   
   def users_chart_series(users, start_time)

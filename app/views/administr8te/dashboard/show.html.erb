@@ -26,17 +26,17 @@
   </tr>
   <tr>
     <td>Users with Free plan</td>
-    <td><b><%= User.with_free_plan.size %></b></td>
+    <td><b><%= User.standard.with_free_plan.size %></b></td>
     <td><%= total_users_with_free_plan_created(Date.today) %></td>
     <td><%= total_users_with_free_plan_created(1.week.ago.to_date) %></td>
     <td><%= total_users_with_free_plan_created(1.month.ago.to_date) %></td>
   </tr>
   <tr>
     <td>Users with Paid plan</td>
-    <td><b></b></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td><b><%= User.standard.with_paid_plan.size %></b></td>
+    <td><%= total_users_with_paid_plan_created(Date.today) %></td>
+    <td><%= total_users_with_paid_plan_created(1.week.ago.to_date) %></td>
+    <td><%= total_users_with_paid_plan_created(1.month.ago.to_date) %></td>
   </tr>
 </table>
 
