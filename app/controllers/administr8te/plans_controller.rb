@@ -31,11 +31,11 @@ class Administr8te::PlansController < Administr8te::BaseController
   end
 
   def create
-    @plan = Plan.new(params[:administr8te_plan])
+    @plan = Plan.new(params[:plan])
 
     respond_to do |format|
       if @plan.save
-        format.html { redirect_to @plan, notice: 'Plan was successfully created.' }
+        format.html { redirect_to administr8te_plan_path(@plan), notice: 'Plan was successfully created.' }
       else
         format.html { render action: "new" }
       end
@@ -46,8 +46,8 @@ class Administr8te::PlansController < Administr8te::BaseController
     @plan = Plan.find(params[:id])
 
     respond_to do |format|
-      if @plan.update_attributes(params[:administr8te_plan])
-        format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
+      if @plan.update_attributes(params[:plan])
+        format.html { redirect_to administr8te_plan_path(@plan), notice: 'Plan was successfully updated.' }
       else
         format.html { render action: "edit" }
       end
