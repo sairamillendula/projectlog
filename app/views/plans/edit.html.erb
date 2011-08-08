@@ -1,0 +1,5 @@
+<%= form_tag(plan_path, :method => :put) do %>
+  <%= label_tag :plan_id, "Select your new plan" %>
+  <%= select_tag :plan_id, options_from_collection_for_select(@plans, :id, :name, current_user.plan_id) %>
+  <%= submit_tag "Change my plan!" %>
+<% end %>

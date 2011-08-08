@@ -10,6 +10,8 @@ Projectlog::Application.routes.draw do
   # Devise change to allow users edit their accounts without providing a password
   devise_for :user, :controllers => { :registrations => "registrations" }
   
+  resource :plan, :only => [:edit, :update]
+  
   resources :customers do 
     resources :contacts, :projects
   end

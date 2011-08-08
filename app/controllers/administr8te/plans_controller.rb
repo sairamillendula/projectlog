@@ -1,3 +1,4 @@
+# This controller is used for managing plans available for people.
 class Administr8te::PlansController < Administr8te::BaseController
   set_tab :admin_plans
 
