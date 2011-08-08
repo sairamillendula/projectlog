@@ -3,7 +3,7 @@ class Administr8te::PlansController < ApplicationController
   set_tab :admin_plans
 
   def index
-    @plans = Administr8te::Plan.all
+    @plans = Plan.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,7 +11,7 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def show
-    @plan = Administr8te::Plan.find(params[:id])
+    @plan = Plan.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -19,7 +19,7 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def new
-    @plan = Administr8te::Plan.new
+    @plan = Plan.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -27,11 +27,11 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def edit
-    @plan = Administr8te::Plan.find(params[:id])
+    @plan = Plan.find(params[:id])
   end
 
   def create
-    @plan = Administr8te::Plan.new(params[:administr8te_plan])
+    @plan = Plan.new(params[:administr8te_plan])
 
     respond_to do |format|
       if @plan.save
@@ -43,7 +43,7 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def update
-    @plan = Administr8te::Plan.find(params[:id])
+    @plan = Plan.find(params[:id])
 
     respond_to do |format|
       if @plan.update_attributes(params[:administr8te_plan])
@@ -55,7 +55,7 @@ class Administr8te::PlansController < ApplicationController
   end
 
   def destroy
-    @plan = Administr8te::Plan.find(params[:id])
+    @plan = Plan.find(params[:id])
     @plan.destroy
 
     respond_to do |format|
