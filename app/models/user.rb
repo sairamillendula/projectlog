@@ -22,8 +22,8 @@ class User < ActiveRecord::Base
   
   scope :standard, where(:admin => false)
   scope :admin, where(:admin => true)
-  scope :with_free_plan, where(:plan_id => Plan.find_by_name!("Free").id)
-  scope :with_paid_plan, where("plan_id != ?", Plan.find_by_name!("Free").id)
+  scope :with_free_plan, joins(:plan).where("plans.name = ?", "Free")
+  scope :with_paid_plan, joins(:plan).where("plans.name != ?", "Free")
   
   # Devise change to allow users edit their accounts without providing a password
   def password_required?
@@ -46,7 +46,7 @@ private
     logger.debug "The account should be created now."
     
     logger.debug "It's time to select a plan."
-       self.update_attributes(:plan_id => '1')
+       self.update_attributes(:plan_id => Plan.find_by_name!("Free").id)
     logger.debug "Default plan should be added."
   end
   
