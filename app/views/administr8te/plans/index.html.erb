@@ -23,9 +23,9 @@
     <td><%= plan.description %></td>
     <td><%= plan.price %></td>
     <td><%= plan.active? ? 'Active' : 'Inactive' %></td>
-    <td><%= link_to 'Show', plan %></td>
+    <td><%= link_to 'Show', administr8te_plan_path(plan) %></td>
     <td><%= link_to 'Edit', edit_administr8te_plan_path(plan) %></td>
-    <td><%= link_to 'Destroy', plan, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', administr8te_plan_path(plan), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

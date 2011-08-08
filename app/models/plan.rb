@@ -7,5 +7,9 @@ class Plan < ActiveRecord::Base
   
   scope :active, where(:active => true)
   scope :free, find_by_name("free")
+  
+  def features # Make sure features doesn't return nil
+    self[:features] || ""
+  end
 
 end
