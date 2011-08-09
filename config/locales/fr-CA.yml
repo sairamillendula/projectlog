@@ -10,7 +10,7 @@ fr-CA:
   date:
     formats:
       default: "%d %b %Y"
-      short: "%d-%m-%Y"
+      short: "%e %b"
       long: "%d %B %Y"
     day_names: [dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi]
     abbr_day_names: [dim, lun, mar, mer, jeu, ven, sam]
