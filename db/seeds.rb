@@ -33,11 +33,11 @@ puts "Creating projects..."
   project.save!
 end
 
-project1 = user1.projects.first
+projects=Project.all[0..15]
 
 puts "Creating activities..."
 100.times do |a|
-  activity = project1.activities.create(
+  activity = projects[rand 15].activities.create(
     :description => "Activity numéro #{a}",
     :time => [ 1, 2, 3, 3.5, 4.5, 10, 7.5, 1.5, 8 ].sample,
     :date => Time.now.to_date
