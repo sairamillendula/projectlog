@@ -16,7 +16,7 @@
     <%= f.label :title, :class => 'mandatory' %>
     <%= f.text_field :title, :size => '100' %>
   </div>
-  
+
   <div class="field">
     <%= f.label :internal, 'Internal?' %>
     <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
@@ -27,8 +27,7 @@
 	<%# Hide the customer field if it's a new project but already has the customer set up. %>
 	  <div class="field">
 	    <%= f.label :customer_id, :class => 'mandatory' %>
-	    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, 
-	                          options = { :prompt => "Select Customer" } ) %>
+	    <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = { :prompt => "Select Customer" } ) %>
 	  </div>
 	<% else %>
 	   <b>Customer</b>
@@ -39,12 +38,26 @@
 	  <div class="field">
 	    <%= f.label :billing_code_id, 'Billing Method' %>
 	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
-		<span style="margin-left:105px">Rate/Budget: <%= f.text_field :default_rate, :size => '8' %>
-		<% if current_user.profile.hours_per_day.nil? && @project.billing_code_id == 2 %>
-		   <span id="hours-per-day-notice">Hours per day not set. Update your <%= link_to 'settings', settings_path %> to convert Hours to Days</span>
-		<% end %>
+		
+		<span style="margin-left:105px">
+		  <span id="hourly">
+			Total hours for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %>
+		  </span>
+		
+		  <% if @project.per_diem? %>
+		  <span id="per_diem">
+		Total days allowed <%= f.text_field :total_unit, :size => '6' %> at a rate of <%= f.text_field :default_rate, :size => '6' %><%= number_to_currency("") %>
+		    <% if current_user.profile.hours_per_day.nil? %>
+		      <span id="hours-per-day-notice">Hours by Day not set. Update your <%= link_to 'settings', settings_path %> to convert Activities to Days</span><% end %>
+		  <% end %>
+		  </span>
+		
+		  <% if @project.fixed? %>
+		  <span id="fixed">
+		Fixed price: <%= f.text_field :default_rate, :size => '8' %></span>
+		  <% end %>
+		</span>
 	  </div>
-
   </div>
   
   <% if !@project.new_record? %>

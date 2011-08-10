@@ -9,8 +9,27 @@
 	</script>
 <% end %>
 
-<% if @project.billing_code_id == 2 %>
-	<script type="text/javascript" charset="utf-8">
-	 $('#hours-per-day-notice').show();
-	</script>
-<% end %>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+  $("#hourly").hide();
+  $("#per_diem").hide();
+  $("#fixed").hide();
+  $("#project_billing_code_id").change(function() {
+    if ($("#project_billing_code_id").val() == '1') {
+       $("#hourly").show();
+       }
+    else if ($("#project_billing_code_id").val() == '2') {
+       $("#per_diem").show();
+       $("#hourly").hide();
+	  $("#fixed").hide();
+       } 
+    else if ($("#project_billing_code_id").val() == '3') {
+       $("#fixed").show();
+       }
+    else { $("#hourly").hide();
+         $("#per_diem").hide();
+	     $("#fixed").hide();
+       }
+    });
+});
+</script>

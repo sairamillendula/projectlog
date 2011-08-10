@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806024148) do
+ActiveRecord::Schema.define(:version => 20110810031558) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -154,17 +154,22 @@ ActiveRecord::Schema.define(:version => 20110806024148) do
     t.string   "title"
     t.string   "description"
     t.string   "default_rate"
-    t.integer  "user_id",                             :null => false
+    t.integer  "user_id",                            :null => false
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "billing_code_id"
-    t.boolean  "internal",         :default => false
-    t.boolean  "status",           :default => true
-    t.string   "billing_estimate"
+    t.boolean  "internal",        :default => false
+    t.boolean  "status",          :default => true
+    t.float    "total_unit"
+    t.float    "unit_left"
+    t.float    "billable_amount"
+    t.float    "budget"
   end
 
+  add_index "projects", ["billable_amount"], :name => "index_projects_on_billable_amount"
   add_index "projects", ["billing_code_id"], :name => "index_projects_on_billing_code_id"
+  add_index "projects", ["budget"], :name => "index_projects_on_budget"
   add_index "projects", ["customer_id"], :name => "index_projects_on_customer_id"
   add_index "projects", ["default_rate"], :name => "index_projects_on_default_rate"
   add_index "projects", ["description"], :name => "index_projects_on_description"
@@ -172,6 +177,8 @@ ActiveRecord::Schema.define(:version => 20110806024148) do
   add_index "projects", ["internal"], :name => "index_projects_on_internal"
   add_index "projects", ["status"], :name => "index_projects_on_status"
   add_index "projects", ["title"], :name => "index_projects_on_title"
+  add_index "projects", ["total_unit"], :name => "index_projects_on_total_unit"
+  add_index "projects", ["unit_left"], :name => "index_projects_on_unit_left"
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
 
   create_table "provinces", :force => true do |t|

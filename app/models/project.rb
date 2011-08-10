@@ -10,34 +10,61 @@ class Project < ActiveRecord::Base
   
   before_save :clears_if_internal
   
-  attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :billing_estimate
+  attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :total_unit, :budget, :billable_amount,
+                  :unit_left
   
   scope :open, where(:status => true)
   scope :closed, where(:status => false)
   scope :billable, where(:internal => false)
   scope :unbillable, where(:internal => true)
+  scope :hourly, where(:billing_code_id => BillingCode.find_by_name!("Hourly").id)
+  scope :per_diem, where(:billing_code_id => BillingCode.find_by_name!("Per Diem").id)
+  scope :fixed, where(:billing_code_id => BillingCode.find_by_name!("Fixed").id)
+  
   
   # Total hours. Add <%= @project.total_hours %> in Project view
   def total_hours
     activities.sum(:time)
-  end    
-
-   # Calculate Project total based on billing_code_id
-   def billing_estimate
-     if billing_code_id == 1 # Hourly
-       self.billing_estimate = total_hours.to_f * default_rate.to_f
-     elsif billing_code_id == 2 # Per Diem
-       self.billing_estimate = total_hours.to_f / user.profile.hours_per_day.to_f * default_rate.to_f unless user.profile.hours_per_day.nil?
-     else
-       self.billing_estimate = default_rate # Fixed price
-     end
-   end
+  end
+  
+  # What type of project is this?
+  def hourly?
+    billing_code_id == 1
+  end
+  def per_diem?
+    billing_code_id == 2
+  end
+  def fixed?
+    billing_code_id == 3
+  end
+  
+  # Budget is what user can spend
+  def budget
+    if billing_code_id == 3 && default_rate.present?
+      self.budget = default_rate
+    elsif total_unit.present? && default_rate.present?
+      self.budget = total_unit.to_f * default_rate.to_f
+    end
+  end
+  
+  # Billable amount represents hours worked * rate
+  def billable_amount
+    if billing_code_id == 1
+      self.billable_amount = total_hours.to_f * default_rate.to_f
+    elsif billing_code_id == 2
+      self.billable_amount = total_hours.to_f / user.profile.hours_per_day.to_f * default_rate.to_f unless user.profile.hours_per_day.nil?
+    else
+      self.billable_amount = default_rate
+    end
+  end
    
-   # Clears customer and default rate for internal project
-   def clears_if_internal
-     if internal?
-       self.default_rate = nil
-       self.customer_id = nil
-     end
-   end
+  # Clears customer and default rate for internal project
+  def clears_if_internal
+    if internal?
+      self.default_rate = nil
+      self.customer_id = nil
+      self.default_rate = nil
+      self.total_unit = nil
+    end
+  end
 end

@@ -28,7 +28,8 @@ puts "Creating projects..."
     :status => [ true, false ].sample,
     :default_rate => [ 10, 20, 30, 40, 50 ].sample,
     :billing_code_id => [ 1, 2, 3 ].sample,
-    :internal => [ true, false ].sample
+    :internal => [ true, false ].sample,
+    :default_rate => [11, 11.5, 50, 35, 25.5].sample
   )
   project.save!
 end
@@ -44,3 +45,5 @@ puts "Creating activities..."
   )
   activity.save!
 end
+
+puts "All set"

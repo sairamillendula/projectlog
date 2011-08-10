@@ -39,29 +39,25 @@
 	   </p>
 	   <p id="budget">
 	  <% if !@project.internal? %>
+	    <label class="label-wide">Budget:</label>
+	      <%= number_to_currency(@project.billing_estimate) unless @project.default_rate.empty? %> <br />
+	   </p>
 	   <p>
 	     <label class="label-wide">Billing:</label>
-		 <%= @project.billing_code.name unless !@project.billing_code_id.present? %> <br />
+	       <%= @project.billing_code.name unless !@project.billing_code_id.present? %> <br />
 	   </p>
-	   <p>
-	     <label class="label-wide">Budget:</label>
-	     <%= @project.default_rate.present? && @project.total_unit.present? ? number_to_currency(@project.budget) : "Not set" %> <br />
-	   </p>
-	   <p>
-	     <label class="label-wide">Billable Amount:</label>
-	     <%= @project.default_rate.present? ? number_to_currency(@project.billable_amount) : "Default rate not set" %> <br />
-	   </p>
-	   <p>
-		 <label class="label-wide">
-		   <%= @project.hourly? ? "Hours left:" : "Days left:" unless @project.fixed? %>
-		 </label>
-	     <%= @project.default_rate.present? ? unit_left : "Default rate not set" %>
-	   </p>	
 	  <% end %>
+	   <p>
+		 <label class="label-wide">Created:</label>
+	       <%= l @project.created_at.to_date, :format => :long %>
+	   </p>	
 	</div>
 <% end %>
 </div>
 
+Budget: <%= number_to_currency(@project.budget) %> | 
+Billable amount: <%= number_to_currency(@project.billable_amount) %> 
+<%= unit_left %>
 
 <div id="activities">
   <%= render :partial => "activities/activities" %>
