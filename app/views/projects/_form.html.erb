@@ -35,36 +35,30 @@
 	  </div>
 	<% end %>
 	
-	  <div class="field">
-	    <%= f.label :billing_code_id, 'Billing Method' %>
-	    <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
+	<div class="field">
+	  <%= f.label :billing_code_id, 'Billing Method' %>
+	  <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
+	</div>	
+	<div id="billing-scenario">
+	  <span id="hourly">
+	    Total hours for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %>
+	  </span>
 		
-		<span style="margin-left:105px">
-		  <span id="hourly">
-			Total hours for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %>
-		  </span>
-		
-		  <% if @project.per_diem? %>
-		  <span id="per_diem">
+	  <span id="per_diem">
 		Total days allowed <%= f.text_field :total_unit, :size => '6' %> at a rate of <%= f.text_field :default_rate, :size => '6' %><%= number_to_currency("") %>
-		    <% if current_user.profile.hours_per_day.nil? %>
-		      <span id="hours-per-day-notice">Hours by Day not set. Update your <%= link_to 'settings', settings_path %> to convert Activities to Days</span><% end %>
-		  <% end %>
-		  </span>
+	    <% if current_user.profile.hours_per_day.nil? %>
+	      <span id="hours-per-day-notice">Hours by Day not set. Update your <%= link_to 'settings', settings_path %> to convert Activities to Days</span>
+		<% end %>
+	  </span>
 		
-		  <% if @project.fixed? %>
-		  <span id="fixed">
-		Fixed price: <%= f.text_field :default_rate, :size => '8' %></span>
-		  <% end %>
-		</span>
-	  </div>
+	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :size => '8' %></span>
   </div>
   
   <% if !@project.new_record? %>
-  	  <div class="field">
-	    <%= f.label :status %>
-	    <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
-	  </div>
+    <div class="field">
+	  <%= f.label :status %>
+	  <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
+	</div>
   <% end %>
 
   <div class="field">
@@ -85,5 +79,36 @@ $("#internal").change(function() {
 	$("#billing").toggle();
 	$("#internal-notice").toggle(); 
 	} );
+});
+</script>
+<script type="text/javascript" charset="utf-8">
+hideBillingScenario = function () {
+    $("#hourly, #per_diem, #fixed").hide();
+};
+
+handleNewSelection = function () {
+
+    hideBillingScenario();
+
+    switch ($(this).find('option:selected').val()) {
+        case '1':
+            $("#hourly").show();
+        break;
+        case '2':
+            $("#per_diem").show();
+        break;
+        case '3':
+            $("#fixed").show();
+        break;
+    }
+};
+
+$(document).ready(function() {
+
+    $("#project_billing_code_id").change(handleNewSelection);
+
+    // Run the event handler once now to ensure everything is as it should be
+    handleNewSelection.apply($("#project_billing_code_id"));
+
 });
 </script>
