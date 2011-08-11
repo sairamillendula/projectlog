@@ -8,3 +8,7 @@ one:
   user_id: 1
   customer_id: 1
   internal: false
+  billing_code_id: '1'
+  total_unit: '15'
+  budget: '150'
+  billable_amount: '75'
