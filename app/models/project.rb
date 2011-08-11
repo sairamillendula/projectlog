@@ -51,7 +51,7 @@ class Project < ActiveRecord::Base
   def billable_amount
     if billing_code_id == 1
       self.billable_amount = total_hours.to_f * default_rate.to_f
-    elsif billing_code_id == 2
+    elsif billing_code_id == 2 && user.profile.hours_per_day.present?
       self.billable_amount = total_hours.to_f / user.profile.hours_per_day.to_f * default_rate.to_f unless user.profile.hours_per_day.nil?
     else
       self.billable_amount = default_rate
