@@ -10,9 +10,9 @@
     <th><%= sortable "email" %></th>
     <th><%= sortable "first_name" %></th>
     <th><%= sortable "last_name" %></th>
-    <th>Sign in count</th>
-    <th>Last Sign in</th>
-    <th>Current IP</th>
+    <th><%= sortable "sign_in_count" %></th>
+    <th><%= sortable "last_sign_in_at", {}, "Last Sign in" %></th>
+    <th><%= sortable "current_sign_in_ip", {}, "Current IP" %></th>
     <th><%= sortable "created_at" %></th>
     <th><%= sortable "updated_at" %></th>
     <th></th>
