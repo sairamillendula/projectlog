@@ -34,3 +34,7 @@
   </tr>
 <% end %>
 </table>
+
+<div class="right">
+   <%= paginate @users, :params => { :controller => "administr8te/clients", :action => "index" } %>
+</div>  
