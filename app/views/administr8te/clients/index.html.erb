@@ -4,6 +4,17 @@
 
 <p>Total of <b><%= User.standard.size %></b> standard users. Total of <b><%= pluralize(User.admin.size, 'administrator') %></b></p>
 
+<div>
+  <%= form_tag administr8te_clients_path, :method => 'get' do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= text_field_tag :search, params[:search] %>
+    <span class="small submit"><%= submit_tag "Search", :name => nil %></span>
+  <% end %>  
+</div>
+
+
+
 <table id="clients" class="admin">
   <tr>
     <th><%= sortable "" %></th>

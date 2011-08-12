@@ -3,7 +3,7 @@ class Administr8te::ClientsController < Administr8te::BaseController
   helper_method :sort_column, :sort_direction
   
   def index
-    @users = User.order(sort_column + " " + sort_direction).page(params[:page]).per(10)    
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)    
   end
   
   private

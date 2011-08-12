@@ -39,6 +39,15 @@ class User < ActiveRecord::Base
     "#{full_name} <#{email}>"
   end
   
+  def self.search(search)
+    if search
+      where('`users`.first_name LIKE ? OR `users`.last_name LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
+  
 private
   def build_profile_and_set_default_plan
     logger.debug "It's time to create the account."
