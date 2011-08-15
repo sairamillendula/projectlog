@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Message:</b>
+  <%= @announcement.message %>
+</p>
+
+<p>
+  <b>Starts at:</b>
+  <%= @announcement.starts_at %>
+</p>
+
+<p>
+  <b>Ends at:</b>
+  <%= @announcement.ends_at %>
+</p>
+
+<p>
+  <b>Acknowledged by:</b>
+  <% if @announcement.hidden_by_user_ids.empty? %>
+    Nobody
+  <% else %>
+    <%= User.find(@announcement.hidden_by_user_ids).collect { |user| user.name }.to_sentence.html_safe %>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_administr8te_announcement_path(@announcement) %> |
+<%= link_to 'Back', administr8te_announcements_path %>

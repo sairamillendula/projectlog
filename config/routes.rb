@@ -44,11 +44,16 @@ Projectlog::Application.routes.draw do
     end
   end
   
+  resources :announcements, :only => [ :show ] do
+    member { put :hide }
+  end
+  
   namespace :administr8te do
     resource :dashboard, :only => [ :show ], :controller => "dashboard"
     resource :settings
     resource :clients, :only => [ :index ]
     resources :plans
+    resources :announcements
   end
   
   # allow "/users/login" and "/login"
