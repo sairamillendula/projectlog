@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name,
                   :created_at, :updated_at, :last_sign_in_at, :current_sign_in_ip, :sign_in_count, :plan_id
+
+  validates_confirmation_of :password
   
   after_create :build_profile_and_set_default_plan
   
