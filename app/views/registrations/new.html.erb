@@ -1,0 +1,25 @@
+<h1>Sign up</h1>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <h2><%= f.label :first_name %></h2>
+  <%= f.text_field :first_name %>
+  
+  <h2><%= f.label :last_name %></h2>
+  <%= f.text_field :last_name %>
+
+  <h2><%= f.label :email %></h2>
+  <%= f.email_field :email %>
+
+  <h2><%= f.label :password %> <span style="font-weight:normal">(6 characters minimum)</span></h2>
+  <%= f.password_field :password %>
+
+  <h2><%= f.label :password_confirmation %></h2>
+  <%= f.password_field :password_confirmation %>
+
+  <p>By clicking Create my account you agree to the Terms of Service, Privacy, and Refund policies.</p>
+
+   <p class="submit left"><%= f.submit "Create my account" %></p>
+   
+<% end %>
