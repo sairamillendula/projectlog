@@ -43,8 +43,8 @@
 
   <table class='activities'>
     <tr>
-      <th><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
-      <th><%= sortable "time", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+      <th width="10%"><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
+      <th width="8%"><%= sortable "time", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
       <th><%= sortable "description", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
       <th></th>
     </tr>
