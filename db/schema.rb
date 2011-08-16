@@ -226,7 +226,6 @@ ActiveRecord::Schema.define(:version => 20110815164745) do
   add_index "settings", ["thing_id"], :name => "index_settings_on_thing_id"
   add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
   add_index "settings", ["thing_type"], :name => "index_settings_on_thing_type"
-  add_index "settings", ["value"], :name => "index_settings_on_value"
   add_index "settings", ["var"], :name => "index_settings_on_var"
 
   create_table "users", :force => true do |t|
