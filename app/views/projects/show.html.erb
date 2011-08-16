@@ -50,7 +50,7 @@
 	   <p>
 	     <label class="label-wide">Billable Amount:</label>
 	     <%= @project.default_rate.present? && current_user.profile.hours_per_day.present? ? number_to_currency(@project.billable_amount) +
-	     ' (' + number_to_percentage(@project.billable_amount / @project.budget) + ')': "Not set" %> <br />
+	     ' (' + number_to_percentage(@project.billable_amount / @project.budget.to_f) + ')': "Not set" %> <br />
 	   </p>
 	   <p>
 		 <label class="label-wide">
@@ -62,7 +62,6 @@
 	</div>
 <% end %>
 </div>
-
 
 <div id="activities">
   <%= render :partial => "activities/activities" %>

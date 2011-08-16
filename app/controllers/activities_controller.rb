@@ -88,6 +88,7 @@ class ActivitiesController < ApplicationController
 
   def destroy
     @project = current_user.projects.find(params[:project_id])
+    @report = current_user.reports.find_by_id(params[:report_id])
     @activity = @project.activities.find(params[:id])
     @activity.destroy
 

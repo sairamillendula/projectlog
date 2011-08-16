@@ -22,6 +22,7 @@ class Report < ActiveRecord::Base
   def total_time
     activities.sum(:time)
   end
+  alias_method :total_hours, :total_time
   
   def project_title
     project.present? ? project.title : "All Projects"
