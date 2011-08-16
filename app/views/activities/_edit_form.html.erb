@@ -3,6 +3,7 @@
     <%= f.text_field :date, :class => "date", :size => 12, :id => "activity_#{@activity.id}_date" %>
     <%= f.text_field :time, :size => 4 %>
     <%= f.text_field :description, :size => 81 %>
+    <%= hidden_field_tag :report_id, @report.id if @report %>
     <span class="small submit"><%= f.submit "Update" %></span>
     or <%= link_to "Cancel", project_activity_path(@project, @activity), :method => :put, :remote => true %>
   <% end %>

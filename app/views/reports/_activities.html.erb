@@ -29,14 +29,9 @@
     </tr>
 
     <% @activities.each do |activity| %>
-    <%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
-      <td class="date"><%= l activity.date, :format => :short %></td>
-      <td class="time"><%= number_with_delimiter(activity.time) %></td>
-      <td class="description"><%= activity.description %></td>
-      <td class="project"><%= activity.project.title %></td>      
-      <td class="actions"><%= link_to 'Edit', edit_project_activity_path(activity.project, activity), :remote => true %> 
-      <%= link_to image_tag("bin.png"), project_activity_path(activity.project, activity, :report_id => @report.id), :confirm => 'Are you sure?', :method => :delete, :remote => true %></td>
-    <% end %>
+      <%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
+        <%= render :partial => "reports/activity", :object => activity %>
+      <% end %>
     <% end %>
 
     <tr class="total">

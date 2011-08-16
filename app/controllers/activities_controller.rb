@@ -36,6 +36,7 @@ class ActivitiesController < ApplicationController
 
   def edit
     @project = current_user.projects.find(params[:project_id])
+    @report = current_user.reports.find_by_id(params[:report_id])
     @activity = @project.activities.find(params[:id])
     respond_to do |format|
       format.html
@@ -71,6 +72,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @project = current_user.projects.find(params[:project_id])
+    @report = current_user.reports.find_by_id(params[:report_id])    
     @activity = @project.activities.find(params[:id])
 
     respond_to do |format|
