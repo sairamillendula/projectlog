@@ -2,22 +2,10 @@
   
 <% if @activities.empty? %>
   <% if params[:search] %>
-	<h2>Activities</h2>
-	<div id="activity-search">	
-		<%= link_to 'New Activity', new_project_activity_path(@project, :format => :js), :remote => true %> |
-		<%= link_to 'Create Report', new_report_path %> 
-		<span id="export" class="right">
-			<%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
-			<%= hidden_field_tag :direction, params[:direction] %>
-			<%= hidden_field_tag :sort, params[:sort] %>
-			<%= text_field_tag :search, params[:search] %>
-			<span class="small submit"><%= submit_tag "Search", :name => nil %></span>
-		</span>
-	</div>
+    <%= render "activities/table_header" %>
       <div class="no-occurence">
         <p>No activity matches '<%= params[:search] %>'.</p>
       </div>
-  <% end %>
   <% else %>
       <div class="no-occurence">
 	    <p>Create an <%= link_to 'Activity', new_project_activity_path(@project) %></p>
@@ -25,22 +13,8 @@
   <% end %>
 
 <% else %>
-  <% if @activities.present? || params[:search].present? %>
-    <h2>Activities</h2>
-	<div id="activity-search">	
-		<%= link_to 'New Activity', new_project_activity_path(@project, :format => :js), :remote => true, :id => 'new_activity_link' %> |
-		<%= link_to 'Create Report', new_report_path %> 
-		<span id="export" class="right">
-			<%= form_tag project_activities_path(@project), :method => 'get', :id => "activities_search" do %>
-			<%= hidden_field_tag :direction, params[:direction] %>
-			<%= hidden_field_tag :sort, params[:sort] %>
-			<%= text_field_tag :search, params[:search] %>
-			<span class="small submit"><%= submit_tag "Search", :name => nil %></span>
-		</span>
-	</div>
-  <% end %>
-<% end %>
 
+  <%= render "activities/table_header" %>
   <table class='activities'>
     <tr>
       <th width="10%"><%= sortable "date", { :controller => "activities", :action => "index", :project_id => @project.id } %></th>
