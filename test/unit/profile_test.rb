@@ -1,8 +1,20 @@
 require 'test_helper'
 
 class ProfileTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  # test "the truth" do
-  #   assert true
-  # end
+  # test "should create profile" do
+  #     p = users(:one).profile.new
+  #     assert p.save
+  #   end
+  
+  test "should update profile" do
+    p = profiles(:one)
+    assert p.update_attributes(:company => 'Zorro', :localization => '3')
+  end
+  
+  test "should destroy profile and remove everything associated" do
+    p = profiles(:one)
+    p.destroy
+    assert_raise(ActiveRecord::RecordNotFound) { Profile.find(p.id) }
+  end
+  
 end

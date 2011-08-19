@@ -10,6 +10,7 @@ one:
   country: MyString
   phone_number: MyString
   localization: MyString
+  hours_per_day: '7.5'
   user_id: 1
 
 two:
@@ -22,4 +23,5 @@ two:
   country: MyString
   phone_number: MyString
   localization: MyString
+  hours_per_day: '5'
   user_id: 1
