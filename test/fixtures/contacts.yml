@@ -29,11 +29,3 @@ four:
   phone: 0325061478
   email: dddddddddd@orsay.com
   customer_id: 3
-
-five:
-  first_name: John
-  last_name: DOE
-  title: CFO
-  phone: 613 255 8455
-  email: john@doe.com
-  customer_id: 3
