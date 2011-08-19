@@ -33,32 +33,8 @@
 	  </div>
 	
 	<div id="column_right">
-	   <p>
-		<label class="label-wide">Customer:</label>
-	      <%= @project.customer.name %>
-	   </p>
-	   <p id="budget">
-	  <% if !@project.internal? %>
-	   <p>
-	     <label class="label-wide">Billing:</label>
-		 <%= @project.billing_code.name unless !@project.billing_code_id.present? %> <br />
-	   </p>
-	   <p>
-	     <label class="label-wide">Budget:</label>
-	     <%= @project.default_rate.present? && @project.total_unit.present? ? number_to_currency(@project.budget) : "Not set" %> <br />
-	   </p>
-	   <p>
-	     <label class="label-wide">Billable Amount:</label>
-	     <%= @project.default_rate.present? && current_user.profile.hours_per_day.present? ? number_to_currency(@project.billable_amount) +
-	     ' (' + number_to_percentage(@project.billable_amount / @project.budget.to_f) + ')': "Not set" %> <br />
-	   </p>
-	   <p>
-		 <label class="label-wide">
-		   <%= @project.hourly? ? "Hours left:" : "Days left:" unless @project.fixed? %>
-		 </label>
-	     <%= @project.default_rate.present? ? unit_left : "Default rate not set" %>
-	   </p>	
-	  <% end %>
+	   <%= render :partial => 'column_right' %>
+	  
 	</div>
 <% end %>
 </div>

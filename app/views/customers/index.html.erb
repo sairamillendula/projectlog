@@ -28,8 +28,6 @@
 
 <br />
 
-<p class ="clear"><%= link_to 'New Customer', new_customer_path %> | <a href="#" id="modal_link">Open modal window</a></p>
-
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
@@ -38,29 +36,4 @@ $(document).ready(function(){
 	  window.location=$(this).find("a").attr("href"); return false;
 	});
 });
-</script>
-
-<script>
-$(document).ready(function() {
-		var $dialog = $('<div></div>')
-			.html('Here goes the content')
-			.dialog({
-				autoOpen: false,
-				title: 'Basic Dialog',
-				modal: true,
-				resizable: false,
-				minWidth: 400,
-				buttons: {
-						 Ok: function() {
-						 $dialog.dialog('close');
-								}
-						}
-			});
- 
-		$('#modal_link').click(function() {
-			$dialog.dialog('open');
-			// prevent the default action, e.g., following a link
-			return false;
-		});
-	});
 </script>
