@@ -1,13 +1,47 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  title: Projectlog
+open_and_customer:
+  title: Open and Billable project
   description: "A very interesting project."
   status: open
   default_rate: "10"
   user_id: 1
   customer_id: 1
   internal: false
+  billing_code_id: '1'
+  total_unit: '15'
+  budget: '150'
+  billable_amount: '75'
+
+open_and_internal:
+  title: Open and Internal project
+  description: "A very interesting project."
+  status: open
+  default_rate: "10"
+  user_id: 1
+  internal: true
+  billing_code_id: '2'
+  total_unit: '150'
+  budget: '300.5'
+  billable_amount: '75'
+
+closed_and_customer:
+  title: Closed and Billable Project
+  description: "A very interesting project."
+  status: open
+  default_rate: "10"
+  user_id: 1
+  customer_id: 1
+  internal: false
+  billing_code_id: '3'
+  budget: '150'
+  billable_amount: '75'
+
+closed_and_internal:
+  title: Closed and Internal Project
+  description: "A very interesting project."
+  status: closed
+  default_rate: "10"
+  user_id: 1
+  internal: true
   billing_code_id: '1'
   total_unit: '15'
   budget: '150'

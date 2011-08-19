@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
                   :created_at, :updated_at, :last_sign_in_at, :current_sign_in_ip, :sign_in_count, :plan_id
 
   validates_confirmation_of :password
+  validates_presence_of :first_name, :last_name
   
   after_create :build_profile_and_set_default_plan
   

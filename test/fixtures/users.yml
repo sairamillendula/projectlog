@@ -1,11 +1,11 @@
 one:
- email: o@koopon.ca
+ email: user@gmail.com
  encrypted_password: '$2a$10$fQFSM6V5pXvRKBxHRvuI4OnaM.TytEN5iIi1EUAkOIpX...' # '123456'
  first_name: Michael
  last_name: Jordan
 
 two:
- email: g@koopon.ca
+ email: user2@gmail.com
  encrypted_password: '$2a$10$fQFSM6V5pXvRKBxHRvuI4OnaM.TytEN5iIi1EUAkOIpX...' # '123456'
- first_name: Anne-Gaelle
- last_name: Gervaiz
+ first_name: Anne-Gaëlle
+ last_name: Gérvaiz

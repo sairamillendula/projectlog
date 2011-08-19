@@ -5,18 +5,18 @@ class CustomerTest < ActiveSupport::TestCase
   test "should not save without a name" do
     customer = Customer.new
     assert !customer.valid?
+    assert customer.errors[:name].any?
+    assert_equal ["can't be blank"], customer.errors[:name]
     assert !customer.save
   end
 
-  test "should not save without a unique name" do
-    customer = Customer.new
-    customer.name = "Testing Customer"
-    customer.save
-    assert customer.save
-    customer2 = Customer.new
-    customer2.name = "Testing Customer"
-    customer2.save
-    assert !customer2.save, "Customer name is not unique"
+  test "Ensure name is unique" do
+    customer = Customer.create(:name => 'Apple')
+    custome2 = Customer.create(:name => 'Apple')
+    assert !customer2.valid?
+    assert customer2.errors[:name].any?
+    assert_equal ["has already been taken"], customer2.errors[:name]
+    assert !customer2.save
   end
  
   test "should not save without user_id" do

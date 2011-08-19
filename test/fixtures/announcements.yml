@@ -1,11 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
-
 one:
-  message: MyText
+  message: Announcement numero Uno
   starts_at: 2011-08-15 11:47:45
   ends_at: 2011-08-15 11:47:45
 
 two:
-  message: MyText
-  starts_at: 2011-08-15 11:47:45
-  ends_at: 2011-08-15 11:47:45
+  message: This is the 2nd announcement
+  starts_at: 2014-08-15 11:47:45
+  ends_at: 2014-09-15 11:47:45

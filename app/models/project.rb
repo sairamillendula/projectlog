@@ -17,9 +17,9 @@ class Project < ActiveRecord::Base
   scope :closed, where(:status => false)
   scope :billable, where(:internal => false)
   scope :unbillable, where(:internal => true)
-  scope :hourly, where(:billing_code_id => BillingCode.find_by_name!("Hourly").id)
-  scope :per_diem, where(:billing_code_id => BillingCode.find_by_name!("Per Diem").id)
-  scope :fixed, where(:billing_code_id => BillingCode.find_by_name!("Fixed").id)
+  #scope :hourly, where(:billing_code_id => BillingCode.find_by_name!("Hourly").id)
+  #scope :per_diem, where(:billing_code_id => BillingCode.find_by_name!("Per Diem").id)
+  #scope :fixed, where(:billing_code_id => BillingCode.find_by_name!("Fixed").id)
   
   
   # Total hours. Add <%= @project.total_hours %> in Project view
