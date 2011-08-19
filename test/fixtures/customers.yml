@@ -1,5 +1,5 @@
 one:
-  name: Customer #1
+  name: 'Customer 1'
   phone: 613 800 0845
   address1: 333 Carling Ave.
   address2: Suite 12
@@ -11,7 +11,7 @@ one:
   user: one
 
 two:
-  name: Customer #2
+  name: 'Customer 2'
   phone: 613 800 0845
   address1: 333 Carling Ave.
   address2: Suite 12
@@ -22,7 +22,7 @@ two:
   user: one
 
 three:
-  name: Customer #3 (User2)
+  name: 'Customer 3'
   phone: 613 800 0845
   address1: 333 Carling Ave.
   address2: Suite 12

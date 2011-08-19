@@ -2,6 +2,12 @@ require 'test_helper'
 
 class CustomerTest < ActiveSupport::TestCase
   
+  test "should create customer" do
+    customer = users(:one).customers.new
+    customer.name = 'Apple'
+    assert customer.save
+  end
+  
   test "should not save without a name" do
     customer = Customer.new
     assert !customer.valid?
@@ -11,8 +17,7 @@ class CustomerTest < ActiveSupport::TestCase
   end
 
   test "Ensure name is unique" do
-    customer = Customer.create(:name => 'Apple')
-    custome2 = Customer.create(:name => 'Apple')
+    customer2 = users(:one).customers.create(:name => 'Customer 2' )
     assert !customer2.valid?
     assert customer2.errors[:name].any?
     assert_equal ["has already been taken"], customer2.errors[:name]
@@ -27,17 +32,6 @@ class CustomerTest < ActiveSupport::TestCase
     assert customer.save
   end
   
-  test "should get index" do
-    customers = Customer.all
-    assert_not_nil(id)
-  end
-  
-  test "should create customer" do
-    customer = Customer.new(:one)
-    customer.update_attributes(:name => 'Customer Test')
-    assert customer.save
-  end
-  
   test "should find customer" do
     customer_id = customers(:one).id
     assert_nothing_raised { Customer.find(customer_id) }
@@ -48,10 +42,11 @@ class CustomerTest < ActiveSupport::TestCase
     assert customer.update_attributes(:name => 'New name')
   end
 
-  test "should destroy customer" do
+  test "should destroy customer and contacts" do
     customer = customers(:one)
     customer.destroy
     assert_raise(ActiveRecord::RecordNotFound) { Customer.find(customer.id) }
+    assert !customer.contacts.any?
   end
   
 end
