@@ -2,7 +2,7 @@
 
 puts "Creating users..."
 user1 = User.find_by_email("user@gmail.com") || User.create!(:email => "user@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan', :admin => 'true')
-user2 = User.find_by_email("user2@gmail.com") || User.create!(:email => "user2@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan')
+user2 = User.find_by_email("user2@gmail.com") || User.create!(:email => "user2@gmail.com", :password => "123456", :first_name => 'Magic', :last_name => 'Johnson')
 
 puts "Creating customers..."
 user1.customers.create(:user_id => '1', :name => 'CIC', :phone => '613 800 0845', :address1 => '333 Carling Ave.', :address2 => 'Suite A2', :city => 'Ottawa', :postal_code => 'K1N5T2', :province => 'Ontario', :country => 'Canada', :note => 'GitHub is more than just a place to share code.')

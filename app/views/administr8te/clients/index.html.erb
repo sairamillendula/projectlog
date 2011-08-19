@@ -2,18 +2,18 @@
 
 <p class="right">Server Time: <b><%= Time.zone.now %></b></p>
 
-<p>Total of <b><%= User.standard.size %></b> standard users. Total of <b><%= pluralize(User.admin.size, 'administrator') %></b></p>
+<div id="activity-search">
+<span>Total: <b><%= pluralize(User.standard.size, 'standard user') %></b> and <b><%= pluralize(User.admin.size, 'administrator') %></b></span>
 
-<div>
+<span id="export" class="right">
   <%= form_tag administr8te_clients_path, :method => 'get' do %>
     <%= hidden_field_tag :direction, params[:direction] %>
     <%= hidden_field_tag :sort, params[:sort] %>
     <%= text_field_tag :search, params[:search] %>
     <span class="small submit"><%= submit_tag "Search", :name => nil %></span>
-  <% end %>  
+  <% end %>
+</span> 
 </div>
-
-
 
 <table id="clients" class="admin">
   <tr>
