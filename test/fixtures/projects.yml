@@ -1,4 +1,4 @@
-open_and_customer:
+open_and_billable:
   title: Open and Billable project
   description: "A very interesting project."
   status: open
@@ -10,6 +10,7 @@ open_and_customer:
   total_unit: '15'
   budget: '150'
   billable_amount: '75'
+  unit_left: '10'
 
 open_and_internal:
   title: Open and Internal project
@@ -22,8 +23,9 @@ open_and_internal:
   total_unit: '150'
   budget: '300.5'
   billable_amount: '75'
+  unit_left: '10'
 
-closed_and_customer:
+closed_and_billable:
   title: Closed and Billable Project
   description: "A very interesting project."
   status: open
@@ -34,6 +36,7 @@ closed_and_customer:
   billing_code_id: '3'
   budget: '150'
   billable_amount: '75'
+  unit_left: '10'
 
 closed_and_internal:
   title: Closed and Internal Project
@@ -46,3 +49,4 @@ closed_and_internal:
   total_unit: '15'
   budget: '150'
   billable_amount: '75'
+  unit_left: '10'
