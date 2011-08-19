@@ -1,6 +1,6 @@
 <%= div_for @announcement do %>
-  <%= @announcement.message %>
+  <%= markdown(@announcement.message) %>
   <%= form_tag hide_announcement_path(@announcement), :method => :put do %>
-    <%= submit_tag "OK. Hide this message." %>
+    <span class="submit"><%= submit_tag "OK. Hide this message" %></span>
   <% end %>
 <% end %>

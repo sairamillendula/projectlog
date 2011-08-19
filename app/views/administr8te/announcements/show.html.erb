@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
+<%= link_to '← All Announcements', administr8te_announcements_path %> |
+<%= link_to 'Edit', edit_administr8te_announcement_path(@announcement) %>
 
-<p>
-  <b>Message:</b>
-  <%= @announcement.message %>
-</p>
+<br /><br />
+
+<div class="announcement">
+  <%= markdown(@announcement.message) %>
+</div>
+<br />
 
 <p>
   <b>Starts at:</b>
@@ -23,7 +26,3 @@
     <%= User.find(@announcement.hidden_by_user_ids).collect { |user| user.name }.to_sentence.html_safe %>
   <% end %>
 </p>
-
-
-<%= link_to 'Edit', edit_administr8te_announcement_path(@announcement) %> |
-<%= link_to 'Back', administr8te_announcements_path %>

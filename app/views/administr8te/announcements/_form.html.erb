@@ -11,19 +11,22 @@
     </div>
   <% end %>
 
+<div class="inline-form">
   <div class="field">
-    <%= f.label :message %><br />
-    <%= f.text_area :message %>
+    <%= f.label :message %>
+    <%= f.text_area :message, :cols => '88', :rows => '15' %>
   </div>
   <div class="field">
-    <%= f.label :starts_at %><br />
+    <%= f.label :starts_at %>
     <%= f.datetime_select :starts_at %>
   </div>
   <div class="field">
-    <%= f.label :ends_at %><br />
+    <%= f.label :ends_at %>
     <%= f.datetime_select :ends_at %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>
+</div>
+
 <% end %>

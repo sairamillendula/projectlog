@@ -1,11 +1,15 @@
-<h1>Listing announcements</h1>
+<ul id="sub-menu">
+	<li class="buttonorange"><%= link_to '+ New Announcement', new_administr8te_announcement_path %></li>
+</ul>
+
+<h1>Site Announcements</h1>
 
 <table>
   <tr>
     <th>Message</th>
     <th>Starts at</th>
     <th>Ends at</th>
-    <th>Acknowledged by</th>
+    <th>Acknowledged</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,9 +17,9 @@
 
 <% @announcements.each do |announcement| %>
   <tr>
-    <td><%= announcement.message %></td>
-    <td><%= announcement.starts_at %></td>
-    <td><%= announcement.ends_at %></td>
+    <td><%= truncate(announcement.message, :length => 30) %></td>
+    <td><%= l announcement.starts_at, :format => :long %></td>
+    <td><%= l announcement.ends_at, :format => :long %></td>
     <td><%= pluralize announcement.hidden_by_user_ids.count, "user" %></td>
     <td><%= link_to 'Show', administr8te_announcement_path(announcement) %></td>
     <td><%= link_to 'Edit', edit_administr8te_announcement_path(announcement) %></td>
@@ -23,7 +27,3 @@
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Announcement', new_administr8te_announcement_path %>

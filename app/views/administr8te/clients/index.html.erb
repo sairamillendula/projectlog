@@ -33,7 +33,7 @@
 
 <% for user in @users %>
   <tr>
-    <td><% if user.admin%><span style="font-size: 9px; color: #fff; background: red; padding: 0 4 0 4;"><% end %></td>
+    <td><% if user.admin%><span class="administrator"><% end %></td>
     <td><%= user.email %></td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>

@@ -27,7 +27,7 @@
 			<%= render :partial => 'description' %>
 		<% else %>
 	      <div id="project_description">
-		    </span><%= markdown(@project.description) %>
+		    <%= markdown(@project.description) %>
 	      </div>
 	    <% end %>
 	  </div>
