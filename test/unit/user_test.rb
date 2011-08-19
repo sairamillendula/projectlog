@@ -62,11 +62,11 @@ class UserTest < ActiveSupport::TestCase
   
   test "Email should remain unique on update" do
     u = users(:one)
-    #assert u.update_attributes(:email => 'user2@gmail.com') # user two Email in fixture
-    #assert !u.valid?
-    #assert = u.errors[:email].any?
-    #assert_equal ["has already been taken"], u.errors[:email]
-    #assert !u.save
+    u.update_attributes(:email => 'user2@gmail.com') # user two Email in fixture
+    assert !u.valid?
+    assert = u.errors[:email].any?
+    assert_equal ["has already been taken"], u.errors[:email]
+    assert !u.save
   end
   
   test "should destroy user and remove everything associated" do
