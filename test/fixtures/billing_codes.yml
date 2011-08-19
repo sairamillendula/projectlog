@@ -1,4 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+hourly:
   name: "Hourly"
+  
+per_diem:
+  name: "Per Diem"
+  
+fixed:
+  name: "Fixed"
