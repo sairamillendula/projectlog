@@ -60,6 +60,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not_nil u.last_name
   end
   
+  test "should be able to upgrade/downgrade plan" do
+    u = users(:one)
+    assert u.update_attributes(:plan_id => 2)
+    assert u.update_attributes(:plan_id => 1)
+  end
+  
   test "Email should remain unique on update" do
     u = users(:one)
     u.update_attributes(:email => 'user2@gmail.com') # user two Email in fixture

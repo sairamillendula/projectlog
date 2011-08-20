@@ -1,5 +1,6 @@
 class Announcement < ActiveRecord::Base
   validates_presence_of :message, :starts_at, :ends_at
+  validate :start_date_must_be_smaller_than_end_date
   serialize :hidden_by_user_ids, Array
   
   default_scope :order => 'ends_at DESC'
@@ -14,4 +15,11 @@ class Announcement < ActiveRecord::Base
     hidden_by_user_ids.uniq!
     save!
   end
+  
+  def start_date_must_be_smaller_than_end_date
+    if starts_at.present? && ends_at.present? && starts_at > ends_at
+      errors.add(:starts_at, "must be smaller than end date")
+    end
+  end
+  
 end
