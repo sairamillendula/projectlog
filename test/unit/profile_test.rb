@@ -1,10 +1,11 @@
 require 'test_helper'
 
 class ProfileTest < ActiveSupport::TestCase
-  # test "should create profile" do
-  #     p = users(:one).profile.new
-  #     assert p.save
-  #   end
+  test "should create profile" do
+    p = Profile.new
+    p.user_id = users(:one)
+    assert p.save
+  end
   
   test "should update profile" do
     p = profiles(:one)
