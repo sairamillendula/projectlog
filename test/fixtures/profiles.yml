@@ -1,27 +1,27 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  company: MyString
-  address1: MyString
+  company: "Easy 4 Me"
+  address1: "1345 Clever street"
   address2: MyString
-  city: MyString
-  province: MyString
-  postal_code: MyString
-  country: MyString
-  phone_number: MyString
-  localization: MyString
+  city: "Ottawa"
+  province: "Ontario"
+  postal_code: "K1N 5T2"
+  country: "Canada"
+  phone_number: "613 800 0222"
+  localization: "fr-CA"
   hours_per_day: '7.5'
   user_id: 1
 
 two:
-  company: MyString
-  address1: MyString
-  address2: MyString
-  city: MyString
-  province: MyString
-  postal_code: MyString
-  country: MyString
-  phone_number: MyString
-  localization: MyString
+  company: "Easy 4 Me"
+  address1: "1345 Clever street"
+  address2: "Suite 404"
+  city: "Ottawa"
+  province: "Ontario"
+  postal_code: "K1N 5T2"
+  country: "Canada"
+  phone_number: "613 800 0222"
+  localization: "en-CA"
   hours_per_day: '5'
   user_id: 1

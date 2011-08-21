@@ -182,4 +182,7 @@ Devise.setup do |config|
   #   manager.intercept_401 = false
   #   manager.default_strategies(:scope => :user).unshift :some_external_strategy
   # end
+  
+  #Speed up unit tests as described on Devise Wiki
+  config.stretches = Rails.env.test? ? 1 : 10
 end

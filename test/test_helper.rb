@@ -9,5 +9,10 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  include Devise::TestHelpers
+  
+  def set_locale
+    config.i18n.default_locale = "en-US"
+  end
+  
 end
