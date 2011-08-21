@@ -1,6 +1,7 @@
 //= require jquery  
 //= require jquery-ui
-//= require jquery_ujs  
+//= require jquery_ujs
+//= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
 
 $(function() {
@@ -19,4 +20,6 @@ $(function() {
   $("input.date").live('click', function() {
     $(this).datepicker({showOn:'focus', dateFormat : "yy-mm-dd"}).focus();
   });
+  
+  $(".tipsied").tipsy({fade : true, gravity : "e" });
 });

@@ -27,3 +27,12 @@ color: #fff;
 background: red; 
 padding: 0 4 0 4;
 }
+
+.grayed_out {
+  color: #888;
+  text-decoration: line-through;
+}
+
+.tipsied {
+  cursor: pointer;
+}

@@ -11,6 +11,7 @@
     <th>Description</th>
     <th>Price</th>
     <th>Status</th>
+    <th>User count</th>
     <th></th>
     <th></th>
     <th></th>
@@ -23,9 +24,16 @@
     <td><%= plan.description %></td>
     <td><%= plan.price %></td>
     <td><%= plan.active? ? 'Active' : 'Inactive' %></td>
+    <td><%= pluralize plan.users.count, "user" %></td>
     <td><%= link_to 'Show', administr8te_plan_path(plan) %></td>
     <td><%= link_to 'Edit', edit_administr8te_plan_path(plan) %></td>
-    <td><%= link_to 'Destroy', administr8te_plan_path(plan), confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <% if plan.can_be_destroyed? %>
+        <%= link_to 'Destroy', administr8te_plan_path(plan), confirm: 'Are you sure?', method: :delete %>
+      <% else %>
+        <span class="tipsied grayed_out" title="You can't delete this plan because there are users using it.">Destroy</span>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
