@@ -1,15 +1,23 @@
 require 'test_helper'
 
 class RegisterLogoutTest < ActionDispatch::IntegrationTest
-  fixtures :all
+  fixtures :users
 
     test "should signup" do
       https!
       get register_path
       assert_response :success
 
-      post new_user_session_path, :email => "a@gmail.com", :password => '123456', :first_name => 'W', :last_name => 'S'
+      post new_user_session_path, :email => users(:one).email, :password => users(:one).password, 
+                                  :first_name => users(:one).first_name, :last_name => users(:one).last_name
       assert_response :success
+      
+      post "/user"
+      assert_response :success
+            
+      get_via_redirect root_path
+      assert_response :success
+      
     end
 
     test "should logout" do
@@ -18,7 +26,7 @@ class RegisterLogoutTest < ActionDispatch::IntegrationTest
       assert_response :redirect
 
       assert_redirected_to login_path
-      follow_redirect!
+      assert_nil session[:user]
     end
   
 end
