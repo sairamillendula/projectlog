@@ -8,11 +8,5 @@ class ActiveSupport::TestCase
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
   fixtures :all
-
-  include Devise::TestHelpers
-  
-  def set_locale
-    config.i18n.default_locale = "en-US"
-  end
   
 end

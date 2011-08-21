@@ -184,5 +184,5 @@ Devise.setup do |config|
   # end
   
   #Speed up unit tests as described on Devise Wiki
-  config.stretches = Rails.env.test? ? 1 : 10
+  #config.stretches = Rails.env.test? ? 1 : 10
 end

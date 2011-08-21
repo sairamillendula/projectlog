@@ -1,6 +1,6 @@
 class UserObserver < ActiveRecord::Observer
   def after_create(user)
-    # AdminMailer.new_user_registered(user).deliver
+    AdminMailer.new_user_registered(user).deliver
   end
   
   def after_save(user)

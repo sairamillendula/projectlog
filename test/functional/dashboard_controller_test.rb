@@ -1,4 +1,5 @@
 require 'test_helper'
+include Devise::TestHelpers
 
 class DashboardControllerTest < ActionController::TestCase
   
@@ -7,5 +8,5 @@ class DashboardControllerTest < ActionController::TestCase
     get :show
     assert_response :success
   end
-
+  
 end

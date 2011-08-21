@@ -5,12 +5,6 @@ class ProfilesControllerTest < ActionController::TestCase
     @profile = profiles(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:profiles)
-  end
-
   test "should get new" do
     get :new
     assert_response :success
