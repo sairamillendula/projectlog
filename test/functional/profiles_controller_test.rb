@@ -3,11 +3,7 @@ require 'test_helper'
 class ProfilesControllerTest < ActionController::TestCase
   setup do
     @profile = profiles(:one)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
+    sign_in users(:one)
   end
 
   test "should create profile" do

@@ -3,14 +3,6 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_user
 
-  def new
-    @profile = current_user.profiles.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
-  end
-
   def edit
     @profile = current_user.profile
   end
