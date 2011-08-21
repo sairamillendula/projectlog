@@ -21,6 +21,8 @@
 		</tr>
 		<% end %>
 	</table>
-<%= paginate @closed_projects, :params => { :action => "closed" } %>
+  <div class="clear right">
+    <%= paginate @closed_projects, :params => { :action => "closed" } %>
+  </div>
 </div>
 
