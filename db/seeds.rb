@@ -21,29 +21,28 @@ Contact.create(:customer_id => '2', :first_name => 'Ron', :last_name => 'Lewis',
 Contact.create(:customer_id => '3', :first_name => 'Pauline', :last_name => 'Delaire', :title => 'Directrice', :phone => '819 400 0845', :email => 'pauline@dev.koopon.ca')
 
 puts "Creating projects..."
-15.times do |p|
-  project = [user1, user2][rand 2].projects.create(
+150.times do |p|
+  user = User.all.sample
+  project = user.projects.create(
     :title => "Project #{p}",
-    :customer_id => [ 1, 2, 3 ].sample,
+    :customer_id => user.customers.map(&:id).sample,
     :status => [ true, false ].sample,
     :default_rate => [ 10, 20, 30, 40, 50 ].sample,
-    :billing_code_id => [ 1, 2, 3 ].sample,
+    :billing_code_id => BillingCode.all.map(&:id).sample,
     :internal => [ true, false ].sample,
     :default_rate => [11, 11.5, 50, 35, 25.5].sample
   )
-  project.save!
+  project.save
 end
 
-projects=Project.all[0..15]
-
 puts "Creating activities..."
-100.times do |a|
-  activity = projects[rand 15].activities.create(
+1000.times do |a|
+  activity = Project.all.sample.activities.create(
     :description => "Activity numéro #{a}",
     :time => [ 1, 2, 3, 3.5, 4.5, 10, 7.5, 1.5, 8 ].sample,
     :date => Time.now.to_date
   )
-  activity.save!
+  activity.save
 end
 
 puts "All set"
