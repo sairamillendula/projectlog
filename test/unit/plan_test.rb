@@ -47,10 +47,12 @@ class PlanTest < ActiveSupport::TestCase
   end
   
   test "should not be able to destroy plan if still attached to some users" do
-    u = users(:one)
-    u.plan_id = plans(:free)
     p = plans(:free)
-    assert !p.destroy
+    u = users(:one)
+    u.plan = p
+    u.save!
+    assert p.users.count > 0, "plan doesn't have users"
+    assert_raise(ActiveRecord::DeleteRestrictionError) { p.destroy }
   end
   
 end
