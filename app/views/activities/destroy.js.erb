@@ -1,4 +1,5 @@
 $("#row_for_activity_<%= @activity.id %>").fadeOut();
+$("#billable-chart").html($("<%= escape_javascript render(:partial => 'dashboard/last_week_pie_charts') %>"));
 
 // Update total time for project
 $("#project_total_time").html("<%= escape_javascript number_with_delimiter(@project.total_hours) %>");

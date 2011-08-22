@@ -4,7 +4,7 @@
     $("#row_for_activity_<%= @activity.id %>").html("<%= escape_javascript render(:partial => "reports/activity", :object => @activity) %>");  
     // Update total time for reports
     $("#report_total_time").html("<%= escape_javascript number_with_delimiter(@report.total_hours) %>");
-    $("#report_total_in_days").html("<%= escape_javascript activities_to_days(@report.total_hours) %>");    
+    $("#report_total_in_days").html("<%= escape_javascript activities_to_days(@report.total_hours) %>");
   <% else %>
     $("#row_for_activity_<%= @activity.id %>").html("<%= escape_javascript render(@activity) %>");
     // Update total time for project
