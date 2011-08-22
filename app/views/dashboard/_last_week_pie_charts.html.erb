@@ -1,0 +1,10 @@
+<% 0.upto(6) do |i| %>
+  <div class="pie_chart">
+    <h2><%= l(i.days.ago.to_date, :format => "%a, %b %d") %></h2>
+    <%= content_tag(:div, "", :class => "google_chart", :id => "chart_#{i}") %>
+    <%= time_pie_chart_on_date(i.days.ago, "chart_#{i}") %>
+    <h3><%= pluralize total_hours_on_date(i.days.ago), "hour" %></h3>
+  </div>
+<% end %>
+
+<%= clear %>

@@ -20,7 +20,8 @@ gem 'pdfkit'
 gem 'wkhtmltopdf-binary'
 gem 'rails-settings', :git => 'git://github.com/100hz/rails-settings.git'
 gem 'redcarpet'
-gem 'google_visualr', '>= 2.0'
+gem 'google_visualr', '~> 2.1'
+gem 'bourbon'
 
 gem 'cancan'
 # Use unicorn as the web server

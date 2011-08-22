@@ -1,0 +1,31 @@
+$container_width: 120px;
+$container_height: 100px;
+$circle_size: 20px;
+
+.google_chart {
+  //border: 1px dashed red;  
+}
+
+.empty_pie_chart {
+  //border: 1px dashed red;
+  width: $container_width;
+  height: $container_height;
+  position: relative;
+  
+  div {
+    position: absolute;
+    top: ($container_height - $circle_size) / 2;
+    left: ($container_width - $circle_size) / 2;
+    height: $circle_size;
+    width: $circle_size;
+    @include border-radius($circle_size / 2);    
+    background-color: black;
+  }
+}
+
+.pie_chart {
+  float: left;
+  h2, h3 {
+    text-align: center;
+  }  
+}

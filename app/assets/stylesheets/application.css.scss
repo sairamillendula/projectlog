@@ -5,8 +5,13 @@
  *= require_self
 */
 
+// gems
+@import "bourbon";
+
+// app
 @import "style";
 @import "announcements";
+@import "dashboard";
 
 // vendored libraries
 @import "jquery.tipsy";

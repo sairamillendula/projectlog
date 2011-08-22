@@ -27,6 +27,10 @@ class Activity < ActiveRecord::Base
     where("project_id in (?)", some_projects.collect(&:id))
   end  
   
+  def self.total_time
+    sum(:time)
+  end
+  
   def self.total_time_grouped_by_date
     group("date").sum(:time)
   end
