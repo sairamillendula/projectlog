@@ -1,4 +1,4 @@
-<% 0.upto(6) do |i| %>
+<% 6.downto(0) do |i| %>
   <div class="pie_chart">
     <h2><%= l(i.days.ago.to_date, :format => "%a, %b %d") %></h2>
     <%= content_tag(:div, "", :class => "google_chart", :id => "chart_#{i}") %>
