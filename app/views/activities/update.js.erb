@@ -10,6 +10,7 @@
     // Update total time for project
     $("#project_total_time").html("<%= escape_javascript number_with_delimiter(@project.total_hours) %>");
     $("#project_total_in_days").html("<%= escape_javascript activities_to_days(@project.total_hours) %>");
+    $("#column_right").html("<%= escape_javascript render(:partial => 'projects/column_right') %>");
   <% end %>
   
 <% else %>

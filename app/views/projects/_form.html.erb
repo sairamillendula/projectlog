@@ -41,7 +41,7 @@
 	</div>	
 	<div id="billing-scenario">
 	  <span id="hourly">
-	    Total hours for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %>
+	    Total hours allowed for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %><%= number_to_currency("") %>
 	  </span>
 		
 	  <span id="per_diem">
