@@ -1,5 +1,5 @@
 <% if @contact.valid? %>
-  $("<%= escape_javascript render(:partial => 'contacts/contact', :locals => { :contact => @contact }) %>").appendTo('#contacts');
+  $("#contacts").html("<%= escape_javascript render(:partial => 'contacts/contacts') %>");
   $("#new_contact_dialog").dialog("close");
   $("#no-contact").remove();
 <% else %>
