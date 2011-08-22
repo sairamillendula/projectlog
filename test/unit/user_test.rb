@@ -77,9 +77,10 @@ class UserTest < ActiveSupport::TestCase
   
   test "should destroy user and remove everything associated" do
     u = users(:one)
+    p = users(:one).profile
     u.destroy
     assert_raise(ActiveRecord::RecordNotFound) { User.find(u.id) }
-    assert_nil u.profile
+    assert_raise(ActiveRecord::RecordNotFound) { Profile.find(p.id) }
     assert !u.customers.any?
     assert !u.projects.any?
     assert !u.activities.any?

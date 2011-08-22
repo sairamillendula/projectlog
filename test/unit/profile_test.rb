@@ -12,9 +12,9 @@ class ProfileTest < ActiveSupport::TestCase
     assert p.update_attributes(:company => 'Zorro', :localization => '3')
   end
   
-  test "should destroy profile and remove everything associated" do
-    p = profiles(:one)
-    p.destroy
+  test "should destroy profile" do
+    p = users(:one).profile
+    u = users(:one).destroy
     assert_raise(ActiveRecord::RecordNotFound) { Profile.find(p.id) }
   end
   

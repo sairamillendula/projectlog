@@ -4,7 +4,7 @@ one:
  first_name: Michael
  last_name: Jordan
  admin: true
- plan_id: "1"
+ plan_id: free
 
 two:
  email: user2@gmail.com
@@ -12,4 +12,4 @@ two:
  first_name: Anne-Gaëlle
  last_name: Gérvaiz
  admin: false
- plan_id: "1"
+ plan_id: free

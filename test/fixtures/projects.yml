@@ -17,7 +17,7 @@ open_and_internal:
   description: "A very interesting project."
   status: open
   default_rate: "10"
-  user_id: 1
+  user_id: one
   internal: true
   billing_code_id: '2'
   total_unit: '150'
@@ -30,8 +30,8 @@ closed_and_billable:
   description: "A very interesting project."
   status: open
   default_rate: "10"
-  user_id: 1
-  customer_id: 1
+  user_id: one
+  customer_id: one
   internal: false
   billing_code_id: '3'
   budget: '150'
@@ -43,7 +43,7 @@ closed_and_internal:
   description: "A very interesting project."
   status: closed
   default_rate: "10"
-  user_id: 1
+  user_id: one
   internal: true
   billing_code_id: '1'
   total_unit: '15'

@@ -4,7 +4,7 @@ one:
   title: Resource Manager
   phone: 613 255 8455
   email: erin.kelly@zylog.com
-  customer_id: 1
+  customer_id: one
 
 two:
   first_name: Eli
@@ -12,7 +12,7 @@ two:
   title: Comedien
   phone: 0325061478
   email: eli@kakoo.com
-  customer_id: 1
+  customer_id: one
 
 three:
   first_name: Jean
@@ -20,7 +20,7 @@ three:
   title: CEO
   phone: 1 613 255 8455
   email: erin.kelly@zylog.com
-  customer_id: 2
+  customer_id: two
 
 four:
   first_name: Deb
@@ -28,4 +28,4 @@ four:
   title: Consultant
   phone: 0325061478
   email: dddddddddd@orsay.com
-  customer_id: 3
+  customer_id: three
