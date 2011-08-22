@@ -11,7 +11,7 @@ one:
   phone_number: "613 800 0222"
   localization: "fr-CA"
   hours_per_day: '7.5'
-  user_id: 1
+  user: one
 
 two:
   company: "Easy 4 Me"
@@ -24,4 +24,4 @@ two:
   phone_number: "613 800 0222"
   localization: "en-CA"
   hours_per_day: '5'
-  user_id: 1
+  user: two
