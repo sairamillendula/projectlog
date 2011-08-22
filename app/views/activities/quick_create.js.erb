@@ -1,7 +1,7 @@
 <% if @activity.valid? %>
   $("form#new_activity").get(0).reset(); // Clear out the form
   $("#activity-fields").effect("highlight", {}, 1000);
-  $("#billable-activities").html($("<%= escape_javascript render(:partial => 'dashboard/billable-acti') %>"));
+  $("#billable-chart").html($("<%= escape_javascript render(:partial => 'dashboard/last_week_pie_charts') %>"));
   $("#recent-activities").html($("<%= escape_javascript render(:partial => 'activities/recent') %>"));
 <% else %>
   $('<div id="activity-error"></div>')

@@ -22,17 +22,18 @@ module DashboardHelper
 
   
   def time_pie_chart(billable_hours, unbillable_hours, title = "Chart")
-     data_table = GoogleVisualr::DataTable.new
-     data_table.new_column('string', 'Type of time')
-     data_table.new_column('number', 'Hours')
-     data_table.add_rows(5)
-     data_table.set_cell(0, 0, 'Billable hours')
-     data_table.set_cell(0, 1, billable_hours)
-     data_table.set_cell(1, 0, 'Unbillable hours')
-     data_table.set_cell(1, 1, unbillable_hours)
+    data_table = GoogleVisualr::DataTable.new
+    data_table.new_column('string', 'Type of time')
+    data_table.new_column('number', 'Hours')
+    data_table.add_rows(5)
+    data_table.set_cell(0, 0, 'Billable')
+    data_table.set_cell(0, 1, billable_hours)
+    data_table.set_cell(1, 0, 'Unbillable')
+    data_table.set_cell(1, 1, unbillable_hours)
 
-     opts   = { :width => 120, :height => 100, :legend => "none", :tooltipText => "value", :colors => ["#AA00AA", "#1100AA"], :pieSliceText => "none" }
-     chart = GoogleVisualr::Interactive::PieChart.new(data_table, opts)    
+    opts = { :width => 125, :height => 125, :legend => "none", :tooltipText => "value", :size => '12', :colors => ["#5e6066", "999"], 
+           :pieSliceText => "value", :pieSliceTextStyle => {fontSize: '11'}, :backgroundColor => '#fdfdfd', :tooltipTextStyle => {fontSize: '11'} }
+    chart = GoogleVisualr::Interactive::PieChart.new(data_table, opts)    
   end
   
   def time_pie_chart_on_date(some_date, chart_id)

@@ -1,10 +1,14 @@
-<% 6.downto(0) do |i| %>
-  <div class="pie_chart">
-    <h2><%= l(i.days.ago.to_date, :format => "%a, %b %d") %></h2>
-    <%= content_tag(:div, "", :class => "google_chart", :id => "chart_#{i}") %>
-    <%= time_pie_chart_on_date(i.days.ago, "chart_#{i}") %>
-    <h3><%= pluralize number_with_delimiter(total_hours_on_date(i.days.ago)), "hour" %></h3>
-  </div>
-<% end %>
+<div id="billable-chart">
+  <h1>Billable Time in the last week</h1>
+
+  <% 6.downto(0) do |i| %>
+    <div class="pie_chart">
+      <h2><%= l(i.days.ago.to_date, :format => "%A") %></h2>
+      <%= content_tag(:div, "", :class => "google_chart", :id => "chart_#{i}") %>
+      <%= time_pie_chart_on_date(i.days.ago, "chart_#{i}") %>
+    </div>
+  <% end %>
+
+</div>
 
 <%= clear %>

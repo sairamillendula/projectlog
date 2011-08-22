@@ -5,9 +5,9 @@
     <%= render :partial => 'activities/quick' %>
   </div>
   
-  <%= render :partial => 'billable-acti' %>
+  <%#= render :partial => 'billable-acti' %>
   
-  <%= render :partial => 'last_week_pie_charts' %>
+  <%= render :partial => 'last_week_pie_charts' unless !current_user.activities.any? %>
   
   <%= render :partial => 'activities/recent' %>
   
