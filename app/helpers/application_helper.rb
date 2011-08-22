@@ -17,4 +17,8 @@ module ApplicationHelper
     options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis]
     Redcarpet.new(text, *options).to_html.html_safe
   end
+  
+  def clear
+    content_tag(:div, "", :class => "clear")
+  end
 end

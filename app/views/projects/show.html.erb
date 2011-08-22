@@ -15,29 +15,30 @@
 
 <% if @project.internal? %>
   <% if @project.description.blank? %>
-	<%= render :partial => 'description' %>
+	  <%= render :partial => 'description' %>
   <% else %>
     <div id="project_description">
 	   Description: <%= markdown(@project.description) %>
 	</div>
   <% end %>
 <% else %>
-	  <div id="column_left">
-		<% if @project.description.blank? %>
-			<%= render :partial => 'description' %>
-		<% else %>
-	      <div id="project_description">
-		    <%= markdown(@project.description) %>
-	      </div>
-	    <% end %>
-	  </div>
-	
+  <div id="column_left">
+	  <% if @project.description.blank? %>
+		  <%= render :partial => 'description' %>
+	  <% else %>
+      <div id="project_description">
+	      <%= markdown(@project.description) %>
+      </div>
+    <% end %>
+  </div>
+
 	<div id="column_right">
 	   <%= render :partial => 'column_right' %>
-	  
 	</div>
 <% end %>
 </div>
+
+<%= clear %>
 
 <div id="activities">
   <%= render :partial => "activities/activities" %>
