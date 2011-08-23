@@ -38,7 +38,8 @@
 	<div class="field">
 	  <%= f.label :billing_code_id, 'Billing Method' %>
 	  <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
-	</div>	
+	</div>
+	
 	<div id="billing-scenario">
 	  <span id="hourly">
 	    Total hours allowed for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %><%= number_to_currency("") %>
@@ -52,7 +53,8 @@
 	  </span>
 		
 	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :size => '8' %></span>
-  </div>
+    </div>  <%# billing-scenario %>
+  </div>  <%# billing %>
   
   <% if !@project.new_record? %>
     <div class="field">
