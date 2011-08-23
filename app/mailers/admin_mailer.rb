@@ -8,7 +8,7 @@ class AdminMailer < ActionMailer::Base
   
   def new_system_administrator(user)
     @user = user
-    mail(:to => "app@getprojectlog.com", :subject => "[Projectlog] New System Administrator")
+    mail(:to => "app@getprojectlog.com", :subject => "[Projectlog] Administrator change")
   end
   
 end
