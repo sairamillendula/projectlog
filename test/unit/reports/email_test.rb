@@ -15,7 +15,7 @@ class Reports::EmailTest < ActiveSupport::TestCase
   end
   
   test "mandatory fields should be filled in" do
-    report = Report.find_by_slug!("thisisthereportslug").id
+    report = reports(:one).id
     email = Reports::Email.new
     assert !email.valid?
     assert email.errors[:to].any?
@@ -24,12 +24,14 @@ class Reports::EmailTest < ActiveSupport::TestCase
     assert email.errors[:body].any?
     assert email.errors[:report_link].any?
     assert email.errors[:reply_to].any?
+    assert email.errors[:slug].any?
     assert_equal ["can't be blank"], email.errors[:to]
     assert_equal ["can't be blank"], email.errors[:from]
     assert_equal ["can't be blank"], email.errors[:subject]
     assert_equal ["can't be blank"], email.errors[:body]
     assert_equal ["can't be blank"], email.errors[:report_link]
     assert_equal ["can't be blank"], email.errors[:reply_to]
+    assert_equal ["can't be blank"], email.errors[:slug]
     assert !email.deliver
   end
   

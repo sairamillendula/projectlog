@@ -27,7 +27,7 @@ class ReportsController < ApplicationController
   
   def shared # Like show, except is public for everybody.
     @report = Report.find_by_slug!(params[:id])
-    @activities = @report.activities
+    @activities = @report.activities.order('date DESC')
     respond_to do |format|
       format.html do
         render :layout => "public"

@@ -6,8 +6,8 @@
 <p id="budget">
  <% if !@project.internal? %>
   <p>
-    <label class="label-wide">Billing:</label>
-    <%= @project.billing_code.name unless !@project.billing_code_id.present? %> <br />
+    <label class="label-wide">Billing Method:</label>
+    <%= @project.billing_code_id.present? ? @project.billing_code.name : "Not set"%> <br />
   </p>
   <p>
     <label class="label-wide">Budget:</label>
