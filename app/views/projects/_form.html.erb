@@ -52,7 +52,7 @@
 		<% end %>
 	  </span>
 		
-	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :size => '8' %></span>
+	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :size => '8' %><%= number_to_currency("") %></span>
     </div>  <%# billing-scenario %>
   </div>  <%# billing %>
   
