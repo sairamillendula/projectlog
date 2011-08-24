@@ -1,8 +1,10 @@
 require 'test_helper'
+include Devise::TestHelpers
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
-    @project = projects(:one)
+    sign_in users(:one)
+    @project = projects(:open_and_billable)
   end
 
   test "should get index" do

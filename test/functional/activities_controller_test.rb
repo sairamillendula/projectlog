@@ -1,7 +1,9 @@
 require 'test_helper'
+include Devise::TestHelpers
 
 class ActivitiesControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @activity = activities(:one)
   end
 
