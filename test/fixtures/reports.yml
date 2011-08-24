@@ -1,6 +1,6 @@
 one:
-  user_id: one
-  project_id: one
+  user: one
+  project: one
   start_date: '2011-01-01'
   end_date: '2012-12-31'
   slug: "thisisthereportslug"

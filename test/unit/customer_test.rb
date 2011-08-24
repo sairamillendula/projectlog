@@ -42,8 +42,9 @@ class CustomerTest < ActiveSupport::TestCase
     assert customer.update_attributes(:name => 'New name')
   end
 
-  test "should destroy customer and contacts" do
+  test "should destroy customer and contacts if it doesn't have projects" do
     customer = customers(:one)
+    customer.projects = []
     customer.destroy
     assert_raise(ActiveRecord::RecordNotFound) { Customer.find(customer.id) }
     assert !customer.contacts.any?

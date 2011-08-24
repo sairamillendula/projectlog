@@ -15,7 +15,9 @@ class Reports::Email
   end
   
   def body
-    (@body || "").gsub("%{report_link}", report_link)
+    b = @body || ""
+    b.gsub!("%{report_link}", report_link) unless report_link.blank?
+    b
   end
   
   def deliver
@@ -23,7 +25,7 @@ class Reports::Email
   end
   
   def body_must_contain_report_link
-    errors.add(:body, "must contain a link to the report") unless body.include?(report_link)
+    errors.add(:body, "must contain a link to the report") unless report_link.present? && body.include?(report_link)
   end
   
   def persisted?
