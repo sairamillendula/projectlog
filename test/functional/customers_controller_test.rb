@@ -4,28 +4,25 @@ include Devise::TestHelpers
 class CustomersControllerTest < ActionController::TestCase
   setup do
     sign_in users(:one)
-    current_user = users(:one)
-    @user_customer = current_user.customers(:one)
     @customer = customers(:one)
   end
 
   test "should get index" do
     get :index
-    assert_response :redirect
-    #assert_response :success
+    assert_response :success
     assert_not_nil assigns(:customers)
+    assert_template 'index'
   end
 
   test "should get new" do
     get :new
-    assert_response :redirect
-    #assert_response :success
+    assert_response :success
+    assert_template 'new'
   end
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      #post :create, :customer => @customer.attributes
-      post :create, :customer => { :name => 'Apple' }
+      post :create, :customer => @customer.attributes
     end
 
     assert_redirected_to customer_path(assigns(:customer))
@@ -34,11 +31,13 @@ class CustomersControllerTest < ActionController::TestCase
   test "should show customer" do
     get :show, :id => @customer.to_param
     assert_response :success
+    assert_template 'show'
   end
 
   test "should get edit" do
     get :edit, :id => @customer.to_param
     assert_response :success
+    assert_template 'edit'
   end
 
   test "should update customer" do
