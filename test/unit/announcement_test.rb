@@ -48,14 +48,19 @@ class AnnouncementTest < ActiveSupport::TestCase
   end
   
   test "ensure user can acknowledge announcement" do
-    user_id = users(:one).id
-    announcements(:one).hidden_by_user_ids = user_id
-    assert_not_nil announcements(:one).hidden_by_user_ids
+    user = users(:one)
+    a = announcements(:one)
+    a.hide_for!(user)
+    assert a.hidden_by?(user)
   end
   
-  test "ensure current announcements work" do
-    #announcements(:two) should be active based on fixture
-    assert Announcement.current_announcements.any?
+  test "#current_announcement for some user" do
+    a = announcements(:two)
+    a.hidden_by_user_ids = []
+    a.starts_at = Time.now - 5.days
+    a.ends_at = Time.now + 5.days
+
+    assert_equal a, Announcement.current_announcement_for(users(:one))
   end
   
 end

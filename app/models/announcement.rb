@@ -16,6 +16,10 @@ class Announcement < ActiveRecord::Base
     save!
   end
   
+  def self.current_announcement_for(some_user)
+    current_announcements.select { |a| !a.hidden_by?(some_user) }.first
+  end
+
   def start_date_must_be_smaller_than_end_date
     if starts_at.present? && ends_at.present? && starts_at > ends_at
       errors.add(:starts_at, "must be smaller than end date")
