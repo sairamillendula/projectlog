@@ -40,17 +40,17 @@
 	
 	<div id="billing-scenario">
 	  <span id="hourly">
-	    Total hours allowed for this project: <%= f.text_field :total_unit, :size => '8' %> at a rate of <%= f.text_field :default_rate, :size => '8' %><%= number_to_currency("") %>
+	    Total hours allowed for this project: <%= f.text_field :total_unit, :id => "hourly_total_unit", :size => '8' %> at a rate of <%= f.text_field :default_rate, :id => "hourly_default_rate", :size => '8' %><%= number_to_currency("") %>
 	  </span>
 		
 	  <span id="per_diem">
-		Total days allowed <%= f.text_field :total_unit, :size => '6' %> at a rate of <%= f.text_field :default_rate, :size => '6' %><%= number_to_currency("") %>
+		Total days allowed <%= f.text_field :total_unit, :id => "per_diem_total_unit", :size => '6' %> at a rate of <%= f.text_field :default_rate, :id => "per_diem_default_rate", :size => '6' %><%= number_to_currency("") %>
 	    <% if current_user.profile.hours_per_day.nil? %>
 	      <span id="hours-per-day-notice">Hours by Day not set. Update your <%= link_to 'settings', settings_path %> to convert Activities to Days</span>
 		<% end %>
 	  </span>
 		
-	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :size => '8' %><%= number_to_currency("") %></span>
+	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :id => "fixed_default_rate", :size => '8' %><%= number_to_currency("") %></span>
     </div>  <%# billing-scenario %>
   </div>  <%# billing %>
   
