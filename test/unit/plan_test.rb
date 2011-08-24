@@ -40,8 +40,9 @@ class PlanTest < ActiveSupport::TestCase
     assert p.update_attributes(:description => 'This is the Free plan')
   end
   
-  test "should be able to destroy plan" do
+  test "should be able to destroy plan if not attached to some users" do
     p = plans(:free)
+    p.users = []
     p.destroy
     assert_raise(ActiveRecord::RecordNotFound) { Plan.find(p.id) }
   end
