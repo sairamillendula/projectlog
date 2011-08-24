@@ -7,7 +7,7 @@ one:
 
 two:
   message: This is the 2nd announcement
-  starts_at: <%= Time.now %>
+  starts_at: <%= Time.now - 1.day %>
   ends_at: <%= Time.now + 2.days %>
   hidden_by_user_ids: "--- 
 - 1"

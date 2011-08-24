@@ -1,49 +1,20 @@
 require 'test_helper'
+include Devise::TestHelpers
 
 class AnnouncementsControllerTest < ActionController::TestCase
   setup do
     @announcement = announcements(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:announcements)
+  test "should redirect to next announcement if there are 2 pending announcements" do
+    sign_in users(:one)
+    
+    @announcement.starts_at = Time.now - 5.days
+    @announcement.ends_at = Time.now + 5.days
+    @announcement.save!
+    
+    put :hide, :id => @announcement
+    assert_redirected_to announcement_path(announcements(:two))
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
-  test "should create announcement" do
-    assert_difference('Announcement.count') do
-      post :create, announcement: @announcement.attributes
-    end
-
-    assert_redirected_to announcement_path(assigns(:announcement))
-  end
-
-  test "should show announcement" do
-    get :show, id: @announcement.to_param
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @announcement.to_param
-    assert_response :success
-  end
-
-  test "should update announcement" do
-    put :update, id: @announcement.to_param, announcement: @announcement.attributes
-    assert_redirected_to announcement_path(assigns(:announcement))
-  end
-
-  test "should destroy announcement" do
-    assert_difference('Announcement.count', -1) do
-      delete :destroy, id: @announcement.to_param
-    end
-
-    assert_redirected_to announcements_path
-  end
 end
