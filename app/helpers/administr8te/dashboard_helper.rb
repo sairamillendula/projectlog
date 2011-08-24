@@ -49,7 +49,8 @@ module Administr8te::DashboardHelper
       data_table.set_cell(i, 1, counts[date] || 0)
     end
 
-    opts   = { :width => 880, :height => 240, :title => 'Sign ups in the last 31 days', :legend => 'none', :hAxis => { :textStyle => { :color => "black", :fontName => "Arial", :fontSize => 12 } } }
+    opts = { :width => 880, :height => 200, :title => 'Signups in the last 31 days', :legend => 'none', :colors => ['#f26535'], 
+           :backgroundColor => '#fdfdfd', :hAxis => { :textStyle => { :color => "black", :fontName => "Arial", :fontSize => 12 } } }
     render_chart GoogleVisualr::Interactive::LineChart.new(data_table, opts), container_dom_id
   end
 end
