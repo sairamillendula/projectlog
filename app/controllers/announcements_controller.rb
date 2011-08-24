@@ -9,6 +9,10 @@ class AnnouncementsController < ApplicationController
   
   def hide
     @announcement.hide_for!(current_user)
-    redirect_to_stored_location_or_default
+    if pending_announcement = Announcement.current_announcement_for(current_user)
+      redirect_to pending_announcement
+    else
+      redirect_to_stored_location_or_default
+    end
   end
 end
