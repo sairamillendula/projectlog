@@ -7,22 +7,21 @@
  <% if !@project.internal? %>
   <p>
     <label class="label-wide">Billing Method:</label>
-    <%= @project.billing_code_id.present? ? @project.billing_code.name : "Not set"%> <br />
+    <%= @project.billing_code_id.present? ? @project.billing_code.name : link_to('Edit', edit_project_path(@project)) %> <br />
   </p>
   <p>
     <label class="label-wide">Budget:</label>
-    <%= @project.default_rate.present? && @project.total_unit.present? ? number_to_currency(@project.budget) : "Not set" %> <br />
+    <%= show_budget %> <br />
   </p>
   <p>
-    <label class="label-wide">Billable Amount:</label>
-    <%= @project.default_rate.present? && current_user.profile.hours_per_day.present? ? number_to_currency(@project.billable_amount) +
-    ' (' + number_to_percentage(@project.billable_amount / @project.budget.to_f) + ')': "Not set" %> <br />
+    <label class="label-wide"><%= 'Billable Amount:' unless @project.fixed? %></label>
+    <%= show_billable_amount unless @project.fixed? %> <br />
   </p>
   <p>
    <label class="label-wide">
-     <%= @project.hourly? ? "Hours left:" : "Days left:" unless @project.fixed? %>
+     <%= @project.hourly? ? "Hours left:" : "Days left:" unless (@project.fixed? or @project.billing_code_id.nil?) %>
    </label>
-   <%= @project.default_rate.present? ? unit_left : "Default rate not set" %>
+   <%= show_unit_left unless @project.fixed? %>
   </p>
 </p>
 <% end %>

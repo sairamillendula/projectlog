@@ -42,7 +42,7 @@ class Project < ActiveRecord::Base
   def budget
     if fixed? && default_rate.present? #budget equals default_rate because only default_rate is editable by user
       self.budget = default_rate
-    elsif total_unit.present? && default_rate.present? #Calculate budget: default_rate * total_unit allowed
+    else total_unit.present? && default_rate.present? #Calculate budget: default_rate * total_unit allowed
       self.budget = total_unit.to_f * default_rate.to_f
     end
   end
@@ -53,7 +53,7 @@ class Project < ActiveRecord::Base
       self.billable_amount = total_hours.to_f * default_rate.to_f
     elsif per_diem? && user.profile.hours_per_day.present?
       self.billable_amount = total_hours.to_f / user.profile.hours_per_day.to_f * default_rate.to_f unless user.profile.hours_per_day.nil?
-    else
+    else #fixed
       self.billable_amount = default_rate.to_f
     end
   end
