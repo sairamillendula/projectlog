@@ -3,7 +3,7 @@
 
   <% 6.downto(0) do |i| %>
     <div class="pie_chart">
-      <h2><%= l(i.days.ago.to_date, :format => "%A") %></h2>
+      <h2><%= i.days.ago.to_date == Date.today ? content_tag(:span, "Today", :class => "bold") : l(i.days.ago.to_date, :format => "%A") %></h2>
       <%= content_tag(:div, "", :class => "google_chart", :id => "chart_#{i}") %>
       <%= time_pie_chart_on_date(i.days.ago, "chart_#{i}") %>
     </div>
