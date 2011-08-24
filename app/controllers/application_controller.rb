@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
-  before_filter :redirect_to_current_announcement
-  
+    
 private
   def load_user
     @user = current_user
@@ -42,14 +41,5 @@ private
   
   def redirect_to_stored_location_or_default(default = root_path)
     redirect_to session.delete(:return_to) || default
-  end
-  
-  def redirect_to_current_announcement
-    return unless user_signed_in? # Do nothing if we are not signed in
-    for announcement in Announcement.current_announcements
-        next if announcement.hidden_by?(current_user)
-        # Announcement is not hidden. Let's redirect to it.
-        store_location_and_redirect_to(announcement) and return
-    end
   end
 end
