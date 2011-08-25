@@ -16,6 +16,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+    assert_template 'new'
   end
 
   test "should create activity" do
@@ -34,6 +35,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, :id => @activity.to_param
     assert_response :success
+    assert_template 'edit'
   end
 
   test "should update activity" do

@@ -1,0 +1,5 @@
+one:
+  from: "app.getprojectlog.com"
+  to: "contact@getprojectlog.com"
+  subject: "Test - Send report"
+  body: "Test - Hi, this is your report"

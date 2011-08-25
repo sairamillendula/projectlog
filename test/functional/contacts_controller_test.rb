@@ -1,7 +1,9 @@
 require 'test_helper'
+include Devise::TestHelpers
 
 class ContactsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @contact = contacts(:one)
   end
 
@@ -14,6 +16,7 @@ class ContactsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+    assert_template 'new'
   end
 
   test "should create contact" do
@@ -32,6 +35,7 @@ class ContactsControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, :id => @contact.to_param
     assert_response :success
+    assert_template 'edit'
   end
 
   test "should update contact" do
