@@ -25,6 +25,7 @@ $circle_size: 18px;
 }
 
 .pie_chart {
+  width: $container_width;
   -webkit-font-smoothing: subpixel-antialiased;
   margin-left: auto;
   margin-right: auto;
