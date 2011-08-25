@@ -124,7 +124,6 @@ text-align: left;
 padding-left: 54px;
 background: url('195.png') no-repeat;
 float: left;
-font-family: 'Pacifico', serif;
 font-size: 36px;
 font-style: normal;
 font-weight: 400;
@@ -137,6 +136,16 @@ height: 61px;
 line-height: 44px;
 margin-top: 0;
 padding-top: 0;
+}
+
+#logo h1, .wf-loading #logo h1, .wf-inactive #logo h1, { 
+  // Show header in sans-serif font until fonts have loaded.
+  font-family: sans-serif;
+}
+
+.wf-active #logo h1 { 
+  // Show header in Pacifico when the fonts have loaded.
+  font-family: 'Pacifico', sans-serif;
 }
 
 #username {

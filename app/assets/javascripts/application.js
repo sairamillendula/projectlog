@@ -3,8 +3,9 @@
 //= require jquery_ujs
 //= require_tree ../../../vendor/assets/javascripts
 //= require_tree .
-
+  
 $(function() {
+  
   $("#activities th a, #activities .pagination a").live("click", function() {
     $.getScript(this.href);
     return false;

@@ -5,10 +5,20 @@
    <meta name="description" content="Projectlog is an easy way for consultants and freelancers to send timesheet & invoices" />
    <meta name="keywords" content="time tracking, invoicing, activity log, collaborative tool, freelancer, consultant, yafoy" />
    <%= stylesheet_link_tag 'application', 'base/jquery.ui.theme', 'custom-theme/jquery-ui-1.8.13.custom' %>
-   <%= javascript_include_tag 'application' %>
+   <%= javascript_include_tag 'application' %>   
    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+   <script type="text/javascript">
+     // Load Google Fonts
+     google.load("webfont", "1");
+
+     google.setOnLoadCallback(function() {
+         WebFont.load({
+           google: {
+             families: [ 'Pacifico' ]
+           }});
+     });   
+   </script>   
    <%= csrf_meta_tag %>
-   <link href='http://fonts.googleapis.com/css?family=Pacifico&v1&text=Projectlog' rel='stylesheet' type='text/css'>
   </head>
  <body>
 	
