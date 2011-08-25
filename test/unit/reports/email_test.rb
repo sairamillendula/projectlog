@@ -24,7 +24,7 @@ class Reports::EmailTest < ActiveSupport::TestCase
     assert email.errors[:body].any?
     assert email.errors[:report_link].any?
     assert email.errors[:reply_to].any?
-    assert_equal ["can't be blank"], email.errors[:to]
+    assert_equal ["A beneficiary is required"], email.errors[:to]
     assert_equal ["can't be blank"], email.errors[:from]
     assert_equal ["can't be blank"], email.errors[:subject]
     assert email.errors[:body].include?("can't be blank")
