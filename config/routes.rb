@@ -50,6 +50,7 @@ Projectlog::Application.routes.draw do
     resources :clients, :only => [ :index ]
     resources :plans
     resources :announcements
+    resource :logs, :only => [ :show ]
   end
   
   # allow "/users/login" and "/login"

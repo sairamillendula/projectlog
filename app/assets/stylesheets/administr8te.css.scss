@@ -42,3 +42,20 @@ padding: 0 4 0 4;
 #users-chart {
 margin-bottom: 20px;
 }
+
+/* Logs */
+#log-disclaimer {
+background-color: #fffdc1;
+text-align: center;
+border: 2px solid #dad8a0;
+
+width: 80%;
+margin: 0 auto;
+text-align: center;
+padding: 20px;
+  
+  p { 
+	font-size: 16px;
+	line-height: 26px;
+  }
+}

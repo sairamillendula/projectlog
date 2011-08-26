@@ -22,8 +22,9 @@ gem 'rails-settings', :git => 'git://github.com/100hz/rails-settings.git'
 gem 'redcarpet'
 gem 'google_visualr', '~> 2.1'
 gem 'bourbon'
-
 gem 'cancan'
+gem 'clarity'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
