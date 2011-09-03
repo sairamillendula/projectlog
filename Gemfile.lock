@@ -91,6 +91,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mocha (0.9.12)
     multi_json (1.0.3)
     orm_adapter (0.0.5)
     pdfkit (0.5.2)
@@ -167,6 +168,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   kaminari
+  mocha
   pdfkit
   rails (= 3.1.0)
   rails-settings!
