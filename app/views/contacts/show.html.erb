@@ -28,5 +28,5 @@
   <%= @contact.customer_id %>
 </p>
 
-<%= link_to 'Edit', edit_customer_contact_path %> |
+<%= link_to 'Edit', edit_customer_contact_path(@customer, @contact) %> |
 <%= link_to 'Back', customer_path(@customer) %>

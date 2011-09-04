@@ -5,49 +5,50 @@ class ContactsControllerTest < ActionController::TestCase
   setup do
     sign_in users(:one)
     @contact = contacts(:one)
+    @customer = @contact.customer
   end
 
   test "should get index" do
-    get :index
+    get :index, :customer_id => @customer.to_param
     assert_response :success
     assert_not_nil assigns(:contacts)
   end
 
   test "should get new" do
-    get :new
+    get :new, :customer_id => @customer.to_param
     assert_response :success
     assert_template 'new'
   end
 
   test "should create contact" do
     assert_difference('Contact.count') do
-      post :create, :contact => @contact.attributes
+      post :create, :contact => @contact.attributes, :customer_id => @customer.to_param
     end
 
-    assert_redirected_to contact_path(assigns(:contact))
+    assert_redirected_to customer_path(assigns(:customer))
   end
 
   test "should show contact" do
-    get :show, :id => @contact.to_param
+    get :show, :id => @contact.to_param, :customer_id => @customer.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, :id => @contact.to_param
+    get :edit, :id => @contact.to_param, :customer_id => @customer.to_param
     assert_response :success
     assert_template 'edit'
   end
 
   test "should update contact" do
-    put :update, :id => @contact.to_param, :contact => @contact.attributes
-    assert_redirected_to contact_path(assigns(:contact))
+    put :update, :id => @contact.to_param, :contact => @contact.attributes, :customer_id => @customer.to_param
+    assert_redirected_to customer_path(assigns(:customer))
   end
 
   test "should destroy contact" do
     assert_difference('Contact.count', -1) do
-      delete :destroy, :id => @contact.to_param
+      delete :destroy, :id => @contact.to_param, :customer_id => @customer.to_param
     end
 
-    assert_redirected_to contacts_path
+    assert_redirected_to customer_path(assigns(:customer))
   end
 end
