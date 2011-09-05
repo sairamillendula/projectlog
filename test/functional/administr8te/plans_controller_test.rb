@@ -2,13 +2,14 @@ require 'test_helper'
 
 class Administr8te::PlansControllerTest < ActionController::TestCase
   setup do
-    @administr8te_plan = administr8te_plans(:one)
+    sign_in users(:one)
+    @plan = plans(:paid)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:administr8te_plans)
+    assert_not_nil assigns(:plans)
   end
 
   test "should get new" do
@@ -17,31 +18,33 @@ class Administr8te::PlansControllerTest < ActionController::TestCase
   end
 
   test "should create administr8te_plan" do
-    assert_difference('Administr8te::Plan.count') do
-      post :create, administr8te_plan: @administr8te_plan.attributes
+    assert_difference('Plan.count') do
+      post :create, plan: @plan.attributes.merge(name: "#{@plan.name} 2")
     end
 
-    assert_redirected_to administr8te_plan_path(assigns(:administr8te_plan))
+    assert_redirected_to administr8te_plan_path(assigns(:plan))
   end
 
   test "should show administr8te_plan" do
-    get :show, id: @administr8te_plan.to_param
+    get :show, id: @plan.to_param
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @administr8te_plan.to_param
+    get :edit, id: @plan.to_param
     assert_response :success
   end
 
   test "should update administr8te_plan" do
-    put :update, id: @administr8te_plan.to_param, administr8te_plan: @administr8te_plan.attributes
-    assert_redirected_to administr8te_plan_path(assigns(:administr8te_plan))
+    put :update, id: @plan.to_param, plan: @plan.attributes
+    assert_redirected_to administr8te_plan_path(assigns(:plan))
   end
 
   test "should destroy administr8te_plan" do
-    assert_difference('Administr8te::Plan.count', -1) do
-      delete :destroy, id: @administr8te_plan.to_param
+    @plan.users = [] # You can only destroy a plan if it doesn't have users
+    @plan.save!
+    assert_difference('Plan.count', -1) do
+      delete :destroy, id: @plan.to_param
     end
 
     assert_redirected_to administr8te_plans_path

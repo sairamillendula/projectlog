@@ -5,6 +5,13 @@ free:
   price: 0.0
   active: true
 
+paid:
+  name: "Paid"
+  description: "Paid Plan for pretty tests"
+  features: "A very interesting plan that's used for tests."
+  price: 9.99
+  active: true
+
 inactive:
   name: "Bronze"
   description: "Lots of features"

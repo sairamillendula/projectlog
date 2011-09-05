@@ -37,6 +37,7 @@ class Administr8te::PlansController < Administr8te::BaseController
       if @plan.save
         format.html { redirect_to administr8te_plan_path(@plan), notice: 'Plan was successfully created.' }
       else
+        puts @plan.errors.full_messages.to_sentence
         format.html { render action: "new" }
       end
     end
