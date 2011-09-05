@@ -8,7 +8,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = current_user.profiles.new(params[:profile])
+    @profile = current_user.build_profile(params[:profile])
 
     respond_to do |format|
       if @profile.save
@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @profile = current_user.profiles.find(params[:id])
+    @profile = current_user.profile
     @profile.destroy
 
     respond_to do |format|

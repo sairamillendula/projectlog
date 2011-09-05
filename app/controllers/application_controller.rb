@@ -21,8 +21,8 @@ private
   end
   
   def set_locale
-    if user_signed_in? && current_user.profile.localization.present?
-      I18n.locale = current_user.profile.localization      
+    if user_signed_in? && current_user.profile.present? && current_user.profile.localization.present?
+      I18n.locale = current_user.profile.localization 
     end
   end
 

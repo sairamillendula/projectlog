@@ -3,16 +3,19 @@ include Devise::TestHelpers
 
 class ProfilesControllerTest < ActionController::TestCase
   setup do
-    sign_in users(:one)
+    @user = users(:one)
     @profile = profiles(:one)
+    sign_in @user
   end
 
   test "should create profile" do
+    @user.profile = nil
+    @user.save!
     assert_difference('Profile.count') do
       post :create, :profile => @profile.attributes
     end
 
-    #assert_redirected_to profile_path(assigns(:profile))
+    assert_redirected_to profile_path(assigns(:profile))
   end
 
   test "should get edit" do
