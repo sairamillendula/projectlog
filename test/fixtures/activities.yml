@@ -4,17 +4,17 @@ fix_<%= a %>:
   date: <%= Time.now %>
   time: 2.5
   description: Activity <%= a %>
-  project: one
+  project: open_and_billable
 <% end %>
 
 one:
   date: <%= 1.month.ago %>
   time: 1.5
   description: Testing my app.
-  project: one
-  
+  project: open_and_billable
+
 two:
   date: <%= 2.days.ago %>
   time: 7
   description: Defined requirements for next Web App
-  project: one
+  project: open_and_billable
