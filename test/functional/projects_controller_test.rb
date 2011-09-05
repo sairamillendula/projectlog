@@ -1,5 +1,4 @@
 require 'test_helper'
-include Devise::TestHelpers
 
 class ProjectsControllerTest < ActionController::TestCase
   setup do
@@ -10,7 +9,8 @@ class ProjectsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:projects)
+    assert_not_nil assigns(:open_projects)
+    assert_not_nil assigns(:closed_projects)
     assert_template 'index'
   end
 
@@ -22,7 +22,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, :project => @project.attributes
+      post :create, :project => @project.attributes.merge(:title => "#{@project.title} 2")
     end
 
     assert_redirected_to project_path(assigns(:project))

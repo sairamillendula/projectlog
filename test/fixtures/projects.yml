@@ -6,7 +6,7 @@ open_and_billable:
   user: one
   customer: one
   internal: false
-  billing_code_id: '1'
+  billing_code: hourly
   total_unit: '15'
   budget: '150'
   billable_amount: '75'
@@ -19,7 +19,7 @@ open_and_internal:
   default_rate: "10"
   user: one
   internal: true
-  billing_code_id: '2'
+  billing_code: per_diem
   total_unit: '150'
   budget: '300.5'
   billable_amount: '75'
@@ -33,7 +33,7 @@ closed_and_billable:
   user: one
   customer: one
   internal: false
-  billing_code_id: '3'
+  billing_code: fixed
   budget: '150'
   billable_amount: '75'
   unit_left: '10'
@@ -45,7 +45,7 @@ closed_and_internal:
   default_rate: "10"
   user: one
   internal: true
-  billing_code_id: '1'
+  billing_code: hourly
   total_unit: '15'
   budget: '150'
   billable_amount: '75'
