@@ -2,6 +2,7 @@ require 'test_helper'
 
 class InvoicesControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @invoice = invoices(:one)
   end
 
