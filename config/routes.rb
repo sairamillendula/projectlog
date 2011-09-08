@@ -20,11 +20,7 @@ Projectlog::Application.routes.draw do
     end
     resources :activities
   end
-  resources :activities do
-    collection do
-      post "quick_create"
-    end
-  end
+  resources :activities
   
   resources :reports do
     collection do

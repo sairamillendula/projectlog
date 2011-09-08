@@ -18,13 +18,13 @@ class Dashboard::ActivitiesControllerTest < ActionController::TestCase
   #   assert_template 'new'
   # end
 
-  # test "should create activity" do
-  #   assert_difference('Activity.count') do
-  #     post :create, :activity => @activity.attributes, :project_id => @project.to_param
-  #   end
-  # 
-  #   assert_redirected_to project_path(assigns(:project))
-  # end
+  test "should create activity" do
+    assert_difference('Activity.count') do
+      post :create, :activity => @activity.attributes, :project_id => projects(:open_and_billable).to_param, :format => :js
+    end
+    assert_response :success
+    assert_template "create"
+  end
 
   # test "should show activity" do
   #   get :show, :id => @activity.to_param, :project_id => @project.to_param
