@@ -39,10 +39,15 @@ Projectlog::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
-  
+
   # Dev Host
   config.action_mailer.default_url_options = { :host => 'getprojectlog.com' }
-  
+
+  # Configure static asset server for tests with Cache-Control for performance
+  config.serve_static_assets = true
+
+  config.static_cache_control = "public, max-age=3600"
+
   # Getprojectlog Email server setup
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {  
