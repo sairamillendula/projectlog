@@ -1,7 +1,9 @@
 Projectlog::Application.routes.draw do
-
-  get "dashboard/show"
   root :to => 'dashboard#show'
+
+  resource :dashboard do
+    resources :activities, :controller => "dashboard/activities"
+  end
 
   resources :project_statuses
   resources :profiles, :contacts, :invoices

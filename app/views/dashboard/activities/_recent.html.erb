@@ -1,0 +1,12 @@
+<div id="recent-activities">
+
+<% if current_user.activities.any? %>
+<h1>Recent Activities</h1>
+
+ <table class='activities'>
+   <% current_user.activities.order("created_at DESC").limit(5).each do |activity| %>     
+     <%= render :partial => "dashboard/activities/activity", :object => activity %>
+   <% end %>
+ </table>
+<% end %>
+</div>

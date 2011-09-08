@@ -9,7 +9,7 @@
   
   <%= render :partial => 'last_week_pie_charts' unless !current_user.activities.any? %>
   
-  <%= render :partial => 'activities/recent' %>
+  <%= render :partial => 'dashboard/activities/recent' %>
   
 <% else %>
   <%= render :partial => 'introduction' %>

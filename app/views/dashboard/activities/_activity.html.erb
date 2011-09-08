@@ -1,0 +1,11 @@
+<%= content_tag :tr, :id => "row_for_activity_#{activity.id}" do %>
+  <td class="date"><%= l activity.date, :format => :short %></td>
+  <td class="time"><%= number_with_delimiter(activity.time) %></td>
+  <td class="description"><%= activity.description %></td>
+  <td class="project"><%= link_to activity.project.title, project_path(activity.project) %></td>
+
+  <td class="actions"><%= link_to 'Edit', edit_dashboard_activity_path(activity), :remote => true %> 
+    <%= link_to image_tag("bin.png"), dashboard_activity_path(activity), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+  </td>
+
+<% end %>

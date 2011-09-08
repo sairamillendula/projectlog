@@ -1,0 +1,13 @@
+<% if @activity.valid? %>
+  $("#row_for_activity_<%= @activity.id %>").replaceWith("<%= escape_javascript render(@activity) %>");
+<% else %>
+  $('<div id="activity-error"></div>')
+  .html('<div class="alert">Please fix the following errors: <%= escape_javascript @activity.errors.full_messages.to_sentence %></div>')
+  .dialog({
+    autoOpen: true,
+    buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+    modal: true,
+    show: "fade",
+    hide: "fade",
+  });
+<% end %>

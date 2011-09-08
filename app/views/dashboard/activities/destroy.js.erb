@@ -1,0 +1,2 @@
+$("#row_for_activity_<%= @activity.id %>").fadeOut();
+$("#billable-chart").html($("<%= escape_javascript render(:partial => 'dashboard/last_week_pie_charts') %>"));
