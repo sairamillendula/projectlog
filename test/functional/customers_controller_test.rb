@@ -1,5 +1,4 @@
 require 'test_helper'
-include Devise::TestHelpers
 
 class CustomersControllerTest < ActionController::TestCase
   setup do
@@ -22,7 +21,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post :create, :customer => @customer.attributes
+      post :create, :customer => @customer.attributes.merge(:name => "#{@customer.name} Jr.")
     end
 
     assert_redirected_to customer_path(assigns(:customer))
@@ -46,6 +45,8 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test "should destroy customer" do
+    @customer.projects = []  # A customer can't be deleted if it has associated projects
+    @customer.save!
     assert_difference('Customer.count', -1) do
       delete :destroy, :id => @customer.to_param
     end
