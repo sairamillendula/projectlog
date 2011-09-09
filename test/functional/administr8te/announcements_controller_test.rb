@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class Administr8te::AnnouncementsControllerTest < ActionController::TestCase
+  test "should not get index if not admin" do
+    sign_in users(:two)
+    get :index
+    assert_response :redirect
+  end
+  
   setup do
     sign_in users(:one)
     @announcement = announcements(:one)
