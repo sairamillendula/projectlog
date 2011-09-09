@@ -57,6 +57,5 @@ class Administr8te::AnnouncementsControllerTest < ActionController::TestCase
 
     assert_redirected_to administr8te_announcements_path
   end
-  
 
 end
