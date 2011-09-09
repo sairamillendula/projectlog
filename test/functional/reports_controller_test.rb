@@ -25,4 +25,12 @@ class ReportsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'show'
   end
+  
+  test "shared report should be accessible to all" do
+    sign_out users(:one)
+    get :shared, :id => @report.to_param
+    assert_response :success
+    assert_template 'shared'
+  end
+  
 end
