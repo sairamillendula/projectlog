@@ -3,8 +3,10 @@
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
+  <p>Please provide email attached to your account and check your inbox.</p>
+  
   <h2><%= f.label :email %></h2>
   <%= f.email_field :email %>
 
-  <p class="submit"><%= f.submit "Send me reset password instructions" %></p>
+  <p class="submit left"><%= f.submit "Send me reset password instructions" %></p>
 <% end %>
