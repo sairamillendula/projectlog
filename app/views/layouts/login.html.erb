@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Projectlog :: Sign in</title>
-  <%= stylesheet_link_tag 'style' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tag %>
-  <style type="text/css">
-     body { background: url("/assets/background.jpg"); }
-  </style>
-</head>
+  <head>
+    <title>Projectlog :: Easy Timesheet & Invoices</title>
+     <%= stylesheet_link_tag 'application' %>
+     <%= javascript_include_tag 'application' %>
+     <%= csrf_meta_tag %>
+  </head>
 
-<body>
-   <div class="dialog">
-    <%= render 'layouts/flash' %>
-   
-    <%= yield %>
-    
-  </div> <!-- dialog -->
-</body>
+  <body>
+    <div class="dialog">
+      <%= render 'layouts/flash' %>
+
+      <%= yield %>
+    </div> <!-- dialog -->
+  </body>
 </html>

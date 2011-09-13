@@ -1149,34 +1149,6 @@ margin-bottom: 0px;
 #float: right;
 }
 
-/* Single page layout */
-.dialog {
-width: 440px;
-padding: 15px 30px;
-margin: 4em auto 0 auto;
-@include rounded-corners(5px);
-background-color: #fff;
--webkit-box-shadow: #999 0px 0px 6px;
--moz-box-shadow: #999 0px 0px 6px;
-box-shadow: #999 0px 0px 6px;
-display: block;
-}
-
-.dialog a {color: green; text-decoration: none;}
-.dialog a:hover {color: green; text-decoration: underline; background: none;}
-.dialog a:visited {color: green; text-decoration: none;}
-
-.dialog h2 {
-font-size: 14px;
-margin: 0px 0px 2px;
-padding: 0px;
-}
-
-.dialog input {
-width: 275px;
-margin-bottom: 10px;
-}
-
 /* Form */
 input {
 font-size: 14px;
@@ -1201,10 +1173,6 @@ margin-bottom: 0px;
 
 #account_fiscal_end_day, #account_fiscal_end_month, #account_localization {
 margin-bottom:10px;
-}
-
-#internal {
-#height: 27px;
 }
 
 /* Submit button */

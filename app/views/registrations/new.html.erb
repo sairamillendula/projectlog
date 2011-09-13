@@ -18,7 +18,7 @@
   <h2><%= f.label :password_confirmation %></h2>
   <%= f.password_field :password_confirmation %>
 
-  <p>By clicking Create my account you agree to the Terms of Service, Privacy, and Refund policies.</p>
+  <p>By clicking Create my account you agree to the <%= link_to 'Terms of Service', "http://getprojectlog.com/terms/", :target => "_blank" %> and <%= link_to 'Privacy', "http://getprojectlog.com/privacy/", :target => "_blank" %>.</p>
 
    <p class="submit left"><%= f.submit "Create my account" %></p>
    
