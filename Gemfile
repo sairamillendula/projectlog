@@ -10,7 +10,7 @@ gem 'uglifier'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-#gem "mysql2" #Disable for now as I can't install it
+gem "mysql2" #Disable for now as I can't install it
 gem 'devise'
 gem 'heroku'
 gem 'jquery-rails'
