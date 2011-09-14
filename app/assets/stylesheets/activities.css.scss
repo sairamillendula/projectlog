@@ -1,3 +1,17 @@
 .new_activity .hide_activity_form {
 	float: right;
 }
+
+/* Quick activity */
+/* Firefox fix */
+#activity-fields input {
+	font-size: inherit;
+}	
+
+input#new_activity_date {
+	max-width: 96px;
+}
+
+input#activity_description {
+	max-width: 502px;
+}
