@@ -1,3 +1,6 @@
 <%= form_for([@project, @project.activities.new], :remote => true) do |f| %>
   <%= render :partial => "fields.html", :locals => { :f => f } %>
+  <div class="hide_activity_form">
+    or <%= link_to "Cancel", "#" %>
+  </div>
 <% end %>
