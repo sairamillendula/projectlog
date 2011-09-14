@@ -1,8 +1,10 @@
 module ProjectsHelper
   
   def show_budget
-   if @project.billing_code_id.present? && @project.default_rate.present? && @project.total_unit.present? #default_rate and total_unit needed to continue
+    if @project.billing_code_id.present? && @project.default_rate.present? && @project.total_unit.present? #default_rate and total_unit needed to continue
      @budget = number_to_currency(@project.budget)
+    elsif @project.fixed?
+      @budget = number_to_currency(@project.default_rate)
     else
       link_to('Edit', edit_project_path(@project))
     end
@@ -11,7 +13,7 @@ module ProjectsHelper
   def show_billable_amount
     if @project.activities.any? && @project.default_rate.present? && @project.total_unit.present? #Calculate if required fields found
       number_to_currency(@project.billable_amount) + ' (' + 
-      number_to_percentage(@project.billable_amount / @project.budget.to_f, :precision =>2) + ')'
+      number_to_percentage(@project.billable_amount / @project.budget.to_f, :precision =>2) + ' spent)'
         
     elsif @project.per_diem? && !current_user.profile.hours_per_day.present? #Can't translate hours to days if variable not set
       link_to('Update settings', settings_path )
