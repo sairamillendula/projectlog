@@ -2,6 +2,7 @@
   $("form#new_activity").get(0).reset(); // Clear out the form
   $("#activity-fields").effect("highlight", {}, 1000);
   $("#activities").html($("<%= escape_javascript render(:partial => 'activities/activities') %>"));
+  $("#row_for_activity_<%= @activity.id %>").effect("highlight", {}, 1000);
   $('.new_activity_link').show();
 <% else %>
   $('<div id="activity-error"></div>')
