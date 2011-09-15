@@ -5,12 +5,12 @@
     <th>Date</th>
     <th>Time</th>
     <th>Description</th>
-    <th></th>
+    <th>&nbsp;</th>
   </tr>
   <tr id="activity-fields">
     <td><%= f.text_field :date, :class => "date", :size => 12 %></td>
     <td><%= f.text_field :time, :size => 4 %></td>
-    <td><%= f.text_field :description, :size => 86 %></td>
+    <td><%= f.text_field :description, :size => 86, :id => 'description' %></td>
     <td><span class="small submit"><%= f.submit %></span></td>
   </tr>
 </table>

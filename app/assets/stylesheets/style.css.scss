@@ -12,7 +12,7 @@ padding: 0;
 background-color: #fdfdfd;
 }
 
-body, p, ol, ul, td, h2 {
+body, p, ol, ul, td, h1, h2, textarea {
 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 13px;
 line-height: 18px;
@@ -78,7 +78,6 @@ font-size: 11px;
 }
 
 .field_with_errors label {
-#background-color: #ffe3e2;
 color: #c00;
 } 
 
@@ -404,7 +403,6 @@ width: 300px;
 
 #activities {
 clear: right;
-margin-top: 30px;
 }
 
 #card-entries {
@@ -523,14 +521,7 @@ width: 95px;
 display: block;
 float: left;
 height: 27px;
-#line-height: 27px;
 margin-right: 10px;
-}
-
-.inline-form select {
-height: 27px;
-#vertical-align: middle;
-#margin-top: 4px;
 }
 
 .inline-form textarea {
@@ -632,129 +623,6 @@ height: 120px;
 float: left;
 }
 
-/* Projects */
-#open-projects {
-width: 880px;
-margin-left: auto;
-margin-right: auto;
-}
-
-#closed-projects {
-clear: both;
-}
-
-#hide_closed {
-font-size: 13px;
-font-weight: normal;
-text-decoration: none;
-color: #A3A5AA;
-}
-
-#hide_closed:hover {
-background: none;
-#text-decoration: underline;
-color: inherit;
-}
-
-#project-title {
-line-height: 18px;
-}
-
-#meta {
-margin-bottom: 40px;
-background: #F1F1F3;
-@include rounded-corners(3px);
-padding: 5px;
-display: inline;
-float: left;
-width: 870px;
-}
-
-#project-description, #customer-note {
-height: 120px;
-}
-
-#description-intro {
-margin-top: 8px;
-}
-
-#project-description p, #customer-note p {
-margin-bottom: 0;
-}
-
-#project-description input, #customer-note input {
-margin-bottom: 6;
-}
-
-#project-description textarea, #customer-note textarea {
-width: 100%;
-height: 100px;
-}
-
-textarea#description {
-width: 100%;
-height: 100px;
-}
-
-#activity_search {
-padding: 6px;
-margin-top: 20px;
-margin-bottom: 20px;
-border: 1px solid #BEDCE7;
-background: #EAF2F5 url('info_background.gif') no-repeat;
-}
-
-form #activity_search {
-margin-bottom: 0;
-}
-
-.status {
-float: right;
-display: block;
-padding: 7px 10px;
-font-size: 12px;
-font-weight: bold;
-color: white;
-text-align: center;
-@include rounded-corners(3px);
-margin-top: -7px;
-}
-
-.status.open {
-background: #6CC644;
-}
-
-.status.closed {
-background: #666;
-}
-
-.status.internal {
-background: #000;
-margin-left: 10px;
-}
-
-#hours-per-day-notice {
-background-color: #ffe3e2;
-color: #c00;
-}
-
-#billing-scenario {
-margin-left: 105px;
-}
-
-/* Activities */
-#time-entries {
-clear: both;
-}
-
-#quick-activity, #billable-activities {
-margin-bottom: 45px;
-}
-
-#_project_id {
-width: 103px;
-}
-
 /*Add transaction*/
 .tab-header {
 background-color: #333;
@@ -835,11 +703,9 @@ font-size: 14px;
 color: #fff;
 }
 
-
 #manage-categories {
 font-size: 11px;
 }
-
 
 .blue2 {
 border: 1px solid #2E63A5;
@@ -1150,21 +1016,26 @@ margin-bottom: 0px;
 }
 
 /* Form */
-input {
-font-size: 14px;
-margin-bottom: 20px;
-padding: 3px;
+input, textarea {
+	font-size: 14px;
+	margin-bottom: 20px;
+	padding: 3px;
+}
+
+textarea {
+	height: 125px;
+	width: 580px;
 }
 
 .actions input {
-width: auto;
+	width: auto;
 }
 
 .field-section {
-background-color: #e0d0ea;
-padding: 10px;
-margin-bottom: 14px;
-position: relative;
+	background-color: #e0d0ea;
+	padding: 10px;
+	margin-bottom: 14px;
+	position: relative;
 }
 
 div.field {

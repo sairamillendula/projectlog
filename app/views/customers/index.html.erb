@@ -17,9 +17,15 @@
 	        <p>
 	          <b>Phone:</b> <%= customer.phone %>
 	        </p>
-	           <% if customer.projects.any? %>
-	             <p class="tagline"><%= pluralize(customer.projects.count, "project") %></p>
-	           <% end %>
+	        <p class="tagline">
+	        <% if customer.projects.any? && customer.contacts.any? %>
+	          <%= pluralize(customer.projects.count, "project") + ' | ' + pluralize(customer.contacts.count, "contact") %>
+	        <% elsif customer.projects.empty? && customer.contacts.any? %>
+	          <%= pluralize(customer.contacts.count, "contact") %>
+	        <% elsif customer.projects.any? && customer.projects.empty? %>
+	          <%= pluralize(customer.projects.count, "project") %>
+	        <% end %>
+	        </p>
         </div>
       </li>
     </ul>

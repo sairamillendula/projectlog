@@ -2,6 +2,19 @@
 	float: right;
 }
 
+/* Activities */
+#time-entries {
+	clear: both;
+}
+
+#quick-activity, #billable-activities {
+	margin-bottom: 45px;
+}
+
+#_project_id {
+	width: 103px;
+}
+
 /* Quick activity */
 /* Firefox fix */
 #activity-fields input {
@@ -13,5 +26,11 @@ input#new_activity_date {
 }
 
 input#activity_description {
-	max-width: 502px;
+	max-width: 520px;
+}
+
+/* Activity new */
+/* Firefox fix */
+input#description {
+	max-width: 555px;
 }
