@@ -11,7 +11,7 @@ class ReportsMailerTest < ActionMailer::TestCase
     email.body = "Shared Timesheet: %{report_link}"
     email.report_link = "grtgrtgtrgtr"
 
-    assert_difference('ActionMailer::Base.deliveries.count') do
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
       email.deliver
     end
 
