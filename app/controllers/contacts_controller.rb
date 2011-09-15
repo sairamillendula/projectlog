@@ -55,8 +55,10 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.update_attributes(params[:contact])
         format.html { redirect_to(@customer, :notice => 'Contact was successfully updated.') }
+        format.js
       else
         format.html { render :action => "edit" }
+        format.js
       end
     end
   end

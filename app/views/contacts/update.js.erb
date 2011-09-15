@@ -1,6 +1,6 @@
 <% if @contact.valid? %>
   $("#contacts").html('<%= escape_javascript render(:partial => 'contacts/contacts') %>');
-  $("#new_contact_dialog").dialog("close");
+  $("#contact_dialog").dialog("close");  
   $("#no-contact").remove();
 <% else %>
    $('<div id="contact-error"></div>')

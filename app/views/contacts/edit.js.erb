@@ -1,3 +1,4 @@
+$("#contact_dialog").remove(); // Remove the dialog in case it's been created before so we can create a new one with the same id.
 $('<div id="contact_dialog"></div>')
 		.html('<%= escape_javascript render(:partial => 'fields.js') %>')
 		.dialog({
