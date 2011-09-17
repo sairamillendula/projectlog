@@ -10,13 +10,9 @@
  
  <div>
    <h2>Or share the link:</h2>
-   <p id="shared_link"><%= shared_report_url(@report) %></p>
+   <p><%= shared_report_url(@report) %></p>
  </div>
 
  <div class="status_indicator"></div>
    <%= f.submit "Send" %>
 <% end %>
-
-<script type="text/javascript" charset="utf-8">
-  $("#shared_link").selectable();
-</script>
