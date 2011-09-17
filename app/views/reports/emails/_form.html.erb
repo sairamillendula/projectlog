@@ -1,5 +1,5 @@
- <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
-    <br />
+<%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
+  <br />
     <%= f.label :to, "Recipient " %>
     <%= f.select :to, current_user.connections.select { |c| c.email.present? }.collect { |c| [c.full_name, c.email] }, { :prompt => "Select a contact" } %> <br />
     <%= f.label :subject %><br />
@@ -10,9 +10,13 @@
  
  <div>
    <h2>Or share the link:</h2>
-   <p> <%= shared_report_url(@report) %></p>
+   <p id="shared_link"><%= shared_report_url(@report) %></p>
  </div>
 
  <div class="status_indicator"></div>
    <%= f.submit "Send" %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $("#shared_link").selectable();
+</script>
