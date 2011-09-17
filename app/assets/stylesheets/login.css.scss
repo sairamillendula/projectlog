@@ -1,21 +1,21 @@
 @import url("style.css.scss");
 
 body { 
-background: url("/assets/background.jpg"); 
+	background: url("/assets/background.jpg"); 
 }
 
 .dialog {
-width: 440px;
-padding: 15px 30px;
-margin: 4em auto 0 auto;
-border-radius: 5px;
--webkit-border-radius: 5px;
--moz-border-radius: 5px;
-background-color: #fff;
--webkit-box-shadow: #999 0px 0px 6px;
--moz-box-shadow: #999 0px 0px 6px;
-box-shadow: #999 0px 0px 6px;
-display: block;
+	width: 440px;
+	padding: 15px 30px;
+	margin: 4em auto 0 auto;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	background-color: #fff;
+	-webkit-box-shadow: #999 0px 0px 6px;
+	-moz-box-shadow: #999 0px 0px 6px;
+	box-shadow: #999 0px 0px 6px;
+	display: block;
 }
 
 .dialog a {color: #4183C4; text-decoration: none;}
@@ -23,16 +23,16 @@ display: block;
 .dialog a:visited {color: #4183C4; text-decoration: none;}
 
 .dialog h2 {
-font-size: 14px;
-margin: 0px 0px 2px;
-padding: 0px;
+	font-size: 14px;
+	margin: 0px 0px 2px;
+	padding: 0px;
 }
 
 .dialog input {
-width: 275px;
-margin-bottom: 10px;
+	width: 275px;
+	margin-bottom: 10px;
 }
 
 input[type="submit"], #user_remember_me {
-width: auto;
+	width: auto;
 }

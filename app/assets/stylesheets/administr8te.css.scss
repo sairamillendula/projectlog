@@ -1,61 +1,61 @@
 /* Table */
 .admin {
-font-size: 90%;
+	font-size: 90%;
 }
 
 .admin td {
-font-size: 12px;
+	font-size: 12px;
 }
 
 /* Dashboard cards */
 .step-inner {
-height: auto;
+	height: auto;
 }
 
 #intro li {
-height: auto;
-margin-bottom: 20px;
+	height: auto;
+	margin-bottom: 20px;
 }
 
 p.revenues {
-font-weight: bold;
-font-size: 25px;
+	font-weight: bold;
+	font-size: 25px;
 }
 
 .administrator {
-font-size: 9px; 
-color: #fff; 
-background: red; 
-padding: 0 4 0 4;
+	font-size: 9px; 
+	color: #fff; 
+	background: red; 
+	padding: 0 4 0 4;
 }
 
 .grayed_out {
-  color: #888;
-  text-decoration: line-through;
+	color: #888;
+	text-decoration: line-through;
 }
 
 .tipsied {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 /* Dashboard Chart */
 #users-chart {
-margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 /* Logs */
 #log-disclaimer {
-background-color: #fffdc1;
-text-align: center;
-border: 2px solid #dad8a0;
+	background-color: #fffdc1;
+	text-align: center;
+	border: 2px solid #dad8a0;
 
-width: 80%;
-margin: 0 auto;
-text-align: center;
-padding: 20px;
-  
-  p { 
-	font-size: 16px;
-	line-height: 26px;
-  }
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+
+	p { 
+		font-size: 16px;
+		line-height: 26px;
+	}
 }

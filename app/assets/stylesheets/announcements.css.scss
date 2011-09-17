@@ -1,22 +1,22 @@
 .announcement {
-  background-color: #fffdc1;
-  text-align: center;
-  border: 2px solid #dad8a0;
-  @include rounded-corners(9px);
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 20px;
-  p { 
-	font-size: 16px;
-    line-height: 26px;
-  }
+	background-color: #fffdc1;
+	text-align: center;
+	border: 2px solid #dad8a0;
+	@include rounded-corners(9px);
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+	p { 
+		font-size: 16px;
+		line-height: 26px;
+	}
 
-  form {
-    margin: 0px;
-  }
-  
-  input {
-    margin: 20px 0 0;
-  }
+	form {
+		margin: 0px;
+	}
+
+	input {
+		margin: 20px 0 0;
+	}
 }

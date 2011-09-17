@@ -3,37 +3,37 @@ $container_height: 100px;
 $circle_size: 18px;
 
 .google_chart {
-  //border: 1px dashed red;  
+	//border: 1px dashed red;  
 }
 
 .empty_pie_chart {
-  //border: 1px dashed red;
-  width: $container_width;
-  height: $container_height;
-  position: relative;
-  
-  div {
-    position: absolute;
-    top: ($container_height - $circle_size) / 2;
-    left: ($container_width - $circle_size) / 2;
-    height: $circle_size;
-    width: $circle_size;
-    @include border-radius($circle_size / 2);    
-    background-color: #2c2d31;
-    -webkit-font-smoothing: subpixel-antialiased;
-  }
+	//border: 1px dashed red;
+	width: $container_width;
+	height: $container_height;
+	position: relative;
+
+	div {
+		position: absolute;
+		top: ($container_height - $circle_size) / 2;
+		left: ($container_width - $circle_size) / 2;
+		height: $circle_size;
+		width: $circle_size;
+		@include border-radius($circle_size / 2);    
+		background-color: #2c2d31;
+		-webkit-font-smoothing: subpixel-antialiased;
+	}
 }
 
 .pie_chart {
-  width: $container_width;
-  -webkit-font-smoothing: subpixel-antialiased;
-  margin-left: auto;
-  margin-right: auto;
-  float: left;
-  h2, h4 {
-    text-align: center;
-  }
-  h2 {
-	font-weight: normal;
-  }
+	width: $container_width;
+	-webkit-font-smoothing: subpixel-antialiased;
+	margin-left: auto;
+	margin-right: auto;
+	float: left;
+	h2, h4 {
+		text-align: center;
+	}
+	h2 {
+		font-weight: normal;
+	}
 }
