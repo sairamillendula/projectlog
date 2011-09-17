@@ -12,7 +12,7 @@ class AdminMailerTest < ActionMailer::TestCase
       
       message = AdminMailer.new_user_registered(user).deliver
       assert_equal "[Projectlog] New user joined", message.subject
-      assert_equal ["app@getprojectlog.com"], message.to
+      assert_equal ["app@projectlogapp.com"], message.to
   end
   
   test "should send email to Admin when :admin attribute changes" do
@@ -23,7 +23,7 @@ class AdminMailerTest < ActionMailer::TestCase
       
       message = AdminMailer.new_system_administrator(user).deliver
       assert_equal "[Projectlog] Administrator change", message.subject
-      assert_equal ["app@getprojectlog.com"], message.to
+      assert_equal ["app@projectlogapp.com"], message.to
       
       # Repeat if admin becomes standard user again
       user.admin = false
@@ -31,7 +31,7 @@ class AdminMailerTest < ActionMailer::TestCase
       
       message = AdminMailer.new_system_administrator(user).deliver
       assert_equal "[Projectlog] Administrator change", message.subject
-      assert_equal ["app@getprojectlog.com"], message.to
+      assert_equal ["app@projectlogapp.com"], message.to
   end
   
 end

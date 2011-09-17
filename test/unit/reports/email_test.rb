@@ -5,9 +5,9 @@ class Reports::EmailTest < ActiveSupport::TestCase
   test "should send email" do
     report = Report.find_by_slug!("thisisthereportslug").id
     email = Reports::Email.new
-    email.from = "notification@getprojectlog.com"
+    email.from = "notifications@projectlogapp.com"
     email.to = "user@gmail.com"
-    email.reply_to = "user@getprojectlog.com"
+    email.reply_to = "user@gmail.com"
     email.subject = "Sharing a report"
     email.body = "Shared Timesheet"
     email.report_link = "grtgrtgtrgtr"
@@ -24,7 +24,7 @@ class Reports::EmailTest < ActiveSupport::TestCase
     assert email.errors[:body].any?
     assert email.errors[:report_link].any?
     assert email.errors[:reply_to].any?
-    assert_equal ["A beneficiary is required"], email.errors[:to]
+    assert_equal ["Recipient is required"], email.errors[:to]
     assert_equal ["can't be blank"], email.errors[:from]
     assert_equal ["can't be blank"], email.errors[:subject]
     assert email.errors[:body].include?("can't be blank")

@@ -33,7 +33,7 @@ class LoginReportEmailTest < ActionDispatch::IntegrationTest
     get new_report_email_path
     assert_response :redirect
     
-    post report_emails_path, :email => { :to => 'joe@getprojectlog.com', :from => 'user@email.com', :subject => 'Test report email', 
+    post report_emails_path, :email => { :to => 'joe@email.com', :from => 'user@email.com', :subject => 'Test report email', 
                                        :body =>  'Hi this is a test', :report_slug => 'dfdkokpaedmxoz' }
     assert_response :success
   end

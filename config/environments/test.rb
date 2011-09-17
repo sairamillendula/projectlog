@@ -41,7 +41,7 @@ Projectlog::Application.configure do
   config.active_support.deprecation = :stderr
 
   # Dev Host
-  config.action_mailer.default_url_options = { :host => 'getprojectlog.com' }
+  config.action_mailer.default_url_options = { :host => 'projectlogapp.com' }
 
   # Configure static asset server for tests with Cache-Control for performance
   config.serve_static_assets = true
@@ -51,9 +51,9 @@ Projectlog::Application.configure do
   # Getprojectlog Email server setup
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {  
-    :address              => "mail.getprojectlog.com",  
+    :address              => "mail.projectlogapp.com",  
     :port                 => 587,
-    :user_name            => "no-reply+getprojectlog.com",  
+    :user_name            => "nootifications+projectlogapp.com",  
     :password             => "10eytd10",  
     :authentication       => "plain",  
     :enable_starttls_auto => false  

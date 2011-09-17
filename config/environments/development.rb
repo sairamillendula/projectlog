@@ -40,9 +40,9 @@ Projectlog::Application.configure do
   # Getprojectlog Email server setup
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {  
-    :address              => "mail.getprojectlog.com",  
+    :address              => "mail.projectlogapp.com",  
     :port                 => 587,
-    :user_name            => "no-reply+getprojectlog.com",  
+    :user_name            => "notifications+projectlogapp.com",  
     :password             => "10eytd10",  
     :authentication       => "plain",  
     :enable_starttls_auto => false  

@@ -1,5 +1,5 @@
 class WelcomeMailer < ActionMailer::Base
-  default from: "Projectlog <contact@getprojectlog.com>"
+  default from: "Projectlog <notifications@projectlogapp.com>"
   
   def welcome_email(new_user)
     @user = new_user

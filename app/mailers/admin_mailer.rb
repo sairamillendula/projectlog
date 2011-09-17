@@ -1,14 +1,14 @@
 class AdminMailer < ActionMailer::Base
-  default from: "no-reply@getprojectlog.com"
+  default from: "no-reply@projectlogapp.com"
   
   def new_user_registered(user)
     @user = user
-    mail(:to => "app@getprojectlog.com", :subject => "[Projectlog] New user joined")
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] New user joined")
   end
   
   def new_system_administrator(user)
     @user = user
-    mail(:to => "app@getprojectlog.com", :subject => "[Projectlog] Administrator change")
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] Administrator change")
   end
   
 end
