@@ -53,7 +53,7 @@ Projectlog::Application.configure do
   ActionMailer::Base.smtp_settings = {  
     :address              => "mail.projectlogapp.com",  
     :port                 => 587,
-    :user_name            => "nootifications+projectlogapp.com",  
+    :user_name            => "notifications+projectlogapp.com",  
     :password             => "10eytd10",  
     :authentication       => "plain",  
     :enable_starttls_auto => false  

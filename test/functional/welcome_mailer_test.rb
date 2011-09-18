@@ -13,6 +13,8 @@ class WelcomeMailerTest < ActionMailer::TestCase
       message = WelcomeMailer.welcome_email(user).deliver
       assert_equal "Welcome to Projectlog", message.subject
       assert_equal ["test@email.com"], message.to
+      assert message.body =~ /projectlogapp.com/
+      assert message.body =~ /login/
   end
   
 end

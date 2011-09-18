@@ -13,6 +13,7 @@ class AdminMailerTest < ActionMailer::TestCase
       message = AdminMailer.new_user_registered(user).deliver
       assert_equal "[Projectlog] New user joined", message.subject
       assert_equal ["app@projectlogapp.com"], message.to
+      assert message.body =~ /test@email.com/
   end
   
   test "should send email to Admin when :admin attribute changes" do

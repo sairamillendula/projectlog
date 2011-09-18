@@ -45,7 +45,7 @@ Projectlog::Application.configure do
     :user_name            => "notifications+projectlogapp.com",  
     :password             => "10eytd10",  
     :authentication       => "plain",  
-    :enable_starttls_auto => false  
+    :enable_starttls_auto => false
   }
 
   # Do not compress assets
