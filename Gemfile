@@ -9,8 +9,6 @@ gem 'uglifier'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
-gem "mysql2" #Disable for now as I can't install it
 gem 'devise'
 gem 'heroku'
 gem 'jquery-rails'
@@ -46,6 +44,8 @@ gem 'clarity'
 # and rake tasks are available in development mode:
 
 group :development, :test do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem "mysql2" #Disable for now as I can't install it
   gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
