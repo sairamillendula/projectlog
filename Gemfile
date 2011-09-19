@@ -49,5 +49,4 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
-  gem 'therubyracer'
 end
