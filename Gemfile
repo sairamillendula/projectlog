@@ -45,8 +45,10 @@ gem 'clarity'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 
-group :development do
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+set :bundle_without, [:darwin, :development, :test]
+
+group :test, :darwin do
+  gem 'rb-fsevent'
 end
 
 group :development, :test do
