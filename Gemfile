@@ -49,4 +49,11 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
+  gem 'therubyracer'
+end
+
+# 3.1 Heroku
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem 'pg'
 end
