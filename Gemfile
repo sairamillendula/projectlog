@@ -24,6 +24,7 @@ gem 'google_visualr', '~> 2.1'
 gem 'bourbon'
 gem 'cancan'
 gem 'clarity'
+gem 'execjs'
 
 # Use unicorn as the web server
 # gem 'unicorn'

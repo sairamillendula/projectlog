@@ -168,6 +168,7 @@ DEPENDENCIES
   clarity
   coffee-script
   devise
+  execjs
   google_visualr (~> 2.1)
   guard-livereload
   heroku
