@@ -45,13 +45,8 @@ gem 'clarity'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 
-set :bundle_without, [:darwin, :development, :test]
-
-group :test, :darwin do
-  gem 'rb-fsevent'
-end
-
 group :development, :test do
+  gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
 end
