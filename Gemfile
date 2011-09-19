@@ -24,7 +24,6 @@ gem 'google_visualr', '~> 2.1'
 gem 'bourbon'
 gem 'cancan'
 gem 'clarity'
-gem 'execjs'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -50,4 +49,9 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
+  gem 'therubyracer'
+end
+
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
