@@ -449,7 +449,7 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
 .ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
 .ui-draggable .ui-dialog-titlebar { cursor: move; }
 /* Perso */
-.ui-dialog .ui-dialog-titlebar .error, .ui-dialog .ui-dialog-content .error, .ui-dialog .ui-dialog-buttonpane. error {background-color: #FFE3E2; color: #c00;}
+.ui-dialog .ui-dialog-titlebar .error, .ui-dialog .ui-dialog-content .error, .ui-dialog .ui-dialog-buttonpane .error {background-color: #FFE3E2; color: #c00;}
 /*
  * jQuery UI Slider 1.8.13
  *
