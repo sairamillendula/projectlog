@@ -69,7 +69,7 @@ img {
 .info {
 	border: 1px solid #bedce7;
 	padding: 3px;
-	background: #eaf2f5 url('info_background.gif') repeat;
+	background: #eaf2f5 image-url("info_background.gif") repeat;
 }
 
 p.info {
@@ -121,7 +121,7 @@ header {
 #logo h1 {
 	text-align: left;
 	padding-left: 54px;
-	background: url('195.png') no-repeat;
+	background: image-url("195.png") no-repeat;
 	float: left;
 	font-family: 'Pacifico', serif;
 	font-size: 36px;
@@ -700,7 +700,7 @@ table.borders {
 }
 
 table.borders tr {
-	background: #F8F8F8 url('row_bg.png') repeat-x 0px 100%;	
+	background: #F8F8F8 image-url("row_bg.png") repeat-x 0px 100%;	
 }
 
 table.activities {
@@ -780,11 +780,11 @@ table th .sort {
 }
 
 table th .asc {
-	background-image: url('arrow-up.png');
+	background-image: image-url("arrow-up.png");
 }
 
 table th .desc {
-	background-image: url('arrow-down.png');
+	background-image: image-url("arrow-down.png");
 }
 
 tr.total th {
@@ -887,7 +887,7 @@ div.field {
 	-webkit-box-sizing: content-box;
 	border: 1px solid #bbbbbb;
 	color: #464646;
-	background: #f2f2f2 url('white-grad.png') repeat-x scroll left top;
+	background: #f2f2f2 image-url("white-grad.png") repeat-x scroll left top;
 	cursor: pointer;
 	font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
 	font-size: 14px !important;
@@ -902,7 +902,7 @@ div.field {
 	}
 
 	&:active {
-		background: #eeeeee url('white-grad-active.png') repeat-x scroll 0% 0%;
+		background: #eeeeee image-url("white-grad-active.png") repeat-x scroll 0% 0%;
 	}
 }
 
@@ -948,7 +948,7 @@ p.submit.left {
 	padding: 6px;
 	margin-bottom: 20px;
 	border: 1px solid #BEDCE7;
-	background: #EAF2F5 url('info_background.gif') no-repeat;
+	background: #EAF2F5 image-url("info_background.gif") no-repeat;
 }
 
 #plan {
