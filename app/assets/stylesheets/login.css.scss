@@ -1,7 +1,7 @@
 @import "style";
 
 body { 
-	background: url("<%= asset_path background.jpg %>");
+	background: image-url("background.jpg");
 }
 
 .dialog {
