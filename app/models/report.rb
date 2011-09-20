@@ -43,4 +43,6 @@ class Report < ActiveRecord::Base
       errors.add(:start_date, "must be smaller than end date")
     end
   end
+  
+  attr_protected :approved, :approved_at, :approved_ip
 end

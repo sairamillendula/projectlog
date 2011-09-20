@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823200208) do
+ActiveRecord::Schema.define(:version => 20110920140835) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -207,7 +207,10 @@ ActiveRecord::Schema.define(:version => 20110823200208) do
     t.integer  "project_id"
     t.date     "start_date"
     t.date     "end_date"
-    t.string   "slug",       :null => false
+    t.string   "slug",                           :null => false
+    t.boolean  "approved",    :default => false
+    t.date     "approved_at"
+    t.string   "approved_ip"
   end
 
   add_index "reports", ["id"], :name => "index_reports_on_id"
