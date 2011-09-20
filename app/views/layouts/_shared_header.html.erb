@@ -7,7 +7,9 @@
      </h1>
      <div id="intro" class="info">
 	   <h2>Hello there, <%= @report.user.name %> shared this report with you.</h2>
-	   <% if !@report.approved? %><%= link_to 'Approve this report', approve_report_path(@report), :class => "approved_report" %><% end %>
+	   <% if !@report.approved? %>
+	     <%= link_to "Approve this report", approve_report_path(@report), :method => :put, :class => "approved_report" %>
+	   <% end %>
 	</div>
 </div>
   </hgroup> 
