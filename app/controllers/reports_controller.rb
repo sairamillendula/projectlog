@@ -1,5 +1,6 @@
+# encoding: utf-8
 class ReportsController < ApplicationController
-  before_filter :authenticate_user!, :except => :shared
+  before_filter :authenticate_user!, :except => [:shared, :approve ]
   set_tab :reports
   helper_method :sort_column, :sort_direction
   
@@ -36,7 +37,21 @@ class ReportsController < ApplicationController
       format.csv { response.headers["Content-Disposition"] = "attachment; filename=time_entries.csv" }      
     end    
   end
-
+  
+  def approve
+    @report = Report.find_by_slug!(params[:id])
+    @report.approve(request.remote_ip)
+    
+    respond_to do |format|
+      if @report.save
+        format.html { redirect_to(@report) }
+      else
+        format.html { render :action => "shared", :notice => 'An error occured. Please try again.' }
+      end
+    end 
+  end
+  
+end
   
   private
   def sort_column

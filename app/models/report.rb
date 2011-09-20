@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Report < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
@@ -30,6 +31,12 @@ class Report < ActiveRecord::Base
     
   def description
     "#{project_title} from #{I18n.l start_date, :format => :long} to #{I18n.l end_date, :format => :long}"
+  end
+  
+  def approve!(ip_address)
+    self.approved = true
+    self.approved_at = Time.zone.now
+    self.approved_ip = ip_address
   end
   
   private

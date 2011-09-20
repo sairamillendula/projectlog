@@ -1,11 +1,14 @@
 <header role="banner" id="header">
   <hgroup class="subhead">
-     <h1>TIMESHEET
+     <h1>TIMESHEET <% if @report.approved? %><span class="approved_report"%>approved</span><% end %>
        <div id="actions">
          <%= link_to image_tag("file_download.png") + "Download PDF", params.merge(:format => :pdf, :action => "shared") %>
        </div>
      </h1>
-     <div id="intro" class="info"><h2>Hello there, <%= @report.user.name %> shared this report with you.</h2></div>
+     <div id="intro" class="info">
+	   <h2>Hello there, <%= @report.user.name %> shared this report with you.</h2>
+	   <% if !@report.approved? %><%= link_to 'Approve this report', approve_report_path(@report), :class => "approved_report" %><% end %>
+	</div>
 </div>
   </hgroup> 
 </header>

@@ -35,6 +35,7 @@ Projectlog::Application.routes.draw do
   resources :reports do
     member do
       post :timesheet
+      get :approve
     end
   end
   
