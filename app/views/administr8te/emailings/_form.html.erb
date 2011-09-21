@@ -1,0 +1,37 @@
+<%= form_for([:administr8te, @emailing]) do |f| %>
+  <% if @emailing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@emailing.errors.count, "error") %> prohibited this emailing from being saved:</h2>
+
+      <ul>
+      <% @emailing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="inline-form">
+  <div class="field">
+    <%= f.label :active %>
+	<%= f.radio_button :active, true %> Active
+	<%= f.radio_button  :active, false %> Inactive
+  </div>
+  <div class="field">
+    <%= f.label :description, :class => 'mandatory' %>
+    <%= f.text_field :description, :size => '50' %>
+  </div>
+  <div class="field">
+    <%= f.label :api_key, 'API key', :class => 'mandatory' %>
+    <%= f.text_field :api_key, :size => '50' %>
+  </div>
+  <div class="field">
+    <%= f.label :list_key %>
+    <%= f.text_field :list_key, :size => '50' %>
+  </div>
+  <div class="actions">
+    <p class="submit"><%= submit_or_cancel(f) %></p>
+  </div>
+</div>
+
+<% end %>

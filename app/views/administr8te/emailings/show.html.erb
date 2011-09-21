@@ -1,0 +1,25 @@
+<%= link_to '← All Emailings API', administr8te_emailings_path %> |
+<%= link_to 'Edit', edit_administr8te_emailing_path(@emailing) %> |
+<%= link_to 'Destroy', administr8te_emailing_path(@emailing), confirm: 'Are you sure?', method: :delete %>
+
+<br /><br />
+
+<p>
+  <b>Satus: </b>
+  <%= @emailing.active? ? 'Active' : 'Inactive' %>
+</p>
+
+<p>
+  <b>Description: </b>
+  <%= @emailing.description %>
+</p>
+
+<p>
+  <b>API key: </b>
+  <%= @emailing.api_key %>
+</p>
+
+<p>
+  <b>List key: </b>
+  <%= @emailing.list_key %>
+</p>

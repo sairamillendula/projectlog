@@ -49,6 +49,7 @@ Projectlog::Application.routes.draw do
     resources :clients, :only => [ :index ]
     resources :plans
     resources :announcements
+    resources :emailings
     resource :logs, :only => [ :show ]
   end
   

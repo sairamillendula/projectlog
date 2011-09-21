@@ -1,0 +1,29 @@
+<ul id="sub-menu">
+	<li class="buttonorange"><%= link_to '+ New Emailing API', new_administr8te_emailing_path %></li>
+</ul>
+
+<h1>Emailings API </h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Description</th>
+    <th>API key</th>
+    <th>List key</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @emailings.each do |emailing| %>
+  <tr>
+    <td><%= emailing.active? ? 'Active' : 'Inactive' %></td>
+    <td><%= emailing.description %></td>
+    <td><%= emailing.api_key %></td>
+    <td><%= emailing.list_key %></td>
+    <td><%= link_to 'Show', administr8te_emailing_path(emailing) %></td>
+    <td><%= link_to 'Edit', edit_administr8te_emailing_path(emailing) %></td>
+    <td><%= link_to 'Destroy', administr8te_emailing_path(emailing), confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
