@@ -45,4 +45,7 @@ puts "Creating activities..."
   activity.save
 end
 
+puts "Creating default Emailing API"
+Emailing.new(:description => 'Mailchimp - Customers list', :api_key => '7ee733e3c16671ed80d116acf8b1942a-us2', :list_key => 'd05eab203c' )
+
 puts "All set"
