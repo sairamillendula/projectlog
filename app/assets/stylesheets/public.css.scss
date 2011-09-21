@@ -1,3 +1,6 @@
+@import "variables";
+@import "jquery.tipsy";
+
 body { 
 	margin-right: auto; 
 	margin-left: auto; 
@@ -142,6 +145,24 @@ p.info {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+}
+
+.approved_report {
+	font-size: 13px;
+	font-weight: normal;
+	background-color: #5e6066;
+	color: #fdfdfd;
+	padding: 3px;
+	@include rounded-corners(4px);
+}
+
+#header a.approve_report {
+	color: #f26535;
+	
+	&:hover { 
+		color: #f26535;
+		text-decoration: underline;
+	}
 }
 
 #total_report {

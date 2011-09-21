@@ -1,15 +1,19 @@
 <header role="banner" id="header">
   <hgroup class="subhead">
-     <h1>TIMESHEET <% if @report.approved? %><span class="approved_report"%>approved</span><% end %>
+     <h1>TIMESHEET
        <div id="actions">
+         <% if @report.approved? %><span class="approved_report"%>Approved</span><% end %> 
          <%= link_to image_tag("file_download.png") + "Download PDF", params.merge(:format => :pdf, :action => "shared") %>
        </div>
      </h1>
      <div id="intro" class="info">
-	   <h2>Hello there, <%= @report.user.name %> shared this report with you.</h2>
-	   <% if !@report.approved? %>
-	     <%= link_to "Approve this report", approve_report_path(@report), :method => :put, :class => "approved_report" %>
-	   <% end %>
+	   <h2>Hello there, <%= @report.user.name %> wish to share this report with you.
+	     <% if !@report.approved? %>
+	       If you agree please accept it 
+	       <%= link_to "'I approve this report'", approve_report_path(@report), :method => :put, :class => "approve_report" %>
+	       <span class="tipsied grayed_out" title="This can not be undone. Only accept if you are authorized">hover to show tipsy</span>
+	     <% end %>
+	   </h2>
 	</div>
 </div>
   </hgroup> 
