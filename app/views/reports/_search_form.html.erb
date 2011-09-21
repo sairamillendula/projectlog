@@ -41,7 +41,9 @@
   <h4>Recent reports</h4>
   <ul id="recent-reports">
   <% current_user.reports.order("created_at DESC").limit(5).each do |report| %>
-    <li><%= link_to report.description, report %> <span id="report-age"><%= time_ago_in_words(report.created_at) %> ago</span></li>
+    <li><%= link_to report.description, report %>
+	<% if report.approved? %><span class="approved">Approved</span><% end %>
+	</li>
   <% end %>
   </ul>
 <% end %>

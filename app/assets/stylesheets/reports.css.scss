@@ -1,0 +1,77 @@
+@import "variables";
+
+#activity-search input{
+	margin-bottom: 0px;
+}
+
+#export {
+	float: right;
+	vertical-align: text-bottom;
+	line-height: 31px;
+}
+
+#activity-search {
+	line-height: 31px;
+	text-align: bottom;
+}
+
+#activity-search input{
+	margin-bottom: 0px;
+}
+
+#report_chart {
+	height:200px;
+}
+
+#recent-reports a {
+	text-decoration: none;
+	margin-right: 8px;
+}
+
+td form.edit_activity {
+	margin: 0;
+	padding: 0;
+	height: 30px;
+}
+
+.approved {
+	padding: 0 3px;
+	background-color: #BEDCE7;
+	@include rounded-corners(3px);
+}
+
+#send_report_email_dialog input[type=submit] {
+	display: none; /* Hide the Send button on the AJAX dialog to send a report via email */
+}
+
+#send_report_email_dialog input, #send_report_email_dialog textarea {
+	width: 100%;
+	#max-width: 392px;
+}
+
+#send_report_email_dialog textarea {
+	height: 150px;
+}
+
+#send_report_email_dialog select {
+	width: 200px;
+}
+
+#send_report_email_dialog label {
+	font-weight: bold;
+}
+
+.status_indicator p {
+	padding: 3px;
+	color: #f26535;
+	background-color: #fffdc1;
+	width: 386px;
+	margin-left: auto;
+	margin-right: auto;
+	font-weight: bold;
+	text-align: center;
+}
+
+form.new_report .field_with_errors, form.new_report p {
+	display: inline;
+}
