@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class Administr8te::PlansControllerTest < ActionController::TestCase
+  test "only admin should get access" do
+    sign_in users(:two)
+    get :index
+    assert_response :redirect
+  end
+  
   setup do
     sign_in users(:one)
     @plan = plans(:paid)
@@ -10,11 +16,13 @@ class Administr8te::PlansControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:plans)
+    assert_template "index"
   end
 
   test "should get new" do
     get :new
     assert_response :success
+    assert_template "new"
   end
 
   test "should create administr8te_plan" do
@@ -28,11 +36,13 @@ class Administr8te::PlansControllerTest < ActionController::TestCase
   test "should show administr8te_plan" do
     get :show, id: @plan.to_param
     assert_response :success
+    assert_template "show"
   end
 
   test "should get edit" do
     get :edit, id: @plan.to_param
     assert_response :success
+    assert_template "edit"
   end
 
   test "should update administr8te_plan" do

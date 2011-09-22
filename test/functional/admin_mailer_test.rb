@@ -3,17 +3,13 @@ require 'test_helper'
 class AdminMailerTest < ActionMailer::TestCase
   
   test "should send email to Admin for every new signup" do
-      user = User.new
-      user.email = 'test@email.com'
-      user.password = '123456'
-      user.first_name = 'Jean'
-      user.last_name = 'Pierre'
+      user = users(:one)
       assert user.save
       
       message = AdminMailer.new_user_registered(user).deliver
       assert_equal "[Projectlog] New user joined", message.subject
       assert_equal ["app@projectlogapp.com"], message.to
-      assert message.body =~ /test@email.com/
+      assert message.body =~ /user@gmail.com/
   end
   
   test "should send email to Admin when :admin attribute changes" do
