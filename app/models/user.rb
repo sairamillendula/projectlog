@@ -60,7 +60,7 @@ private
     logger.debug "It's time to select a plan."
        self.update_attributes(:plan_id => Plan.find_by_name!("Free").id)
     logger.debug "Default plan should be added."
-  end
+  end  
   
   def self.count_on(date)
     where("date(created_at) = ?", date).count(:id)

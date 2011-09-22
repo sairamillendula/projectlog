@@ -1,6 +1,4 @@
 class UserObserver < ActiveRecord::Observer
-  api_key = Emailing.active.first.api_key
-  list_id = Emailing.active.first.list_key
   
   def after_create(user)
     AdminMailer.new_user_registered(user).deliver
@@ -17,4 +15,12 @@ class UserObserver < ActiveRecord::Observer
     end
   end
   
+  private
+    def api_key
+      Emailing.active.first.api_key
+    end
+
+   def list_id
+     Emailing.active.first.list_key
+   end
 end
