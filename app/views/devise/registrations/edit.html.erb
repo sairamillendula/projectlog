@@ -24,8 +24,8 @@
 
 <div id="column_right">
   <div id="current_plan">
-    <h2>Your Plan</h2>
-    <p id="plan"><%= current_user.plan.name %></p>
+    <h2>Your current Plan</h2>
+    <p id="active_plan" class="blue_on_blue"><%= current_user.plan.name %></p>
     <%= markdown(current_user.plan.features) %>
     <%#= link_to 'Upgrade', edit_plan_path %>
   </div>

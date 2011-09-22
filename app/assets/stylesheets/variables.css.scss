@@ -4,3 +4,19 @@
 	-webkit-border-radius: $radius;
 	-moz-border-radius: $radius;
 }
+
+@mixin blue_on_blue {
+	color: #4183C4;
+	padding: 3px 5px;
+	line-height: 26px;
+	font-size: 13px;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+	text-align: center;
+	font-weight: bold;
+	background: #EFF6F9;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#EFF6F9',endColorstr='#DDECF3');
+	background: -webkit-gradient(linear,left top,left bottom,from(#EFF6F9),to(#DDECF3));
+	background: -moz-linear-gradient(top,#EFF6F9,#DDECF3);
+	border: 1px solid #CEDEE5;
+	@include rounded-corners(3px);
+}

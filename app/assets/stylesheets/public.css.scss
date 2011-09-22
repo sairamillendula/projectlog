@@ -157,17 +157,9 @@ p.info {
 }
 
 #header a.approve_report {
-	color: #f26535;
-	padding: 3px 5px;
+	@include blue_on_blue;
 	margin-left: 4px;
-	line-height: 26px;
-	font-size: 13px;
-	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
-	background: #EFF6F9;
-	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#EFF6F9',endColorstr='#DDECF3');
-	background: -webkit-gradient(linear,left top,left bottom,from(#EFF6F9),to(#DDECF3));
-	background: -moz-linear-gradient(top,#EFF6F9,#DDECF3);
-	border: 1px solid #CEDEE5;
+	color: #f26535;
 	@include rounded-corners(3px);
 	
 	&:hover { 
