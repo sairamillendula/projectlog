@@ -7,7 +7,7 @@ class UserObserver < ActiveRecord::Observer
     AdminMailer.new_user_registered(user).deliver
     WelcomeMailer.welcome_email(user).deliver
     
-    # Sending user to 3rd party
+    #listSubscribe(string apikey, string id, string email_address, array merge_vars, string email_type, bool double_optin, bool update_existing, bool replace_interests, bool send_welcome)
     h.list_subscribe(list_id, user.email, {'FNAME' => user.first_name, 'LNAME' => user.last_name}, 'html', false, true, true, false)
   end
   
