@@ -31,7 +31,7 @@ module Administr8te::DashboardHelper
   end
   
   def signups_in_the_last_month_chart(container_dom_id)
-    users = User.standard.where("`users`.created_at > ?", 31.days.ago).select("created_at")
+    users = User.standard.where('users.created_at > ?', 31.days.ago).select('users.created_at')
     counts = {}
     users.each do |user|
       counts[user.created_at.to_date] ||= 0
