@@ -1,4 +1,8 @@
 class UserObserver < ActiveRecord::Observer
+<<<<<<< HEAD
+  
+=======
+>>>>>>> d9191f3abe0dfd9917a9691e88a48dcf3d0aed61
   def after_create(user)
     AdminMailer.new_user_registered(user).deliver
     WelcomeMailer.welcome_email(user).deliver
@@ -14,6 +18,16 @@ class UserObserver < ActiveRecord::Observer
     end
   end
   
+<<<<<<< HEAD
+  private
+    def api_key
+      Emailing.active.first.api_key
+    end
+
+   def list_id
+     Emailing.active.first.list_key
+   end
+=======
   
   private
   
@@ -25,4 +39,5 @@ class UserObserver < ActiveRecord::Observer
     Emailing.active.first.list_key
   end
 
+>>>>>>> d9191f3abe0dfd9917a9691e88a48dcf3d0aed61
 end
