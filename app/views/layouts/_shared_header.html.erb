@@ -10,11 +10,18 @@
 	   <h2>Hello there, <%= @report.user.name %> wish to share this report with you.
 	     <% if !@report.approved? %>
 	       If you agree please accept it  
-	       <%= link_to "'I approve this report'", approve_report_path(@report), :method => :put, :class => "approve_report" %>
-	       <span class="tipsied grayed_out" title="This can not be undone. Only accept if you are authorized">hover to show tipsy</span>
+	       <%= link_to "'I approve this report'", approve_report_path(@report), :method => :put, 
+	       :class => "approve_report", :title => "This can not be undone. Only accept if you are authorized" %>
 	     <% end %>
 	   </h2>
 	</div>
 </div>
   </hgroup> 
 </header>
+
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('.approve_report').tipsy({gravity: 's'});
+  });
+</script>
