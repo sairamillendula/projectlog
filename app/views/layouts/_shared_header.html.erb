@@ -11,7 +11,7 @@
 	     <% if !@report.approved? %>
 	       If you agree please accept it  
 	       <%= link_to "'I approve this report'", approve_report_path(@report), :method => :put, 
-	       :class => "approve_report", :title => "This can not be undone. Only accept if you are authorized" %>
+	       :class => "approve_report", :title => "This action can not be undone. Approve only if you are authorized" %>
 	     <% end %>
 	   </h2>
 	</div>

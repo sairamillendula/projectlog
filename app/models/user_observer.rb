@@ -15,10 +15,11 @@ class UserObserver < ActiveRecord::Observer
     if user.admin_changed?
       AdminMailer.new_system_administrator(user).deliver
     end
-    if user.email_changed? or user.first_name_changed? or user.last_name_changed?
+    #if user.new_record?
+    #elsif user.email_changed? or user.first_name_changed? or user.last_name_changed?
       #listUpdateMember(string apikey, string id, string email_address, array merge_vars, string email_type, boolean replace_interests)
-      h.list_update_member(list_id, user.email, {'FNAME' => user.first_name, 'LNAME' => user.last_name}, 'html', false)
-    end
+      #h.list_update_member(list_id, user.email, {'FNAME' => user.first_name, 'LNAME' => user.last_name}, 'html', false)
+    #end
   end
   
   def after_destroy(user)
