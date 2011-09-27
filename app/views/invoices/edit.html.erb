@@ -1,6 +1,8 @@
 <h1>Editing invoice</h1>
 
+<div class="invoice <%= @invoice.status.gsub " ", "-" %>" id="invoice-content">
 <%= render 'form' %>
+</div>
 
 <%= link_to 'Show', @invoice %> |
 <%= link_to 'Back', invoices_path %>

@@ -13,6 +13,16 @@ Projectlog::Application.routes.draw do
   resources :customers do 
     resources :contacts, :projects
   end
+
+ resources :invoices do
+    member do
+      get 'add_line_item'
+    end
+    collection do
+      post 'create_line_item'
+      delete 'delete_line_item/:id', :action => 'delete_line_item'
+    end
+ end
   
   resources :projects do 
     collection do

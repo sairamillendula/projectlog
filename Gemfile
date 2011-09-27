@@ -22,6 +22,8 @@ gem 'google_visualr', '~> 2.1'
 gem 'bourbon'
 gem 'cancan'
 gem 'clarity'
+gem 'money'
+gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
 
 # Use unicorn as the web server
 # gem 'unicorn'

@@ -1,0 +1,43 @@
+.full-width {
+  width: 100%;
+}
+
+.table {
+  display: table;
+  div.fields {
+    display: table-row;
+  }
+  .tr {
+    display: table-row;
+  }
+  .td, .th {
+    display: table-cell;
+  }
+  .th {
+    background-color: #EAEAEA;
+    border-bottom: 1px solid #D8D8D8;
+    color: #999999;
+    font-family: Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
+    font-weight: normal;
+    padding: 0.5em 0.3em;
+    text-align: left;
+  }
+}
+
+input.label_field {
+  border: none;
+  background: transparent;
+}
+
+div.company-info {
+  width: 300px;
+  float: right;
+  border: solid 1px #999;
+  background: #F8F8F8;
+  padding: 10px;
+  margin: 10px;
+}
+
+textarea.invoice-sig-area {
+  width: 430px;
+}

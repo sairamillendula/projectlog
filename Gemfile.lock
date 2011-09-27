@@ -5,6 +5,12 @@ GIT
     rails-settings (0.1.2)
       rails (>= 3.0.0)
 
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 57f32788f1952bcd633057b4b56b69b51df17610
+  specs:
+    nested_form (0.1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -95,6 +101,8 @@ GEM
     mime-types (1.16)
     mocha (0.10.0)
       metaclass (~> 0.0.1)
+    money (3.7.1)
+      i18n (~> 0.4)
     multi_json (1.0.3)
     mysql2 (0.3.7)
     orm_adapter (0.0.5)
@@ -178,7 +186,9 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mocha
+  money
   mysql2
+  nested_form!
   pdfkit
   pg
   rails (= 3.1.0)
