@@ -1,0 +1,80 @@
+<%= form_for(@new_line_item, url: create_line_item_invoices_path, html: {class: 'dynamic_form', id: "line-item-create-form"}, :remote => true) do |f| %>
+  <table>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Qty</th>
+      <th>Price</th>
+      <% if @invoice.user.profile.any_taxes? %>
+        <th>Subtotal</th>
+        <% unless @invoice.user.profile.tax1.blank? %>
+          <th class="tax1" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></th>
+        <% end %>
+        <% unless @invoice.user.profile.tax2.blank? %>
+          <th class="tax2" data-taxvalue="<%= @invoice.user.profile.tax2 %>"><%= @invoice.user.profile.tax2_name %></th>
+        <% end %>
+      <% end %>
+      <th>Amount</th>
+      <th class="no-print"></th>
+    </tr>
+    <% if @invoice.line_items.any? %>
+      <% @invoice.line_items.each do |line| %>
+        <tr class="line-item-row">
+          <td><%= line.line_type %></td>
+          <td><%= line.description %></td>
+          <td><%= line.quantity %></td>
+          <td><%= Money.from_float(line.price, @invoice.currency).format(:symbol => true) %></td>
+          <% if @invoice.user.profile.any_taxes? %>
+            <td><%= Money.from_float((line.quantity * line.price).round(2), @invoice.currency).format(:symbol => true) %></td>
+            <% unless @invoice.user.profile.tax1.blank? %>
+              <td><%= Money.from_float(line.tax1, @invoice.currency).format(:symbol => true) unless line.tax1.blank? %></td>
+            <% end %>
+            <% unless @invoice.user.profile.tax2.blank? %>
+              <td><%= Money.from_float(line.tax2, @invoice.currency).format(:symbol => true) unless line.tax2.blank? %></td>
+            <% end %>
+          <% end %>
+          <td><%= Money.from_float(line.line_total, @invoice.currency).format(:symbol => true) %></td>
+          <td class="no-print"><%= link_to 'Remove', {action: 'delete_line_item', id: line.id}, {confirm: 'Are you sure?', method: :delete, remote: true, id: "del-line-item-#{line.id}", class: "no-print"} %>
+        </tr>
+      <% end %>
+      <%= render('new_line_item_inline_form', {f:f}) %>
+      <% if @invoice.discount && @invoice.discount > 0 %>
+        <tr id="total-fields">
+          <td></td>
+          <td></td>
+          <td></td>
+          <% if @invoice.user.profile.any_taxes? %>
+            <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
+          <% end %>
+          <td><b>Subtotal:</b></td>
+          <td><b><%= Money.from_float(@invoice.line_items.sum(:line_total).round(2), @invoice.currency).format(:symbol => true) %></b></td>
+          <td class="no-print"></td>
+        </tr>
+        <tr id="total-fields">
+          <td></td>
+          <td></td>
+          <td></td>
+          <% if @invoice.user.profile.any_taxes? %>
+            <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
+          <% end %>
+          <td><b>Discount:</b></td>
+          <td><b><%= @invoice.discount %> %</b></td>
+          <td class="no-print"></td>
+        </tr>
+      <% end %>
+      <tr id="total-fields">
+        <td></td>
+        <td></td>
+        <td></td>
+        <% if @invoice.user.profile.any_taxes? %>
+          <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
+        <% end %>
+        <td><b>Amount due:</b></td>
+        <td><b><%= Money.from_float((@invoice.line_items.sum(:line_total)*(1-(@invoice.discount || 0)/100)).round(2), @invoice.currency).format(:symbol => true) %></b></td>
+        <td class="no-print"></td>
+      </tr>
+    <% else %>
+      <%= render('new_line_item_inline_form', {f:f}) %>
+    <% end %>
+  </table>
+<% end %>
