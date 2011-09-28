@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110927165745) do
+ActiveRecord::Schema.define(:version => 20110928043724) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20110927165745) do
     t.datetime "updated_at"
     t.string   "city"
     t.text     "note"
+    t.string   "website"
   end
 
   add_index "customers", ["id"], :name => "index_customers_on_id", :unique => true
@@ -179,6 +180,7 @@ ActiveRecord::Schema.define(:version => 20110927165745) do
     t.string   "tax2_label"
     t.float    "tax2"
     t.text     "invoice_signature"
+    t.string   "website"
   end
 
   add_index "profiles", ["address1"], :name => "index_profiles_on_address1"

@@ -9,6 +9,7 @@ one:
   phone_number: "613 800 0222"
   localization: "fr-CA"
   hours_per_day: '7.5'
+  website: 'http://getprojectlog.com'
   user: one
 
 two:
@@ -22,4 +23,5 @@ two:
   phone_number: "613 800 0222"
   localization: "en-CA"
   hours_per_day: '5'
+  website: 'http://getprojectlog.com'
   user: two

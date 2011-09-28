@@ -5,7 +5,7 @@ class Customer < ActiveRecord::Base
   has_many :projects, :dependent => :restrict
   has_many :invoices, :dependent => :restrict
   
-  attr_accessible :name, :phone, :address1, :address2, :postal_code, :city, :province, :country, :note
+  attr_accessible :name, :phone, :address1, :address2, :postal_code, :city, :province, :country, :note, :website
   
   validates :name, :presence => true
   validates_uniqueness_of :name, :scope => :user_id

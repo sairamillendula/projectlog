@@ -45,6 +45,10 @@
     <%= collection_select(:customer, :country, Country.all, :printable_name, :printable_name, options = {:prompt => ""}) %>
   </div>
   <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+  <div class="field">
     <%= f.label :note %>
     <span class="markdown"><a href="http://getprojectlog.com/help/knowledgebase/markdown/?src=app" target="_blank">Markdown accepted</a></span><br/>
     <%= f.text_area :note %></span>

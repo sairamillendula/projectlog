@@ -8,6 +8,7 @@ one:
   province: Ottawa
   country: Canada
   note: GitHub is more than just a place to share code.
+  website: 'http://apple.com'
   user: one
 
 two:
@@ -19,6 +20,7 @@ two:
   postal_code: J8X3P4
   province: Quebec
   country: Canada
+  website: 'http://getprojectlog.com'
   user: one
 
 three:
@@ -31,4 +33,5 @@ three:
   province: Ottawa
   country: Canada
   note: This is a very short note
+  website: 'http://getprojectlog.com'
   user: two

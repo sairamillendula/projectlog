@@ -22,6 +22,10 @@
 	  <span class="indent_line"><%= @customer.city %> <%= @customer.province %> <%= @customer.postal_code %><br/></span>
 	  <span class="indent_line"><%= @customer.country %></span>
 	</p>
+	<p>
+	  <label class="label">Address:</label>
+	  <%= link_to @customer.website, @customer.website %>
+	</p>
   </div>
 
   <div id="column_right">
