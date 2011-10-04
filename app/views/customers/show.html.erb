@@ -23,8 +23,8 @@
 	  <span class="indent_line"><%= @customer.country %></span>
 	</p>
 	<p>
-	  <label class="label">Address:</label>
-	  <%= link_to @customer.website, @customer.website %>
+	  <label class="label">Website:</label>
+	  <%= link_to @customer.website, @customer.website unless @customer.website.blank? %>
 	</p>
   </div>
 
