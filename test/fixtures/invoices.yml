@@ -7,7 +7,7 @@ one:
   balance: 1.5
   status: paid
   note: MyText
-  currency_id: 1
+  currency: USD
   customer_id: 1
   user: one
 
@@ -18,6 +18,6 @@ two:
   balance: 1.5
   status: paid
   note: MyText
-  currency_id: 1
+  currency: RUB
   customer_id: 1
   user: one

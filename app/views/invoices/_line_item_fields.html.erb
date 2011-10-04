@@ -3,3 +3,4 @@
 <div class="td"><%= f.text_field :description, :class => "full-width" %></div>
 <div class="td"><%= f.number_field :quantity, :size => 6, :class => "item-quantity" %></div>
 <div class="td"><%= f.number_field :price, :size => 9, :class => "item-price" %></div>
+<%= calc_line(f).html_safe %>

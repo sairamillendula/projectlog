@@ -63,8 +63,22 @@
 
 </div>
 
+<div class="no-print hidden" id="send-form">
+  <%= form_for :send_invoice, :url => send_email_invoice_path(@invoice), :method => :post do |f| %>
+    <%= f.label :contact_id, 'Recipient:' %>
+    <%= f.select :contact_id, contacts_options(@invoice.customer) %>
+    <br />
+    <%= f.check_box :attach %>
+    <%= f.label :attach, 'Attach PDF' %>
+    <br />
+    <%= f.submit "Send" %>
+  <% end %>
+</div>
+
 <div class="no-print">
   <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+  <%= link_to 'Send', 'javascript:void(0)', :id => 'open-send-form' %> |
+  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf) %> |
   <%= link_to 'Add Line Item', add_line_item_invoice_path(@invoice), onclick: "$('#new_line_item_form').toggle(); return false;" %> |
   <%= link_to 'Back', invoices_path %>
 </div>

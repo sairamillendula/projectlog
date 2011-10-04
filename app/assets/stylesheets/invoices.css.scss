@@ -1,43 +1,117 @@
 .full-width {
-  width: 100%;
+    width: 100%;
 }
 
 .table {
-  display: table;
-  div.fields {
-    display: table-row;
-  }
-  .tr {
-    display: table-row;
-  }
-  .td, .th {
-    display: table-cell;
-  }
-  .th {
-    background-color: #EAEAEA;
-    border-bottom: 1px solid #D8D8D8;
-    color: #999999;
-    font-family: Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
-    font-weight: normal;
-    padding: 0.5em 0.3em;
-    text-align: left;
-  }
+    font-size: 90%;
+	margin-bottom: 20px;
+	width: 100%;
+	border-spacing: 0px;
+    display: table;
+
+    div.fields {
+        display: table-row;
+    }
+
+    .tr {
+        display: table-row;
+    }
+
+    .td, .th {
+       display: table-cell;
+    }
+
+    .th {
+        background-color: #EAEAEA;
+        border-bottom: 1px solid #D8D8D8;
+        color: #999999;
+        font-family: Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
+        font-weight: normal;
+        padding: 0.5em 0.3em;
+        text-align: left;
+
+        .sort {
+            color: #999;
+            background-repeat: no-repeat;
+            background-position: right center;
+            padding-right: 17px;
+            padding-left: 0;
+            background-color: #eaeaea;
+            font-weight: normal;
+        }
+
+        .asc {
+            background-image: image-url("arrow-up.png");
+        }
+
+        .desc {
+            background-image: image-url("arrow-down.png");
+        }
+      }
+
+    .td {
+        font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+        padding: 0.5em 0.3em;
+
+        a {
+            color: #4183C4;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+                background-color: inherit;
+                color: #4183C4;
+            }
+            &:visited {
+                color: #4183C4;
+                text-decoration: none;
+            }
+        }
+    }
+}
+input.label_field {
+    border: none;
+    background: transparent;
 }
 
-input.label_field {
-  border: none;
-  background: transparent;
+div.invoice.sent {
+    background: rgb(243,246,250);
+}
+
+div.invoice.partial-payment {
+    background: rgb(255,255,243);
+}
+
+div.invoice.paid {
+    background: rgb(246,250,243);
 }
 
 div.company-info {
-  width: 300px;
-  float: right;
-  border: solid 1px #999;
-  background: #F8F8F8;
-  padding: 10px;
-  margin: 10px;
+    width: 300px;
+    float: right;
+    border: solid 1px #999;
+    background: #F8F8F8;
+    padding: 10px;
+    margin: 10px;
 }
 
 textarea.invoice-sig-area {
-  width: 430px;
+    width: 430px;
+}
+
+@media print {
+    header, nav, div.no-print { display: none !important; }
+    div.invoice.sent, div.invoice.partial-payment, div.invoice.paid {
+        background: transparent;
+    }
+    body, #content, #main-content {
+        background: #FFF;
+    }
+    a.no-print {
+        color: #FFF;
+    }
+}
+
+.hidden {
+    display: none;
 }

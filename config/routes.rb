@@ -17,6 +17,7 @@ Projectlog::Application.routes.draw do
  resources :invoices do
     member do
       get 'add_line_item'
+      post 'send_email'
     end
     collection do
       post 'create_line_item'

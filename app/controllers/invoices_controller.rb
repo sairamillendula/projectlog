@@ -1,3 +1,5 @@
+require 'prawn/layout'
+
 class InvoicesController < ApplicationController
   before_filter :authenticate_user!
   helper_method :sort_column, :sort_direction
@@ -50,8 +52,18 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def index
-    @invoices = Invoice.all
+  def send_email
+    @invoice = Invoice.find(params[:id])
+    @new_line_item = LineItem.new
+    contact = Contact.find(params[:send_invoice][:contact_id])
+    attach = if params[:send_invoice][:attach] == "1" then
+               render_to_string(:action => :show, :layout => "pdfattach")
+             else
+               nil
+             end
+    InvoicesMailer.invoice_by_email(@invoice, current_user, contact, attach).deliver
+    flash.now[:notice] = "Invoice sent successfully"
+    render :show
   end
 
   def show

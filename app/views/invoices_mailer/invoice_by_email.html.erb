@@ -1,0 +1,54 @@
+<h1>Invoice</h1>
+
+<p>
+  <b>Invoice number:</b>
+  <%= @invoice.invoice_number %>
+</p>
+
+<p>
+  <b>Issued date:</b>
+  <%= @invoice.issued_date %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%= @invoice.due_date %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @invoice.subject %>
+</p>
+
+<p>
+  <b>Balance:</b>
+  <%= @invoice.balance %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @invoice.status %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%= @invoice.note %>
+</p>
+
+<p>
+  <b>Currency:</b>
+  <%= @invoice.currency %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%= @invoice.discount %> %
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%= @invoice.customer.name %>
+</p>
+
+<h3>Line Items </h3>
+<div id="line_items_list"><%= render 'line_items_list' %></div>

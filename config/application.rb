@@ -36,20 +36,21 @@ module Projectlog
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-    
+
     # SSL: Off in Dev, On in Test & Prod
     config.force_ssl = false
-    
+
     # Devise Layout
     config.to_prepare do
       Devise::SessionsController.layout "login"
-      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "login" }
+      Devise::RegistrationsController.layout proc { |controller| user_signed_in? ? "application" : "login" }
       Devise::ConfirmationsController.layout "login"
-      Devise::UnlocksController.layout "login"            
-      Devise::PasswordsController.layout "login"        
+      Devise::UnlocksController.layout "login"
+      Devise::PasswordsController.layout "login"
     end
-    
+
     # Enable the asset pipeline
-    config.assets.enabled = true    
+    config.assets.enabled = true
+    config.middleware.use "PDFKit::Middleware", :print_media_type => true
   end
 end
