@@ -61,15 +61,15 @@ Projectlog::Application.configure do
   config.action_mailer.default_url_options = { :host => 'projectlogapp.com' }
   config.action_mailer.raise_delivery_errors = true
   
-  # Getprojectlog Email server setup
-  config.action_mailer.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {  
-    :address              => "mail.projectlogapp.com",  
-    :port                 => 587,
-    :user_name            => "notifications+projectlogapp.com",  
-    :password             => "10eytd10",  
-    :authentication       => "plain",  
-    :enable_starttls_auto => false  
-  }
+  # Getprojectlog Email server setup - Disabled for now: Not needed on Heroku.
+  # config.action_mailer.delivery_method = :smtp
+  # ActionMailer::Base.smtp_settings = {  
+  #   :address              => "mail.projectlogapp.com",  
+  #   :port                 => 587,
+  #   :user_name            => "notifications+projectlogapp.com",  
+  #   :password             => "10eytd10",  
+  #   :authentication       => "plain",  
+  #   :enable_starttls_auto => false  
+  # }
   
 end
