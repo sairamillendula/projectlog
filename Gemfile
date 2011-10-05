@@ -22,7 +22,7 @@ gem 'rails-settings', :git => 'git://github.com/100hz/rails-settings.git'
 gem 'redcarpet'
 gem 'google_visualr', '~> 2.1'
 gem 'bourbon'
-gem 'cancan'
+gem 'cancan', :git => 'git://github.com/ryanb/cancan.git'
 gem 'clarity'
 gem 'money'
 gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
