@@ -49,6 +49,10 @@ td form.edit_activity {
 	#max-width: 392px;
 }
 
+#send_report_email_dialog input[type="checkbox"] {
+	width: auto;
+}
+
 #send_report_email_dialog textarea {
 	height: 150px;
 }

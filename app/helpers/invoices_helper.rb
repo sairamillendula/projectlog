@@ -39,7 +39,11 @@ module InvoicesHelper
       unless profile.tax2.blank?
         html << "<div class=\"td\">"
         unless line.tax2.blank?
-          val = (subtotal * profile.tax2 / 100).round 2
+          if profile.compound
+            val = ((subtotal + taxes) * profile.tax2 / 100).round 2
+          else
+            val = (subtotal * profile.tax2 / 100).round 2
+          end
           taxes += val
         else
           val = ""

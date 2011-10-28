@@ -1,33 +1,17 @@
 <!DOCTYPE>
 <html>
-  <head>
-   <title>Projectlog</title>
-   <meta name="description" content="Projectlog is an easy way for consultants and freelancers to send timesheet & invoices" />
-   <meta name="keywords" content="timesheet, time sheet, time tracking, invoice, invoice template, invoicing, invoice online, activity log, freelancer, consultant, yafoy" />
-   <style>
-     <%= Sass.compile(File.read(File.join(Rails.root, 'app', 'assets', 'stylesheets', "invoices.css.scss"))) %>
-   </style>
-   <%= javascript_include_tag 'application' %>
-   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-   <%= csrf_meta_tag %>
-   <link href='http://fonts.googleapis.com/css?family=Pacifico&v1&text=Projectlog' rel='stylesheet' type='text/css'>
-  </head>
+   <head>
+     <title>Projectlog</title>
+     <style media="all">
+       <%= render :file => "#{Rails.root}/public/assets/application.css" %>
+     </style>
+     <%= csrf_meta_tag %>
+   </head>
  <body>
-	
-	<%= render :partial => 'layouts/header' %>
-   
   <section id="main-content">
-	<nav id="navbar" role="navigation">
-		<%= render 'layouts/navbar' %>
-	</nav>
-	
     <section id="content" role="main"> 
-  
-      <%= render 'layouts/flash' %>
-
- 	  <%= yield %>
-   </section>
-  </section> <!-- main-content -->
- 
+      <%= yield %>
+    </section>
+  </section>
  </body>
 </html>

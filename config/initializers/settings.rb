@@ -6,5 +6,8 @@ Click the following link to see the report: %{report_link}
 
 Bye!
 "
+Settings.defaults['invoices.email.subject'] = "Invoice for %{invoice_subject} from %{user_company}"
+Settings.defaults['invoices.email.body'] = "Hello,
 
-
+Please take a look on this invoice.
+"

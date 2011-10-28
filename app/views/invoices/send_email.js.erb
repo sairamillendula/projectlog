@@ -1,0 +1,9 @@
+$('<div id="email-sent"></div>')
+  .html('<div class="notice">Email successfully sent!</div>')
+  .dialog({
+    autoOpen: true,
+    buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+    show: "fade",
+    hide: "fade",
+  });
+$("#send_report_email_dialog").dialog("close");

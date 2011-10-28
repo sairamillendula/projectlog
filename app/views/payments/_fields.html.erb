@@ -1,0 +1,13 @@
+<% if @refresh %>
+  <input type="hidden" name="update_payments" value="yes" />
+<% end %>
+<div class="inline-form">
+  <div class="field">
+    <%= f.label :amount, :class =>'mandatory' %>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date, :class => "date" %>
+  </div>
+</div>

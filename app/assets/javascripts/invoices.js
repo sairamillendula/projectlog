@@ -12,6 +12,7 @@ function recalc_line(id) {
     if (isNaN(tax2)) {
         tax2 = 0
     }
+    var tax2comp = $(".tax2").data("taxcompound") || false;
     var price = parseFloat(p.val());
     if (isNaN(price)) {
         price = 0
@@ -36,12 +37,13 @@ function recalc_line(id) {
         t1.val("");
     }
     if (tax2 > 0 && (taxes == "2" || taxes == "3")) {
-        t2.val(Math.round(subtotal * tax2) / 100);
-        taxtotal += Math.round(subtotal * tax2) / 100;
+        var tax2value = tax2comp ? (Math.round((subtotal + taxtotal) * tax2) / 100) : (Math.round(subtotal * tax2) / 100);
+        t2.val(tax2value);
+        taxtotal += tax2value;
     } else {
         t2.val("");
     }
-    tt.val(subtotal + taxtotal);
+    tt.val(Math.round((subtotal + taxtotal)*100)/100);
     recalc_totals();
 }
 
@@ -82,8 +84,8 @@ $(function() {
         $("#invoice-content").removeClass("draft").removeClass("sent").removeClass("partial-payment").removeClass("paid").addClass($("#invoice_status").val().replace(" ", "-"));
     });
 
-    $("#open-send-form").click(function() {
-        $("#send-form").slideDown();
+    $("#invoices th a, #invoices .pagination a").live("click", function() {
+      $.getScript(this.href);
+      return false;
     });
-
 });

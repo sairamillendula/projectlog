@@ -1,0 +1,3 @@
+<%= form_for([@invoice, @payment], :remote => true) do |f| %>
+  <%= render :partial => "fields.html", :locals => { :f => f } %>
+<% end %>

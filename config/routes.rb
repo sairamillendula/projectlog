@@ -17,13 +17,15 @@ Projectlog::Application.routes.draw do
  resources :invoices do
     member do
       get 'add_line_item'
+      get 'prepare_email'
       post 'send_email'
     end
     collection do
       post 'create_line_item'
       delete 'delete_line_item/:id', :action => 'delete_line_item'
     end
- end
+    resources :payments
+  end
   
   resources :projects do 
     collection do
