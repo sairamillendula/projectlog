@@ -1,0 +1,12 @@
+$("#new_payment_dialog").remove();
+$('<div id="new_payment_dialog"></div>')
+.html('<%= escape_javascript render(:partial => 'fields.js') %>')
+.dialog({
+autoOpen: true,
+modal: true,
+title: 'Add a payment',
+buttons: { 'Create Payment' : function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("close"); } },
+show: "fade",
+hide: "fade",
+width: 420
+});

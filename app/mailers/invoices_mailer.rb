@@ -1,11 +1,11 @@
 class InvoicesMailer < ActionMailer::Base
-  def invoice_by_email(invoice, user, contact, attach)
+  def invoice_by_email(invoice, subject, body, user, contact, attach)
     @invoice = invoice
+    @bodytext = body
     if attach
       kit = PDFKit.new(attach)
-      kit.to_file "#{Rails.root}/tmp/invoices/invoice#{@invoice.id}.pdf"
-      attachments['invoice.pdf'] = File.read("#{Rails.root}/tmp/invoices/invoice#{@invoice.id}.pdf")
+      attachments['invoice.pdf'] = kit.to_pdf
     end
-    mail(:to => contact.email, :subject => "[Projectlog] Invoice for #{@invoice.subject} from #{user.profile.company}", :reply_to => user.email)
+    mail(:from => "#{user.name} <notification@projectlogapp.com>", :to => contact.email, :subject => subject, :reply_to => user.email)
   end
 end

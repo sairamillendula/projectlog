@@ -10,7 +10,7 @@
           <th class="tax1" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></th>
         <% end %>
         <% unless @invoice.user.profile.tax2.blank? %>
-          <th class="tax2" data-taxvalue="<%= @invoice.user.profile.tax2 %>"><%= @invoice.user.profile.tax2_name %></th>
+          <th class="tax2" data-taxvalue="<%= @invoice.user.profile.tax2 %>" data-taxcompound="<%= @invoice.user.profile.compound %>"><%= @invoice.user.profile.tax2_name %></th>
         <% end %>
       <% end %>
       <th>Amount</th>

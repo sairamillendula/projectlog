@@ -6,10 +6,11 @@ class InvoicesController < ApplicationController
   set_tab :invoices
 
   def index
-    @invoices = current_user.invoices.all
+    @invoices = current_user.invoices.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
 
     respond_to do |format|
       format.html # index.html.erb
+      format.js
     end
   end
 
@@ -52,23 +53,36 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def prepare_email
+    @invoice = Invoice.find(params[:id])
+    @subject = Settings["invoices.email.subject"].gsub("%{invoice_subject}", @invoice.subject).gsub("%{user_company}", current_user.profile.company)
+    @body = Settings["invoices.email.body"]
+  end
+
   def send_email
     @invoice = Invoice.find(params[:id])
     @new_line_item = LineItem.new
     contact = Contact.find(params[:send_invoice][:contact_id])
     attach = if params[:send_invoice][:attach] == "1" then
-               render_to_string(:action => :show, :layout => "pdfattach")
+               render_to_string(:action => 'show.html', :layout => 'pdfattach')
              else
                nil
              end
-    InvoicesMailer.invoice_by_email(@invoice, current_user, contact, attach).deliver
+    InvoicesMailer.invoice_by_email(@invoice, params[:send_invoice][:subject], params[:send_invoice][:body], current_user, contact, attach).deliver
     flash.now[:notice] = "Invoice sent successfully"
-    render :show
+    if @invoice.status == "draft"
+      @invoice.status = "sent"
+      @invoice.save
+    end
   end
 
   def show
     @invoice = current_user.invoices.find(params[:id])
     @new_line_item = LineItem.new
+    respond_to do |format|
+      format.html
+      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
+    end
   end
 
   def new
@@ -120,4 +134,15 @@ class InvoicesController < ApplicationController
       format.html { redirect_to invoices_url }
     end
   end
+
+  private
+
+  def sort_column
+    Invoice.column_names.include?(params[:sort]) ? params[:sort] : "invoice_number"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+
 end

@@ -63,7 +63,7 @@
             <div class="th tax1" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></div>
           <% end %>
           <% unless @invoice.user.profile.tax2.blank? %>
-            <div class="th tax2" data-taxvalue="<%= @invoice.user.profile.tax2 %>"><%= @invoice.user.profile.tax2_name %></div>
+            <div class="th tax2" data-taxvalue="<%= @invoice.user.profile.tax2 %>" data-taxcompound="<%= @invoice.user.profile.compound %>"><%= @invoice.user.profile.tax2_name %></div>
           <% end %>
         <% end %>
         <div class="th">Amount</div>

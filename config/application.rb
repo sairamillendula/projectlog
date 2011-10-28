@@ -51,6 +51,6 @@ module Projectlog
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.middleware.use "PDFKit::Middleware", :print_media_type => true
+    #config.middleware.use "PDFKit::Middleware", :print_media_type => true
   end
 end

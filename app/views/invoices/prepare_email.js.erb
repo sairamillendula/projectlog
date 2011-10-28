@@ -1,0 +1,31 @@
+$("#send_report_email_dialog").remove();
+$('<div id="send_report_email_dialog"></div>')
+  .html('<%= escape_javascript render("send") %>')
+  .dialog({
+    autoOpen: true,
+    modal: true,
+    title: 'Send this invoice via email',
+    buttons: { 'Send' :  function(){
+      $(this).find("form .status_indicator").html("<p>Sending <%= escape_javascript image_tag("indicator.gif") %></p>");
+      // Show error dialog if something goes wrong on the server when sending the email (a 500 or other exception)
+      $(this).find("form").bind('ajax:error', function(){             
+        $("<div></div>").html('<div class="alert">Something went wrong! Please try again in a moment.</div>').dialog({
+          autoOpen: true,
+          buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+          show: "fade",
+          hide: "fade",
+        });
+        $("#send_report_email_dialog .status_indicator").html("");
+        //Enable Send button again
+        $("#send_report_email_dialog").parent().find("button:contains('Send')").button("enable");                 
+      });
+      $(this).find("form").submit(); 
+      // disable the Send button
+      $(this).parent().find("button:contains('Send')").button("disable");
+    }, 
+    'Cancel' : function(){ $(this).dialog("close"); }
+    },
+  show: "fade",
+  hide: "fade",
+  width: 420
+  });

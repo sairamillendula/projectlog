@@ -2,6 +2,7 @@ class Invoice < ActiveRecord::Base
   belongs_to :user
   belongs_to :customer
   has_many :line_items
+  has_many :payments
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
 
@@ -11,6 +12,11 @@ class Invoice < ActiveRecord::Base
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount, :line_items_attributes
+
+  def amount_due
+    total = line_items.sum(:line_total)
+    ((total - total*discount/100).round(2) - (payments.sum(:amount)).round(2)).round(2)
+  end
 
   def self.status_list
     ['draft', 'sent', 'partial payment', 'paid']
