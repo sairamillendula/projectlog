@@ -1,0 +1,7 @@
+<% Invoice.status_list.each do |sl| %>
+  $("#invoice-page").removeClass("<%= sl.gsub " ", "-" %>");
+<% end %>
+$("#invoice-page").addClass("<%= @invoice.status.gsub " ", "-" %>");
+$("#invoice-status").html("<%= @invoice.status %>");
+$("#invoice-balance").html("<%= @invoice.balance %>");
+<%= render "index" %>

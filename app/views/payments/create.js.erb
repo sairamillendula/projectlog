@@ -1,0 +1,19 @@
+<% unless @payment.new_record? %>
+  <% Invoice.status_list.each do |sl| %>
+    $("#invoice-page").removeClass("<%= sl.gsub " ", "-" %>");
+  <% end %>
+  $("#invoice-page").addClass("<%= @invoice.status.gsub " ", "-" %>");
+  $("#invoice-status").html("<%= @invoice.status %>");
+  $("#invoice-balance").html("<%= @invoice.balance %>");
+  $("#new_payment_dialog").dialog("close");
+  <%= render "index" if @refresh %>
+<% else %>
+  $('<div id="payment-error"></div>')
+  .html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @payment.errors.full_messages.to_sentence %></div>')
+  .dialog({
+    autoOpen: true,
+    buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+    show: "fade",
+    hide: "fade",
+  });
+<% end %>

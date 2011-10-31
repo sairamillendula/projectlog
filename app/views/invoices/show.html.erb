@@ -1,4 +1,14 @@
-<div class="invoice <%= @invoice.status.gsub " ", "-" %>">
+<ul id="sub-menu" class="no-print">
+  <%= link_to '← All invoices', invoices_path %> |
+  <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+  <%= link_to 'Send', prepare_email_invoice_path(@invoice), :remote => true %> |
+  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf) %>
+
+  <li><%= link_to '+ Payment', new_invoice_payment_path(@invoice), :class => 'buttonorange', :remote => true %></li>
+  <li><%= link_to 'Show Payments', invoice_payments_path(@invoice), :class => 'buttonorange', :remote => true %></li>
+</ul>
+
+<div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
 
 <% if get_company_info(@invoice.user.profile).size > 0 %>
   <div class="company-info">
@@ -30,12 +40,12 @@
 
 <p>
   <b>Balance:</b>
-  <%= @invoice.balance %>
+  <span id="invoice-balance"><%= @invoice.balance %></span>
 </p>
 
 <p>
   <b>Status:</b>
-  <%= @invoice.status %>
+  <span id="invoice-status"><%= @invoice.status %></span>
 </p>
 
 <p>
@@ -63,22 +73,6 @@
 
 </div>
 
-<div class="no-print hidden" id="send-form">
-  <%= form_for :send_invoice, :url => send_email_invoice_path(@invoice), :method => :post do |f| %>
-    <%= f.label :contact_id, 'Recipient:' %>
-    <%= f.select :contact_id, contacts_options(@invoice.customer) %>
-    <br />
-    <%= f.check_box :attach %>
-    <%= f.label :attach, 'Attach PDF' %>
-    <br />
-    <%= f.submit "Send" %>
-  <% end %>
-</div>
-
 <div class="no-print">
-  <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-  <%= link_to 'Send', 'javascript:void(0)', :id => 'open-send-form' %> |
-  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf) %> |
-  <%= link_to 'Add Line Item', add_line_item_invoice_path(@invoice), onclick: "$('#new_line_item_form').toggle(); return false;" %> |
-  <%= link_to 'Back', invoices_path %>
+  <%= link_to 'Add Line Item', add_line_item_invoice_path(@invoice), onclick: "$('#new_line_item_form').toggle(); return false;" %>
 </div>

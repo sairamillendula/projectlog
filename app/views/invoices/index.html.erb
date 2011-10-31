@@ -1,41 +1,7 @@
 <h1>Listing invoices</h1>
-
-<table>
-  <tr>
-    <th>Invoice number</th>
-    <th>Issued date</th>
-    <th>Due date</th>
-    <th>Subject</th>
-    <th>Balance</th>
-    <th>Status</th>
-    <th>Note</th>
-    <th>Currency</th>
-    <th>Customer</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @invoices.each do |invoice| %>
-  <tr>
-    <td><%= invoice.invoice_number %></td>
-    <td><%= invoice.issued_date %></td>
-    <td><%= invoice.due_date %></td>
-    <td><%= invoice.subject %></td>
-    <td><%= invoice.balance %></td>
-    <td><%= invoice.status %></td>
-    <td><%= invoice.note %></td>
-    <td><%= invoice.currency %></td>
-    <td><%= invoice.customer.name %></td>
-    <td><%= link_to 'Show', invoice %></td>
-    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-    <td><%= link_to 'Download PDF', invoice_path(invoice, :format => :pdf) %></td>
-    <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
+<div id="invoices">
+  <%= render 'invoices/invoices' %>
+</div>
 <br />
 
 <%= link_to 'New Invoice', new_invoice_path %>
