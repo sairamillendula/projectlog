@@ -6,24 +6,27 @@ class Invoice < ActiveRecord::Base
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
 
-  validates :subject, :balance, :customer, :presence => true
+  validates_presence_of :subject, :balance, :customer
 
   accepts_nested_attributes_for :line_items, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-  attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount, :line_items_attributes
-
+  attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount, 
+                  :line_items_attributes
+  
+  before_create :generate_invoice_number 
+  
   def amount_due
     total = line_items.sum(:line_total)
     ((total - total*discount/100).round(2) - (payments.sum(:amount)).round(2)).round(2)
   end
 
   def self.status_list
-    ['draft', 'sent', 'partial payment', 'paid']
+    ['Draft', 'Sent', 'Partial payment', 'Paid']
   end
 
   def paid?
-     status == "paid"
+     status == "Paid"
   end
 
   def generate_invoice_number

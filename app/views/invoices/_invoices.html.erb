@@ -1,15 +1,11 @@
 <table>
   <tr>
     <th><%= sortable "invoice_number", { :controller => "invoices", :action => "index"} %></th>
-    <th><%= sortable "issued_date", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "due_date", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "subject", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "balance", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "status", { :controller => "invoices", :action => "index"} %></th>
-    <th><%= sortable "note", { :controller => "invoices", :action => "index"} %></th>
-    <th><%= sortable "currency", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "customer", { :controller => "invoices", :action => "index"} %></th>
-    <th></th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,19 +13,14 @@
 
 <% @invoices.each do |invoice| %>
   <tr>
-    <td><%= invoice.invoice_number %></td>
-    <td><%= invoice.issued_date %></td>
+    <td><%= link_to "##{invoice.invoice_number}", invoice %></td>
     <td><%= invoice.due_date %></td>
     <td><%= invoice.subject %></td>
     <td><%= invoice.balance %></td>
     <td><%= invoice.status %></td>
-    <td><%= invoice.note %></td>
-    <td><%= invoice.currency %></td>
     <td><%= invoice.customer.name %></td>
-    <td><%= link_to 'Show', invoice %></td>
-    <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-    <td><%= link_to 'Download PDF', invoice_path(invoice, :format => :pdf) %></td>
-    <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Edit', edit_invoice_path(invoice) %>
+        <%= link_to image_tag("bin.png"), invoice, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

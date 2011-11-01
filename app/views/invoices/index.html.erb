@@ -1,7 +1,14 @@
-<h1>Listing invoices</h1>
-<div id="invoices">
-  <%= render 'invoices/invoices' %>
-</div>
-<br />
+<% if current_user.invoices.empty? %>
+  <div class="no-occurence">
+     <p>Add a new <%= link_to 'Invoice', new_invoice_path %></p>
+  </div>
+<% else %>
 
-<%= link_to 'New Invoice', new_invoice_path %>
+  <ul id="sub-menu">
+    <li class="buttonorange"><%= link_to '+ New Invoice', new_invoice_path %></li>
+  </ul>
+
+  <div id="invoices">
+    <%= render 'invoices/invoices' %>
+  </div>
+<% end %>

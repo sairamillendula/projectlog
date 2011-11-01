@@ -28,10 +28,10 @@ class Profile < ActiveRecord::Base
   end
 
   def tax_options
-    taxes = [["no tax", 0]]
+    taxes = [["No tax", 0]]
     taxes << [tax1_name, 1] unless tax1.blank?
     taxes << [tax2_name, 2] unless tax2.blank?
-    taxes << ["both", 3] unless tax1.blank? || tax2.blank?
+    taxes << ["Both", 3] unless tax1.blank? || tax2.blank?
     taxes
   end
 end

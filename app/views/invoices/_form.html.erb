@@ -10,45 +10,44 @@
       </ul>
     </div>
   <% end %>
+  
+<div class="inline-form">
+  <div class="field">
+    <%= f.label :invoice_number, :class => 'mandatory' %>
+    <%= f.text_field :invoice_number %>
+  </div>
+  <div class="field">
+    <%= f.label :subject, :class => 'mandatory' %>
+    <%= f.text_field :subject, :style => "width:650px;" %>
+  </div>
+  <div class="field">
+    <%= f.label :issued_date, :class => 'mandatory' %>
+    <%= f.text_field :issued_date %>
+  </div>
+  <div class="field">
+    <%= f.label :customer_id, :class => 'mandatory' %>
+    <%= f.select :customer_id, current_user.customers.collect{|c| [c.name, c.id]} %>
+  </div>
+  <div class="field">
+    <%= f.label :status, :class => 'mandatory' %>
+    <%= f.select :status, options_for_select(Invoice.status_list, @invoice.status) %>
+  </div>
+  <div class="field">
+    <%= f.label :due_date %>
+    <%= f.text_field :due_date %>
+  </div>
+  <div class="field">
+    <%= f.label :currency %>
+    <%= f.select :currency, options_for_select(currency_options, @invoice.currency) %>
+  </div>
+  <div class="field">
+    <%= f.label :balance, :class => 'mandatory' %>
+    <%= f.text_field :balance %>
+  </div>
+</div>
+	
+<br />
 
-    <table class="invoice-form-table">
-      <tr>
-        <td><%= f.label :invoice_number %></td>
-        <td><%= f.text_field :invoice_number %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :issued_date %></td>
-        <td><%= f.text_field :issued_date %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :due_date %></td>
-        <td><%= f.text_field :due_date %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :customer_id %></td>
-        <td><%= f.select :customer_id, current_user.customers.collect{|c| [c.name, c.id]} %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :balance %></td>
-        <td><%= f.text_field :balance %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :status %></td>
-        <td><%= f.select :status, options_for_select(Invoice.status_list, @invoice.status) %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :currency %></td>
-        <td><%= f.select :currency, options_for_select(currency_options, @invoice.currency) %></td>
-      </tr>
-    </table>
-    <div style="clear:both"></div>
-    <table style="width:100%;">
-      <tr>
-        <td style="text-align:center;"><%= f.label :subject %></td>
-        <td><%= f.text_field :subject, :style => "width:650px;" %></td>
-      </tr>
-    </table>
-    <br />
     <div class="full-width table" id="line-items">
       <div class="tr">
         <div class="th"></div>
@@ -69,29 +68,29 @@
         <div class="th">Amount</div>
       </div>
       <%= f.fields_for :line_items %>
-      <div><%= f.link_to_add "Add new line", :line_items %></div>
+      <div id="add_new_invoice_line"><%= f.link_to_add "Add new line", :line_items %></div>
     </div>
     <hr />
     <table style="width:100%" id="total">
       <tbody>
         <tr>
-           <td colspan=6  style="text-align:right">Subtotal</td>
-           <td id="subtotal" style="text-align:right" id="subtotal"><%= @invoice.line_items.sum(:line_total).round(2) %></td>
+           <td colspan=6 class="right">Subtotal</td>
+           <td id="subtotal" class="right" id="subtotal"><%= @invoice.line_items.sum(:line_total).round(2) %></td>
         </tr>
         <tr>
            <td colspan=6 style="text-align:right"><%= f.label :discount, 'Discount %' %></td>
            <td style="text-align:right; width: 1%"><%= f.number_field :discount, :size => 6 %></td>
         </tr>
         <tr>
-           <td colspan=6 style="text-align:right">Amount Due</td>
-           <td style="text-align:right" id="amount_due"><%= (@invoice.line_items.sum(:line_total)*(1-(@invoice.discount || 0)/100)).round(2) %></td>
+           <td colspan=6 class="right">Amount Due</td>
+           <td class="right" id="amount_due"><%= (@invoice.line_items.sum(:line_total)*(1-(@invoice.discount || 0)/100)).round(2) %></td>
         </tr>
       </tbody>
     </table>
     <%= f.label :note %><br />
-    <%= f.text_area :note, :rows => 6, :cols => 130 %>
+    <%= f.text_area :note %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_or_cancel(f) %>
   </div>
 <% end %>

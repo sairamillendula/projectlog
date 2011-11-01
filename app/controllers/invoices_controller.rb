@@ -70,8 +70,8 @@ class InvoicesController < ApplicationController
              end
     InvoicesMailer.invoice_by_email(@invoice, params[:send_invoice][:subject], params[:send_invoice][:body], current_user, contact, attach).deliver
     flash.now[:notice] = "Invoice sent successfully"
-    if @invoice.status == "draft"
-      @invoice.status = "sent"
+    if @invoice.status == "Draft"
+      @invoice.status = "Sent"
       @invoice.save
     end
   end

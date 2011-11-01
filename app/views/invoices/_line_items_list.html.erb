@@ -34,7 +34,7 @@
             <% end %>
           <% end %>
           <td><%= Money.from_float(line.line_total, @invoice.currency).format(:symbol => true) %></td>
-          <td class="no-print"><%= link_to 'Remove', {action: 'delete_line_item', id: line.id}, {confirm: 'Are you sure?', method: :delete, remote: true, id: "del-line-item-#{line.id}", class: "no-print"} %></td>
+          <td class="no-print"><%= link_to image_tag('bin.png'), {action: 'delete_line_item', id: line.id}, {confirm: 'Are you sure?', method: :delete, remote: true, id: "del-line-item-#{line.id}", class: "no-print"} %></td>
         </tr>
       <% end %>
       <%= render('new_line_item_inline_form', {f:f}) %>
