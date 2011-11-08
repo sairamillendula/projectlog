@@ -16,6 +16,7 @@ Projectlog::Application.routes.draw do
 
  resources :invoices do
     member do
+      get "shared"
       get 'add_line_item'
       get 'prepare_email'
       post 'send_email'

@@ -1,7 +1,5 @@
-require 'prawn/layout'
-
 class InvoicesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:shared]
   helper_method :sort_column, :sort_direction
   set_tab :invoices
 
@@ -56,7 +54,7 @@ class InvoicesController < ApplicationController
   def prepare_email
     @invoice = Invoice.find(params[:id])
     @subject = Settings["invoices.email.subject"].gsub("%{invoice_subject}", @invoice.subject).gsub("%{user_company}", current_user.profile.company)
-    @body = Settings["invoices.email.body"]
+    @body = Settings["invoices.email.body"].gsub("%{invoice_link}", shared_invoice_url(@invoice.slug))
   end
 
   def send_email
@@ -78,16 +76,23 @@ class InvoicesController < ApplicationController
 
   def show
     @invoice = current_user.invoices.find(params[:id])
-    @new_line_item = LineItem.new
     respond_to do |format|
       format.html
       format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
     end
   end
 
+  def shared # Like show, except is public for everybody.
+    @invoice = Invoice.find_by_slug!(params[:id])
+    @skip_approve = true
+    respond_to do |format|
+      format.html { render :layout => "public" }
+      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
+    end
+  end
+
   def new
     @invoice = current_user.invoices.new
-    @invoice.invoice_number ||= @invoice.generate_invoice_number
     @invoice.currency ||= current_user.profile.localization && Localization.find_by_reference(current_user.profile.localization) && Localization.find_by_reference(current_user.profile.localization).currency || "USD"
     @invoice.discount ||= 0
     @invoice.line_items.build(:quantity => 0, :price => 0.0)
@@ -104,6 +109,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = current_user.invoices.new(params[:invoice])
+    @invoice.status = 'draft'
 
     respond_to do |format|
       if @invoice.save

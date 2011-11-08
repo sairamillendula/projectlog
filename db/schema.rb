@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110928043724) do
+ActiveRecord::Schema.define(:version => 20111105174939) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -100,35 +100,37 @@ ActiveRecord::Schema.define(:version => 20110928043724) do
   add_index "emailings", ["api_key"], :name => "index_emailings_on_api_key"
 
   create_table "invoices", :force => true do |t|
-    t.date     "issued_date",                                               :null => false
-    t.date     "due_date",                                                  :null => false
-    t.string   "subject",                                                   :null => false
-    t.float    "balance",                                                   :null => false
-    t.string   "status",                                                    :null => false
+    t.date     "issued_date",                                                                :null => false
+    t.date     "due_date",                                                                   :null => false
+    t.string   "subject",                                                                    :null => false
+    t.float    "balance",                                                   :default => 0.0, :null => false
+    t.string   "status",                                                                     :null => false
     t.text     "note"
-    t.integer  "customer_id"
-    t.integer  "user_id",                                                   :null => false
+    t.integer  "customer_id",                                                                :null => false
+    t.integer  "user_id",                                                                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "invoice_number"
-    t.decimal  "discount",                    :precision => 5, :scale => 2
-    t.string   "currency",       :limit => 3,                               :null => false
+    t.string   "invoice_number",                                                             :null => false
+    t.decimal  "discount",                    :precision => 5, :scale => 2, :default => 0.0, :null => false
+    t.string   "currency",       :limit => 3,                                                :null => false
+    t.string   "slug",                                                                       :null => false
   end
 
   add_index "invoices", ["customer_id"], :name => "index_invoices_on_customer_id"
   add_index "invoices", ["id"], :name => "index_invoices_on_id", :unique => true
   add_index "invoices", ["invoice_number"], :name => "index_invoices_on_invoice_number"
+  add_index "invoices", ["slug"], :name => "index_invoices_on_slug", :unique => true
   add_index "invoices", ["user_id"], :name => "index_invoices_on_user_id"
 
   create_table "line_items", :force => true do |t|
-    t.integer  "invoice_id"
-    t.string   "line_type"
-    t.string   "description", :null => false
-    t.float    "line_total"
+    t.integer  "invoice_id",                   :null => false
+    t.string   "line_type",                    :null => false
+    t.string   "description",                  :null => false
+    t.float    "line_total",  :default => 0.0, :null => false
     t.float    "tax1"
     t.float    "tax2"
-    t.float    "quantity"
-    t.float    "price"
+    t.float    "quantity",    :default => 0.0, :null => false
+    t.float    "price",       :default => 0.0, :null => false
     t.float    "subtotal"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -146,6 +148,16 @@ ActiveRecord::Schema.define(:version => 20110928043724) do
   add_index "localizations", ["country_id"], :name => "index_localizations_on_country_id"
   add_index "localizations", ["id"], :name => "index_localizations_on_id", :unique => true
   add_index "localizations", ["name"], :name => "index_localizations_on_name"
+
+  create_table "payments", :force => true do |t|
+    t.integer  "invoice_id", :null => false
+    t.float    "amount",     :null => false
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["invoice_id"], :name => "index_payments_on_invoice_id"
 
   create_table "plans", :force => true do |t|
     t.string   "name",                           :null => false
@@ -172,15 +184,17 @@ ActiveRecord::Schema.define(:version => 20110928043724) do
     t.string   "phone_number"
     t.string   "localization"
     t.float    "hours_per_day"
-    t.integer  "user_id",           :null => false
+    t.integer  "user_id",                              :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tax1_label"
     t.float    "tax1"
     t.string   "tax2_label"
     t.float    "tax2"
+    t.boolean  "compound",          :default => false, :null => false
     t.text     "invoice_signature"
     t.string   "website"
+    t.string   "last_invoice"
   end
 
   add_index "profiles", ["address1"], :name => "index_profiles_on_address1"

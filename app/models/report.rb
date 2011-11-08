@@ -35,8 +35,8 @@ class Report < ActiveRecord::Base
   
   def approve!(ip_address)
     self.approved = true
-    self.approved_at = Time.zone.now
-    self.approved_ip = ip_address
+    self.approved_at = Time.zone.now
+    self.approved_ip = ip_address
   end
   
   private

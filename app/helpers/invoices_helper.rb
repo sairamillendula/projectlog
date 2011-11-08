@@ -26,7 +26,7 @@ module InvoicesHelper
       html << select_tag(:taxes, options_for_select(profile.tax_options, cur_tax), :class => "item-select-tax")
       html << "</div>"
       unless profile.tax1.blank?
-        html << "<div class=\"td\">"
+        html << "<div class=\"td item-tax1 hidden\">"
         unless line.tax1.blank?
           val = (subtotal * profile.tax1 / 100).round 2
           taxes += val
@@ -37,7 +37,7 @@ module InvoicesHelper
         html << "</div>"
       end
       unless profile.tax2.blank?
-        html << "<div class=\"td\">"
+        html << "<div class=\"td item-tax2 hidden\">"
         unless line.tax2.blank?
           if profile.compound
             val = ((subtotal + taxes) * profile.tax2 / 100).round 2

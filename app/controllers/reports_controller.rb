@@ -35,7 +35,7 @@ class ReportsController < ApplicationController
       end
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
       format.csv { response.headers["Content-Disposition"] = "attachment; filename=time_entries.csv" }      
-    end    
+    end
   end
   
   def approve

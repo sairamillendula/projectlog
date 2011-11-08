@@ -13,10 +13,6 @@
 
     <table class="invoice-form-table">
       <tr>
-        <td><%= f.label :invoice_number %></td>
-        <td><%= f.text_field :invoice_number %></td>
-      </tr>
-      <tr>
         <td><%= f.label :issued_date %></td>
         <td><%= f.text_field :issued_date %></td>
       </tr>
@@ -27,14 +23,6 @@
       <tr>
         <td><%= f.label :customer_id %></td>
         <td><%= f.select :customer_id, current_user.customers.collect{|c| [c.name, c.id]} %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :balance %></td>
-        <td><%= f.text_field :balance %></td>
-      </tr>
-      <tr>
-        <td><%= f.label :status %></td>
-        <td><%= f.select :status, options_for_select(Invoice.status_list, @invoice.status) %></td>
       </tr>
       <tr>
         <td><%= f.label :currency %></td>
@@ -60,10 +48,10 @@
           <div class="th">Subtotal</div>
           <div class="th">Taxes</div>
           <% unless @invoice.user.profile.tax1.blank? %>
-            <div class="th tax1" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></div>
+            <div class="th tax1 hidden" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></div>
           <% end %>
           <% unless @invoice.user.profile.tax2.blank? %>
-            <div class="th tax2" data-taxvalue="<%= @invoice.user.profile.tax2 %>" data-taxcompound="<%= @invoice.user.profile.compound %>"><%= @invoice.user.profile.tax2_name %></div>
+            <div class="th tax2 hidden" data-taxvalue="<%= @invoice.user.profile.tax2 %>" data-taxcompound="<%= @invoice.user.profile.compound %>"><%= @invoice.user.profile.tax2_name %></div>
           <% end %>
         <% end %>
         <div class="th">Amount</div>
@@ -76,7 +64,11 @@
       <tbody>
         <tr>
            <td colspan=6  style="text-align:right">Subtotal</td>
-           <td id="subtotal" style="text-align:right" id="subtotal"><%= @invoice.line_items.sum(:line_total).round(2) %></td>
+           <td id="subtotal" style="text-align:right"><%= @invoice.line_items.collect(&:line_total).sum.round(2) %></td>
+        </tr>
+        <tr>
+           <td colspan=6  style="text-align:right">Taxes</td>
+           <td id="taxtotal" style="text-align:right"><%= @invoice.line_items.collect{|i| (i.tax1 || 0) + (i.tax2 || 0)}.sum.round(2) %></td>
         </tr>
         <tr>
            <td colspan=6 style="text-align:right"><%= f.label :discount, 'Discount %' %></td>
@@ -84,7 +76,7 @@
         </tr>
         <tr>
            <td colspan=6 style="text-align:right">Amount Due</td>
-           <td style="text-align:right" id="amount_due"><%= (@invoice.line_items.sum(:line_total)*(1-(@invoice.discount || 0)/100)).round(2) %></td>
+           <td style="text-align:right" id="amount_due"><%= (@invoice.line_items.collect(&:line_total).sum*(1-(@invoice.discount || 0)/100)).round(2) %></td>
         </tr>
       </tbody>
     </table>

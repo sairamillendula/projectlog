@@ -7,13 +7,27 @@
       <%= label_tag :"settings[reports.email.subject]", "Default subject" %>
       <%= text_field_tag :"settings[reports.email.subject]", Settings['reports.email.subject'], :size => 80 %>
     </p>
-    
+
     <p>
       <%= label_tag :"settings[reports.email.body]", "Default body" %><br />
       <small>The <code>%{report_link}</code> tag will be dynamically replaced with the actual link to the report.</small> <br />
       <%= text_area_tag :"settings[reports.email.body]", Settings['reports.email.body'], :size => "60x10" %>
     </p>
-    
+
+    <h3>Invoice email settings</h3>
+    <p>These fields are shown by default when an user tries to send an invoice via email.</p>
+
+    <p>
+      <%= label_tag :"settings[invoices.email.subject]", "Default subject" %>
+      <%= text_field_tag :"settings[invoices.email.subject]", Settings['invoices.email.subject'], :size => 80 %>
+    </p>
+
+    <p>
+      <%= label_tag :"settings[reports.email.body]", "Default body" %><br />
+      <small>The <code>%{invoice_link}</code> tag will be dynamically replaced with the actual link to the invoice.</small> <br />
+      <%= text_area_tag :"settings[invoices.email.body]", Settings['invoices.email.body'], :size => "60x10" %>
+    </p>
+
     <p>
       <span class="submit"><%= submit_tag "Save settings" %></span>
     </p>

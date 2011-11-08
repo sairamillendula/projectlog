@@ -49,10 +49,15 @@ function recalc_line(id) {
 
 function recalc_totals() {
     var total = 0.0;
+    var taxtotal = 0.0;
     $(".item-total input").each(function() {
         total += parseFloat($(this).val());
     });
+    $(".item-tax1 input, .item-tax2 input").each(function() {
+        if (parseFloat($(this).val()) > 0) taxtotal += parseFloat($(this).val());
+    });
     $("#subtotal").html(Math.round(total * 100) / 100);
+    $("#taxtotal").html(Math.round(taxtotal * 100) / 100);
     var discount = 0;
     if (parseFloat($("#invoice_discount").val()) > 0) discount = parseFloat($("#invoice_discount").val()) / 100;
     $("#amount_due").html(Math.round(total * (1 - discount) * 100) / 100);

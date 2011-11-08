@@ -1,13 +1,3 @@
-<ul id="sub-menu" class="no-print">
-  <%= link_to '← All invoices', invoices_path %> |
-  <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-  <%= link_to 'Send', prepare_email_invoice_path(@invoice), :remote => true %> |
-  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf) %>
-
-  <li><%= link_to '+ Payment', new_invoice_payment_path(@invoice), :class => 'buttonorange', :remote => true %></li>
-  <li><%= link_to 'Show Payments', invoice_payments_path(@invoice), :class => 'buttonorange', :remote => true %></li>
-</ul>
-
 <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
 
 <% if get_company_info(@invoice.user.profile).size > 0 %>
