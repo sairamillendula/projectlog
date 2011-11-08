@@ -154,6 +154,7 @@ p.info {
 	color: #fdfdfd;
 	padding: 3px;
 	@include rounded-corners(4px);
+	letter-spacing: 4px;
 }
 
 #header a.approve_report {

@@ -1,6 +1,6 @@
 <%= form_for :send_invoice, :url => send_email_invoice_path(@invoice), :method => :post, :remote => :true do |f| %>
   <br />
-    <%= f.label :to, "Recipient " %>
+    <%= f.label :to, "Recipient" %>
     <%= f.select :contact_id, contacts_options(@invoice.customer) %> <br />
     <%= f.label :subject %><br />
     <%= f.text_field :subject, :value => @subject %> <br />

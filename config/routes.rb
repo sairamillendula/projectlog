@@ -42,6 +42,7 @@ Projectlog::Application.routes.draw do
     end
     member do
       get "shared"
+      post 'shared/approve', :action => 'approve'
     end
     resources :emails, :only => [ :new, :create ], :controller => "reports/emails"
   end

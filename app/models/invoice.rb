@@ -14,8 +14,11 @@ class Invoice < ActiveRecord::Base
   accepts_nested_attributes_for :line_items, :allow_destroy => :true,
     :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
-  attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount, :line_items_attributes
-
+  attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount, 
+                  :line_items_attributes
+  
+  before_create :generate_invoice_number 
+  
   def amount_due
     total = line_items.collect(&:line_total).sum
     ((total - total*discount/100).round(2)).round(2)
@@ -26,11 +29,11 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.status_list
-    ['draft', 'sent', 'partial payment', 'paid']
+    ['Draft', 'Sent', 'Partial payment', 'Paid']
   end
 
   def paid?
-     status == "paid"
+     status == "Paid"
   end
 
   def generate_invoice_number_and_slug

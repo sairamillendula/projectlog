@@ -363,17 +363,17 @@ p.buttonorange.inactive {
 #column_left {
 	float: left;
 	width: 49%;
-	padding-right: 6px;
+	padding-right: 2px;
 }
 
-#column_left.border {
-	border-right: 1px solid #e0e0e0;
+#column_right.border {
+	border-left: 1px solid #e0e0e0;
 }
 
 #column_right {
 	float: right;
 	width: 49%;
-	padding-left: 6px;
+	padding-left: 10px;
 }
 
 .no-occurence {

@@ -49,24 +49,21 @@
             <%= f.label :phone_number %>
             <%= f.phone_field :phone_number %>
           </div>
-          <h2>Default invoice note:</h2>
-
-          <div class="field">
-            <p class="info">Add default invoice signature</p>
-            <%= f.text_area :invoice_signature, :rows => 6, :class => "invoice-sig-area" %>
+		  <div class="field">
+	        <%= f.label :website %>
+	        <%= f.url_field :website %>
           </div>
-          <div class="field">
-            <%= f.label :website %>
-            <%= f.url_field :website %>
-          </div>
+          
+          <div class="actions">
+	        <p class="submit"><%= f.submit "Update Settings" %></p>
+	      </div>
         </div>
       </div>
-      <div id="column_right">
+      <div id="column_right" class ='border'>
         <h2>Member since <%= l @profile.created_at.to_date %></h2><br/>
 
         <div class="field">
-          <%= f.label :localization %>
-          <br/>
+          <h2><%= f.label :localization %></h2>
 
           <p class="info">Select currency, date and number format</p>
           <%= collection_select(:profile, :localization, Localization.all, :reference, :name, options = {:prompt => ""}) %>
@@ -78,21 +75,19 @@
           <p class="info">How many hours within a full day at work? Required to convert hours worked to days.</p>
           <%= f.number_field :hours_per_day, :size => 5 %>
         </div>
+        <br />
+        <h2>Invoice settings</h2>
         <div class="field">
-          <%= f.label :tax1_label, "Taxes" %>
-          <br/>
-
           <p class="info">What taxes do you use?</p>
-          <%= f.text_field :tax1_label %>
+          Tax 1:<%= f.text_field :tax1_label, :size => 6 %>
           <%= f.number_field :tax1, :size => 5 %> %<br/>
-          <%= f.text_field :tax2_label %>
+          Tax 2:<%= f.text_field :tax2_label, :size => 6 %>
           <%= f.number_field :tax2, :size => 5 %> %
           <%= f.check_box :compound %> <%= f.label :compound %>
         </div>
-      </div>
-      <%= clear %> <br/>
-
-      <div class="actions">
-        <p class="submit"><%= f.submit "Update Settings" %></p>
+        <div class="field">
+          <p class="info">Add default invoice signature</p>
+          <%= f.text_area :invoice_signature, :rows => 6, :class => "invoice-sig-area" %>
+        </div>
       </div>
 <% end %>

@@ -40,20 +40,23 @@ class ReportsController < ApplicationController
   
   def approve
     @report = Report.find_by_slug!(params[:id])
-    @report.approve(request.remote_ip)
     
-    respond_to do |format|
+    if !@report.approved?
+      @report.approved = true
+      @report.approved_at = Time.now
+      @report.approved_ip = request.remote_ip
+    
       if @report.save
-        format.html { redirect_to(@report) }
-      else
-        format.html { render :action => "shared", :notice => 'An error occured. Please try again.' }
+        redirect_to shared_report_path(@report)
+      else
+        redirect_to shared_report_path(@report), :notice => 'An error occured. Please try again.'
       end
-    end 
+    else
+      raise ActionController::RoutingError.new('Not Found')
+    end 
   end
   
-end
-  
-  private
+private
   def sort_column
     Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end

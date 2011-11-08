@@ -38,6 +38,8 @@ td form.edit_activity {
 	padding: 0 3px;
 	background-color: #BEDCE7;
 	@include rounded-corners(3px);
+	letter-spacing: 4px;
+    background-color: #55B449;
 }
 
 #send_report_email_dialog input[type=submit] {
@@ -46,7 +48,6 @@ td form.edit_activity {
 
 #send_report_email_dialog input, #send_report_email_dialog textarea {
 	width: 100%;
-	#max-width: 392px;
 }
 
 #send_report_email_dialog input[type="checkbox"] {

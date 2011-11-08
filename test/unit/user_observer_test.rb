@@ -7,5 +7,5 @@ class UserObserverTest < ActiveSupport::TestCase
     #api = emailings(:one)
     #call = Hominid::API.new(api, {:secure => true, :timeout => 60})
     #assert true
-  end
+  #end
 end

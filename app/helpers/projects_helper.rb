@@ -10,6 +10,7 @@ module ProjectsHelper
     end
   end
   
+  #Show billable amount based on time logged and settings
   def show_billable_amount
     if @project.activities.any? && @project.default_rate.present? && @project.total_unit.present? #Calculate if required fields found
       number_to_currency(@project.billable_amount) + ' (' + 
@@ -18,8 +19,8 @@ module ProjectsHelper
     elsif @project.per_diem? && !current_user.profile.hours_per_day.present? #Can't translate hours to days if variable not set
       link_to('Update settings', settings_path )
 
-    elsif !@project.activities.any? #Nothing to show
-    elsif !@project.total_unit.present?
+    elsif !@project.activities.any? or !@project.total_unit.present? #Nothing to show
+    elsif @project.per_diem?
       number_to_currency(@project.billable_amount)
     else  
       link_to('Update your rate', edit_project_path(@project)) unless @project.fixed? #Fixed projects not concerned

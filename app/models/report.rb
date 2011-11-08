@@ -3,6 +3,7 @@ class Report < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   
+  attr_accessible :project_id, :start_date, :end_date, :slug, :approved, :approved_at, :approved_ip
   validates_presence_of :start_date, :end_date, :user_id, :slug
   validate :start_date_must_be_smaller_than_end_date
   
@@ -40,7 +41,7 @@ class Report < ActiveRecord::Base
   end
   
   private
-  
+
   def generate_random_slug
     self.slug = Devise.friendly_token.downcase
   end
@@ -50,6 +51,5 @@ class Report < ActiveRecord::Base
       errors.add(:start_date, "must be smaller than end date")
     end
   end
-  
-  attr_protected :approved, :approved_at, :approved_ip
+
 end

@@ -8,9 +8,9 @@
      </h1>
      <div id="intro" class="info">
 	   <h2>Hello there, <%= @report.user.name %> wish to share this report with you.
-	     <% if !@report.approved? %>
+	     <% if !@report.approved? && @report.activities.any? %>
 	       If you agree please accept it  
-	       <%= link_to "'I approve this report'", approve_report_path(@report), :method => :put, 
+	       <%= link_to "'I approve this report'", shared_approve_report_path(@report), :method => :post, 
 	       :class => "approve_report", :title => "This action can not be undone. Approve only if you are authorized" %>
 	     <% end %>
 	   </h2>

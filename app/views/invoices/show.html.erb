@@ -1,12 +1,4 @@
-<ul id="sub-menu" class="no-print">
-  <%= link_to '← All invoices', invoices_path %> |
-  <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-  <%= link_to 'Send', prepare_email_invoice_path(@invoice), :remote => true %> |
-  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf) %>
-
-  <li><%= link_to '+ Payment', new_invoice_payment_path(@invoice), :class => 'buttonorange', :remote => true %></li>
-  <li><%= link_to 'Show Payments', invoice_payments_path(@invoice), :class => 'buttonorange', :remote => true %></li>
-</ul>
+<%= render "submenu" %>
 
 <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
 
@@ -16,12 +8,7 @@
   </div>
 <% end %>
 
-<h1>Invoice</h1>
-
-<p>
-  <b>Invoice number:</b>
-  <%= @invoice.invoice_number %>
-</p>
+<h1>Invoice #<%= @invoice.invoice_number %></h1>
 
 <p>
   <b>Issued date:</b>
@@ -68,7 +55,7 @@
   <%= @invoice.customer.name %>
 </p>
 
-<h3>Line Items </h3>
+
 <div id="line_items_list"><%= render 'line_items_list' %></div>
 
 </div>
