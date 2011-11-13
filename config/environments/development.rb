@@ -40,12 +40,12 @@ Projectlog::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 
   # fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  #config.assets.compress = true
 end
 

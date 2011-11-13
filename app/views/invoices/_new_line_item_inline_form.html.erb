@@ -4,8 +4,8 @@
     <%= f.hidden_field :invoice_id, value: @invoice.id %>
   </td>
   <td><%= f.text_field :description %></td>
-  <td><%= f.number_field :quantity, :size => 6 %></td>
-  <td><%= f.number_field :price, :size => 9 %></td>
+  <td><%= f.number_field :quantity, :min => 1 %></td>
+  <td><%= f.number_field :price %></td>
   <% if @invoice.user.profile.any_taxes? %>
     <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? 2 : 3 %>">
       <%= select_tag(:taxselect, options_for_select(@invoice.user.profile.tax_options)) %>

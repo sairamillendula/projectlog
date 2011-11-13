@@ -15,7 +15,6 @@
 }
 
 .table {
-    font-size: 90%;
 	margin-bottom: 20px;
 	width: 100%;
 	border-spacing: 0px;
@@ -31,13 +30,13 @@
 
     .td, .th {
        display: table-cell;
+	   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;       
     }
 
     .th {
-        background-color: #EAEAEA;
-        border-bottom: 1px solid #D8D8D8;
+        background-color: #eaeaea;
+        border-bottom: 1px solid #d8d8d8;
         color: #999999;
-        font-family: Monaco,'Courier New','DejaVu Sans Mono','Bitstream Vera Sans Mono',monospace;
         font-weight: normal;
         padding: 0.5em 0.3em;
         text-align: left;
@@ -62,7 +61,6 @@
       }
 
     .td {
-        font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
         padding: 0.5em 0.3em;
 
         a {
@@ -81,9 +79,47 @@
         }
     }
 }
+div.td.actions {
+	width: 15px;
+}
+
+div.separation {
+	border-bottom: 1px solid #d8d8d8;
+	margin-bottom: 10px;
+}
+
 input.label_field {
     border: none;
     background: transparent;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input.item-quantity {
+	width: 70px;
+}
+
+input.item-price {
+	width: 88px;
+}
+
+.td.item-subtotal {
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+table#total {
+	font-weight: bold;
+	text-align: right;
+}
+
+#total tbody tr td {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+
+input#invoice_discount {
+	width: 60px;
+	margin-bottom: 0;
 }
 
 div.invoice.sent {

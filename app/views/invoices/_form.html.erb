@@ -13,7 +13,7 @@
 
   <div class="inline-form">
     <div class="field">
-      <%= f.label :invoice_number, :class => 'mandatory' %>
+      <%= f.label :invoice_number, "Number", :class => 'mandatory' %>
       <%= f.text_field :invoice_number %>
     </div>
     <div class="field">
@@ -46,35 +46,8 @@
     </div>
   </div>
   <br/>
-  <table class="invoice-form-table">
-    <tr>
-      <td><%= f.label :issued_date %></td>
-      <td><%= f.text_field :issued_date %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :due_date %></td>
-      <td><%= f.text_field :due_date %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :customer_id %></td>
-      <td><%= f.select :customer_id, current_user.customers.collect { |c| [c.name, c.id] } %></td>
-    </tr>
-    <tr>
-      <td><%= f.label :currency %></td>
-      <td><%= f.select :currency, options_for_select(currency_options, @invoice.currency) %></td>
-    </tr>
-  </table>
-  <div style="clear:both"></div>
-  <table style="width:100%;">
-    <tr>
-      <td style="text-align:center;"><%= f.label :subject %></td>
-      <td><%= f.text_field :subject, :style => "width:650px;" %></td>
-    </tr>
-  </table>
-  <br/>
   <div class="full-width table" id="line-items">
     <div class="tr">
-      <div class="th"></div>
       <div class="th">Type</div>
       <div class="th">Description</div>
       <div class="th">Quantity</div>
@@ -92,28 +65,26 @@
       <div class="th">Amount</div>
     </div>
     <%= f.fields_for :line_items %>
-    <div id="add_new_invoice_line"><%= f.link_to_add "Add new line", :line_items %></div>
+    <span id="add_new_invoice_line"><%= f.link_to_add "Add new line", :line_items %></span>
   </div>
-  <hr/>
+  <div class="separation"></div>
   <table style="width:100%" id="total">
-    <tbody>
     <tr>
-      <td colspan=6 style="text-align:right">Subtotal</td>
-      <td id="subtotal" style="text-align:right"><%= @invoice.line_items.collect(&:line_total).sum.round(2) %></td>
+      <td colspan=6>Subtotal: </td>
+      <td id="subtotal"><%= @invoice.line_items.collect(&:line_total).sum.round(2) %></td>
     </tr>
     <tr>
-      <td colspan=6 style="text-align:right">Taxes</td>
-      <td id="taxtotal" style="text-align:right"><%= @invoice.line_items.collect { |i| (i.tax1 || 0) + (i.tax2 || 0) }.sum.round(2) %></td>
+      <td colspan=6>Taxes: </td>
+      <td id="taxtotal"><%= @invoice.line_items.collect { |i| (i.tax1 || 0) + (i.tax2 || 0) }.sum.round(2) %></td>
     </tr>
     <tr>
-      <td colspan=6 style="text-align:right"><%= f.label :discount, 'Discount %' %></td>
-      <td style="text-align:right; width: 1%"><%= f.number_field :discount, :size => 6 %></td>
+      <td colspan=6><%= f.label :discount, 'Discount % ' %></td>
+      <td ><%= f.number_field :discount %></td>
     </tr>
     <tr>
-      <td colspan=6 style="text-align:right">Amount Due</td>
-      <td style="text-align:right" id="amount_due"><%= (@invoice.line_items.collect(&:line_total).sum*(1-(@invoice.discount || 0)/100)).round(2) %></td>
+      <td colspan=6>Amount Due: </td>
+      <td id="amount_due" style="width: 1%"><%= (@invoice.line_items.collect(&:line_total).sum*(1-(@invoice.discount || 0)/100)).round(2) %></td>
     </tr>
-    </tbody>
   </table>
   <%= f.label :note %><br />
   <%= f.text_area :note %>
