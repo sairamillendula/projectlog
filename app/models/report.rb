@@ -34,8 +34,14 @@ class Report < ActiveRecord::Base
     "#{project_title} from #{I18n.l start_date, :format => :long} to #{I18n.l end_date, :format => :long}"
   end
   
-private
+  def approve!(ip_address)
+    self.approved = true
+    self.approved_at = Time.zone.now
+    self.approved_ip = ip_address
+  end
   
+  private
+
   def generate_random_slug
     self.slug = Devise.friendly_token.downcase
   end

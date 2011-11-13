@@ -6,8 +6,6 @@ gem 'sass-rails'
 gem 'coffee-script'
 gem 'uglifier'
 
-gem 'prawn_rails'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -12,7 +12,7 @@ class PaymentsController < ApplicationController
     @invoice = current_user.invoices.find(params[:invoice_id])
     @payment = Payment.new
     @payment.invoice = @invoice
-    @payment.amount = @invoice.amount_due
+    @payment.amount = @invoice.balance
     @refresh = if params[:update_payments] == 'yes' then true else false end
   end
 
@@ -24,8 +24,7 @@ class PaymentsController < ApplicationController
       update_invoice
       if params[:update_payments] == 'yes'
         @refresh = true
-        @payments = @invoice.payments
-        @total = @invoice.balance
+        set_payments_and_total
       else
         @refresh = false
       end
@@ -42,8 +41,7 @@ class PaymentsController < ApplicationController
     @payment = @invoice.payments.find(params[:id])
     if @payment.update_attributes(params[:payment])
       update_invoice
-      @payments = @invoice.payments
-      @total = @invoice.balance
+      set_payments_and_total
     end
   end
 
@@ -52,16 +50,20 @@ class PaymentsController < ApplicationController
     @payment = @invoice.payments.find(params[:id])
     if @payment.destroy
       update_invoice
-      @payments = @invoice.payments
-      @total = @invoice.balance
+      set_payments_and_total
     end
   end
 
   private
 
+  def set_payments_and_total
+    @payments = @invoice.payments
+    @total = @payments.collect(&:amount).sum
+  end
+
   def update_invoice
-    @invoice.balance = @invoice.payments.sum(:amount).round 2
-    @invoice.status = if @invoice.amount_due > 0.01 then "Partial payment" else "paid" end
+    @invoice.reload
+    @invoice.status = if @invoice.balance_calc > 0.01 then "Partial payment" else "paid" end
     @invoice.save
   end
 end

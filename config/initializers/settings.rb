@@ -10,4 +10,5 @@ Settings.defaults['invoices.email.subject'] = "Invoice for %{invoice_subject} fr
 Settings.defaults['invoices.email.body'] = "Hello,
 
 Please take a look on this invoice.
+Click the following link to see the invoice in browser: %{invoice_link}
 "

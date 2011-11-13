@@ -21,10 +21,10 @@ Projectlog::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
-  
+
   # Dev Host
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  
+
   # Getprojectlog Email server setup
   config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {  
@@ -40,6 +40,12 @@ Projectlog::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  config.assets.debug = false
+
+  # fallback to assets pipeline if a precompiled asset is missed
+  config.assets.compile = true
+
+  # Compress JavaScripts and CSS
+  config.assets.compress = true
 end
 

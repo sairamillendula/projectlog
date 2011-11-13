@@ -1,25 +1,15 @@
-<%= render "submenu" %>
-
 <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
 
-<div id="companies">
-  <% if get_company_info(@invoice.user.profile).size > 0 %>
-    <div class="company-info">
-      <%= get_company_info @invoice.user.profile %>
-    </div>
-  <% end %>
-<br />
-  <div class="customer-info">
-    <p>
-	  To: <b><%= @invoice.customer.name %></b>
-    </p>
+<% if get_company_info(@invoice.user.profile).size > 0 %>
+  <div class="company-info">
+    <%= get_company_info @invoice.user.profile %>
   </div>
-</div>
+<% end %>
 
-<h1>INVOICE </h1>
+<h1>Invoice</h1>
 
 <p>
-  <b>Invoice Number:</b>
+  <b>Invoice number:</b>
   <%= @invoice.invoice_number %>
 </p>
 
@@ -49,6 +39,11 @@
 </p>
 
 <p>
+  <b>Note:</b>
+  <%= @invoice.note %>
+</p>
+
+<p>
   <b>Currency:</b>
   <%= @invoice.currency %>
 </p>
@@ -58,7 +53,12 @@
   <%= @invoice.discount %> %
 </p>
 
+<p>
+  <b>Customer:</b>
+  <%= @invoice.customer.name %>
+</p>
 
+<h3>Line Items </h3>
 <div id="line_items_list"><%= render 'line_items_list' %></div>
 
 </div>

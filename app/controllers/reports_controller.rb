@@ -35,16 +35,14 @@ class ReportsController < ApplicationController
       end
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
       format.csv { response.headers["Content-Disposition"] = "attachment; filename=time_entries.csv" }      
-    end    
+    end
   end
   
   def approve
     @report = Report.find_by_slug!(params[:id])
     
     if !@report.approved?
-      @report.approved = true
-      @report.approved_at = Time.now
-      @report.approved_ip = request.remote_ip
+      @report.approve(request.remote_ip)
     
       if @report.save
         redirect_to shared_report_path(@report)

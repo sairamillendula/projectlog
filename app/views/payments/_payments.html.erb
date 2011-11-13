@@ -22,7 +22,12 @@
 <% end %>
   <tr>
     <td>Total:</td>
-    <td><%= @total %></td>
+    <td><%= @total.round 2 %></td>
+    <td colspan="2"></td>
+  </tr>
+  <tr>
+    <td>Balance:</td>
+    <td><%= @invoice.balance %></td>
     <td colspan="2"><%= link_to 'Add Payment', "#{new_invoice_payment_path(@invoice)}?update_payments=yes", :remote => true %></td>
   </tr>
 </table>

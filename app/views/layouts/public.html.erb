@@ -5,23 +5,20 @@
    <meta name="description" content="Projectlog is an easy way for consultants and freelancers to send timesheet & invoices" />
    <meta name="keywords" content="time tracking, invoicing, activity log, collaborative tool, freelancer, consultant, yafoy" />
    <%= stylesheet_link_tag "public" %>
+   <%= stylesheet_link_tag "invoices" %>
    <%= javascript_include_tag "application" %>
    <%= csrf_meta_tag %>
    <link href='http://fonts.googleapis.com/css?family=Pacifico&v1' rel='stylesheet' type='text/css'>
   </head>
- <body>
-	
-	<%= render :partial => 'layouts/shared_header' %>
-   
-  <section id="main-content">
-    <section id="content" role="main">
- 	  <%= yield %>
-   </section>
-  </section> <!-- main-content -->
-  
-  <section id="footer">
-	<p>Brought to you by Projectlog :: The easy way to track time and send invoice. <a href="http://getprojectlog.com">Learn more</a> or <%= link_to 'Sign Up (free)', register_path %></p>
-  </section>
-
+  <body>
+    <%= render :partial => 'layouts/shared_header' unless @skip_approve %>
+      <section id="main-content">
+        <section id="content" role="main">
+          <%= yield %>
+        </section>
+      </section> <!-- main-content -->
+      <section id="footer">
+        <p>Brought to you by Projectlog :: The easy way to track time and send invoice. <a href="http://getprojectlog.com">Learn more</a> or <%= link_to 'Sign Up (free)', register_path %></p>
+      </section>
  </body>
 </html>
