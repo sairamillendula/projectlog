@@ -62,3 +62,17 @@
 <div id="line_items_list"><%= render 'line_items_list' %></div>
 
 </div>
+<<<<<<< HEAD
+
+<div class="no-print">
+  <%= link_to 'Add Line Item', add_line_item_invoice_path(@invoice), onclick: "$('#new_line_item_form').toggle(); return false;" %>
+</div>
+
+<% if @invoice.note.present? %>
+<p>
+  <b>Note:</b>
+  <%= @invoice.note %>
+</p>
+<% end %>
+=======
+>>>>>>> 2dcffd433f5bc0db3c075863d7c31ec4899c7222
