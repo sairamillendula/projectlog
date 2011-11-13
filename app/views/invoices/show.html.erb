@@ -2,13 +2,26 @@
 
 <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
 
-<% if get_company_info(@invoice.user.profile).size > 0 %>
-  <div class="company-info">
-    <%= get_company_info @invoice.user.profile %>
+<div id="companies">
+  <% if get_company_info(@invoice.user.profile).size > 0 %>
+    <div class="company-info">
+      <%= get_company_info @invoice.user.profile %>
+    </div>
+  <% end %>
+<br />
+  <div class="customer-info">
+    <p>
+	  To: <b><%= @invoice.customer.name %></b>
+    </p>
   </div>
-<% end %>
+</div>
 
-<h1>Invoice #<%= @invoice.invoice_number %></h1>
+<h1>INVOICE </h1>
+
+<p>
+  <b>Invoice Number:</b>
+  <%= @invoice.invoice_number %>
+</p>
 
 <p>
   <b>Issued date:</b>
@@ -36,11 +49,6 @@
 </p>
 
 <p>
-  <b>Note:</b>
-  <%= @invoice.note %>
-</p>
-
-<p>
   <b>Currency:</b>
   <%= @invoice.currency %>
 </p>
@@ -48,11 +56,6 @@
 <p>
   <b>Discount:</b>
   <%= @invoice.discount %> %
-</p>
-
-<p>
-  <b>Customer:</b>
-  <%= @invoice.customer.name %>
 </p>
 
 
@@ -63,3 +66,10 @@
 <div class="no-print">
   <%= link_to 'Add Line Item', add_line_item_invoice_path(@invoice), onclick: "$('#new_line_item_form').toggle(); return false;" %>
 </div>
+
+<% if @invoice.note.present? %>
+<p>
+  <b>Note:</b>
+  <%= @invoice.note %>
+</p>
+<% end %>

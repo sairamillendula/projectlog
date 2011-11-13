@@ -98,13 +98,17 @@ div.invoice.paid {
     background: rgb(246,250,243);
 }
 
-div.company-info {
+#companies {
+	float: right;
+}
+
+div.company-info, div.customer-info {
     width: 300px;
     float: right;
     border: solid 1px #999;
     background: #F8F8F8;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 
 textarea.invoice-sig-area {
