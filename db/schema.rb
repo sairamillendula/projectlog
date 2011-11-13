@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105174939) do
+ActiveRecord::Schema.define(:version => 20111113220934) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(:version => 20111105174939) do
     t.float    "line_total",  :default => 0.0, :null => false
     t.float    "tax1"
     t.float    "tax2"
-    t.float    "quantity",    :default => 0.0, :null => false
+    t.float    "quantity",    :default => 1.0, :null => false
     t.float    "price",       :default => 0.0, :null => false
     t.float    "subtotal"
     t.datetime "created_at"
