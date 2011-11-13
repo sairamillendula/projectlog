@@ -42,7 +42,7 @@ class ReportsController < ApplicationController
     @report = Report.find_by_slug!(params[:id])
     
     if !@report.approved?
-      @report.approve(request.remote_ip)
+      @report.approve!(request.remote_ip)
     
       if @report.save
         redirect_to shared_report_path(@report)
