@@ -44,8 +44,4 @@ Projectlog::Application.configure do
 
   # fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = true
-
-  # Compress JavaScripts and CSS
-  #config.assets.compress = true
 end
-
