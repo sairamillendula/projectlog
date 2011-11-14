@@ -5,19 +5,18 @@ class Invoice < ActiveRecord::Base
   has_many :payments
 
   before_create :generate_invoice_number_and_slug
-  before_save    :update_balance
+  before_save   :update_balance
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
 
-  validates :subject, :balance, :customer, :due_date, :issued_date, :presence => true
+  validates_presence_of :subject, :balance, :customer, :due_date, :issued_date
 
-  accepts_nested_attributes_for :line_items, :allow_destroy => :true,
-    :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  accepts_nested_attributes_for :line_items, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount, 
                   :line_items_attributes
   
-  before_create :generate_invoice_number 
+  before_create :generate_invoice_number_and_slug
   
   def amount_due
     total = line_items.collect(&:line_total).sum

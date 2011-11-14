@@ -109,7 +109,7 @@ class InvoicesController < ApplicationController
 
   def create
     @invoice = current_user.invoices.new(params[:invoice])
-    @invoice.status = 'draft'
+    @invoice.status = 'Draft'
 
     respond_to do |format|
       if @invoice.save

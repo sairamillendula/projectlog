@@ -10,9 +10,10 @@
   <% end %>
 <br />
   <div class="customer-info">
-    <p>
-	  To: <b><%= @invoice.customer.name %></b>
-    </p>
+    To: <b><%= @invoice.customer.name %></b><br/>
+    <%= @invoice.customer.address1 %><br />
+    <% if @invoice.customer.address2.present? %><%= @invoice.customer.address2 %><br /><% end %>
+    <%= @invoice.customer.city %> <%= @invoice.customer.province %> <%= @invoice.customer.postal_code %><br />
   </div>
 </div>
 
@@ -52,12 +53,6 @@
   <b>Currency:</b>
   <%= @invoice.currency %>
 </p>
-
-<p>
-  <b>Discount:</b>
-  <%= @invoice.discount %> %
-</p>
-
 
 <div id="line_items_list"><%= render 'line_items_list' %></div>
 
