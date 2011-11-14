@@ -1,35 +1,33 @@
-@media print {
-   table {
+table {
 	border-spacing: 0px;
 	width: 100%;
 	text-align: left;
 	font: 11px;
-   } 
-   table th {
+   }   
+table th {
       font-weight: bold;
       padding: 8px;
-    }
-    #header th {
+}  
+#header th {
 	border-bottom: 1px solid #eaeaea;
-    }
-    #total th {
+}
+#total th {
 	border-top: 2px solid #eaeaea;
-    }
-    table td {
+}
+table td {
     padding: 8px;
     margin-right: 10px; 
-    }
-    #period {
+}
+#period {
 	font-weight: bold;
-	}
-	.date {
+}
+.date {
 	width:80px;
-	}
-	.time {
+}
+.time {
 	width:40px;
-	}
-	.sum {
+}
+.sum {
 	text-align:right; 
 	padding-left:10px;
-	}
 }
