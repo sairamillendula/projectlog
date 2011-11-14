@@ -150,8 +150,8 @@ div.invoice.paid {
 div.company-info, div.customer-info {
     width: 300px;
     float: right;
-    border: solid 1px #999;
-    background: #F8F8F8;
+    border: solid 1px #cbcecf;
+    background: #f3f3f3;
     padding: 10px;
     margin-bottom: 10px;
 }
@@ -166,10 +166,10 @@ textarea.invoice-sig-area {
         background: transparent;
     }
     body, #content, #main-content {
-        background: #FFF;
+        background: #fff;
     }
     a.no-print {
-        color: #FFF;
+        color: #fff;
     }
 }
 

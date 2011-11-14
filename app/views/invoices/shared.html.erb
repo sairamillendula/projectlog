@@ -1,64 +1,13 @@
-<div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
+<%= render 'shared_header' %>
+<section id="main-content">
+  <section id="content" role="main">
+	
+    <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
 
-<% if get_company_info(@invoice.user.profile).size > 0 %>
-  <div class="company-info">
-    <%= get_company_info @invoice.user.profile %>
-  </div>
-<% end %>
+    <%= render 'header' %>
 
-<h1>Invoice</h1>
+    <h3>Line Items</h3>
+	  <div id="line_items_list"><%= render 'line_items_list' %></div>
 
-<p>
-  <b>Invoice number:</b>
-  <%= @invoice.invoice_number %>
-</p>
-
-<p>
-  <b>Issued date:</b>
-  <%= @invoice.issued_date %>
-</p>
-
-<p>
-  <b>Due date:</b>
-  <%= @invoice.due_date %>
-</p>
-
-<p>
-  <b>Subject:</b>
-  <%= @invoice.subject %>
-</p>
-
-<p>
-  <b>Balance:</b>
-  <span id="invoice-balance"><%= @invoice.balance %></span>
-</p>
-
-<p>
-  <b>Status:</b>
-  <span id="invoice-status"><%= @invoice.status %></span>
-</p>
-
-<p>
-  <b>Note:</b>
-  <%= @invoice.note %>
-</p>
-
-<p>
-  <b>Currency:</b>
-  <%= @invoice.currency %>
-</p>
-
-<p>
-  <b>Discount:</b>
-  <%= @invoice.discount %> %
-</p>
-
-<p>
-  <b>Customer:</b>
-  <%= @invoice.customer.name %>
-</p>
-
-<h3>Line Items </h3>
-<div id="line_items_list"><%= render 'line_items_list' %></div>
-
-</div>
+  </section>
+</section>

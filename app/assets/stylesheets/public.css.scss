@@ -71,31 +71,31 @@ p.info {
 	margin-top: 45px;
 	margin-bottom: 20px;
 	position: relative;
-}
 
-#header h1 {
+    h1 {
 	font-size: 30px;
 	line-height: 30px;
-}
+    }
 
-#header a, #footer a {
+    a {
 	color: #5E6066;
 	text-decoration: none;
 	padding: 2px;
-}
-
-#header a:hover, #footer a:hover {
-	color: #f26535;
-	background: none;
+	
+     	&:hover {
+	       color: #f26535;
+	       background: none;
+        }
+     }
 }
 
 #intro {
 	padding: 5px;
 	margin-top: 30px;
-}
 
-#intro h2 {
+    h2 {
 	font-weight: normal;
+    }
 }
 
 #actions {
@@ -145,6 +145,16 @@ p.info {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	
+	a {
+		color: #f26535;
+		text-decoration: none;
+		background: none;
+		
+		&:hover {
+			color: #5E6066;
+		}	
+	}	
 }
 
 .approved_report {

@@ -28,7 +28,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def self.status_list
-    ['Draft', 'Sent', 'Partial payment', 'Paid']
+    ['Draft', 'Sent', 'Partial Payment', 'Paid']
   end
 
   def paid?

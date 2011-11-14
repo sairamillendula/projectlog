@@ -1,7 +1,15 @@
-<h1><%= @report.description %> 
-  <span id="total_report">TOTAL <%= number_with_delimiter(@report.total_time) %></span>
-</h1>
+<%= render 'shared_header' unless @skip_approve %>
+<section id="main-content">
+  <section id="content" role="main">
+      
+    <h1><%= @report.description %> 
+	  <span id="total_report">TOTAL <%= number_with_delimiter(@report.total_time) %></span>
+	</h1>
 
-<div id="activities">  
-  <%= render "shared_activities" %>
-</div>
+	<div id="activities">  
+	  <%= render "shared_activities" %>
+	</div>
+
+  </section>
+</section>
+

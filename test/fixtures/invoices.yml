@@ -5,7 +5,7 @@ one:
   due_date: 2011-09-04
   subject: MyString
   balance: 1.5
-  status: paid
+  status: Paid
   note: MyText
   currency: USD
   customer_id: 1
@@ -16,7 +16,7 @@ two:
   due_date: 2011-09-04
   subject: MyString
   balance: 1.5
-  status: paid
+  status: Paid
   note: MyText
   currency: RUB
   customer_id: 1

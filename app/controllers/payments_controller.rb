@@ -63,7 +63,7 @@ class PaymentsController < ApplicationController
 
   def update_invoice
     @invoice.reload
-    @invoice.status = if @invoice.balance_calc > 0.01 then "Partial payment" else "paid" end
+    @invoice.status = if @invoice.balance_calc > 0.01 then "Partial Payment" else "Paid" end
     @invoice.save
   end
 end

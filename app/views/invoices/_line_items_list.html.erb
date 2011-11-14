@@ -69,7 +69,7 @@
       <% if @invoice.user.profile.any_taxes? %>
         <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
       <% end %>
-      <td class="align_right">Amount due:</td>
+      <td class="align_right">Amount Due:</td>
       <td>
         <b><%= Money.from_float((@invoice.line_items.sum(:line_total)*(1-(@invoice.discount || 0)/100)).round(2), @invoice.currency).format(:symbol => true) %></b>
       </td>

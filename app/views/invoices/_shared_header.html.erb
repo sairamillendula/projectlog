@@ -1,0 +1,14 @@
+<header role="banner" id="header">
+  <hgroup class="subhead">
+     <h1>INVOICE
+       <div id="actions">
+	     <%= link_to image_tag("file_download.png") + 'Download PDF', invoice_path(@invoice, :format => :pdf) %>
+	   </div>
+     </h1>
+     <div id="intro" class="info">
+	   <h2>Hello there, <%= @invoice.user.name %> wish to share this invoice with you.
+	   </h2>
+	</div>
+</div>
+  </hgroup> 
+</header>
