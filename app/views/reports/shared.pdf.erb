@@ -1,43 +1,9 @@
 <head>
 	<title>Timesheet</title>
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<style>
-  @media print {
-   table {
-	border-spacing: 0px;
-	width: 100%;
-	text-align: left;
-	font: 11px;
-   } 
-   table th {
-      font-weight: bold;
-      padding: 8px;
-    }
-    #header th {
-	border-bottom: 1px solid #eaeaea;
-    }
-    #total th {
-	border-top: 2px solid #eaeaea;
-    }
-    table td {
-    padding: 8px;
-    margin-right: 10px; 
-    }
-    #period {
-	font-weight: bold;
-	}
-	.date {
-	width:80px;
-	}
-	.time {
-	width:40px;
-	}
-	.sum {
-	text-align:right; 
-	padding-left:10px;
-	}
-  }
-</style>
+    <style media="all">
+       <%= render :file => "#{Rails.root}/public/shared.css.scss" %>
+     </style>
 </head>
 
 <div id="activities">  
