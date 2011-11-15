@@ -1,3 +1,5 @@
+@import "variables";
+
 #invoices {
 	margin-top: 30px;
 }
@@ -131,16 +133,36 @@ input#invoice_discount {
 	margin-bottom: 0;
 }
 
-div.invoice.sent {
-    background: rgb(243,246,250);
+#invoice_status {
+	font-size: 15px;
+	font-weight: normal;
+	text-transform: uppercase;
+	padding: 4px;
+	margin-left: 6px;
+	margin-top: -2px;
+	position: absolute;
+    @include rounded-corners(3px);
 }
 
-div.invoice.partial-payment {
-    background: rgb(255,255,243);
+#invoice_status_index {
+	padding: 4px;
+    @include rounded-corners(3px);	
 }
 
-div.invoice.paid {
-    background: rgb(246,250,243);
+span.invoice.draft {
+    background: #f3f3f3;
+}
+
+span.invoice.sent {
+    background: #eaf2f5;
+}
+
+span.invoice.partial-payment {
+    background: #fffff3;
+}
+
+span.invoice.paid {
+    background: #e0faec;
 }
 
 #companies {

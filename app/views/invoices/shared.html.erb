@@ -3,7 +3,23 @@
   <section id="content" role="main">
 	
     <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
+	  <div id="companies">
+        <% if get_company_info(@invoice.user.profile).size > 0 %>
+	      <div class="company-info">
+	      From: <%= get_company_info @invoice.user.profile %>
+		  </div>
+	    <% end %>
+	    <br />
+	    <div class="customer-info">
+	      To: <b><%= @invoice.customer.name %></b><br/>
+		  <%= @invoice.customer.address1 %><br />
+	      <% if @invoice.customer.address2.present? %><%= @invoice.customer.address2 %><br /><% end %>
+	      <%= @invoice.customer.city %> <%= @invoice.customer.province %> <%= @invoice.customer.postal_code %><br />
+	    </div>
+	  </div>
 
+	  <h1>INVOICE</h1>
+    
     <%= render 'header' %>
 
     <h3>Line Items</h3>
