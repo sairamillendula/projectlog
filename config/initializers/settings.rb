@@ -9,8 +9,8 @@ Bye!
 Settings.defaults['invoices.email.subject'] = "Invoice for %{invoice_subject} from %{user_company}"
 Settings.defaults['invoices.email.body'] = "Hello,
 
-I wish to submit my invoice for our mutual project.
-Click the following link to see the invoice in browser: %{invoice_link}
+I wish to submit an invoice for our project.
+Click the following link to see the invoice in your browser: %{invoice_link}
 
 Bye!
 "
