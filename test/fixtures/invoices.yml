@@ -4,20 +4,26 @@ one:
   issued_date: 2011-09-04
   due_date: 2011-09-04
   subject: MyString
-  balance: 1.5
+  balance: 150
   status: Paid
   note: MyText
   currency: USD
-  customer_id: 1
+  customer_id: '1'
   user: one
+  slug: 'invoiceslug'
+  invoice_number: '2011-001'
+  discount: '0.1'
 
 two:
   issued_date: 2011-09-04
   due_date: 2011-09-04
   subject: MyString
-  balance: 1.5
+  balance: 10
   status: Paid
   note: MyText
   currency: RUB
-  customer_id: 1
+  customer_id: '1'
   user: one
+  slug: 'dcdferfrcd43rdc'
+  invoice_number: '2011-002'
+  discount: '10'

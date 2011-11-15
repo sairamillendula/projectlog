@@ -95,7 +95,7 @@ class InvoicesController < ApplicationController
     @invoice = current_user.invoices.new
     @invoice.currency ||= current_user.profile.localization && Localization.find_by_reference(current_user.profile.localization) && Localization.find_by_reference(current_user.profile.localization).currency || "USD"
     @invoice.discount ||= 0
-    @invoice.line_items.build(:quantity => 0, :price => 0.0)
+    @invoice.line_items.build(:quantity => 1, :price => 0.0)
     @invoice.note ||= current_user.profile.invoice_signature
 
     respond_to do |format|
