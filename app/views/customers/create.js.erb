@@ -1,0 +1,12 @@
+<% if @customer.valid? %>
+  $("#intro").html('<%= escape_javascript render(:partial => 'dashboard/introduction') %>');
+<% else %>
+   $('<div id="customer-error"></div>')
+	.html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @customer.errors.full_messages.to_sentence %></div>')
+	.dialog({
+		autoOpen: true,
+		buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+		show: "fade",
+		hide: "fade",
+    });
+<% end %>

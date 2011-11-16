@@ -24,6 +24,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
+      format.js
     end
   end
 
@@ -37,8 +38,10 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.save
         format.html { redirect_to(@customer, :notice => 'Customer was successfully created.') }
+        format.js
       else
         format.html { render :action => "new" }
+        format.js
       end
     end
   end
