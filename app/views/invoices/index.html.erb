@@ -1,4 +1,8 @@
-<% if current_user.invoices.empty? %>
+<% if current_user.customers.empty? %>
+  <div class="no-occurence">
+     <p>You need to create a <%= link_to 'Customer', new_customer_path %> first</p>
+  </div>
+<% elsif current_user.invoices.empty? %>
   <div class="no-occurence">
      <p>Add a new <%= link_to 'Invoice', new_invoice_path %></p>
   </div>
