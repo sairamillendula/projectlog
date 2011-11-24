@@ -22,6 +22,7 @@ class Reports::Email
   end
   
   def deliver
+    raise ArgumentError unless self.valid?
     ReportsMailer.report_shared_with_you(self).deliver
   end
   

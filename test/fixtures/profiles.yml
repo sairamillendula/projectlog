@@ -10,6 +10,7 @@ one:
   localization: "fr-CA"
   hours_per_day: '7.5'
   website: 'http://getprojectlog.com'
+  last_invoice: (2011)-020
   user: one
 
 two:

@@ -1,8 +1,8 @@
 <% unless @payment.new_record? %>
   <% Invoice.status_list.each do |sl| %>
-    $("#invoice-page").removeClass("<%= sl.gsub " ", "-" %>");
+    $("#invoice-page").removeClass("<%= sl.parameterize %>");
   <% end %>
-  $("#invoice-page").addClass("<%= @invoice.status.gsub " ", "-" %>");
+  $("#invoice-page").addClass("<%= @invoice.parameterize %>");
   $("#invoice-status").html("<%= @invoice.status %>");
   $("#invoice-balance").html("<%= @invoice.balance %>");
   $("#new_payment_dialog").dialog("close");
