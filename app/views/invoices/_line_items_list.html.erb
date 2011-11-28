@@ -34,28 +34,28 @@
         <td><%= Money.from_float(line.line_total, @invoice.currency).format(:symbol => true) %></td>
       </tr>
     <% end %>
+    <tr class="total-fields">
+      <td></td>
+      <% if @invoice.user.profile.any_taxes? %>
+        <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
+      <% end %>
+      <td class="align_right">Subtotal:</td>
+      <td>
+        <b><%= Money.from_float(@invoice.line_items.collect(&:line_total).sum.round(2), @invoice.currency).format(:symbol => true) %></b>
+      </td>
+    </tr>
+    <tr class="total-fields">
+      <td></td>
+      <% if @invoice.user.profile.any_taxes? %>
+        <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
+      <% end %>
+      <td class="align_right">Taxes:</td>
+      <td>
+        <b><%= Money.from_float(@invoice.line_items.collect { |i| (i.tax1 || 0) + (i.tax2 || 0) }.sum.round(2), @invoice.currency).format(:symbol => true) %></b>
+      </td>
+    </tr>
     <% if @invoice.discount && @invoice.discount > 0 %>
-      <tr id="total-fields">
-        <td></td>
-        <% if @invoice.user.profile.any_taxes? %>
-          <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
-        <% end %>
-        <td class="align_right">Subtotal:</td>
-        <td>
-          <b><%= Money.from_float(@invoice.line_items.collect(&:line_total).sum.round(2), @invoice.currency).format(:symbol => true) %></b>
-        </td>
-      </tr>
-      <tr id="total-fields">
-        <td></td>
-        <% if @invoice.user.profile.any_taxes? %>
-          <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
-        <% end %>
-        <td class="align_right">Taxes:</td>
-        <td>
-          <b><%= Money.from_float(@invoice.line_items.collect { |i| (i.tax1 || 0) + (i.tax2 || 0) }.sum.round(2), @invoice.currency).format(:symbol => true) %></b>
-        </td>
-      </tr>
-      <tr id="total-fields">
+      <tr class="total-fields">
         <td></td>
         <% if @invoice.user.profile.any_taxes? %>
           <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
@@ -64,7 +64,7 @@
         <td><b><%= @invoice.discount %> %</b></td>
       </tr>
     <% end %>
-    <tr id="total-fields">
+    <tr class="total-fields">
       <td></td>
       <% if @invoice.user.profile.any_taxes? %>
         <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>

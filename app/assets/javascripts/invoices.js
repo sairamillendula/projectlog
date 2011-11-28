@@ -86,7 +86,7 @@ $(function() {
     });
 
     $("#invoice_status").change(function() {
-        $("#invoice-content").removeClass("draft").removeClass("sent").removeClass("partial-payment").removeClass("paid").addClass($("#invoice_status").val().replace(" ", "-"));
+        $("#invoice-content").removeClass("draft").removeClass("sent").removeClass("partial-payment").removeClass("paid").addClass($("#invoice_status").val().toLowerCase().replace(" ", "-"));
     });
 
     $("#invoices th a, #invoices .pagination a").live("click", function() {

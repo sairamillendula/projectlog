@@ -1,5 +1,5 @@
 <h1>Editing invoice <%= @invoice.invoice_number %></h1>
 
-<div class="invoice <%= @invoice.status.gsub " ", "-" %>" id="invoice-content">
+<div class="invoice <%= @invoice.status.parameterize %>" id="invoice-content">
   <%= render 'form' %>
 </div>

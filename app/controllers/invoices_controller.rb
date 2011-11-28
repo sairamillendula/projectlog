@@ -52,13 +52,13 @@ class InvoicesController < ApplicationController
   end
 
   def prepare_email
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.find_by_slug!(params[:id])
     @subject = Settings["invoices.email.subject"].gsub("%{invoice_subject}", @invoice.subject).gsub("%{user_company}", current_user.profile.company)
-    @body = Settings["invoices.email.body"].gsub("%{invoice_link}", shared_invoice_url(@invoice.slug))
+    @body = Settings["invoices.email.body"].gsub("%{invoice_link}", shared_invoice_url(@invoice))
   end
 
   def send_email
-    @invoice = Invoice.find(params[:id])
+    @invoice = Invoice.find_by_slug!(params[:id])
     @new_line_item = LineItem.new
     contact = Contact.find(params[:send_invoice][:contact_id])
     attach = if params[:send_invoice][:attach] == "1" then
@@ -75,7 +75,7 @@ class InvoicesController < ApplicationController
   end
 
   def show
-    @invoice = current_user.invoices.find(params[:id])
+    @invoice = current_user.invoices.find_by_slug!(params[:id])
     respond_to do |format|
       format.html
       format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
@@ -104,7 +104,7 @@ class InvoicesController < ApplicationController
   end
 
   def edit
-    @invoice = current_user.invoices.find(params[:id])
+    @invoice = current_user.invoices.find_by_slug!(params[:id])
   end
 
   def create
@@ -121,7 +121,7 @@ class InvoicesController < ApplicationController
   end
 
   def update
-    @invoice = current_user.invoices.find(params[:id])
+    @invoice = current_user.invoices.find_by_slug!(params[:id])
 
     respond_to do |format|
       if @invoice.update_attributes(params[:invoice])
@@ -133,7 +133,7 @@ class InvoicesController < ApplicationController
   end
 
   def destroy
-    @invoice = current_user.invoices.find(params[:id])
+    @invoice = current_user.invoices.find_by_slug!(params[:id])
     @invoice.destroy
 
     respond_to do |format|

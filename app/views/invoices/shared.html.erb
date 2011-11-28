@@ -2,7 +2,7 @@
 <section id="main-content">
   <section id="content" role="main">
 	
-    <div id="invoice-page" class="invoice <%= @invoice.status.gsub " ", "-" %>">
+    <div id="invoice-page" class="invoice <%= @invoice.status.parameterize %>">
 	  <div id="companies">
         <% if get_company_info(@invoice.user.profile).size > 0 %>
 	      <div class="company-info">

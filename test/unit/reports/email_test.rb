@@ -9,7 +9,7 @@ class Reports::EmailTest < ActiveSupport::TestCase
     email.to = "user@gmail.com"
     email.reply_to = "user@gmail.com"
     email.subject = "Sharing a report"
-    email.body = "Shared Timesheet"
+    email.body = "Shared Timesheet %{report_link}"
     email.report_link = "grtgrtgtrgtr"
     assert email.deliver
   end

@@ -8,7 +8,11 @@ class UserObserver < ActiveRecord::Observer
     WelcomeMailer.welcome_email(user).deliver
     
     #listSubscribe(string apikey, string id, string email_address, array merge_vars, string email_type, bool double_optin, bool update_existing, bool replace_interests, bool send_welcome)
-    h.list_subscribe(list_id, user.email, {'FNAME' => user.first_name, 'LNAME' => user.last_name}, 'html', false, true, true, false)
+    begin
+      h.list_subscribe(list_id, user.email, {'FNAME' => user.first_name, 'LNAME' => user.last_name}, 'html', false, true, true, false)
+    rescue
+      # ignore MailChimps errors for now
+    end
   end
   
   def after_save(user)
@@ -25,7 +29,11 @@ class UserObserver < ActiveRecord::Observer
   def after_destroy(user)
     #listUnsubscribe(string apikey, string id, string email_address, boolean delete_member, boolean send_goodbye, boolean send_notify)
     # Don't delete user in MC just unsubscribe
-    h.list_unsubscribe(list_id, user.email, false, false, false)
+    begin
+      h.list_unsubscribe(list_id, user.email, false, false, false)
+    rescue
+      # ignore MailChimps errors for now
+    end
   end
   
   private

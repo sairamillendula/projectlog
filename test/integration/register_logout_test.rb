@@ -1,10 +1,9 @@
 require 'test_helper'
 
 class RegisterLogoutTest < ActionDispatch::IntegrationTest
-  fixtures :users
-  user = users(:one)
 
     test "should signup" do
+      user = users(:one)
       https!
       get register_path
       assert_response :success

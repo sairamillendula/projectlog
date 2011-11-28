@@ -5,7 +5,7 @@ class ReportsControllerTest < ActionController::TestCase
     sign_in users(:one)
     @report = reports(:one)
   end
-  
+
   test "should get new" do
     get :new
     assert_response :success
@@ -25,24 +25,24 @@ class ReportsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'show'
   end
-  
+
   test "should get PDF" do
     get :shared, :id => @report.to_param, :format => :pdf
     assert_response :success
     assert_template 'shared'
   end
-  
+
   test "should get csv" do
     get :shared, :id => @report.to_param, :format => :csv
     assert_response :success
     assert_template 'shared'
   end
-  
+
   test "shared report should be accessible to all" do
     sign_out users(:one)
     get :shared, :id => @report.to_param
     assert_response :success
     assert_template 'shared'
   end
-  
+
 end

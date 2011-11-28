@@ -21,7 +21,7 @@
 	</div>
   </div>
 
-  <h1>INVOICE <span id="invoice_status" class="invoice <%= @invoice.status.gsub " ", "-" %>"><%= @invoice.status %></span></h1>
+  <h1>INVOICE <span id="invoice_status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span></h1>
 
   <%= render 'header' %>
 

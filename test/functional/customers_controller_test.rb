@@ -4,6 +4,7 @@ class CustomersControllerTest < ActionController::TestCase
   setup do
     sign_in users(:one)
     @customer = customers(:one)
+    @customer_with_invoice = customers(:two)
   end
 
   test "should get index" do
@@ -45,12 +46,18 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test "should destroy customer" do
-    @customer.projects = []  # A customer can't be deleted if it has associated projects
+    @customer.projects = [] # A customer can't be deleted if it has associated projects
     @customer.save!
     assert_difference('Customer.count', -1) do
       delete :destroy, :id => @customer.to_param
     end
 
     assert_redirected_to customers_path
+  end
+
+  test "should not destroy customer with invoices" do
+    assert_raise(ActiveRecord::DeleteRestrictionError) do
+      delete :destroy, :id => @customer_with_invoice.to_param
+    end
   end
 end

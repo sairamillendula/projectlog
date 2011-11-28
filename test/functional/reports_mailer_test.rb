@@ -3,22 +3,20 @@ require 'test_helper'
 class ReportsMailerTest < ActionMailer::TestCase
   test "report_shared_with_you" do
     report = Report.find_by_slug!("thisisthereportslug").id
-    email = Reports::Email.new
-    email.from = "notifications@projectlogapp.com"
-    email.to = "user@gmail.com"
-    email.reply_to = "user@gmail.com"
-    email.subject = "Sharing a report"
-    email.body = "Shared Timesheet: %{report_link}"
-    email.report_link = "grtgrtgtrgtr"
+    remail = Reports::Email.new
+    remail.from = "notifications@projectlogapp.com"
+    remail.to = "user@gmail.com"
+    remail.reply_to = "user@gmail.com"
+    remail.subject = "Sharing a report"
+    remail.body = "Shared Timesheet: %{report_link}"
+    remail.report_link = "grtgrtgtrgtr"
 
-    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
-      email.deliver
-    end
+    email = ReportsMailer.report_shared_with_you(remail).deliver
+    assert !ActionMailer::Base.deliveries.empty?
 
-    sent = ActionMailer::Base.deliveries.first
-    assert_equal ["user@gmail.com"], sent.to
-    assert_equal "Sharing a report", sent.subject
-    assert_equal ["user@gmail.com"], sent.reply_to
-    assert sent.body =~ /Shared Timesheet: grtgrtgtrgtr/
+    assert_equal ["user@gmail.com"], email.to
+    assert_equal "Sharing a report", email.subject
+    assert_equal ["user@gmail.com"], email.reply_to
+    assert email.body =~ /Shared Timesheet: grtgrtgtrgtr/
   end
 end
