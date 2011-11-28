@@ -1,0 +1,8 @@
+<ul id="sub-menu">
+  <li class="buttonorange"><%= link_to '+ New Transaction', new_transaction_path %>
+</ul>
+
+<h1><%= params[:search] ? "Listing transactions that match '#{params[:search]}'" : "Transactions" %></h1>
+  <div id="transactions">
+    <%= render "transactions" %>
+  </div>

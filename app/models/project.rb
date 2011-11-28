@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-  
   validates_presence_of :title
   validates_presence_of :customer_id, :unless => :internal?
   validates_uniqueness_of :title, :scope => :user_id
@@ -7,6 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to :customer
   belongs_to :billing_code
   has_many :activities, :dependent => :destroy
+  has_many :transactions
   
   before_save :clears_if_internal
   

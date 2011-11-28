@@ -1,0 +1,50 @@
+<%= render "submenu" %>
+
+<p>
+  <b>Date:</b>
+  <%= l @transaction.date %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%= number_to_currency(@transaction.amount) %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @transaction.note %>
+</p>
+
+<% if @transaction.tax1.present? %>
+<p>
+  <b><%= current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : "Tax 1" %>:</b>
+  <%= number_to_currency(@transaction.tax1) %>
+</p>
+<% end %>
+
+<% if @transaction.tax2.present? %>
+<p>
+  <b><%= current_user.profile.tax2_label.present? ? current_user.profile.tax2_label : "Tax 2" %>:</b>
+  <%= number_to_currency(@transaction.tax2) %>
+</p>
+<% end %>
+
+<p>
+  <b>Total:</b>
+  <%= number_to_currency(@transaction.total) %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @transaction.project_id %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @transaction.category_id %>
+</p>
+
+<p>
+  <b>Receipt:</b>
+  <%= @transaction.receipt %>
+</p>

@@ -1,0 +1,32 @@
+@import "variables";
+
+.expense, .income {
+	padding: 4px;
+    @include rounded-corners(3px);
+    display: block;
+    width: 60px;
+    text-align: center;
+}
+
+.expense {
+	background: #eaf2f5;
+}
+
+.income {
+    background: #e0faec;
+}
+
+#transactions-search {
+	height: 30px;
+	line-height: 40px;
+	margin-bottom: 10px;
+}
+
+#transactions_search {
+	margin-bottom: 0;
+	height: 30px;
+}
+
+#transaction_note {
+	width: 580px;
+}

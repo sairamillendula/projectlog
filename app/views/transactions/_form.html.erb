@@ -1,0 +1,63 @@
+<%= form_for(@transaction) do |f| %>
+  <% if @transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @transaction.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="inline-form">
+  <div class="field">
+    <%= f.label :date, :class => "mandatory" %>
+    <%= f.text_field :date, :size => 12, :class => 'date', :autofocus => true %>
+  </div>
+  <div class="field">
+    <%= f.label :expense, "Type", :class => "mandatory" %>
+    <%= f.radio_button :expense, true %> Expense <%= f.radio_button :expense, false %> <span>Income</span> <%= clear %>
+  </div>
+  <div class="field">
+    <%= f.label :amount, :class => "mandatory" %>
+    <%= f.text_field :amount, :size => 8 %>
+  </div>
+  <div class="field">
+	<%= f.label :tax2, current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : 'Tax 1' %>
+    <%= f.text_field :tax1, :size => 8 %>
+  </div>
+  <div class="field">
+	<%= f.label :tax2, current_user.profile.tax2_label.present? ? current_user.profile.tax2_label : 'Tax 2' %>
+    <%= f.text_field :tax2, :size => 8 %>
+  </div>
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.text_field :total, :size => 8 %>
+  </div>
+  <div class="field">
+    <%= f.label :note, "Description" %>
+    <%= f.text_field :note %>
+  </div>
+  <div class="field">
+    <%= f.label :project_id %>
+    <%= f.collection_select(:project_id, Project.all, :id, :title, :prompt => true) %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.text_field :category_id %>
+  </div>
+  <div class="field">
+    <%= f.label :receipt %>
+    <%= f.file_field :receipt %>
+  </div>
+  <div class="actions">
+    <p class="submit"><%= submit_or_cancel(f) %></p>
+  </div>
+</div>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $("#transaction_date").focus();
+</script>

@@ -1,0 +1,50 @@
+<% if @transactions.empty? %>
+  <% if params[:search] %>
+    <%= render "table_header" %>
+      <div class="no-occurence">
+        <p>No transaction matches '<%= params[:search] %>'.</p>
+      </div>
+  <% else %>
+      <div class="no-occurence">
+	    <p>Create a <%= link_to 'Transaction', new_transaction_path %></p>
+	  </div>
+  <% end %>
+
+<% else %>
+
+  <%= render "table_header" %>
+
+    <table class="activities">
+	  <tr>
+		<th><%= sortable "expense", { :remote => true } %></th>
+		<th><%= sortable "date", { :remote => true } %></th>
+		<th><%= sortable "amount", { :remote => true } %></th>
+		<th><%= sortable "note", {:remote => true } %></th>
+		<th><%= sortable "receipt", {:remote => true } %></th>
+		<th><%= sortable "project_id", {:remote => true } %></th>
+		<th><%= sortable "category_id", {:remote => true } %></th>
+		<th></th>
+		<th></th>
+	  </tr>
+
+	  <% @transactions.each do |transaction| %>
+	  <tr>
+		<td><% if transaction.expense? %><span class="expense">Expense</span> <% else %> <span class="income">Income</span> <% end %></td>
+		<td><%= l transaction.date, :format => :short %></td>
+		<td><%= number_to_currency(transaction.amount) %></td>
+		<td><%= transaction.note %></td>
+		<td><%= image_tag('attachment.gif') unless transaction.receipt.nil? %></td>
+		<td><%= transaction.project.title unless transaction.project_id.nil? %></td>
+		<td><%= transaction.category.name unless transaction.category_id.nil? %></td>
+		<td><%= link_to 'Show', transaction %></td>
+		<td><%= link_to 'Edit', edit_transaction_path(transaction) %>
+			<%= link_to image_tag("bin.png"), transaction, :confirm => 'Are you sure?', :method => :delete %>
+		</td>
+	  </tr>
+	  <% end %>
+	</table>
+
+	<div class="right">
+	  <%= paginate @transactions, :remote => true, :params => { :controller => "transactions", :action => "index", :transaction_id => @transaction_id } %>
+	</div>
+<% end %>

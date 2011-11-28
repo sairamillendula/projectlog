@@ -1,0 +1,6 @@
+<ul id="sub-menu">
+	<%= link_to '← All Transactions', transactions_path %> |
+    <%= link_to 'Edit', edit_transaction_path %> |
+	<%= link_to 'Destroy', @transaction, :confirm => 'Are you sure?', :method => :delete %>
+	<li class="buttonorange"><%= link_to '+ New Transaction', new_transaction_path %></li>
+</ul>

@@ -1,4 +1,6 @@
 Projectlog::Application.routes.draw do
+  resources :transactions
+
   root :to => 'dashboard#show'
 
   resource :dashboard do

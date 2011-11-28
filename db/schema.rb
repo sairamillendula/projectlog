@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111113220934) do
+ActiveRecord::Schema.define(:version => 20111117205521) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -281,6 +281,24 @@ ActiveRecord::Schema.define(:version => 20111113220934) do
   add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
   add_index "settings", ["thing_type"], :name => "index_settings_on_thing_type"
   add_index "settings", ["var"], :name => "index_settings_on_var"
+
+  create_table "transactions", :force => true do |t|
+    t.boolean  "expense",     :default => true
+    t.date     "date"
+    t.float    "amount"
+    t.float    "tax1"
+    t.float    "tax2"
+    t.float    "subtotal"
+    t.float    "total"
+    t.string   "receipt"
+    t.text     "note"
+    t.boolean  "recurring",   :default => false
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "",    :null => false

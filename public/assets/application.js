@@ -21613,6 +21613,9 @@ $(function(){
     return true;
   });
 });
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+;
 
 $(function() {
   $("#activities th a, #activities .pagination a").live("click", function() {

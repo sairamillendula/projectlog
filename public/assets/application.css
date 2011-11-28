@@ -1745,6 +1745,46 @@ textarea.invoice-sig-area {
   font-weight: bold;
 }
 
+/* Variables */
+/* line 3, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.expense, .income {
+  padding: 4px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  display: block;
+  width: 60px;
+  text-align: center;
+}
+
+/* line 11, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.expense {
+  background: #eaf2f5;
+}
+
+/* line 15, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.income {
+  background: #e0faec;
+}
+
+/* line 19, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#transactions-search {
+  height: 30px;
+  line-height: 40px;
+  margin-bottom: 10px;
+}
+
+/* line 25, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#transactions_search {
+  margin-bottom: 0;
+  height: 30px;
+}
+
+/* line 30, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#transaction_note {
+  width: 580px;
+}
+
 /*
  * jQuery UI CSS Framework 1.8.13
  *
