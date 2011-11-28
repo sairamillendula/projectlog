@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
   has_many :reports, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
   has_many :transactions, :dependent => :destroy
+  has_many :categories, :dependent => :destroy
   belongs_to :plan
   
   scope :standard, where(:admin => false)

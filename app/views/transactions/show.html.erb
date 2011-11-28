@@ -34,12 +34,12 @@
 	<%= number_to_currency(@transaction.total) %>
   </p>
   <p>
-    <b>Project:</b>
-	<%= @transaction.project.title %>
+    <b>Category:</b>
+    <%= @transaction.category && @transaction.category.name %>
   </p>
   <p>
-    <b>Category:</b>
-    <%= @transaction.category_id %>
+    <b>Project:</b>
+	<%= @transaction.project.title unless @transaction.project_id.nil? %>
   </p>
   <p>
     <b>Receipt:</b>
