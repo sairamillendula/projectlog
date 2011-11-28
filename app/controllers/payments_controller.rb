@@ -3,13 +3,13 @@ class PaymentsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @invoice = current_user.invoices.find(params[:invoice_id])
+    @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payments = @invoice.payments
     @total = @payments.sum(:amount).round 2
   end
 
   def new
-    @invoice = current_user.invoices.find(params[:invoice_id])
+    @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payment = Payment.new
     @payment.invoice = @invoice
     @payment.amount = @invoice.balance
@@ -17,7 +17,7 @@ class PaymentsController < ApplicationController
   end
 
   def create
-    @invoice = current_user.invoices.find(params[:invoice_id])
+    @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payment = Payment.new(params[:payment])
     @payment.invoice = @invoice
     if @payment.save
@@ -32,12 +32,12 @@ class PaymentsController < ApplicationController
   end
 
   def edit
-    @invoice = current_user.invoices.find(params[:invoice_id])
+    @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payment = @invoice.payments.find(params[:id])
   end
 
   def update
-    @invoice = current_user.invoices.find(params[:invoice_id])
+    @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payment = @invoice.payments.find(params[:id])
     if @payment.update_attributes(params[:payment])
       update_invoice
@@ -46,7 +46,7 @@ class PaymentsController < ApplicationController
   end
 
   def destroy
-    @invoice = current_user.invoices.find(params[:invoice_id])
+    @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payment = @invoice.payments.find(params[:id])
     if @payment.destroy
       update_invoice

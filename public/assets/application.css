@@ -1785,6 +1785,50 @@ textarea.invoice-sig-area {
   width: 580px;
 }
 
+/* line 34, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_top {
+  background: url(/assets/receipt_top.png) no-repeat;
+  width: 702px;
+  height: 38px;
+}
+
+/* line 40, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid {
+  background: url(/assets/receipt_mid.png) repeat-y;
+  width: 702px;
+  text-indent: 64px;
+}
+/* line 45, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid .type {
+  float: right;
+  padding-right: 20px;
+  font-weight: bold;
+}
+/* line 51, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid p {
+  color: #5E6066;
+  line-height: 21px;
+  font-size: 13px;
+  position: relative;
+  margin-bottom: 21px;
+}
+/* line 59, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid p:first-child {
+  margin-top: 0;
+}
+/* line 63, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid p:last-child {
+  margin-bottom: 0;
+}
+
+/* line 68, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_bot {
+  background: url(/assets/receipt_bot.png) no-repeat;
+  width: 702px;
+  height: 56px;
+  margin-left: -4px;
+}
+
 /*
  * jQuery UI CSS Framework 1.8.13
  *
@@ -1796,19 +1840,19 @@ textarea.invoice-sig-area {
  */
 /* Layout helpers
 ----------------------------------*/
-/* line 13, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 13, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-hidden {
   display: none;
 }
 
-/* line 14, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 14, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-hidden-accessible {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px);
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-/* line 15, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 15, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-reset {
   margin: 0;
   padding: 0;
@@ -1820,7 +1864,7 @@ textarea.invoice-sig-area {
   list-style: none;
 }
 
-/* line 16, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 16, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-clearfix:after {
   content: ".";
   display: block;
@@ -1829,24 +1873,24 @@ textarea.invoice-sig-area {
   visibility: hidden;
 }
 
-/* line 17, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 17, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-clearfix {
   display: inline-block;
 }
 
 /* required comment for clearfix to work in Opera \*/
-/* line 19, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 19, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 * html .ui-helper-clearfix {
   height: 1%;
 }
 
-/* line 20, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 20, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-clearfix {
   display: block;
 }
 
 /* end clearfix */
-/* line 22, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 22, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-helper-zfix {
   width: 100%;
   height: 100%;
@@ -1859,7 +1903,7 @@ textarea.invoice-sig-area {
 
 /* Interaction Cues
 ----------------------------------*/
-/* line 27, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 27, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-disabled {
   cursor: default !important;
 }
@@ -1867,7 +1911,7 @@ textarea.invoice-sig-area {
 /* Icons
 ----------------------------------*/
 /* states and images */
-/* line 34, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 34, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon {
   display: block;
   text-indent: -99999px;
@@ -1878,7 +1922,7 @@ textarea.invoice-sig-area {
 /* Misc visuals
 ----------------------------------*/
 /* Overlays */
-/* line 41, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 41, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-overlay {
   position: absolute;
   top: 0;
@@ -1901,36 +1945,36 @@ textarea.invoice-sig-area {
  */
 /* Component containers
 ----------------------------------*/
-/* line 59, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 59, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget {
   font-family: Verdana,Arial,sans-serif;
   font-size: 1.1em;
 }
 
-/* line 60, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 60, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget .ui-widget {
   font-size: 1em;
 }
 
-/* line 61, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 61, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
   font-family: Verdana,Arial,sans-serif;
   font-size: 1em;
 }
 
-/* line 62, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 62, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-content {
   border: 1px solid #aaaaaa;
   background: white url(/assets/ui-bg_glass_75_ffffff_1x400.png) 50% 50% repeat-x;
   color: #222222;
 }
 
-/* line 63, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 63, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-content a {
   color: #222222;
 }
 
-/* line 64, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 64, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-header {
   border: 1px solid #aaaaaa;
   background: #cccccc url(/assets/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
@@ -1938,14 +1982,14 @@ textarea.invoice-sig-area {
   font-weight: bold;
 }
 
-/* line 65, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 65, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-header a {
   color: #222222;
 }
 
 /* Interaction states
 ----------------------------------*/
-/* line 69, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 69, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
   border: 1px solid #d3d3d3;
   background: #e6e6e6 url(/assets/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
@@ -1953,13 +1997,13 @@ textarea.invoice-sig-area {
   color: #555555;
 }
 
-/* line 70, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 70, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {
   color: #555555;
   text-decoration: none;
 }
 
-/* line 71, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 71, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
   border: 1px solid #999999;
   background: #dadada url(/assets/ui-bg_glass_75_dadada_1x400.png) 50% 50% repeat-x;
@@ -1967,13 +2011,13 @@ textarea.invoice-sig-area {
   color: #212121;
 }
 
-/* line 72, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 72, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-hover a, .ui-state-hover a:hover {
   color: #212121;
   text-decoration: none;
 }
 
-/* line 73, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 73, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
   border: 1px solid #aaaaaa;
   background: white url(/assets/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
@@ -1981,61 +2025,61 @@ textarea.invoice-sig-area {
   color: #212121;
 }
 
-/* line 74, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 74, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
   color: #212121;
   text-decoration: none;
 }
 
-/* line 75, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 75, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget :active {
   outline: none;
 }
 
 /* Interaction Cues
 ----------------------------------*/
-/* line 79, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 79, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
   border: 1px solid #fcefa1;
   background: #fbf9ee url(/assets/ui-bg_glass_55_fbf9ee_1x400.png) 50% 50% repeat-x;
   color: #363636;
 }
 
-/* line 80, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 80, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
   color: #363636;
 }
 
-/* line 81, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 81, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
   border: 1px solid #cd0a0a;
   background: #fef1ec url(/assets/ui-bg_inset-soft_95_fef1ec_1x100.png) 50% bottom repeat-x;
   color: #cd0a0a;
 }
 
-/* line 82, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 82, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a {
   color: #cd0a0a;
 }
 
-/* line 83, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 83, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text {
   color: #cd0a0a;
 }
 
-/* line 84, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 84, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
   font-weight: bold;
 }
 
-/* line 85, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 85, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-priority-secondary, .ui-widget-content .ui-priority-secondary, .ui-widget-header .ui-priority-secondary {
   opacity: .7;
   filter: Alpha(Opacity=70);
   font-weight: normal;
 }
 
-/* line 86, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 86, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
   opacity: .35;
   filter: Alpha(Opacity=35);
@@ -2045,916 +2089,916 @@ textarea.invoice-sig-area {
 /* Icons
 ----------------------------------*/
 /* states and images */
-/* line 92, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 92, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon {
   width: 16px;
   height: 16px;
   background-image: url(/assets/ui-icons_222222_256x240.png);
 }
 
-/* line 93, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 93, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-content .ui-icon {
   background-image: url(/assets/ui-icons_222222_256x240.png);
 }
 
-/* line 94, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 94, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-header .ui-icon {
   background-image: url(/assets/ui-icons_222222_256x240.png);
 }
 
-/* line 95, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 95, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-default .ui-icon {
   background-image: url(/assets/ui-icons_888888_256x240.png);
 }
 
-/* line 96, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 96, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
   background-image: url(/assets/ui-icons_454545_256x240.png);
 }
 
-/* line 97, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 97, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-active .ui-icon {
   background-image: url(/assets/ui-icons_454545_256x240.png);
 }
 
-/* line 98, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 98, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-highlight .ui-icon {
   background-image: url(/assets/ui-icons_2e83ff_256x240.png);
 }
 
-/* line 99, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 99, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
   background-image: url(/assets/ui-icons_cd0a0a_256x240.png);
 }
 
 /* positioning */
-/* line 102, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 102, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-n {
   background-position: 0 0;
 }
 
-/* line 103, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 103, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-ne {
   background-position: -16px 0;
 }
 
-/* line 104, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 104, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-e {
   background-position: -32px 0;
 }
 
-/* line 105, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 105, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-se {
   background-position: -48px 0;
 }
 
-/* line 106, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 106, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-s {
   background-position: -64px 0;
 }
 
-/* line 107, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 107, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-sw {
   background-position: -80px 0;
 }
 
-/* line 108, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 108, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-w {
   background-position: -96px 0;
 }
 
-/* line 109, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 109, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-1-nw {
   background-position: -112px 0;
 }
 
-/* line 110, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 110, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-2-n-s {
   background-position: -128px 0;
 }
 
-/* line 111, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 111, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-carat-2-e-w {
   background-position: -144px 0;
 }
 
-/* line 112, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 112, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-n {
   background-position: 0 -16px;
 }
 
-/* line 113, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 113, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-ne {
   background-position: -16px -16px;
 }
 
-/* line 114, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 114, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-e {
   background-position: -32px -16px;
 }
 
-/* line 115, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 115, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-se {
   background-position: -48px -16px;
 }
 
-/* line 116, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 116, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-s {
   background-position: -64px -16px;
 }
 
-/* line 117, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 117, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-sw {
   background-position: -80px -16px;
 }
 
-/* line 118, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 118, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-w {
   background-position: -96px -16px;
 }
 
-/* line 119, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 119, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-1-nw {
   background-position: -112px -16px;
 }
 
-/* line 120, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 120, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-2-n-s {
   background-position: -128px -16px;
 }
 
-/* line 121, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 121, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-triangle-2-e-w {
   background-position: -144px -16px;
 }
 
-/* line 122, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 122, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-n {
   background-position: 0 -32px;
 }
 
-/* line 123, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 123, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-ne {
   background-position: -16px -32px;
 }
 
-/* line 124, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 124, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-e {
   background-position: -32px -32px;
 }
 
-/* line 125, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 125, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-se {
   background-position: -48px -32px;
 }
 
-/* line 126, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 126, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-s {
   background-position: -64px -32px;
 }
 
-/* line 127, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 127, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-sw {
   background-position: -80px -32px;
 }
 
-/* line 128, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 128, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-w {
   background-position: -96px -32px;
 }
 
-/* line 129, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 129, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-1-nw {
   background-position: -112px -32px;
 }
 
-/* line 130, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 130, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-2-n-s {
   background-position: -128px -32px;
 }
 
-/* line 131, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 131, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-2-ne-sw {
   background-position: -144px -32px;
 }
 
-/* line 132, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 132, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-2-e-w {
   background-position: -160px -32px;
 }
 
-/* line 133, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 133, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-2-se-nw {
   background-position: -176px -32px;
 }
 
-/* line 134, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 134, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowstop-1-n {
   background-position: -192px -32px;
 }
 
-/* line 135, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 135, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowstop-1-e {
   background-position: -208px -32px;
 }
 
-/* line 136, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 136, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowstop-1-s {
   background-position: -224px -32px;
 }
 
-/* line 137, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 137, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowstop-1-w {
   background-position: -240px -32px;
 }
 
-/* line 138, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 138, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-n {
   background-position: 0 -48px;
 }
 
-/* line 139, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 139, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-ne {
   background-position: -16px -48px;
 }
 
-/* line 140, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 140, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-e {
   background-position: -32px -48px;
 }
 
-/* line 141, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 141, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-se {
   background-position: -48px -48px;
 }
 
-/* line 142, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 142, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-s {
   background-position: -64px -48px;
 }
 
-/* line 143, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 143, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-sw {
   background-position: -80px -48px;
 }
 
-/* line 144, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 144, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-w {
   background-position: -96px -48px;
 }
 
-/* line 145, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 145, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-1-nw {
   background-position: -112px -48px;
 }
 
-/* line 146, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 146, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-2-n-s {
   background-position: -128px -48px;
 }
 
-/* line 147, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 147, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-2-ne-sw {
   background-position: -144px -48px;
 }
 
-/* line 148, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 148, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-2-e-w {
   background-position: -160px -48px;
 }
 
-/* line 149, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 149, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthick-2-se-nw {
   background-position: -176px -48px;
 }
 
-/* line 150, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 150, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthickstop-1-n {
   background-position: -192px -48px;
 }
 
-/* line 151, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 151, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthickstop-1-e {
   background-position: -208px -48px;
 }
 
-/* line 152, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 152, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthickstop-1-s {
   background-position: -224px -48px;
 }
 
-/* line 153, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 153, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowthickstop-1-w {
   background-position: -240px -48px;
 }
 
-/* line 154, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 154, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturnthick-1-w {
   background-position: 0 -64px;
 }
 
-/* line 155, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 155, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturnthick-1-n {
   background-position: -16px -64px;
 }
 
-/* line 156, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 156, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturnthick-1-e {
   background-position: -32px -64px;
 }
 
-/* line 157, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 157, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturnthick-1-s {
   background-position: -48px -64px;
 }
 
-/* line 158, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 158, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturn-1-w {
   background-position: -64px -64px;
 }
 
-/* line 159, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 159, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturn-1-n {
   background-position: -80px -64px;
 }
 
-/* line 160, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 160, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturn-1-e {
   background-position: -96px -64px;
 }
 
-/* line 161, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 161, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowreturn-1-s {
   background-position: -112px -64px;
 }
 
-/* line 162, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 162, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowrefresh-1-w {
   background-position: -128px -64px;
 }
 
-/* line 163, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 163, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowrefresh-1-n {
   background-position: -144px -64px;
 }
 
-/* line 164, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 164, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowrefresh-1-e {
   background-position: -160px -64px;
 }
 
-/* line 165, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 165, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrowrefresh-1-s {
   background-position: -176px -64px;
 }
 
-/* line 166, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 166, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-4 {
   background-position: 0 -80px;
 }
 
-/* line 167, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 167, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-arrow-4-diag {
   background-position: -16px -80px;
 }
 
-/* line 168, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 168, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-extlink {
   background-position: -32px -80px;
 }
 
-/* line 169, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 169, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-newwin {
   background-position: -48px -80px;
 }
 
-/* line 170, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 170, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-refresh {
   background-position: -64px -80px;
 }
 
-/* line 171, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 171, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-shuffle {
   background-position: -80px -80px;
 }
 
-/* line 172, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 172, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-transfer-e-w {
   background-position: -96px -80px;
 }
 
-/* line 173, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 173, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-transferthick-e-w {
   background-position: -112px -80px;
 }
 
-/* line 174, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 174, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-folder-collapsed {
   background-position: 0 -96px;
 }
 
-/* line 175, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 175, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-folder-open {
   background-position: -16px -96px;
 }
 
-/* line 176, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 176, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-document {
   background-position: -32px -96px;
 }
 
-/* line 177, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 177, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-document-b {
   background-position: -48px -96px;
 }
 
-/* line 178, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 178, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-note {
   background-position: -64px -96px;
 }
 
-/* line 179, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 179, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-mail-closed {
   background-position: -80px -96px;
 }
 
-/* line 180, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 180, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-mail-open {
   background-position: -96px -96px;
 }
 
-/* line 181, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 181, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-suitcase {
   background-position: -112px -96px;
 }
 
-/* line 182, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 182, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-comment {
   background-position: -128px -96px;
 }
 
-/* line 183, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 183, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-person {
   background-position: -144px -96px;
 }
 
-/* line 184, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 184, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-print {
   background-position: -160px -96px;
 }
 
-/* line 185, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 185, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-trash {
   background-position: -176px -96px;
 }
 
-/* line 186, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 186, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-locked {
   background-position: -192px -96px;
 }
 
-/* line 187, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 187, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-unlocked {
   background-position: -208px -96px;
 }
 
-/* line 188, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 188, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-bookmark {
   background-position: -224px -96px;
 }
 
-/* line 189, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 189, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-tag {
   background-position: -240px -96px;
 }
 
-/* line 190, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 190, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-home {
   background-position: 0 -112px;
 }
 
-/* line 191, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 191, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-flag {
   background-position: -16px -112px;
 }
 
-/* line 192, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 192, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-calendar {
   background-position: -32px -112px;
 }
 
-/* line 193, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 193, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-cart {
   background-position: -48px -112px;
 }
 
-/* line 194, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 194, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-pencil {
   background-position: -64px -112px;
 }
 
-/* line 195, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 195, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-clock {
   background-position: -80px -112px;
 }
 
-/* line 196, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 196, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-disk {
   background-position: -96px -112px;
 }
 
-/* line 197, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 197, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-calculator {
   background-position: -112px -112px;
 }
 
-/* line 198, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 198, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-zoomin {
   background-position: -128px -112px;
 }
 
-/* line 199, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 199, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-zoomout {
   background-position: -144px -112px;
 }
 
-/* line 200, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 200, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-search {
   background-position: -160px -112px;
 }
 
-/* line 201, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 201, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-wrench {
   background-position: -176px -112px;
 }
 
-/* line 202, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 202, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-gear {
   background-position: -192px -112px;
 }
 
-/* line 203, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 203, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-heart {
   background-position: -208px -112px;
 }
 
-/* line 204, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 204, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-star {
   background-position: -224px -112px;
 }
 
-/* line 205, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 205, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-link {
   background-position: -240px -112px;
 }
 
-/* line 206, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 206, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-cancel {
   background-position: 0 -128px;
 }
 
-/* line 207, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 207, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-plus {
   background-position: -16px -128px;
 }
 
-/* line 208, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 208, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-plusthick {
   background-position: -32px -128px;
 }
 
-/* line 209, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 209, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-minus {
   background-position: -48px -128px;
 }
 
-/* line 210, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 210, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-minusthick {
   background-position: -64px -128px;
 }
 
-/* line 211, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 211, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-close {
   background-position: -80px -128px;
 }
 
-/* line 212, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 212, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-closethick {
   background-position: -96px -128px;
 }
 
-/* line 213, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 213, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-key {
   background-position: -112px -128px;
 }
 
-/* line 214, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 214, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-lightbulb {
   background-position: -128px -128px;
 }
 
-/* line 215, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 215, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-scissors {
   background-position: -144px -128px;
 }
 
-/* line 216, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 216, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-clipboard {
   background-position: -160px -128px;
 }
 
-/* line 217, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 217, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-copy {
   background-position: -176px -128px;
 }
 
-/* line 218, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 218, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-contact {
   background-position: -192px -128px;
 }
 
-/* line 219, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 219, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-image {
   background-position: -208px -128px;
 }
 
-/* line 220, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 220, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-video {
   background-position: -224px -128px;
 }
 
-/* line 221, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 221, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-script {
   background-position: -240px -128px;
 }
 
-/* line 222, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 222, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-alert {
   background-position: 0 -144px;
 }
 
-/* line 223, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 223, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-info {
   background-position: -16px -144px;
 }
 
-/* line 224, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 224, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-notice {
   background-position: -32px -144px;
 }
 
-/* line 225, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 225, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-help {
   background-position: -48px -144px;
 }
 
-/* line 226, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 226, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-check {
   background-position: -64px -144px;
 }
 
-/* line 227, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 227, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-bullet {
   background-position: -80px -144px;
 }
 
-/* line 228, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 228, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-radio-off {
   background-position: -96px -144px;
 }
 
-/* line 229, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 229, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-radio-on {
   background-position: -112px -144px;
 }
 
-/* line 230, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 230, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-pin-w {
   background-position: -128px -144px;
 }
 
-/* line 231, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 231, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-pin-s {
   background-position: -144px -144px;
 }
 
-/* line 232, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 232, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-play {
   background-position: 0 -160px;
 }
 
-/* line 233, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 233, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-pause {
   background-position: -16px -160px;
 }
 
-/* line 234, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 234, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-seek-next {
   background-position: -32px -160px;
 }
 
-/* line 235, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 235, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-seek-prev {
   background-position: -48px -160px;
 }
 
-/* line 236, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 236, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-seek-end {
   background-position: -64px -160px;
 }
 
-/* line 237, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 237, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-seek-start {
   background-position: -80px -160px;
 }
 
 /* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
-/* line 239, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 239, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-seek-first {
   background-position: -80px -160px;
 }
 
-/* line 240, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 240, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-stop {
   background-position: -96px -160px;
 }
 
-/* line 241, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 241, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-eject {
   background-position: -112px -160px;
 }
 
-/* line 242, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 242, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-volume-off {
   background-position: -128px -160px;
 }
 
-/* line 243, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 243, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-volume-on {
   background-position: -144px -160px;
 }
 
-/* line 244, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 244, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-power {
   background-position: 0 -176px;
 }
 
-/* line 245, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 245, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-signal-diag {
   background-position: -16px -176px;
 }
 
-/* line 246, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 246, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-signal {
   background-position: -32px -176px;
 }
 
-/* line 247, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 247, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-battery-0 {
   background-position: -48px -176px;
 }
 
-/* line 248, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 248, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-battery-1 {
   background-position: -64px -176px;
 }
 
-/* line 249, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 249, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-battery-2 {
   background-position: -80px -176px;
 }
 
-/* line 250, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 250, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-battery-3 {
   background-position: -96px -176px;
 }
 
-/* line 251, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 251, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-plus {
   background-position: 0 -192px;
 }
 
-/* line 252, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 252, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-minus {
   background-position: -16px -192px;
 }
 
-/* line 253, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 253, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-close {
   background-position: -32px -192px;
 }
 
-/* line 254, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 254, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-triangle-e {
   background-position: -48px -192px;
 }
 
-/* line 255, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 255, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-triangle-s {
   background-position: -64px -192px;
 }
 
-/* line 256, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 256, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-triangle-w {
   background-position: -80px -192px;
 }
 
-/* line 257, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 257, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-triangle-n {
   background-position: -96px -192px;
 }
 
-/* line 258, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 258, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-arrow-e {
   background-position: -112px -192px;
 }
 
-/* line 259, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 259, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-arrow-s {
   background-position: -128px -192px;
 }
 
-/* line 260, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 260, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-arrow-w {
   background-position: -144px -192px;
 }
 
-/* line 261, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 261, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-arrow-n {
   background-position: -160px -192px;
 }
 
-/* line 262, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 262, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-zoomin {
   background-position: -176px -192px;
 }
 
-/* line 263, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 263, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-zoomout {
   background-position: -192px -192px;
 }
 
-/* line 264, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 264, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circle-check {
   background-position: -208px -192px;
 }
 
-/* line 265, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 265, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circlesmall-plus {
   background-position: 0 -208px;
 }
 
-/* line 266, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 266, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circlesmall-minus {
   background-position: -16px -208px;
 }
 
-/* line 267, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 267, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-circlesmall-close {
   background-position: -32px -208px;
 }
 
-/* line 268, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 268, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-squaresmall-plus {
   background-position: -48px -208px;
 }
 
-/* line 269, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 269, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-squaresmall-minus {
   background-position: -64px -208px;
 }
 
-/* line 270, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 270, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-squaresmall-close {
   background-position: -80px -208px;
 }
 
-/* line 271, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 271, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-grip-dotted-vertical {
   background-position: 0 -224px;
 }
 
-/* line 272, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 272, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-grip-dotted-horizontal {
   background-position: -16px -224px;
 }
 
-/* line 273, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 273, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-grip-solid-vertical {
   background-position: -32px -224px;
 }
 
-/* line 274, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 274, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-grip-solid-horizontal {
   background-position: -48px -224px;
 }
 
-/* line 275, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 275, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-gripsmall-diagonal-se {
   background-position: -64px -224px;
 }
 
-/* line 276, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 276, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-icon-grip-diagonal-se {
   background-position: -80px -224px;
 }
@@ -2962,35 +3006,35 @@ textarea.invoice-sig-area {
 /* Misc visuals
 ----------------------------------*/
 /* Corner radius */
-/* line 283, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 283, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-tl {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
   border-top-left-radius: 4px;
 }
 
-/* line 284, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 284, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-tr {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
   border-top-right-radius: 4px;
 }
 
-/* line 285, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 285, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-bl {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
 
-/* line 286, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 286, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-br {
   -moz-border-radius-bottomright: 4px;
   -webkit-border-bottom-right-radius: 4px;
   border-bottom-right-radius: 4px;
 }
 
-/* line 287, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 287, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-top {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -3000,7 +3044,7 @@ textarea.invoice-sig-area {
   border-top-right-radius: 4px;
 }
 
-/* line 288, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 288, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-bottom {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -3010,7 +3054,7 @@ textarea.invoice-sig-area {
   border-bottom-right-radius: 4px;
 }
 
-/* line 289, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 289, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-right {
   -moz-border-radius-topright: 4px;
   -webkit-border-top-right-radius: 4px;
@@ -3020,7 +3064,7 @@ textarea.invoice-sig-area {
   border-bottom-right-radius: 4px;
 }
 
-/* line 290, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 290, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-left {
   -moz-border-radius-topleft: 4px;
   -webkit-border-top-left-radius: 4px;
@@ -3030,7 +3074,7 @@ textarea.invoice-sig-area {
   border-bottom-left-radius: 4px;
 }
 
-/* line 291, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 291, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-corner-all {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -3038,12 +3082,12 @@ textarea.invoice-sig-area {
 }
 
 /* Overlays -- Customized for Projectlog */
-/* line 294, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 294, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-overlay {
   background: url("/assets/overlay_bg.png");
 }
 
-/* line 295, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 295, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-widget-shadow {
   margin: -8px 0 0 -8px;
   padding: 8px;
@@ -3064,12 +3108,12 @@ textarea.invoice-sig-area {
 *
 * http://docs.jquery.com/UI/Resizable#theming
 */
-/* line 304, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 304, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable {
   position: relative;
 }
 
-/* line 305, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 305, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-handle {
   position: absolute;
   font-size: 0.1px;
@@ -3077,12 +3121,12 @@ textarea.invoice-sig-area {
   display: block;
 }
 
-/* line 306, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 306, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle {
   display: none;
 }
 
-/* line 307, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 307, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-n {
   cursor: n-resize;
   height: 7px;
@@ -3091,7 +3135,7 @@ textarea.invoice-sig-area {
   left: 0;
 }
 
-/* line 308, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 308, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-s {
   cursor: s-resize;
   height: 7px;
@@ -3100,7 +3144,7 @@ textarea.invoice-sig-area {
   left: 0;
 }
 
-/* line 309, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 309, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-e {
   cursor: e-resize;
   width: 7px;
@@ -3109,7 +3153,7 @@ textarea.invoice-sig-area {
   height: 100%;
 }
 
-/* line 310, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 310, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-w {
   cursor: w-resize;
   width: 7px;
@@ -3118,7 +3162,7 @@ textarea.invoice-sig-area {
   height: 100%;
 }
 
-/* line 311, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 311, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-se {
   cursor: se-resize;
   width: 12px;
@@ -3127,7 +3171,7 @@ textarea.invoice-sig-area {
   bottom: 1px;
 }
 
-/* line 312, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 312, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-sw {
   cursor: sw-resize;
   width: 9px;
@@ -3136,7 +3180,7 @@ textarea.invoice-sig-area {
   bottom: -5px;
 }
 
-/* line 313, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 313, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-nw {
   cursor: nw-resize;
   width: 9px;
@@ -3145,7 +3189,7 @@ textarea.invoice-sig-area {
   top: -5px;
 }
 
-/* line 314, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 314, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-resizable-ne {
   cursor: ne-resize;
   width: 9px;
@@ -3163,7 +3207,7 @@ textarea.invoice-sig-area {
 *
 * http://docs.jquery.com/UI/Selectable#theming
 */
-/* line 323, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 323, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-selectable-helper {
   position: absolute;
   z-index: 100;
@@ -3180,12 +3224,12 @@ textarea.invoice-sig-area {
  * http://docs.jquery.com/UI/Accordion#theming
  */
 /* IE/Win - Fix animation bug - #4615 */
-/* line 334, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 334, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion {
   width: 100%;
 }
 
-/* line 335, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 335, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-header {
   cursor: pointer;
   position: relative;
@@ -3193,29 +3237,29 @@ textarea.invoice-sig-area {
   zoom: 1;
 }
 
-/* line 336, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 336, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-li-fix {
   display: inline;
 }
 
-/* line 337, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 337, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-header-active {
   border-bottom: 0 !important;
 }
 
-/* line 338, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 338, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-header a {
   display: block;
   font-size: 1em;
   padding: .5em .5em .5em .7em;
 }
 
-/* line 339, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 339, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion-icons .ui-accordion-header a {
   padding-left: 2.2em;
 }
 
-/* line 340, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 340, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-header .ui-icon {
   position: absolute;
   left: .5em;
@@ -3223,7 +3267,7 @@ textarea.invoice-sig-area {
   margin-top: -8px;
 }
 
-/* line 341, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 341, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-content {
   padding: 1em 2.2em;
   border-top: 0;
@@ -3236,7 +3280,7 @@ textarea.invoice-sig-area {
   zoom: 1;
 }
 
-/* line 342, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 342, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-accordion .ui-accordion-content-active {
   display: block;
 }
@@ -3250,14 +3294,14 @@ textarea.invoice-sig-area {
  *
  * http://docs.jquery.com/UI/Autocomplete#theming
  */
-/* line 352, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 352, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-autocomplete {
   position: absolute;
   cursor: default;
 }
 
 /* workarounds */
-/* line 355, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 355, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 * html .ui-autocomplete {
   width: 1px;
 }
@@ -3272,7 +3316,7 @@ textarea.invoice-sig-area {
  *
  * http://docs.jquery.com/UI/Menu#theming
  */
-/* line 366, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 366, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-menu {
   list-style: none;
   padding: 2px;
@@ -3281,12 +3325,12 @@ textarea.invoice-sig-area {
   float: left;
 }
 
-/* line 373, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 373, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-menu .ui-menu {
   margin-top: -3px;
 }
 
-/* line 376, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 376, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-menu .ui-menu-item {
   margin: 0;
   padding: 0;
@@ -3296,7 +3340,7 @@ textarea.invoice-sig-area {
   width: 100%;
 }
 
-/* line 384, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 384, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-menu .ui-menu-item a {
   text-decoration: none;
   display: block;
@@ -3305,7 +3349,7 @@ textarea.invoice-sig-area {
   zoom: 1;
 }
 
-/* line 392, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 392, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-menu .ui-menu-item a.ui-state-hover,
 .ui-menu .ui-menu-item a.ui-state-active {
   font-weight: normal;
@@ -3321,7 +3365,7 @@ textarea.invoice-sig-area {
  *
  * http://docs.jquery.com/UI/Button#theming
  */
-/* line 405, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 405, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button {
   display: inline-block;
   position: relative;
@@ -3335,111 +3379,111 @@ textarea.invoice-sig-area {
 }
 
 /* the overflow property removes extra width in IE */
-/* line 406, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 406, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-icon-only {
   width: 2.2em;
 }
 
 /* to make room for the icon, a width needs to be set here */
-/* line 407, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 407, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 button.ui-button-icon-only {
   width: 2.4em;
 }
 
 /* button elements seem to need a little more width */
-/* line 408, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 408, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-icons-only {
   width: 3.4em;
 }
 
-/* line 409, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 409, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 button.ui-button-icons-only {
   width: 3.7em;
 }
 
 /*button text element */
-/* line 412, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 412, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button .ui-button-text {
   display: block;
   line-height: 1.4;
 }
 
-/* line 413, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 413, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-only .ui-button-text {
   padding: .4em 1em;
 }
 
-/* line 414, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 414, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text {
   padding: .4em;
   text-indent: -9999999px;
 }
 
-/* line 415, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 415, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text {
   padding: .4em 1em .4em 2.1em;
 }
 
-/* line 416, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 416, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text {
   padding: .4em 2.1em .4em 1em;
 }
 
-/* line 417, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 417, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-icons .ui-button-text {
   padding-left: 2.1em;
   padding-right: 2.1em;
 }
 
 /* no icon support for input elements, provide padding by default */
-/* line 419, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 419, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 input.ui-button {
   padding: .4em 1em;
 }
 
 /*button icon element(s) */
-/* line 422, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 422, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-icon-only .ui-icon, .ui-button-text-icon-primary .ui-icon, .ui-button-text-icon-secondary .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon {
   position: absolute;
   top: 50%;
   margin-top: -8px;
 }
 
-/* line 423, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 423, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-icon-only .ui-icon {
   left: 50%;
   margin-left: -8px;
 }
 
-/* line 424, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 424, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-icon-primary .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary {
   left: .5em;
 }
 
-/* line 425, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 425, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-icon-secondary .ui-button-icon-secondary, .ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary {
   right: .5em;
 }
 
-/* line 426, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 426, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary {
   right: .5em;
 }
 
 /*button sets*/
-/* line 429, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 429, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-buttonset {
   margin-right: 7px;
 }
 
-/* line 430, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 430, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-buttonset .ui-button {
   margin-left: 0;
   margin-right: -0.3em;
 }
 
 /* workarounds */
-/* line 433, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 433, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 button.ui-button::-moz-focus-inner {
   border: 0;
   padding: 0;
@@ -3451,7 +3495,7 @@ button.ui-button::-moz-focus-inner {
  *
  * Projectlog modal
  */
-/* line 439, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 439, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog {
   position: absolute;
   padding: .2em;
@@ -3464,7 +3508,7 @@ button.ui-button::-moz-focus-inner {
   font-family: inherit;
 }
 
-/* line 440, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 440, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-titlebar {
   padding: .4em 1em;
   position: relative;
@@ -3474,14 +3518,14 @@ button.ui-button::-moz-focus-inner {
   -moz-border-radius: 4 4 0 0;
 }
 
-/* line 441, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 441, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-title {
   float: left;
   margin: .1em 16px .1em 0;
   font-size: 16px;
 }
 
-/* line 442, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 442, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-titlebar-close {
   position: absolute;
   right: .3em;
@@ -3492,18 +3536,18 @@ button.ui-button::-moz-focus-inner {
   height: 18px;
 }
 
-/* line 443, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 443, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-titlebar-close span {
   display: block;
   margin: 1px;
 }
 
-/* line 444, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 444, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus {
   padding: 0;
 }
 
-/* line 445, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 445, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-content {
   position: relative;
   border: 0;
@@ -3513,7 +3557,7 @@ button.ui-button::-moz-focus-inner {
   background: #f1f1f1;
 }
 
-/* line 446, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 446, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-buttonpane {
   background: #f1f1f1;
   text-align: left;
@@ -3525,18 +3569,18 @@ button.ui-button::-moz-focus-inner {
   padding: .3em 1em .5em .4em;
 }
 
-/* line 447, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 447, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
   float: right;
 }
 
-/* line 448, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 448, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-buttonpane button {
   margin: .5em .4em .5em 0;
   cursor: pointer;
 }
 
-/* line 449, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 449, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-resizable-se {
   width: 14px;
   height: 14px;
@@ -3544,13 +3588,13 @@ button.ui-button::-moz-focus-inner {
   bottom: 3px;
 }
 
-/* line 450, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 450, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-draggable .ui-dialog-titlebar {
   cursor: move;
 }
 
 /* Perso */
-/* line 452, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 452, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-dialog .ui-dialog-titlebar .error, .ui-dialog .ui-dialog-content .error, .ui-dialog .ui-dialog-buttonpane .error {
   background-color: #FFE3E2;
   color: #c00;
@@ -3565,13 +3609,13 @@ button.ui-button::-moz-focus-inner {
  *
  * http://docs.jquery.com/UI/Slider#theming
  */
-/* line 462, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 462, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider {
   position: relative;
   text-align: left;
 }
 
-/* line 463, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 463, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider .ui-slider-handle {
   position: absolute;
   z-index: 2;
@@ -3580,7 +3624,7 @@ button.ui-button::-moz-focus-inner {
   cursor: default;
 }
 
-/* line 464, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 464, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider .ui-slider-range {
   position: absolute;
   z-index: 1;
@@ -3590,58 +3634,58 @@ button.ui-button::-moz-focus-inner {
   background-position: 0 0;
 }
 
-/* line 466, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 466, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-horizontal {
   height: .8em;
 }
 
-/* line 467, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 467, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-horizontal .ui-slider-handle {
   top: -0.3em;
   margin-left: -0.6em;
 }
 
-/* line 468, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 468, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-horizontal .ui-slider-range {
   top: 0;
   height: 100%;
 }
 
-/* line 469, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 469, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-horizontal .ui-slider-range-min {
   left: 0;
 }
 
-/* line 470, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 470, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-horizontal .ui-slider-range-max {
   right: 0;
 }
 
-/* line 472, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 472, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-vertical {
   width: .8em;
   height: 100px;
 }
 
-/* line 473, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 473, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-vertical .ui-slider-handle {
   left: -0.3em;
   margin-left: 0;
   margin-bottom: -0.6em;
 }
 
-/* line 474, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 474, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-vertical .ui-slider-range {
   left: 0;
   width: 100%;
 }
 
-/* line 475, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 475, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-vertical .ui-slider-range-min {
   bottom: 0;
 }
 
-/* line 476, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 476, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-slider-vertical .ui-slider-range-max {
   top: 0;
 }
@@ -3655,7 +3699,7 @@ button.ui-button::-moz-focus-inner {
 *
 * http://docs.jquery.com/UI/Tabs#theming
 */
-/* line 485, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 485, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs {
   position: relative;
   padding: .2em;
@@ -3663,13 +3707,13 @@ button.ui-button::-moz-focus-inner {
 }
 
 /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
-/* line 486, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 486, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-nav {
   margin: 0;
   padding: .2em .2em 0;
 }
 
-/* line 487, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 487, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-nav li {
   list-style: none;
   float: left;
@@ -3681,31 +3725,31 @@ button.ui-button::-moz-focus-inner {
   white-space: nowrap;
 }
 
-/* line 488, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 488, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-nav li a {
   float: left;
   padding: .5em 1em;
   text-decoration: none;
 }
 
-/* line 489, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 489, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected {
   margin-bottom: 0;
   padding-bottom: 1px;
 }
 
-/* line 490, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 490, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a {
   cursor: text;
 }
 
-/* line 491, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 491, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a {
   cursor: pointer;
 }
 
 /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
-/* line 492, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 492, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-panel {
   display: block;
   border-width: 0;
@@ -3713,7 +3757,7 @@ button.ui-button::-moz-focus-inner {
   background: none;
 }
 
-/* line 493, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 493, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-tabs .ui-tabs-hide {
   display: none !important;
 }
@@ -3727,20 +3771,20 @@ button.ui-button::-moz-focus-inner {
  *
  * http://docs.jquery.com/UI/Datepicker#theming
  */
-/* line 503, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 503, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker {
   width: 17em;
   padding: .2em .2em 0;
   display: none;
 }
 
-/* line 504, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 504, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-header {
   position: relative;
   padding: .2em 0;
 }
 
-/* line 505, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 505, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
   position: absolute;
   top: 2px;
@@ -3748,32 +3792,32 @@ button.ui-button::-moz-focus-inner {
   height: 1.8em;
 }
 
-/* line 506, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 506, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
   top: 1px;
 }
 
-/* line 507, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 507, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-prev {
   left: 2px;
 }
 
-/* line 508, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 508, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-next {
   right: 2px;
 }
 
-/* line 509, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 509, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-prev-hover {
   left: 1px;
 }
 
-/* line 510, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 510, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-next-hover {
   right: 1px;
 }
 
-/* line 511, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 511, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
   display: block;
   position: absolute;
@@ -3783,31 +3827,31 @@ button.ui-button::-moz-focus-inner {
   margin-top: -8px;
 }
 
-/* line 512, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 512, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-title {
   margin: 0 2.3em;
   line-height: 1.8em;
   text-align: center;
 }
 
-/* line 513, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 513, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-title select {
   font-size: 1em;
   margin: 1px 0;
 }
 
-/* line 514, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 514, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker select.ui-datepicker-month-year {
   width: 100%;
 }
 
-/* line 516, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 516, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker select.ui-datepicker-month,
 .ui-datepicker select.ui-datepicker-year {
   width: 49%;
 }
 
-/* line 517, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 517, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker table {
   width: 100%;
   font-size: .9em;
@@ -3815,7 +3859,7 @@ button.ui-button::-moz-focus-inner {
   margin: 0 0 .4em;
 }
 
-/* line 518, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 518, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker th {
   padding: .7em .3em;
   text-align: center;
@@ -3823,13 +3867,13 @@ button.ui-button::-moz-focus-inner {
   border: 0;
 }
 
-/* line 519, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 519, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker td {
   border: 0;
   padding: 1px;
 }
 
-/* line 520, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 520, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker td span, .ui-datepicker td a {
   display: block;
   padding: .2em;
@@ -3837,7 +3881,7 @@ button.ui-button::-moz-focus-inner {
   text-decoration: none;
 }
 
-/* line 521, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 521, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-buttonpane {
   background-image: none;
   margin: .7em 0 0 0;
@@ -3847,7 +3891,7 @@ button.ui-button::-moz-focus-inner {
   border-bottom: 0;
 }
 
-/* line 522, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 522, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-buttonpane button {
   float: right;
   margin: .5em .2em .4em;
@@ -3857,128 +3901,128 @@ button.ui-button::-moz-focus-inner {
   overflow: visible;
 }
 
-/* line 523, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 523, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
   float: left;
 }
 
 /* with multiple calendars */
-/* line 526, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 526, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker.ui-datepicker-multi {
   width: auto;
 }
 
-/* line 527, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 527, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi .ui-datepicker-group {
   float: left;
 }
 
-/* line 528, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 528, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi .ui-datepicker-group table {
   width: 95%;
   margin: 0 auto .4em;
 }
 
-/* line 529, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 529, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi-2 .ui-datepicker-group {
   width: 50%;
 }
 
-/* line 530, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 530, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi-3 .ui-datepicker-group {
   width: 33.3%;
 }
 
-/* line 531, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 531, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi-4 .ui-datepicker-group {
   width: 25%;
 }
 
-/* line 532, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 532, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header {
   border-left-width: 0;
 }
 
-/* line 533, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 533, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
   border-left-width: 0;
 }
 
-/* line 534, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 534, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-multi .ui-datepicker-buttonpane {
   clear: left;
 }
 
-/* line 535, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 535, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-row-break {
   clear: both;
   width: 100%;
 }
 
 /* RTL support */
-/* line 538, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 538, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl {
   direction: rtl;
 }
 
-/* line 539, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 539, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-prev {
   right: 2px;
   left: auto;
 }
 
-/* line 540, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 540, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-next {
   left: 2px;
   right: auto;
 }
 
-/* line 541, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 541, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-prev:hover {
   right: 1px;
   left: auto;
 }
 
-/* line 542, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 542, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-next:hover {
   left: 1px;
   right: auto;
 }
 
-/* line 543, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 543, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane {
   clear: right;
 }
 
-/* line 544, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 544, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane button {
   float: left;
 }
 
-/* line 545, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 545, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current {
   float: right;
 }
 
-/* line 546, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 546, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-group {
   float: right;
 }
 
-/* line 547, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 547, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header {
   border-right-width: 0;
   border-left-width: 1px;
 }
 
-/* line 548, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 548, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
   border-right-width: 0;
   border-left-width: 1px;
 }
 
 /* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
-/* line 551, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 551, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-datepicker-cover {
   display: none;
   /*sorry for IE5*/
@@ -4009,13 +4053,13 @@ button.ui-button::-moz-focus-inner {
 *
 * http://docs.jquery.com/UI/Progressbar#theming
 */
-/* line 570, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 570, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-progressbar {
   height: 2em;
   text-align: left;
 }
 
-/* line 571, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/jquery-ui.css.scss */
+/* line 571, /Users/olivier/Sites/Ruby/projectlog/vendor/assets/stylesheets/custom-theme/jquery-ui.css.scss */
 .ui-progressbar .ui-progressbar-value {
   margin: -1px;
   height: 100%;

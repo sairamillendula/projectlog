@@ -30,3 +30,44 @@
 #transaction_note {
 	width: 580px;
 }
+
+.receipt_top {
+	background: image-url("receipt_top.png") no-repeat;
+	width: 702px;
+	height: 38px;
+}
+
+.receipt_mid {
+	background: image-url("receipt_mid.png") repeat-y;
+	width: 702px;
+	text-indent: 64px;
+	
+	.type {
+		float: right;
+		padding-right: 20px;
+		font-weight: bold;
+	}
+	
+	p {
+		color: #5E6066;
+		line-height: 21px;
+		font-size: 13px;
+		position: relative;
+		margin-bottom: 21px;
+	}
+	
+	p:first-child {
+		margin-top: 0;
+	}
+	
+	p:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.receipt_bot {
+	background: image-url("receipt_bot.png") no-repeat;
+	width: 702px;
+	height: 56px;
+	margin-left: -4px;
+}
