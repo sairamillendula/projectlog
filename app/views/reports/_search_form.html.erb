@@ -16,7 +16,7 @@
     <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "quick_search_project_id" %> during 
     <%= last_months_select :"report[start_date]", :selected => @report.start_date, :id => "quick_search_start_date" %>
     <%= f.hidden_field :end_date, :value => (@report.start_date || Date.today.beginning_of_month) + 1.month - 1.second, :id => "quick_search_end_date" %>
-    <span class="submit"><%= f.submit "Create Report" %></span>
+    <span class="submit"><%= f.submit "Create Report", disable_with: 'Please wait...' %></span>
     <%= image_tag("indicator.gif", :class => "loading", :style => "display: none") %>
     </p>
   <% end %>  
@@ -29,7 +29,7 @@
  <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "advanced_search_project_id" %>
    from <%= f.text_field :start_date, :size => 12, :class => "date" %>
    to <%= f.text_field :end_date, :size => 12, :class => "date" %>
-   <span class="submit"><%= f.submit 'Create Report' %></span>
+   <span class="submit"><%= f.submit 'Create Report', disable_with: 'Please wait...' %></span>
    <%= image_tag("indicator.gif", :class => "loading", :style => "display: none") %>  
  </p>
   <% end %>

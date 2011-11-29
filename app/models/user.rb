@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :activities, :through => :projects
   has_many :reports, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
+  has_many :payments, :through => :invoices
   has_many :transactions, :dependent => :destroy
   has_many :categories, :dependent => :destroy
   belongs_to :plan

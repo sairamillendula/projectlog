@@ -84,6 +84,9 @@ class UserTest < ActiveSupport::TestCase
     assert !u.customers.any?
     assert !u.projects.any?
     assert !u.activities.any?
+    assert !u.invoices.any?
+    assert !u.payments.any?
+    assert !u.transactions.any?
   end
   
 end
