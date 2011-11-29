@@ -1,3 +1,5 @@
+@import "variables";
+
 /* Projects Index */
 #open-projects {
 	width: 880px;
@@ -111,4 +113,110 @@ form #activity_search {
 /* Projects Edit */
 #project_title, #project_description {
 	width: 580px;
+}
+
+/* Projects Expenses */
+#pl_summary {
+	margin-bottom: 40px;
+	background: #F1F1F3;
+	@include rounded-corners(3px);
+	padding: 5px;
+	list-style: none;
+	
+	.card-inner {
+		height: 15px;
+	}
+	
+	#total_income, #total_expense {
+		font-size: 24px;
+		
+		#curr_income {
+			color: 6CC644;
+	    }
+	    
+	    #curr_expense {
+	        color: #f26535;
+	    }
+	}
+	
+	#total_income {
+		float: left;
+		margin-left: 45px;
+	}
+	
+	#total_expense {
+		float: right;
+		margin-right: 45px;
+	}
+}
+
+.date_period {
+	font-weight: bold;
+	border-bottom: 1px solid #f2f2f2;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+.transactions_list {
+	list-style: none;
+	clear: both;
+	padding-bottom: 5px;
+	
+	li:last-child {
+		padding-bottom: 0;
+	}
+    
+    #t_date {
+	    width: 80px;
+		display: inline-block;
+    }
+    #t_type {
+	    width: 80px;
+		display: inline-block;
+		margin-top: -2px;
+		
+		.t_expense, .t_income {
+			padding: 2px;
+		    @include rounded-corners(3px);
+		    display: block;
+		    width: 60px;
+		    text-align: center;
+		}
+		
+		.t_income {
+			background: #e0faec;
+		}
+			
+		.t_expense {
+			background: #eaf2f5;
+		}
+    }
+    #t_amount {
+	    width: 80px;
+		display: inline-block;
+    }
+    #t_note {
+	    width: 400px;
+		display: inline-block;
+    }
+    #t_category, #t_project {
+	    width: 155px;
+		display: inline-block;
+		
+		a {
+			text-decoration: none;
+			color: #2C2D31;
+		}
+
+		a:hover {
+			 text-decoration: none;
+			  color: #f26535;
+			  background: none;
+		}
+    }
+    #t_receipt {
+	    width: 10px;
+		text-align: right;
+		display: inline-block;
+    }
 }

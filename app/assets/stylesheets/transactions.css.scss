@@ -63,6 +63,17 @@
 	p:last-child {
 		margin-bottom: 0;
 	}
+	
+	a {
+		text-decoration: none;
+		color: #5E6066;
+	}
+		
+	a:hover {
+		text-decoration: none;
+		color: #f26535;
+		background: none;
+	}
 }
 
 .receipt_bot {

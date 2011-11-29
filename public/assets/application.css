@@ -1209,20 +1209,21 @@ select {
   font-size: 16px;
 }
 
+/* Variables */
 /* Projects Index */
-/* line 2, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 4, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #open-projects {
   width: 880px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 8, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 10, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #closed-projects {
   clear: both;
 }
 
-/* line 12, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 14, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #hide_closed {
   font-size: 13px;
   font-weight: normal;
@@ -1230,7 +1231,7 @@ select {
   color: #A3A5AA;
 }
 
-/* line 19, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 21, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #hide_closed:hover {
   background: none;
   #text-decoration: underline;
@@ -1238,12 +1239,12 @@ select {
 }
 
 /* Projects Show */
-/* line 26, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 28, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #project-title {
   line-height: 18px;
 }
 
-/* line 30, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 32, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #meta {
   margin-bottom: 40px;
   background: #F1F1F3;
@@ -1256,38 +1257,38 @@ select {
   width: 870px;
 }
 
-/* line 40, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 42, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #project-description, #customer-note {
   height: 120px;
 }
 
-/* line 44, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 46, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #description-intro {
   margin-top: 8px;
 }
 
-/* line 48, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 50, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #project-description p, #customer-note p {
   margin-bottom: 0;
 }
 
-/* line 52, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 54, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #project-description input, #customer-note input {
   margin-bottom: 6;
 }
 
-/* line 56, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 58, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #description {
   margin-bottom: 0;
 }
 
-/* line 60, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 62, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #project-description textarea, #customer-note textarea {
   width: 100%;
   height: 100px;
 }
 
-/* line 65, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 67, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #activity_search {
   padding: 6px;
   margin-top: 20px;
@@ -1296,12 +1297,12 @@ select {
   background: #eaf2f5 url(/assets/info_background.gif) no-repeat;
 }
 
-/* line 73, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 75, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 form #activity_search {
   margin-bottom: 0;
 }
 
-/* line 77, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 79, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .status {
   float: right;
   display: block;
@@ -1316,37 +1317,155 @@ form #activity_search {
   margin-top: -7px;
 }
 
-/* line 89, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 91, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .status.open {
   background: #6CC644;
 }
 
-/* line 93, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 95, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .status.closed {
   background: #666;
 }
 
-/* line 97, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 99, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .status.internal {
   background: #000;
   margin-left: 10px;
 }
 
-/* line 102, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 104, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #hours-per-day-notice {
   background-color: #ffe3e2;
   color: #c00;
 }
 
-/* line 107, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 109, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #billing-scenario {
   margin-left: 105px;
 }
 
 /* Projects Edit */
-/* line 112, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 114, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 #project_title, #project_description {
   width: 580px;
+}
+
+/* Projects Expenses */
+/* line 119, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary {
+  margin-bottom: 40px;
+  background: #F1F1F3;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  padding: 5px;
+  list-style: none;
+}
+/* line 126, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary .card-inner {
+  height: 15px;
+}
+/* line 130, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary #total_income, #pl_summary #total_expense {
+  font-size: 24px;
+}
+/* line 133, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary #total_income #curr_income, #pl_summary #total_expense #curr_income {
+  color: 6CC644;
+}
+/* line 137, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary #total_income #curr_expense, #pl_summary #total_expense #curr_expense {
+  color: #f26535;
+}
+/* line 142, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary #total_income {
+  float: left;
+  margin-left: 45px;
+}
+/* line 147, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+#pl_summary #total_expense {
+  float: right;
+  margin-right: 45px;
+}
+
+/* line 153, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.date_period {
+  font-weight: bold;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 10px;
+  clear: both;
+}
+
+/* line 160, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list {
+  list-style: none;
+  clear: both;
+  padding-bottom: 5px;
+}
+/* line 165, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list li:last-child {
+  padding-bottom: 0;
+}
+/* line 169, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_date {
+  width: 80px;
+  display: inline-block;
+}
+/* line 173, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_type {
+  width: 80px;
+  display: inline-block;
+  margin-top: -2px;
+}
+/* line 178, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_type .t_expense, .transactions_list #t_type .t_income {
+  padding: 2px;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  display: block;
+  width: 60px;
+  text-align: center;
+}
+/* line 186, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_type .t_income {
+  background: #e0faec;
+}
+/* line 190, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_type .t_expense {
+  background: #eaf2f5;
+}
+/* line 194, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_amount {
+  width: 80px;
+  display: inline-block;
+}
+/* line 198, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_note {
+  width: 400px;
+  display: inline-block;
+}
+/* line 202, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_category, .transactions_list #t_project {
+  width: 155px;
+  display: inline-block;
+}
+/* line 206, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_category a, .transactions_list #t_project a {
+  text-decoration: none;
+  color: #2C2D31;
+}
+/* line 211, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_category a:hover, .transactions_list #t_project a:hover {
+  text-decoration: none;
+  color: #f26535;
+  background: none;
+}
+/* line 217, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_receipt {
+  width: 10px;
+  text-align: right;
+  display: inline-block;
 }
 
 /* line 1, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/activities.css.scss */
@@ -1820,8 +1939,19 @@ textarea.invoice-sig-area {
 .receipt_mid p:last-child {
   margin-bottom: 0;
 }
+/* line 67, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid a {
+  text-decoration: none;
+  color: #5E6066;
+}
+/* line 72, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.receipt_mid a:hover {
+  text-decoration: none;
+  color: #f26535;
+  background: none;
+}
 
-/* line 68, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 79, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_bot {
   background: url(/assets/receipt_bot.png) no-repeat;
   width: 702px;

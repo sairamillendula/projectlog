@@ -21431,6 +21431,9 @@ $(function(){
     return false;
   });
 });
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+;
 function recalc_line(id) {
     var p = $("#invoice_line_items_attributes_" + id + "_price");
     var q = $("#invoice_line_items_attributes_" + id + "_quantity");
@@ -21613,9 +21616,13 @@ $(function(){
     return true;
   });
 });
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-;
+(function() {
+  jQuery(function() {
+    return $('#transaction_category_name').autocomplete({
+      source: $('#transaction_category_name').data('autocomplete-source')
+    });
+  });
+}).call(this);
 
 $(function() {
   $("#activities th a, #activities .pagination a").live("click", function() {

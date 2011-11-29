@@ -35,11 +35,11 @@
   </p>
   <p>
     <b>Category:</b>
-    <%= @transaction.category && @transaction.category.name %>
+    <%= link_to @transaction.category.name, expenses_category_path(@transaction.category) unless @transaction.category_id.nil? %>
   </p>
   <p>
     <b>Project:</b>
-	<%= @transaction.project.title unless @transaction.project_id.nil? %>
+	<%= link_to @transaction.project.title, expenses_project_path(@transaction.project) unless @transaction.project.nil? %>
   </p>
   <p>
     <b>Receipt:</b>

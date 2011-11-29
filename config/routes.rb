@@ -1,7 +1,11 @@
 Projectlog::Application.routes.draw do
   resources :transactions
-  resources :categories
-
+  resources :categories do
+    member do
+      get 'expenses'
+    end
+  end
+  
   root :to => 'dashboard#show'
 
   resource :dashboard do
@@ -31,11 +35,15 @@ Projectlog::Application.routes.draw do
     resources :payments
   end
   
-  resources :projects do 
+  resources :projects do
     collection do
       get "closed"
     end
     resources :activities
+    
+    member do
+      get 'expenses'
+    end
   end
   resources :activities
   

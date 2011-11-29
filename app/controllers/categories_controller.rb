@@ -62,4 +62,9 @@ class CategoriesController < ApplicationController
       format.html { redirect_to categories_url }
     end
   end
+  
+  def expenses
+    @category = current_user.categories.find(params[:id])
+    @transactions = @category.transactions.order('date DESC')
+  end
 end

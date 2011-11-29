@@ -5,7 +5,7 @@ class TransactionsController < ApplicationController
   
   def index
     @transactions = current_user.transactions.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }

@@ -9,6 +9,7 @@ class Transaction < ActiveRecord::Base
   
   scope :expenses, where(expense: true)
   scope :incomes, where(expense: false)
+  #scope :project, where(:project_id => project_id)
   
   def expense
     expense = true

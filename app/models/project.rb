@@ -57,7 +57,14 @@ class Project < ActiveRecord::Base
       self.billable_amount = default_rate.to_f
     end
   end
-   
+  
+  def total_expenses
+    transactions.expenses.inject(0) { |sum, p| sum + p.total }
+  end
+  def total_incomes
+    transactions.incomes.inject(0) { |sum, p| sum + p.total }
+  end
+  
   # Clears customer and default rate for internal project
   def clears_if_internal
     if internal?

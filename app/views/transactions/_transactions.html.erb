@@ -34,8 +34,8 @@
 		<td><%= number_to_currency(transaction.amount) %></td>
 		<td><%= transaction.note %></td>
 		<td><%= image_tag('attachment.gif') unless transaction.receipt.nil? %></td>
-		<td><%= transaction.project.title unless transaction.project_id.nil? %></td>
-		<td><%= transaction.category.name unless transaction.category_id.nil? %></td>
+		<td><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></td>
+		<td><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></td>
 		<td><%= link_to 'Show', transaction %></td>
 		<td><%= link_to 'Edit', edit_transaction_path(transaction) %>
 			<%= link_to image_tag("bin.png"), transaction, :confirm => 'Are you sure?', :method => :delete %>

@@ -75,6 +75,11 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def expenses
+    @project = current_user.projects.find(params[:id])
+    @transactions = @project.transactions.order('date DESC')
+  end
+  
 private
   def sort_column
     Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"

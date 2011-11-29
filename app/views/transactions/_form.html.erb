@@ -42,11 +42,10 @@
   </div>
   <div class="field">
     <%= f.label :project_id %>
-    <%= f.collection_select(:project_id, Project.all, :id, :title, :prompt => true) %>
+    <%= f.collection_select(:project_id, current_user.projects.all, :id, :title, :prompt => true) %>
   </div>
   <div class="field">
     <%= f.label :category_name, 'Category' %>
-    <!%= f.text_field :category_id %>
 	<%= f.text_field :category_name, data: {autocomplete_source: categories_path} %>
   </div>
   <div class="field">
