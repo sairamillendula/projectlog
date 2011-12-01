@@ -53,7 +53,7 @@ class InvoicesController < ApplicationController
 
   def prepare_email
     @invoice = Invoice.find_by_slug!(params[:id])
-    @subject = Settings["invoices.email.subject"].gsub("%{invoice_subject}", @invoice.subject).gsub("%{user_company}", current_user.profile.company)
+    @subject = Settings["invoices.email.subject"].gsub("%{invoice_subject}", @invoice.subject).gsub("%{user_company}", current_user.profile.company.to_s)
     @body = Settings["invoices.email.body"].gsub("%{invoice_link}", shared_invoice_url(@invoice))
   end
 
