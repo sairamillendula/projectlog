@@ -28,6 +28,7 @@
         <% if @project.persisted? || @project.customer.blank?  %>
 	    <%# Hide the customer field if it's a new project but already has the customer set up. %>
 	      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = { :prompt => "Select Customer" } ) %>
+	      <%= link_to "Add a customer", new_customer_path, :remote => true %>
 	    <% else %>
 	     <%= @project.customer.name %> <%= clear %></p>
 	    <% end %>

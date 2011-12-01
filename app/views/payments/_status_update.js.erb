@@ -1,0 +1,6 @@
+<% Invoice.status_list.each do |sl| %>
+  $("#invoice-status").removeClass("<%= sl.parameterize %>");
+<% end %>
+$("#invoice-status").addClass("<%= @invoice.status.parameterize %>");
+$("#invoice-status").html("<%= @invoice.status %>");
+$("#invoice-balance").html("<%= @invoice.balance %>");

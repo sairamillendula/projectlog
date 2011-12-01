@@ -15,7 +15,7 @@
     <td><%= invoice.due_date %></td>
     <td><%= invoice.subject %></td>
     <td><%= invoice.balance %></td>
-    <td><span id="invoice_status_index" class="invoice <%= invoice.status.parameterize %>"><%= invoice.status %></span></td>
+    <td><span id="invoice-status-index" class="invoice <%= invoice.status.parameterize %>"><%= invoice.status %></span></td>
     <td><%= invoice.customer.name %></td>
     <td><%= link_to 'Edit', edit_invoice_path(invoice) %>
         <%= link_to image_tag("bin.png"), invoice, :confirm => 'Are you sure?', :method => :delete %></td>

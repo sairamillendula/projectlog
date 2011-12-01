@@ -1,7 +1,2 @@
-<% Invoice.status_list.each do |sl| %>
-  $("#invoice-page").removeClass("<%= sl.parameterize %>");
-<% end %>
-$("#invoice-page").addClass("<%= @invoice.status.parameterize %>");
-$("#invoice-status").html("<%= @invoice.status %>");
-$("#invoice-balance").html("<%= @invoice.balance %>");
+<%= render "status_update" %>
 <%= render "index" %>

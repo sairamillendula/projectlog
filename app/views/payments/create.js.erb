@@ -1,10 +1,5 @@
 <% unless @payment.new_record? %>
-  <% Invoice.status_list.each do |sl| %>
-    $("#invoice-page").removeClass("<%= sl.parameterize %>");
-  <% end %>
-  $("#invoice-page").addClass("<%= @invoice.parameterize %>");
-  $("#invoice-status").html("<%= @invoice.status %>");
-  $("#invoice-balance").html("<%= @invoice.balance %>");
+  <%= render "status_update" %>
   $("#new_payment_dialog").dialog("close");
   <%= render "index" if @refresh %>
 <% else %>
