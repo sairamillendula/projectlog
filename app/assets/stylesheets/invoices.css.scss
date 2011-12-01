@@ -133,7 +133,7 @@ input#invoice_discount {
 	margin-bottom: 0;
 }
 
-#invoice_status {
+#invoice-status {
 	font-size: 15px;
 	font-weight: normal;
 	text-transform: uppercase;
@@ -144,7 +144,7 @@ input#invoice_discount {
     @include rounded-corners(3px);
 }
 
-#invoice_status_index {
+#invoice-status-index {
 	padding: 4px;
     @include rounded-corners(3px);	
 }
