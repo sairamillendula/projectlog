@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "no-reply@projectlogapp.com"
+  default from: "notifications@projectlogapp.com"
   
   def new_user_registered(user)
     @user = user
