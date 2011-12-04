@@ -1,5 +1,5 @@
 one:
-    invoice_id: 1
+    invoice: one
     line_type: "Product"
     description: 'description'
     quantity: '2'
@@ -9,8 +9,8 @@ one:
     subtotal: '120'
     line_total: '120'
 
-one:
-    invoice_id: 1
+two:
+    invoice: one
     line_type: "Service"
     description: 'description'
     quantity: '2'
@@ -21,7 +21,7 @@ one:
     line_total: '133'
     
 three:
-    invoice_id: 2
+    invoice: two
     line_type: "Product"
     description: 'description'
     quantity: '2'

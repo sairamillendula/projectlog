@@ -1,5 +1,5 @@
 <% if @customer.valid? %>
-  $("#intro").html('<%= escape_javascript render(:partial => 'dashboard/steps') %>');
+  $("#intro").html('<%= escape_javascript render(:partial => 'dashboard/introduction') %>');
   $("#project_customer_id").html('<%= escape_javascript options_from_collection_for_select(current_user.customers.all, :id, :name, @customer.id) %>');
   $("#new_customer_dialog").dialog("close");
 <% else %>

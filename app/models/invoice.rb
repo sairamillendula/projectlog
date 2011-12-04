@@ -1,15 +1,15 @@
 class Invoice < ActiveRecord::Base
   belongs_to :user
   belongs_to :customer
-  has_many :line_items
-  has_many :payments
+  has_many :line_items, :dependent => :destroy
+  has_many :payments, :dependent => :destroy
 
   before_create :generate_invoice_number_and_slug
   before_save :update_balance
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
 
-  validates :subject, :balance, :customer, :due_date, :issued_date, :presence => true
+  validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true
 
   accepts_nested_attributes_for :line_items, :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }

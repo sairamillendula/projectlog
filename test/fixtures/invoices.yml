@@ -8,11 +8,9 @@ one:
   status: Paid
   note: MyText
   currency: USD
-  customer_id: '1'
+  customer: two
   user: one
-  slug: 'invoiceslug'
-  invoice_number: '2011-001'
-  discount: '0.1'
+  slug: abc
 
 two:
   issued_date: 2011-09-04
@@ -22,8 +20,6 @@ two:
   status: Paid
   note: MyText
   currency: RUB
-  customer_id: '1'
-  user: one
-  slug: 'dcdferfrcd43rdc'
-  invoice_number: '2011-002'
-  discount: '10'
+  customer: three
+  user: two
+  slug: def

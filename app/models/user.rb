@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
   after_create :build_profile_and_set_default_plan
   
   has_one  :profile, :dependent => :destroy
+  has_many :invoices, :dependent => :destroy
   has_many :projects, :dependent => :destroy, :order => 'created_at DESC'
   has_many :customers, :dependent => :destroy  
   has_many :connections, :through => :customers, :source => :contacts
   has_many :activities, :through => :projects
   has_many :reports, :dependent => :destroy
-  has_many :invoices, :dependent => :destroy
   has_many :payments, :through => :invoices
   has_many :transactions, :dependent => :destroy
   has_many :categories, :dependent => :destroy

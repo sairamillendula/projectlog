@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TransactionsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:one)
     @transaction = transactions(:one)
   end
 

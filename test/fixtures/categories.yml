@@ -1,11 +1,11 @@
 one:
   name: Bank
-  user_id: one
+  user: one
 
 two:
   name: Auto
-  user_id: one
+  user: one
 
 three:
   name: MyString
-  user_id: two
+  user: two

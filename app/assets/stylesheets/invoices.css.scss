@@ -183,7 +183,7 @@ textarea.invoice-sig-area {
 }
 
 @media print {
-    header, nav, .no-print { display: none !important; }
+    header, nav, .no-print, #invoice-status { display: none !important; }
     div.invoice.sent, div.invoice.partial-payment, div.invoice.paid {
         background: transparent;
     }

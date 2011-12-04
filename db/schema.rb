@@ -298,7 +298,6 @@ ActiveRecord::Schema.define(:version => 20111128182400) do
     t.float    "amount"
     t.float    "tax1"
     t.float    "tax2"
-    t.float    "subtotal"
     t.float    "total"
     t.string   "receipt"
     t.text     "note"

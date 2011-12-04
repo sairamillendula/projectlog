@@ -47,4 +47,11 @@ class InvoicesControllerTest < ActionController::TestCase
 
     assert_redirected_to invoices_path
   end
+
+  test "should send invoice to client with attach" do
+    contact = contacts(:three)
+    post :send_email, format: "js", id: @invoice.to_param, send_invoice: { subject: "Invoice for bla-bla", body: "See invoice attached", contact_id: contact.id, attach: "1"}
+    assert_response :success
+  end
+
 end
