@@ -1,5 +1,5 @@
 PDFKit.configure do |config|
-  # config.wkhtmltopdf = '/path/to/wkhtmltopdf'
+  config.wkhtmltopdf = Rails.root.join('bin', 'wkhtmltopdf').to_s if Rails.env == 'production'
   config.default_options = {
   :print_media_type => true,
   :encoding => 'UTF-8'
