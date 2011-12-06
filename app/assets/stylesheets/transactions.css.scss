@@ -15,6 +15,13 @@
 .income {
     background: #e0faec;
 }
+#curr_income {
+	color: 6CC644;
+}
+
+#curr_expense {
+    color: #f26535;
+}
 
 #transactions-search {
 	height: 30px;
@@ -81,4 +88,44 @@
 	width: 702px;
 	height: 56px;
 	margin-left: -4px;
+}
+
+/* Quick Transaction */
+#quick-transaction {
+	margin-bottom: 45px;
+}
+
+#transaction_project_id {
+	width: 215px;
+	margin-bottom: 5px;
+}
+
+.total_right {
+	float: right;
+}
+/* Quick activity */
+/* Firefox fix */
+#transaction-fields input {
+	font-size: inherit;
+	
+	&:tr {
+		vertical-align:top;
+	}
+}
+
+input#new_transaction_date {
+	max-width: 96px;
+}
+
+input.numbers {
+	width: 90px;
+}
+input#transaction_note {
+	max-width: 600px;
+}
+
+/* Transaction new */
+/* Firefox fix */
+input#note {
+	max-width: 600px;
 }

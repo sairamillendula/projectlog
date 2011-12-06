@@ -10,6 +10,7 @@ class TransactionsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @transactions }
       format.js
+      format.csv { response.headers["Content-Disposition"] = "attachment; filename=transactions.csv" }
     end
   end
 
@@ -32,6 +33,7 @@ class TransactionsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transaction }
+      format.js
     end
   end
 
@@ -52,6 +54,7 @@ class TransactionsController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
@@ -82,6 +85,12 @@ class TransactionsController < ApplicationController
       format.html { redirect_to transactions_url }
       format.json { head :ok }
     end
+  end
+  
+  def monthly_report
+    @transactions = Transaction.all
+    @incomes = Transaction.incomes
+    @expenses = Transaction.expenses
   end
   
   private

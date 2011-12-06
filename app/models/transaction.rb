@@ -9,7 +9,6 @@ class Transaction < ActiveRecord::Base
   
   scope :expenses, where(expense: true)
   scope :incomes, where(expense: false)
-  #scope :project, where(:project_id => project_id)
   
   def expense
     expense = true
@@ -35,5 +34,16 @@ class Transaction < ActiveRecord::Base
     current_user = user
     self.category = current_user.categories.find_or_create_by_name(name) if name.present?
   end
+  
+  def total_incomes
+    @total_incomes = 'Bla'
+  end
+  
+  def total_expenses
+    transactions.expenses.inject(0) { |sum, p| sum + p.total }
+  end
+  #def total_incomes
+  #  transactions.incomes.inject(0) { |sum, p| sum + p.total }
+  #end
   
 end
