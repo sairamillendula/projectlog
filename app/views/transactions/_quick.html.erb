@@ -1,0 +1,33 @@
+<%= form_for(current_user.transactions.new, :method => :post, :remote => true) do |f| %>
+
+<table id="new-transaction" class='borders'>
+  <tr>
+    <th id="t.date" style="">Date</th>
+    <th id="t.amount">Amount</th>
+    <th id="t.note">Description</th>
+    <th></th>
+    
+  </tr>
+  <tr class="transaction-fields">
+    <td><%= f.text_field :date, :class => "date", :size => 12 %></td>
+    <td><%= f.number_field :amount, :class => "numbers" %></td>
+    <td><%= f.text_field :note, :size => 78 %></td>
+    <td><span class="small submit"><%= f.submit 'Create' %></span></td>
+  </tr>
+  <tr class="transaction-fields">
+	<td style="vertical-align:top;"><%= f.radio_button(:expense, true) %> Expense<br> <%= f.radio_button(:expense, false) %> Income</td>
+	<td style="vertical-align:top;"><% if current_user.profile.tax2.present? %>
+		  <%= current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : 'Tax 1' %><br><%= f.number_field :tax1, :class => "numbers" %><br>
+		  <%= current_user.profile.tax2_label.present? ? current_user.profile.tax2_label : 'Tax 2' %><br><%= f.number_field :tax2, :class => "numbers" %>
+		<% else %>
+		  <%= current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : 'Tax 1' %><br><%= f.number_field :tax1, :class => "numbers" %>
+		<% end %>
+	</td>
+	<td style="vertical-align:top;">Category<br><%= f.text_field :category_name, data: {autocomplete_source: categories_path} %><br>
+		Project<br><%= collection_select(:transaction, :project_id, current_user.projects.all, :id, :title, {:prompt => true, :class => 'transaction_project'}) %>
+	</td>
+	<td></td>
+  </tr>
+</table>
+
+<% end %>

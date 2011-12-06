@@ -1,6 +1,12 @@
+<% if @transactions.any? %>
 <ul id="sub-menu">
-  <li class="buttonorange"><%= link_to '+ New Transaction', new_transaction_path %>
+  <li class="buttonorange"><%= link_to " ⬇ Export to CSV", params.merge(:format => :csv, :action => "index") %></li>
+  <li class="buttonorange"><%= link_to " Monthly Report", transactions_reports_monthly_path %></li>
 </ul>
+<% end %>
+
+<h1>Add Transaction</h1>
+<%= render 'quick' %>
 
 <h1><%= params[:search] ? "Listing transactions that match '#{params[:search]}'" : "Transactions" %></h1>
   <div id="transactions">

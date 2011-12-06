@@ -1,0 +1,18 @@
+<% if @transaction.valid? %>
+  $("form#new_transaction").get(0).reset(); // Clear out the form
+  $(".transaction-fields").effect("highlight", {}, 1000);
+  $("#transactions").html("<%= escape_javascript(render("transactions")) %>");
+  $('<%= escape_javascript render(:partial => 'quick.html') %>').insertBefore('#time-entries'); // Show the new activity form again.
+  $("#row_for_transaction_<%= @transaction.id %>").effect("highlight", {}, 1000);
+  $('.new_activity_link').show();
+<% else %>
+  $('<div id="transaction-error"></div>')
+		.html('<div class="alert">Please fix the following errors: <%= escape_javascript @transaction.errors.full_messages.to_sentence %></div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			modal: true,
+			show: "fade",
+			hide: "fade",
+    });
+<% end %>

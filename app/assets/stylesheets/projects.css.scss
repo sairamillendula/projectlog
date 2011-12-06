@@ -195,7 +195,11 @@ form #activity_search {
 	    width: 80px;
 		display: inline-block;
     }
-    #t_note {
+    #t_note_short {
+	    width: 270px;
+		display: inline-block;
+    }
+    #t_note_long {
 	    width: 400px;
 		display: inline-block;
     }
@@ -213,10 +217,5 @@ form #activity_search {
 			  color: #f26535;
 			  background: none;
 		}
-    }
-    #t_receipt {
-	    width: 10px;
-		text-align: right;
-		display: inline-block;
     }
 }

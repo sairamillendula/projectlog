@@ -712,37 +712,31 @@ p.buttonorange.inactive {
 }
 
 /* line 608, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
-#new_transaction .submit input {
-  margin-top: 8px;
-  margin-bottom: 4px;
-}
-
-/* line 613, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #type {
   padding: 6px;
   clear: both;
 }
 
-/* line 618, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 613, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #date {
   float: left;
   padding: 6px;
 }
 
-/* line 623, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 618, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #description {
   float: left;
   padding: 6px;
 }
 
-/* line 628, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 623, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #numbers {
   float: left;
   padding: 6px;
   background-color: #d8d8d8;
 }
 
-/* line 634, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 629, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #optional {
   background-color: #fff;
   padding: 6px;
@@ -750,20 +744,20 @@ p.buttonorange.inactive {
 }
 
 /* Pagination */
-/* line 641, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 636, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .pagination {
   font-size: 12px;
 }
-/* line 644, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 639, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .pagination a {
   text-decoration: none;
 }
-/* line 647, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 642, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .pagination a:hover {
   background-color: none;
 }
 
-/* line 653, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 648, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .page, .first, .last, .prev, .next {
   border: 1px solid #eaeaea;
   margin-right: 8px;
@@ -771,17 +765,17 @@ p.buttonorange.inactive {
   padding-left: 7px;
 }
 
-/* line 660, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 655, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .last {
   margin-right: 0;
 }
 
-/* line 664, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 659, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .page:hover, .first:hover, .last:hover, .prev:hover, .next:hover {
   background-color: #eaeaea;
 }
 
-/* line 668, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 663, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .page.current {
   border-color: #eaeaea;
   color: #EAEAEA;
@@ -790,19 +784,19 @@ p.buttonorange.inactive {
   font-weight: normal;
 }
 
-/* line 676, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 671, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .page a {
   text-decoration: none;
 }
 
-/* line 680, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 675, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .page a:hover, .first a:hover, .last a:hover, .prev a:hover, .next a:hover {
   background: none;
   color: inherit;
 }
 
 /* This is a table */
-/* line 686, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 681, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table {
   font-size: 90%;
   margin-bottom: 20px;
@@ -810,29 +804,29 @@ table {
   border-spacing: 0px;
 }
 
-/* line 693, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 688, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table.borders {
   border: 1px solid #D8D8D8;
 }
 
-/* line 697, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 692, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table.borders tr {
   background: #f8f8f8 url(/assets/row_bg.png) repeat-x 0px 100%;
 }
 
-/* line 701, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 696, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table.activities {
   border: none;
 }
 
-/* line 705, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 700, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 tbody {
   border-color: inherit;
   display: table-row-group;
   vertical-align: middle;
 }
 
-/* line 711, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 706, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table th {
   background-color: #EAEAEA;
   border-bottom: 1px solid #D8D8D8;
@@ -843,7 +837,7 @@ table th {
   font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
 }
 
-/* line 721, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 716, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table.activities tr {
   border-color: inherit;
   display: table-row;
@@ -852,53 +846,53 @@ table.activities tr {
   border-bottom: 1px solid #E1E1E1;
 }
 
-/* line 729, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 724, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table.activities td {
   color: #484848;
   border-bottom: 1px solid #E1E1E1;
 }
 
-/* line 734, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 729, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table.activities tr {
   background: none;
 }
 
-/* line 738, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 733, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #activity-fields input, #activity-fields select {
   margin-bottom: 0;
 }
 
-/* line 742, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 737, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #activity-fields {
   height: 60px;
 }
 
-/* line 746, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 741, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table td {
   font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
   padding: 0.5em 0.3em;
 }
 
-/* line 751, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 746, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table td a:hover {
   text-decoration: underline;
   background-color: inherit;
   color: #4183C4;
 }
 
-/* line 757, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 752, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table td a {
   color: #4183C4;
   text-decoration: none;
 }
 
-/* line 762, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 757, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table td a:visited {
   color: #4183C4;
   text-decoration: none;
 }
 
-/* line 767, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 762, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table th .sort {
   color: #999;
   background-repeat: no-repeat;
@@ -909,17 +903,17 @@ table th .sort {
   font-weight: normal;
 }
 
-/* line 777, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 772, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table th .asc {
   background-image: url(/assets/arrow-up.png);
 }
 
-/* line 781, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 776, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 table th .desc {
   background-image: url(/assets/arrow-down.png);
 }
 
-/* line 785, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 780, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 tr.total th {
   border-top: 1px solid #D8D8D8;
   font-weight: bold;
@@ -927,69 +921,69 @@ tr.total th {
   border-bottom: none;
 }
 
-/* line 792, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 787, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 tr.total .total_in_days {
   font-weight: normal;
   font-size: 11px;
 }
 
-/* line 797, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 792, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 td.date {
   width: 80px;
 }
 
-/* line 801, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 796, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 td.time {
   width: 40px;
 }
 
-/* line 805, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 800, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 td.project {
   width: 190px;
 }
 
-/* line 809, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 804, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 td.actions {
   width: 60px;
   text-align: right;
   padding-right: 10px;
 }
 
-/* line 815, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 810, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 td.project_name {
   width: 440px;
 }
 
-/* line 819, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 814, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 td.project_customer {
   width: 360px;
 }
 
-/* line 823, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 818, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .admin td {
   font-size: 12px;
 }
 
 /* Form */
-/* line 829, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 824, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 input, textarea {
   font-size: 14px;
   margin-bottom: 20px;
   padding: 3px;
 }
 
-/* line 835, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 830, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 textarea {
   height: 125px;
   width: 580px;
 }
 
-/* line 840, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 835, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .actions input {
   width: auto;
 }
 
-/* line 844, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 839, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .field-section {
   background-color: #e0d0ea;
   padding: 10px;
@@ -997,18 +991,18 @@ textarea {
   position: relative;
 }
 
-/* line 851, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 846, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 div.field {
   margin-bottom: 0px;
 }
 
-/* line 855, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 850, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #account_fiscal_end_day, #account_fiscal_end_month, #account_localization {
   margin-bottom: 10px;
 }
 
 /* Submit button */
-/* line 860, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 855, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .submit input {
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -1026,17 +1020,17 @@ div.field {
   text-decoration: none;
   width: auto;
 }
-/* line 875, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 870, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .submit input:hover {
   border-color: #666;
   color: black;
 }
-/* line 880, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 875, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .submit input:active {
   background: #eeeeee url(/assets/white-grad-active.png) repeat-x scroll 0% 0%;
 }
 
-/* line 885, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 880, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .small.submit input {
   font-size: 12px !important;
   line-height: 12px;
@@ -1045,48 +1039,48 @@ div.field {
   margin-left: 0;
 }
 
-/* line 893, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 888, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .extra {
   border-top: 1px dashed #d8d8d8;
   padding-top: 10px;
   margin-bottom: 10px;
   font-size: 12px;
 }
-/* line 899, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 894, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .extra a {
   color: #03C;
 }
-/* line 901, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 896, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .extra a:hover {
   color: #03C;
 }
-/* line 902, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 897, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .extra a:visited {
   color: #03C;
 }
 
-/* line 906, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 901, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 p.submit {
   margin-left: 105px;
 }
 
-/* line 910, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 905, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 p.submit.left {
   margin-left: 0;
 }
 
-/* line 914, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 909, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 .markdown {
   height: 27px;
 }
 
 /* Account */
-/* line 919, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 914, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #profile_submit {
   margin-top: 30px;
 }
 
-/* line 923, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 918, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #current_plan {
   padding: 6px;
   margin-bottom: 20px;
@@ -1094,29 +1088,29 @@ p.submit.left {
   background: #eaf2f5 url(/assets/info_background.gif) no-repeat;
 }
 
-/* line 930, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 925, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #plan {
   font-weight: bold;
   font-size: 15px;
 }
 
 /* Settings tabs */
-/* line 936, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 931, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #settings {
   border-top: 1px solid #000;
 }
 
-/* line 940, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 935, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #global .field-section input {
   margin-bottom: 0;
 }
 
-/* line 944, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 939, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 select {
   margin-bottom: 20px;
 }
 
-/* line 948, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
+/* line 943, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/style.css.scss */
 #settings .column {
   float: left;
   width: 50%;
@@ -1441,31 +1435,30 @@ form #activity_search {
   display: inline-block;
 }
 /* line 198, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
-.transactions_list #t_note {
-  width: 400px;
+.transactions_list #t_note_short {
+  width: 270px;
   display: inline-block;
 }
 /* line 202, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+.transactions_list #t_note_long {
+  width: 400px;
+  display: inline-block;
+}
+/* line 206, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .transactions_list #t_category, .transactions_list #t_project {
   width: 155px;
   display: inline-block;
 }
-/* line 206, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 210, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .transactions_list #t_category a, .transactions_list #t_project a {
   text-decoration: none;
   color: #2C2D31;
 }
-/* line 211, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
+/* line 215, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
 .transactions_list #t_category a:hover, .transactions_list #t_project a:hover {
   text-decoration: none;
   color: #f26535;
   background: none;
-}
-/* line 217, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/projects.css.scss */
-.transactions_list #t_receipt {
-  width: 10px;
-  text-align: right;
-  display: inline-block;
 }
 
 /* line 1, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/activities.css.scss */
@@ -1886,44 +1879,54 @@ textarea.invoice-sig-area {
   background: #e0faec;
 }
 
-/* line 19, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 18, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#curr_income {
+  color: 6CC644;
+}
+
+/* line 22, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#curr_expense {
+  color: #f26535;
+}
+
+/* line 26, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 #transactions-search {
   height: 30px;
   line-height: 40px;
   margin-bottom: 10px;
 }
 
-/* line 25, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 32, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 #transactions_search {
   margin-bottom: 0;
   height: 30px;
 }
 
-/* line 30, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 37, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 #transaction_note {
   width: 580px;
 }
 
-/* line 34, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 41, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_top {
   background: url(/assets/receipt_top.png) no-repeat;
   width: 702px;
   height: 38px;
 }
 
-/* line 40, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 47, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid {
   background: url(/assets/receipt_mid.png) repeat-y;
   width: 702px;
   text-indent: 64px;
 }
-/* line 45, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 52, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid .type {
   float: right;
   padding-right: 20px;
   font-weight: bold;
 }
-/* line 51, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 58, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid p {
   color: #5E6066;
   line-height: 21px;
@@ -1931,32 +1934,82 @@ textarea.invoice-sig-area {
   position: relative;
   margin-bottom: 21px;
 }
-/* line 59, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 66, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid p:first-child {
   margin-top: 0;
 }
-/* line 63, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 70, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid p:last-child {
   margin-bottom: 0;
 }
-/* line 67, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 74, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid a {
   text-decoration: none;
   color: #5E6066;
 }
-/* line 72, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 79, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_mid a:hover {
   text-decoration: none;
   color: #f26535;
   background: none;
 }
 
-/* line 79, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+/* line 86, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
 .receipt_bot {
   background: url(/assets/receipt_bot.png) no-repeat;
   width: 702px;
   height: 56px;
   margin-left: -4px;
+}
+
+/* Quick Transaction */
+/* line 94, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#quick-transaction {
+  margin-bottom: 45px;
+}
+
+/* line 98, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#transaction_project_id {
+  width: 215px;
+  margin-bottom: 5px;
+}
+
+/* line 103, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+.total_right {
+  float: right;
+}
+
+/* Quick activity */
+/* Firefox fix */
+/* line 108, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#transaction-fields input {
+  font-size: inherit;
+}
+/* line 111, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+#transaction-fields input:tr {
+  vertical-align: top;
+}
+
+/* line 116, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+input#new_transaction_date {
+  max-width: 96px;
+}
+
+/* line 120, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+input.numbers {
+  width: 90px;
+}
+
+/* line 123, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+input#transaction_note {
+  max-width: 600px;
+}
+
+/* Transaction new */
+/* Firefox fix */
+/* line 129, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/transactions.css.scss */
+input#note {
+  max-width: 600px;
 }
 
 /*

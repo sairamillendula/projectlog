@@ -1,0 +1,4 @@
+Date,Type,Amount,Tax1,Tax2,Description,Category,Project
+<% @transactions.each do |transaction| %>
+<%= l transaction.date %>,<%= transaction.expense? ? 'Expense' : 'Income' %>,<%= transaction.amount %>,<%= transaction.tax1 %>,<%= transaction.tax2 %>,"<%= transaction.note %>","<%= transaction.category.name unless transaction.category.nil? %>","<%= transaction.project.title unless transaction.project.nil? %>"
+<% end %>
