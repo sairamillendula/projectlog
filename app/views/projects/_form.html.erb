@@ -31,6 +31,7 @@
 	      <%= link_to "Add a Customer", new_customer_path, :remote => true %>
 	    <% else %>
 	     <%= @project.customer.name %> <%= clear %></p>
+	     <%= f.hidden_field :customer_id, :value => @project.customer.id %>
 	    <% end %>
 	</div>
 	
