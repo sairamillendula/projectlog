@@ -1741,24 +1741,39 @@ table#total {
 }
 
 /* line 121, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+#line_items_list {
+  margin-top: 60px;
+}
+
+/* line 125, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 #invoice_line_items td, #invoice_line_items th {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 125, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 129, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 .align_right {
   text-align: right;
   padding-right: 12px;
   font-weight: bold;
 }
 
-/* line 131, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 135, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+#i_type {
+  width: 60px;
+}
+
+/* line 139, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+#i_description {
+  width: 420px;
+}
+
+/* line 143, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 input#invoice_discount {
   width: 60px;
   margin-bottom: 0;
 }
 
-/* line 136, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 148, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 #invoice-status {
   font-size: 15px;
   font-weight: normal;
@@ -1772,7 +1787,7 @@ input#invoice_discount {
   -moz-border-radius: 3px;
 }
 
-/* line 147, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 159, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 #invoice-status-index {
   padding: 4px;
   border-radius: 3px;
@@ -1780,32 +1795,32 @@ input#invoice_discount {
   -moz-border-radius: 3px;
 }
 
-/* line 152, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 164, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 span.invoice.draft {
   background: #f3f3f3;
 }
 
-/* line 156, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 168, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 span.invoice.sent {
   background: #eaf2f5;
 }
 
-/* line 160, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 172, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 span.invoice.partial-payment {
   background: #fffff3;
 }
 
-/* line 164, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 176, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 span.invoice.paid {
   background: #e0faec;
 }
 
-/* line 168, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 180, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 #companies {
   float: right;
 }
 
-/* line 172, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 184, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 div.company-info, div.customer-info {
   width: 300px;
   float: right;
@@ -1815,33 +1830,33 @@ div.company-info, div.customer-info {
   margin-bottom: 10px;
 }
 
-/* line 181, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 193, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 textarea.invoice-sig-area {
   width: 430px;
 }
 
 @media print {
-  /* line 186, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+  /* line 198, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
   header, nav, .no-print, #invoice-status {
     display: none !important;
   }
 
-  /* line 187, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+  /* line 199, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
   div.invoice.sent, div.invoice.partial-payment, div.invoice.paid {
     background: transparent;
   }
 
-  /* line 190, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+  /* line 202, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
   body, #content, #main-content {
     background: #fff;
   }
 
-  /* line 193, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+  /* line 205, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
   a.no-print {
     color: #fff;
   }
 }
-/* line 198, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
+/* line 210, /Users/olivier/Sites/Ruby/projectlog/app/assets/stylesheets/invoices.css.scss */
 .hidden {
   display: none !important;
 }
