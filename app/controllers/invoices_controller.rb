@@ -78,7 +78,7 @@ class InvoicesController < ApplicationController
     @invoice = current_user.invoices.find_by_slug!(params[:id])
     respond_to do |format|
       format.html
-      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'shared.html', :layout => 'pdfattach')).to_pdf }
+      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
     end
   end
 
