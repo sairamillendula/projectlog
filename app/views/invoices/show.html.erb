@@ -26,5 +26,7 @@
   <%= render 'header' %>
 
   <div id="line_items_list"><%= render 'line_items_list' %></div>
-
+  
+  <%= render 'note' unless @invoice.note.empty? %>
+  
 </div>

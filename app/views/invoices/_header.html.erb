@@ -1,31 +1,35 @@
 <p>
-  <b>Invoice Number:</b>
+  <b>Invoice ID:</b>
   <%= @invoice.invoice_number %>
 </p>
 
 <p>
-  <b>Issue date:</b>
+  <b>Issue Date:</b>
   <%= @invoice.issued_date %>
 </p>
 
 <p>
-  <b>Due date:</b>
+  <b>Due Date:</b>
   <%= @invoice.due_date %>
 </p>
+
+<% if user_signed_in? %>
+  <% if !@invoice.paid? %>
+  <p>
+    <b>Balance:</b>
+    <span id="invoice-balance"><%= @invoice.balance %></span>
+  </p>
+  <% end %>
+
+  <% unless @invoice.currency.nil? %>
+  <p>
+    <b>Currency:</b>
+    <%= @invoice.currency %>
+  </p>
+  <% end %>
+<% end %>
 
 <p>
   <b>Subject:</b>
   <%= @invoice.subject %>
-</p>
-
-<% if !@invoice.paid? %>
-<p>
-  <b>Balance:</b>
-  <span id="invoice-balance"><%= @invoice.balance %></span>
-</p>
-<% end %>
-
-<p>
-  <b>Currency:</b>
-  <%= @invoice.currency %>
 </p>

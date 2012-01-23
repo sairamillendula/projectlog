@@ -26,6 +26,12 @@
 #recent-reports a {
 	text-decoration: none;
 	margin-right: 8px;
+	
+	&:hover {
+		text-decoration: underline;
+		background: none;
+		color: #333;
+	}
 }
 
 td form.edit_activity {

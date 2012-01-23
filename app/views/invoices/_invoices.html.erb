@@ -13,7 +13,7 @@
   <tr>
     <td><%= link_to "##{invoice.invoice_number}", invoice %></td>
     <td><%= invoice.due_date %></td>
-    <td><%= invoice.subject %></td>
+    <td><%= truncate(invoice.subject, length: 40) %></td>
     <td><%= invoice.balance %></td>
     <td><span id="invoice-status-index" class="invoice <%= invoice.status.parameterize %>"><%= invoice.status %></span></td>
     <td><%= invoice.customer.name %></td>

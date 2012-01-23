@@ -18,12 +18,13 @@
 	    </div>
 	  </div>
 
-	  <h1>INVOICE</h1>
+	  <h1 class='company'><%= @invoice.user.profile.company %></h1>
     
     <%= render 'header' %>
 
-    <h3>Line Items</h3>
-	  <div id="line_items_list"><%= render 'line_items_list' %></div>
+	<div id="line_items_list"><%= render 'line_items_list' %></div>
+    
+    <%= render 'note' unless @invoice.note.empty? %>
 
   </section>
 </section>

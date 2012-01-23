@@ -1,10 +1,11 @@
 @import "variables";
+@import "table";
 @import "jquery.tipsy";
 
 body { 
 	margin-right: auto; 
 	margin-left: auto; 
-	color: #2C2D31;
+	color: #2c2d31;
 	background-color: #fdfdfd;
 	width: 910px;
 	margin-left: auto;
@@ -13,8 +14,8 @@ body {
 
 body, p, ol, ul, td, h2 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 13px;
-	line-height: 18px;
+	font-size: 14px;
+	line-height: 20px;
 }
 
 a { color: #333; }
@@ -146,6 +147,10 @@ p.info {
 	margin-right: auto;
 	text-align: center;
 	
+	p {
+	   font-size: 13px;
+	}
+	
 	a {
 		color: #f26535;
 		text-decoration: none;
@@ -181,142 +186,4 @@ p.info {
 
 #total_report {
 	float:right;
-}
-
-/* This is a table */
-table {
-	font-size: 90%;
-	margin-bottom: 20px;
-	width: 100%;
-	border-spacing: 0px;
-}
-
-table.borders {
-	border: 1px solid #D8D8D8;	
-}
-
-table.borders tr {
-	background: #F8F8F8 image-url("row_bg.png") repeat-x 0px 100%;	
-}
-
-table.activities {
-	border: none;	
-}
-
-tbody {
-	border-color: inherit;
-	display: table-row-group;
-	vertical-align: middle;
-}
-
-table th {
-	background-color: #EAEAEA;
-	border-bottom: 1px solid #D8D8D8;
-	color: #999;
-	font-weight: normal;
-	padding: 0.5em 0.3em;
-	text-align: left;
-	font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-}
-
-table.activities tr {
-	border-color: inherit;
-	display: table-row;
-	vertical-align: inherit;
-	color: #484848;
-	border-bottom: 1px solid #E1E1E1;
-}
-
-table.activities td {
-	color: #484848;
-	border-bottom: 1px solid #E1E1E1;
-}
-
-table.activities tr {
-	background: none;
-}
-
-#activity-fields input, #activity-fields select {
-	margin-bottom: 0;
-}
-
-#activity-fields {
-	height: 60px;
-}
-
-table td {
-	font-family: Monaco, 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
-	padding: 0.5em 0.3em;
-}
-
-table td a:hover {
-	text-decoration: underline;
-	background-color: inherit;
-	color: #4183C4;
-}
-
-table td a {
-	color: #4183C4;
-	text-decoration: none;
-}
-
-table td a:visited  {
-	color: #4183C4;
-	text-decoration: none;
-}
-
-table th .sort {
-	color: #999;
-	background-repeat: no-repeat;
-	background-position: right center;
-	padding-right: 17px;
-	padding-left: 0;
-	background-color: #eaeaea;
-	font-weight: normal;
-}
-
-table th .asc {
-	background-image:  image-url("arrow-up.png");
-}
-
-table th .desc {
-	background-image: image-url("arrow-down.png");
-}
-
-tr.total th {
-	border-top: 1px solid #D8D8D8;
-	font-weight: bold;
-	color: #484848;
-	border-bottom: none;
-}
-
-tr.total .total_in_days {
-	font-weight: normal; 
-	font-size: 11px;
-}
-
-td.date {
-	width: 80px;
-}
-
-td.time {
-	width: 40px;
-}
-
-td.project {
-	width: 190px;
-}
-
-td.actions {
-	width: 60px;
-	text-align: right;
-	padding-right: 10px;
-}
-
-td.project_name {
-	width: 440px;
-}
-
-td.project_customer {
-	width: 360px;
 }
