@@ -28,13 +28,13 @@ class ReportsController < ApplicationController
   
   def shared # Like show, except is public for everybody.
     @report = Report.find_by_slug!(params[:id])
-    @activities = @report.activities.order('date DESC')
+    @activities = @report.activities.order('date ASC')
     respond_to do |format|
       format.html do
         render :layout => "public"
       end
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
-      format.csv { response.headers["Content-Disposition"] = "attachment; filename=time_entries.csv" }      
+      format.csv { response.headers["Content-Disposition"] = "attachment; filename=time_entries.csv;" }      
     end
   end
   
