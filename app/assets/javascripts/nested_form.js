@@ -44,8 +44,8 @@ jQuery(function($) {
     if(hidden_field) {
       hidden_field.value = '1';
     }
-    $(this).closest('.fields').hide();
     $(this).closest("form").trigger('nested:fieldRemoved');
+    $(this).closest('.fields').remove();
     return false;
   });
 });

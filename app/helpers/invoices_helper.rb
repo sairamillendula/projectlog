@@ -20,11 +20,11 @@ module InvoicesHelper
                   3
                 end
               end
+    html << "<div class=\"td item-subtotal\">#{subtotal}</div>"
+    html << "<div class=\"td\">"
+    html << select_tag(:taxes, options_for_select(profile.tax_options, cur_tax), :class => "item-select-tax")
+    html << "</div>"          
     if profile.any_taxes?
-      html << "<div class=\"td item-subtotal\">#{subtotal}</div>"
-      html << "<div class=\"td\">"
-      html << select_tag(:taxes, options_for_select(profile.tax_options, cur_tax), :class => "item-select-tax")
-      html << "</div>"
       unless profile.tax1.blank?
         html << "<div class=\"td item-tax1 hidden\">"
         unless line.tax1.blank?

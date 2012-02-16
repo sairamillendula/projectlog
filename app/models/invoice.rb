@@ -20,10 +20,22 @@ class Invoice < ActiveRecord::Base
   def to_param
     slug
   end
+  
+  def tax1
+    line_items.collect{|l| l.try(:tax1) || 0 }.sum.round(2)
+  end
+  
+  def tax2
+    line_items.collect{|l| l.try(:tax2) || 0 }.sum.round(2)
+  end
+  
+  def subtotal
+    line_items.collect(&:subtotal).sum.round(2)
+  end
 
   def amount_due
     total = line_items.collect(&:line_total).sum
-    ((total - total*discount/100).round(2)).round(2)
+    ((total - total * discount/100.0).round(2)).round(2)
   end
 
   def balance_calc
