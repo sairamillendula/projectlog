@@ -41,9 +41,11 @@
     <b>Project:</b>
 	<%= link_to @transaction.project.title, expenses_project_path(@transaction.project) unless @transaction.project.nil? %>
   </p>
+  <% if @transaction.receipt.present? %>
   <p>
     <b>Receipt:</b>
 	<%= @transaction.receipt %>
   </p>
+  <% end %>
 </div>
 <div class="receipt_bot"></div>
