@@ -13,17 +13,17 @@ class Profile < ActiveRecord::Base
 
   def tax1_name
     if tax1_label.blank? then
-      "Tax 1 (#{tax1} %)"
+      "Tax 1 (#{tax1}%)"
     else
-      "#{tax1_label} (#{tax1} %)"
+      "#{tax1_label} (#{tax1}%)"
     end
   end
 
   def tax2_name
     if tax2_label.blank? then
-      "Tax 2 (#{tax2} %)"
+      "Tax 2 (#{tax2}%)"
     else
-      "#{tax2_label} (#{tax2} %)"
+      "#{tax2_label} (#{tax2}%)"
     end
   end
 

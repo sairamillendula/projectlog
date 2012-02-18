@@ -33,7 +33,7 @@ module ApplicationHelper
   def contacts_options(customer)
     options = []
     customer.contacts.each do |c|
-      options << ["#{c.first_name} #{c.last_name}, #{c.title} (#{c.email})", c.id]
+      options << ["#{c.first_name} #{c.last_name} - (#{c.email})", c.id]
     end
     options
   end

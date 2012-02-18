@@ -14,7 +14,6 @@ class TransactionsController < ApplicationController
     elsif !params[:end_date].blank?
       @transactions = @transactions.to_date(params[:end_date])
     end
-    # search(params[:search]).
     
     respond_to do |format|
       format.html # index.html.erb
@@ -24,8 +23,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # GET /transactions/1
-  # GET /transactions/1.json
   def show
     @transaction = current_user.transactions.find(params[:id])
 
@@ -35,8 +32,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # GET /transactions/new
-  # GET /transactions/new.json
   def new
     @transaction = current_user.transactions.new
 
@@ -47,15 +42,11 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # GET /transactions/1/edit
   def edit
     @transaction = current_user.transactions.find(params[:id])
   end
 
-  # POST /transactions
-  # POST /transactions.json
   def create
-    # @transaction = current_user.transactions.build(params[:transaction])
     @transaction = current_user.transactions.build
     @transaction.assign_attributes(params[:transaction])
 
@@ -73,8 +64,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # PUT /transactions/1
-  # PUT /transactions/1.json
   def update
     @transaction = current_user.transactions.find(params[:id])
 
@@ -89,8 +78,6 @@ class TransactionsController < ApplicationController
     end
   end
 
-  # DELETE /transactions/1
-  # DELETE /transactions/1.json
   def destroy
     @transaction = current_user.transactions.find(params[:id])
     @transaction.destroy
@@ -102,7 +89,7 @@ class TransactionsController < ApplicationController
   end
   
   def monthly_report
-    @transactions = current_user.transactions.order("date DESC")
+    @transactions = current_user.transactions.includes(:category, :project).order("date DESC")
   end
   
   private

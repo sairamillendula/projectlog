@@ -39,7 +39,7 @@
       <% if @invoice.user.profile.any_taxes? %>
         <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
       <% end %>
-      <td class="align_right">Subtotal:</td>
+      <td class="align_right">Subtotal</td>
       <td>
         <b><%= Money.from_float(@invoice.subtotal, @invoice.currency).format(:symbol => true) %></b>
       </td>
@@ -49,7 +49,7 @@
       <% if @invoice.user.profile.any_taxes? %>
         <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
       <% end %>
-      <td class="align_right"><%= @invoice.user.profile.tax1_name %>:</td>
+      <td class="align_right"><%= @invoice.user.profile.tax1_name %></td>
       <td>
         <b><%= Money.from_float(@invoice.tax1, @invoice.currency).format(:symbol => true) %></b>
       </td>
@@ -59,7 +59,7 @@
       <% if @invoice.user.profile.any_taxes? %>
         <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
       <% end %>
-      <td class="align_right"><%= @invoice.user.profile.tax2_name %>:</td>
+      <td class="align_right"><%= @invoice.user.profile.tax2_name %></td>
       <td>
         <b><%= Money.from_float(@invoice.tax2, @invoice.currency).format(:symbol => true) %></b>
       </td>
@@ -70,7 +70,7 @@
         <% if @invoice.user.profile.any_taxes? %>
           <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
         <% end %>
-        <td class="align_right">Discount:</td>
+        <td class="align_right">Discount</td>
         <td><b><%= @invoice.discount %> %</b></td>
       </tr>
     <% end %>

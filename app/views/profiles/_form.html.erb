@@ -1,82 +1,80 @@
 <%= form_for(@profile) do |f| %>
-    <% if @profile.errors.any? %>
-        <div id="error_explanation" class="alert">
-          <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation" class="alert">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-          <ul>
-            <% @profile.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+      <ul>
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="settings-list">
+    <div id="column_left" class="border">
+      <div class="inline-form">
+        <h2>Company contact & billing information</h2>
+        <p class="info">Add contact information on timesheets and invoices</p>
+
+        <div class="field">
+          <%= f.label :company %>
+          <%= f.text_field :company %>
         </div>
-    <% end %>
-    <div id="settings-list">
-      <div id="column_left" class="border">
-        <div class="inline-form">
-          <h2>Company contact & billing information</h2>
-
-          <p class="info">Add contact information on timesheets and invoices</p>
-
-          <div class="field">
-            <%= f.label :company %>
-            <%= f.text_field :company %>
-          </div>
-          <div class="field">
-            <%= f.label :address1 %>
-            <%= f.text_field :address1 %>
-          </div>
-          <div class="field">
-            <%= f.label :address2 %>
-            <%= f.text_field :address2 %>
-          </div>
-          <div class="field">
-            <%= f.label :city %>
-            <%= f.text_field :city %>
-          </div>
-          <div class="field">
-            <%= f.label :province %>
-            <%= collection_select(:profile, :province, Province.all, :name, :name, options = {:prompt => ""}) %>
-          </div>
-          <div class="field">
-            <%= f.label :postal_code %>
-            <%= f.text_field :postal_code, :size => 6 %>
-          </div>
-          <div class="field">
-            <%= f.label :country %>
-            <%= collection_select(:profile, :country, Country.all, :printable_name, :printable_name, options = {:prompt => ""}) %>
-          </div>
-          <div class="field">
-            <%= f.label :phone_number %>
-            <%= f.phone_field :phone_number %>
-          </div>
-		  <div class="field">
-	        <%= f.label :website %>
-	        <%= f.url_field :website %>
-          </div>
+        <div class="field">
+          <%= f.label :address1 %>
+          <%= f.text_field :address1 %>
+        </div>
+        <div class="field">
+          <%= f.label :address2 %>
+          <%= f.text_field :address2 %>
+        </div>
+        <div class="field">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </div>
+        <div class="field">
+          <%= f.label :province %>
+          <%= collection_select(:profile, :province, Province.all, :name, :name, options = {:prompt => ""}) %>
+        </div>
+        <div class="field">
+          <%= f.label :postal_code %>
+          <%= f.text_field :postal_code, :size => 6 %>
+        </div>
+        <div class="field">
+          <%= f.label :country %>
+          <%= collection_select(:profile, :country, Country.all, :printable_name, :printable_name, options = {:prompt => ""}) %>
+        </div>
+        <div class="field">
+          <%= f.label :phone_number %>
+          <%= f.phone_field :phone_number %>
+        </div>
+		<div class="field">
+	      <%= f.label :website %>
+	      <%= f.url_field :website %>
+        </div>
           
-          <div class="actions">
-	        <p class="submit"><%= f.submit "Update Settings" %></p>
-	      </div>
-        </div>
+        <div class="actions">
+	      <p class="submit"><%= f.submit "Update Settings" %></p>
+	    </div>
       </div>
-      <div id="column_right" class ='border'>
-        <h2>Member since <%= l @profile.created_at.to_date %></h2><br/>
+    </div>
+    <div id="column_right" class ='border'>
+      <h2>Member since <%= l @profile.created_at.to_date %></h2><br/>
 
-        <div class="field">
-          <h2><%= f.label :localization %></h2>
+      <div class="field">
+        <h2><%= f.label :localization %></h2>
 
-          <p class="info">Select currency, date and number format</p>
-          <%= collection_select(:profile, :localization, Localization.all, :reference, :name, options = {:prompt => ""}) %>
-        </div>
-        <div class="field">
-          <%= f.label :hours_per_day %>
-          <br/>
-
-          <p class="info">How many hours within a full day at work? Required to convert hours worked to days.</p>
-          <%= f.number_field :hours_per_day, :size => 5 %>
-        </div>
-        <br />
-        <h2>Invoice settings</h2>
+        <p class="info">Select currency, date and number format</p>
+        <%= collection_select(:profile, :localization, Localization.all, :reference, :name, options = {:prompt => ""}) %>
+      </div>
+      <div class="field">
+        <h2><%= f.label :hours_per_day %></h2>
+        <p class="info">How many hours equal a full working day? Required to convert hours to days</p>
+        <%= f.number_field :hours_per_day, :size => 5 %>
+      </div>
+      <br />
+      <h2>Invoice settings</h2>
         <div class="field">
           <p class="info">What taxes do you use?</p>
           Tax 1:<%= f.text_field :tax1_label, :size => 6 %>

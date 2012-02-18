@@ -58,7 +58,7 @@ class InvoicesController < ApplicationController
   end
 
   def send_email
-    @invoice = Invoice.find_by_slug!(params[:id])
+    @invoice = Invoice.includes(:customer, :line_items).find_by_slug!(params[:id])
     @new_line_item = LineItem.new
     contact = Contact.find(params[:send_invoice][:contact_id])
     attach = if params[:send_invoice][:attach] == "1" then
@@ -75,7 +75,7 @@ class InvoicesController < ApplicationController
   end
 
   def show
-    @invoice = current_user.invoices.find_by_slug!(params[:id])
+    @invoice = current_user.invoices.includes(:customer, :line_items).find_by_slug!(params[:id])
     respond_to do |format|
       format.html
       format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }

@@ -1,16 +1,18 @@
 <ul id="card-entries">
   <li id="card" class="contact">
     <div class="card-inner contact">
-
-      <% if contact.title.present? %>
+    <% if contact.title.present? %>
       <h2><%= contact.full_name %><span style="font-weight:normal"> - <%= contact.title %></span></h2>
-      <% else %>
+    <% else %>
       <h2><%= contact.full_name %></h2>
-      <% end %>
+    <% end %>
       <p><a href="mailto:<%= contact.email %>"><%= contact.email %></a></p>
-      <p><%= contact.phone %></p>
-      <%= link_to 'Edit', edit_customer_contact_path(@customer, contact), :remote => true %> |
-      <%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
+      <p><%= contact.phone %>
+         <span class='floatr' style='display:none'>
+           <%= link_to 'Edit', edit_customer_contact_path(@customer, contact), :remote => true %> |
+           <%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
+         </span>
+      </p>
     </div>
   </li>
 </ul>
