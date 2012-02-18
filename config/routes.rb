@@ -1,6 +1,6 @@
 Projectlog::Application.routes.draw do
   resources :transactions
-    get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
+  get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
   resources :categories do
     member do
       get 'expenses'

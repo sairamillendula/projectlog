@@ -4,7 +4,17 @@ class TransactionsController < ApplicationController
   set_tab :accounting
   
   def index
-    @transactions = current_user.transactions.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
+    @transactions = current_user.transactions.order(sort_column + " " + sort_direction).page(params[:page]).per(20) 
+    @transactions = @transactions.by_keyword(params[:search]) unless params[:search].blank?
+    @transactions = @transactions.by_category(params[:category_id]) unless params[:category_id].blank?
+    if !params[:start_date].blank? and !params[:end_date].blank?
+      @transactions = @transactions.by_period(params[:start_date], params[:end_date])
+    elsif !params[:start_date].blank?
+      @transactions = @transactions.from_date(params[:start_date])
+    elsif !params[:end_date].blank?
+      @transactions = @transactions.to_date(params[:end_date])
+    end
+    # search(params[:search]).
     
     respond_to do |format|
       format.html # index.html.erb

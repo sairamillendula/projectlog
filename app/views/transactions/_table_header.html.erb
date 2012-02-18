@@ -9,3 +9,15 @@
 		<% end %>
 	</span>
 </div>
+<div id="transactions-advanced-search" style="display: none;" class="info">
+  <h2>Advanced Search</h2>
+  <%= form_tag "", :method => :get do %>
+    <%= hidden_field_tag :form, "advanced" %>
+    <p>Show transactions for <%= select_tag :category_id, options_for_select([["All Categories", ""]] + current_user.categories.map {|c| [c.name, c.id]}, params[:category_id]), :id => "quick_search_category_id" %>
+    from <%= text_field_tag :start_date, params[:start_date], :size => 12, :class => "date" %>
+    to <%= text_field_tag :end_date, params[:end_date], :size => 12, :class => "date" %>  
+    <span class="submit"><%= submit_tag "Search", disable_with: 'Searching...', :name => nil %></span>
+    <%= image_tag("indicator.gif", :class => "loading", :style => "display: none") %>  
+  <% end %>
+</div>
+<%= link_to "Show/Hide Advanced Search", "#", :id => "toggle_search_form" %>
