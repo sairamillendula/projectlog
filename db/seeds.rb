@@ -51,8 +51,8 @@ end
 puts "Creating transactions..."
 200.times do |a|
   transaction = User.all.sample.transactions.create(
-    :type => [true, false].sample,
-    :date => Date.today,
+    :expense => [true, false].sample,
+    :date => Date.today - (1..100).to_a.sample,
     :amount => [ 10, 20, 30, 3.5, 43.5, 110, 7.5, 12.5, 50, 450, 999, 1200, 1000.5 ].sample,
     :tax1 => [ 0, 1, 2, 3, 3.5, 43.5, 11, 7.5, 12.5, 50, 450, 1200 ].sample,
     :tax2 => [ 0, 1, 2, 3, 3.5, 43.5, 11, 7.5, 12.5, 50, 450, 1200 ].sample

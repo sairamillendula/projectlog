@@ -6,8 +6,8 @@
 
 <div id="pl_summary">
   <div class='card-inner'>
-    <span id="total_income">Total Incomes: <span id="curr_income"><%= number_to_currency(@incomes.inject(0) { |sum, p| sum + p.total }) %></span></span>
-	<span id="total_expense">Total Expenses: <span id="curr_expense"><%= number_to_currency(@expenses.inject(0) { |sum, p| sum + p.total }) %></span></span>
+    <span id="total_income">Total Incomes: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(@transactions)) %></span></span>
+  	<span id="total_expense">Total Expenses: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(@transactions)) %></span></span>
   </div>
 </div>	 
   
@@ -15,20 +15,20 @@
   <h2 class="date_period">
     <%= date_str %>
     <span class="total_right">
-	  Inc.: <span id="curr_income"><%= number_to_currency(transactions.inject(0) { |sum, p| sum + p.total }) %></span> | 
-	  Exp.: <span id="curr_expense"><%= number_to_currency(transactions.inject(0) { |sum, p| sum + p.total }) %></span>
+	  Inc.: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(transactions)) %></span> | 
+	  Exp.: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(transactions)) %></span>
 	</span>
   </h2>
   <ul>
   <% transactions.each do |transaction| %>
     <li class="transactions_list">
       <span id="t_date"><%= l transaction.date, :format => :short %></span>
-	  <span id="t_type"><% if transaction.expense? %><span class="t_expense">Expense</span><% else %><span class="t_income">Income</span> <% end %></span>
+  	  <span id="t_type"><% if transaction.expense? %><span class="t_expense">Expense</span><% else %><span class="t_income">Income</span> <% end %></span>
       <span id="t_amount"><%= number_to_currency(transaction.total) %></span>
       <div id="t_note_short"><%= truncate(transaction.note, :length => 45) %></div>
-	  <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
-	  <div id="t_project"><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></div>
-	</li>
+  	  <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
+  	  <div id="t_project"><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></div>
+  	</li>
   <% end %>
   </ul>
 <% end %>

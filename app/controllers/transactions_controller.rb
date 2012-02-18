@@ -45,12 +45,16 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    @transaction = current_user.transactions.new(params[:transaction])
+    # @transaction = current_user.transactions.build(params[:transaction])
+    @transaction = current_user.transactions.build
+    @transaction.assign_attributes(params[:transaction])
 
     respond_to do |format|
       if @transaction.save
+        @transactions = current_user.transactions.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render json: @transaction, status: :created, location: @transaction }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
@@ -88,9 +92,7 @@ class TransactionsController < ApplicationController
   end
   
   def monthly_report
-    @transactions = Transaction.all
-    @incomes = Transaction.incomes
-    @expenses = Transaction.expenses
+    @transactions = current_user.transactions.order("date DESC")
   end
   
   private
