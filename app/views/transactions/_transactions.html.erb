@@ -21,7 +21,6 @@
 	  <th><%= sortable "project_id", {:remote => true } %></th>
 	  <th><%= sortable "category_id", {:remote => true } %></th>
 	  <th></th>
-	  <th></th>
 	</tr>
 
 	<% @transactions.each do |transaction| %>
@@ -29,10 +28,9 @@
 	  <td><%= transaction.expense? ? content_tag(:span, 'Expense', :class => 'expense') : content_tag(:span, 'Income', :class => 'income') %></td>
 	  <td><%= l transaction.date, :format => :short %></td>
 	  <td><%= number_to_currency(transaction.amount) %></td>
-	  <td><%= truncate(transaction.note) %></td>
+	  <td><%= link_to truncate(transaction.note, :length => 34), transaction %></td>
 	  <td><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></td>
 	  <td><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></td>
-	  <td><%= link_to 'Show', transaction %></td>
 	  <td><%= link_to 'Edit', edit_transaction_path(transaction) %>
 		  <%= link_to image_tag("bin.png"), transaction, :confirm => 'Are you sure?', :method => :delete %>
 	  </td>
