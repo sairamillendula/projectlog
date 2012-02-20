@@ -113,7 +113,7 @@ class InvoiceTest < ActiveSupport::TestCase
     assert_equal 100, invoice.amount_due
   end
   
-  test 'taxable' do
+  test 'taxable tax name' do
     invoice = Invoice.new
     invoice.tax1 = 10
     invoice.tax1_label = "Personal"
@@ -121,6 +121,36 @@ class InvoiceTest < ActiveSupport::TestCase
     assert invoice.any_taxes?
     assert_equal "Personal (10.0%)", invoice.tax1_name
     assert_equal "Tax 2 (5.0%)", invoice.tax2_name
+  end
+  
+  test 'should has any taxes if tax1 present' do
+    invoice = Invoice.new
+    invoice.tax1 = 10
+    invoice.tax1_label = nil
+    invoice.tax2 = ""
+    invoice.tax2_label = nil
+    invoice.compound = true
+    assert invoice.any_taxes?
+  end
+  
+  test 'should has any taxes if tax2 present' do
+    invoice = Invoice.new
+    invoice.tax1 = ""
+    invoice.tax1_label = nil
+    invoice.tax2 = 10
+    invoice.tax2_label = nil
+    invoice.compound = true
+    assert invoice.any_taxes?
+  end
+  
+  test 'should has any taxes if tax1 and tax2 present' do
+    invoice = Invoice.new
+    invoice.tax1 = 4
+    invoice.tax1_label = nil
+    invoice.tax2 = 10
+    invoice.tax2_label = nil
+    invoice.compound = true
+    assert invoice.any_taxes?
   end
   
 end
