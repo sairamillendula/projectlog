@@ -1,9 +1,7 @@
 module InvoicesHelper
-
-  def calc_line f
+  
+  def calc_line (f, invoice)
     line = f.object
-    user = line.invoice && line.invoice.user || current_user
-    profile = user.profile
     subtotal = ((line.quantity || 0) * (line.price || 0)).round 2
     taxes = 0
     html = ""
@@ -20,38 +18,37 @@ module InvoicesHelper
                   3
                 end
               end
-    html << "<div class=\"td item-subtotal\">#{subtotal}</div>"
-    html << "<div class=\"td\">"
-    html << select_tag(:taxes, options_for_select(profile.tax_options, cur_tax), :class => "item-select-tax")
-    html << "</div>"          
-    if profile.any_taxes?
-      unless profile.tax1.blank?
-        html << "<div class=\"td item-tax1 hidden\">"
-        unless line.tax1.blank?
-          val = (subtotal * profile.tax1 / 100).round 2
-          taxes += val
-        else
-          val = ""
-        end
-        html << f.text_field(:tax1, :value => val, :readonly => true, :class => "label_field", :size => 5)
-        html << "</div>"
-      end
-      unless profile.tax2.blank?
-        html << "<div class=\"td item-tax2 hidden\">"
-        unless line.tax2.blank?
-          if profile.compound
-            val = ((subtotal + taxes) * profile.tax2 / 100).round 2
-          else
-            val = (subtotal * profile.tax2 / 100).round 2
-          end
-          taxes += val
-        else
-          val = ""
-        end
-        html << f.text_field(:tax2, :value => val, :readonly => true, :class => "label_field", :size => 5)
-        html << "</div>"
-      end
+              
+    hidden = invoice.any_taxes? ? '' : 'hidden'
+    html << "<div class='td item-subtotal #{hidden}'>#{subtotal}</div>"
+    html << "<div class='td #{hidden}'>"
+    html << select_tag(:taxes, options_for_select(invoice.tax_options, cur_tax), :class => "item-select-tax")
+    html << "</div>"
+    
+    html << "<div class=\"td item-tax1 hidden\">"
+    unless line.tax1.blank?
+      val = (subtotal * invoice.tax1 / 100).round 2
+      taxes += val
+    else
+      val = ""
     end
+    html << f.text_field(:tax1, :value => val, :readonly => true, :class => "label_field", :size => 5)
+    html << "</div>"
+    
+    html << "<div class=\"td item-tax2 hidden\">"
+    unless line.tax2.blank?
+      if invoice.compound
+        val = ((subtotal + taxes) * invoice.tax2 / 100).round 2
+      else
+        val = (subtotal * invoice.tax2 / 100).round 2
+      end
+      taxes += val
+    else
+      val = ""
+    end
+    html << f.text_field(:tax2, :value => val, :readonly => true, :class => "label_field", :size => 5)
+    html << "</div>"
+      
     html << "<div class=\"td item-total\">"
     html << f.text_field(:line_total, :value => (subtotal + taxes).round(2), :readonly => true, :class => "label_field", :size => 5)
     html << "</div>"

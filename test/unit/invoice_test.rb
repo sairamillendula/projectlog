@@ -57,4 +57,70 @@ class InvoiceTest < ActiveSupport::TestCase
     assert !invoice.payments.any?
   end
   
+  test "tax 1 amount" do
+    invoice = Invoice.new
+    invoice.line_items.build(tax1: 10)
+    invoice.line_items.build(tax1: 5)
+    invoice.line_items.build(tax1: nil)
+    invoice.line_items.build(tax1: "")
+    assert_equal 15, invoice.tax1_amount
+  end
+  
+  test "tax 2 amount" do
+    invoice = Invoice.new
+    invoice.line_items.build(tax2: 10)
+    invoice.line_items.build(tax2: 5)
+    invoice.line_items.build(tax2: nil)
+    invoice.line_items.build(tax2: "")
+    assert_equal 15, invoice.tax2_amount
+  end
+  
+  test "discount amount" do
+    invoice = Invoice.new
+    invoice.discount = 5
+    invoice.stubs(:subtotal).returns(100)
+    assert_equal 5, invoice.discount_amount
+  end
+  
+  test "amount due with discount and no tax" do
+    invoice = Invoice.new
+    invoice.discount = 5
+    invoice.stubs(:subtotal).returns(100)
+    assert_equal 95, invoice.amount_due
+  end
+  
+  test "amount due with discount and tax 1" do
+    invoice = Invoice.new
+    invoice.line_items.build(tax1: 3)
+    invoice.discount = 5
+    invoice.stubs(:subtotal).returns(100)
+    assert_equal 98, invoice.amount_due
+  end
+  
+  test "amount due with discount and tax 2" do
+    invoice = Invoice.new
+    invoice.line_items.build(tax2: 2)
+    invoice.discount = 5
+    invoice.stubs(:subtotal).returns(100)
+    assert_equal 97, invoice.amount_due
+  end
+  
+  test "amount due with discount and all taxes" do
+    invoice = Invoice.new
+    invoice.line_items.build(tax2: 2, tax1: 3)
+    invoice.discount = 5
+    invoice.stubs(:subtotal).returns(100)
+    assert_equal 100, invoice.amount_due
+  end
+  
+  test 'taxable' do
+    invoice = Invoice.new
+    invoice.tax1 = 10
+    invoice.tax1_label = "Personal"
+    invoice.tax2 = 5
+    assert invoice.any_taxes?
+    assert_equal "Personal (10.0%)", invoice.tax1_name
+    assert_equal "Tax 2 (5.0%)", invoice.tax2_name
+  end
+  
 end

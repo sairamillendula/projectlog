@@ -93,10 +93,7 @@ class InvoicesController < ApplicationController
 
   def new
     @invoice = current_user.invoices.new
-    @invoice.currency ||= current_user.profile.localization && Localization.find_by_reference(current_user.profile.localization) && Localization.find_by_reference(current_user.profile.localization).currency || "USD"
-    @invoice.discount ||= 0
-    @invoice.line_items.build(:quantity => 1, :price => 0.0)
-    @invoice.note ||= current_user.profile.invoice_signature
+    @invoice.prepare_new_invoice
 
     respond_to do |format|
       format.html # new.html.erb
@@ -139,6 +136,13 @@ class InvoicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to invoices_url }
     end
+  end
+  
+  def sort
+    params[:line_item].each_with_index do |id, index|
+      LineItem.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
   end
 
   private

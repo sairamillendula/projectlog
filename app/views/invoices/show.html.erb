@@ -28,3 +28,8 @@
   <%= render 'note' unless @invoice.note.empty? %>
   
 </div>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    Invoices.Show.init();
+  });
+</script>

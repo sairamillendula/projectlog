@@ -28,6 +28,7 @@ Projectlog::Application.routes.draw do
       get 'add_line_item'
       get 'prepare_email'
       post 'send_email'
+      post 'sort'
     end
     collection do
       post 'create_line_item'

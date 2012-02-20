@@ -79,15 +79,18 @@
     taxtotal1 = 0.0
     taxtotal2 = 0.0
     $(".item-subtotal").each ->
-      subtotal += parseFloat($(this).text())
-      
+      console.log $(this)
+      if $(this).closest(".fields").is(":visible")
+        subtotal += parseFloat($(this).text()) 
     $(".item-tax1 input").each ->
-      if parseFloat($(this).val()) > 0 
-        taxtotal1 += parseFloat($(this).val())
+      if $(this).closest(".fields").is(":visible")
+        if parseFloat($(this).val()) > 0 
+          taxtotal1 += parseFloat($(this).val())
         
     $(".item-tax2 input").each ->
-      if parseFloat($(this).val()) > 0 
-        taxtotal2 += parseFloat($(this).val())    
+      if $(this).closest(".fields").is(":visible")
+        if parseFloat($(this).val()) > 0 
+          taxtotal2 += parseFloat($(this).val())    
         
     $("#subtotal").html(Math.round(subtotal * 100) / 100)
     $("#taxtotal1").html(Math.round(taxtotal1 * 100) / 100)
@@ -99,3 +102,11 @@
       discount = parseFloat($("#invoice_discount").val()) / 100
     $("#amount_due").html(Math.round(total * (1 - discount) * 100) / 100)
     
+@Invoices.Show =
+  init: ->
+    $('#invoice_line_items tbody').sortable
+      axis: 'y'
+      items: ".line_item"
+      update: ->
+        $.post($("#invoice_line_items").data('update-url'), $(this).sortable('serialize'))
+  

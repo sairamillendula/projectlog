@@ -33,6 +33,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'mocha'
   gem 'therubyracer'
+  gem 'spork-testunit'
 end
 
 # 3.1 Heroku

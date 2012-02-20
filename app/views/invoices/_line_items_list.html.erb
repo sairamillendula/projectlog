@@ -1,84 +1,69 @@
-<table id="invoice_line_items">
+<table id="invoice_line_items" data-update-url="<%= sort_invoice_url(@invoice) %>">
   <tr>
     <th id="i_type">Type</th>
     <th id="i_description">Description</th>
     <th>Qty</th>
     <th>Price</th>
-    <% if @invoice.user.profile.any_taxes? %>
+    <% if @invoice.any_taxes? %>
       <th>Subtotal</th>
-      <% unless @invoice.user.profile.tax1.blank? %>
-        <th class="tax1 hidden" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></th>
-      <% end %>
-      <% unless @invoice.user.profile.tax2.blank? %>
-        <th class="tax2 hidden" data-taxvalue="<%= @invoice.user.profile.tax2 %>" data-taxcompound="<%= @invoice.user.profile.compound %>"><%= @invoice.user.profile.tax2_name %></th>
-      <% end %>
+      <th>Taxes</th>
     <% end %>
     <th>Amount</th>
   </tr>
   <% if @invoice.line_items.any? %>
     <% @invoice.line_items.each do |line| %>
-      <tr class="line-item-row">
+      <%= content_tag_for :tr, line do %>
         <td><%= line.line_type %></td>
         <td><%= line.description %></td>
         <td><%= line.quantity %></td>
         <td><%= Money.from_float(line.price, @invoice.currency).format(:symbol => true) %></td>
-        <% if @invoice.user.profile.any_taxes? %>
-          <td><%= Money.from_float((line.quantity * line.price).round(2), @invoice.currency).format(:symbol => true) %></td>
-          <% unless @invoice.user.profile.tax1.blank? %>
-            <td class="hidden"><%= Money.from_float(line.tax1, @invoice.currency).format(:symbol => true) unless line.tax1.blank? %></td>
-          <% end %>
-          <% unless @invoice.user.profile.tax2.blank? %>
-            <td class="hidden"><%= Money.from_float(line.tax2, @invoice.currency).format(:symbol => true) unless line.tax2.blank? %></td>
-          <% end %>
+        <% if @invoice.any_taxes? %>
+          <td><%= Money.from_float(line.subtotal, @invoice.currency).format(:symbol => true) %></td>
+          <td><%= Money.from_float(line.tax_amount, @invoice.currency).format(:symbol => true) %></td>
         <% end %>
         <td><%= Money.from_float(line.line_total, @invoice.currency).format(:symbol => true) %></td>
-      </tr>
-    <% end %>
-    <tr class="total-fields">
-      <td></td>
-      <% if @invoice.user.profile.any_taxes? %>
-        <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
       <% end %>
+    <% end %>
+    <!-- SUBTOTAL -->
+    <% if @invoice.any_taxes? or @invoice.discount_amount > 0 %>
+    <tr class="total-fields">
+      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
       <td class="align_right">Subtotal</td>
       <td>
         <b><%= Money.from_float(@invoice.subtotal, @invoice.currency).format(:symbol => true) %></b>
       </td>
     </tr>
+    <% end %>
+    <!-- TAX 1 -->
+    <% if @invoice.tax1_amount > 0 %>
     <tr class="total-fields">
-      <td></td>
-      <% if @invoice.user.profile.any_taxes? %>
-        <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
-      <% end %>
-      <td class="align_right"><%= @invoice.user.profile.tax1_name %></td>
+      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+      <td class="align_right"><%= @invoice.tax1_name %></td>
       <td>
-        <b><%= Money.from_float(@invoice.tax1, @invoice.currency).format(:symbol => true) %></b>
+        <b><%= Money.from_float(@invoice.tax1_amount, @invoice.currency).format(:symbol => true) %></b>
       </td>
     </tr>
+    <% end %>
+    <!-- TAX 2 -->
+    <% if @invoice.tax2_amount > 0 %>
     <tr class="total-fields">
-      <td></td>
-      <% if @invoice.user.profile.any_taxes? %>
-        <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
-      <% end %>
-      <td class="align_right"><%= @invoice.user.profile.tax2_name %></td>
+      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+      <td class="align_right"><%= @invoice.tax2_name %></td>
       <td>
-        <b><%= Money.from_float(@invoice.tax2, @invoice.currency).format(:symbol => true) %></b>
+        <b><%= Money.from_float(@invoice.tax2_amount, @invoice.currency).format(:symbol => true) %></b>
       </td>
     </tr>
+    <% end %>
+    <!-- DISCOUNT -->
     <% if @invoice.discount && @invoice.discount > 0 %>
       <tr class="total-fields">
-        <td></td>
-        <% if @invoice.user.profile.any_taxes? %>
-          <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
-        <% end %>
+        <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
         <td class="align_right">Discount</td>
         <td><b><%= @invoice.discount %> %</b></td>
       </tr>
     <% end %>
     <tr class="total-fields">
-      <td></td>
-      <% if @invoice.user.profile.any_taxes? %>
-        <td colspan="<%= @invoice.user.profile.tax1.blank? || @invoice.user.profile.tax2.blank? ? "2" : "3" %>"></td>
-      <% end %>
+      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
       <td class="align_right">Amount Due:</td>
       <td>
         <b><%= Money.from_float(@invoice.amount_due, @invoice.currency).format(:symbol => true) %></b>

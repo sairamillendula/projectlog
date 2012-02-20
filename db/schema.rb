@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111128182400) do
+ActiveRecord::Schema.define(:version => 20120220022113) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -124,6 +124,11 @@ ActiveRecord::Schema.define(:version => 20111128182400) do
     t.decimal  "discount",                    :precision => 5, :scale => 2, :default => 0.0, :null => false
     t.string   "currency",       :limit => 3,                                                :null => false
     t.string   "slug",                                                                       :null => false
+    t.float    "tax1"
+    t.string   "tax1_label"
+    t.float    "tax2"
+    t.string   "tax2_label"
+    t.boolean  "compound"
   end
 
   add_index "invoices", ["customer_id"], :name => "index_invoices_on_customer_id"
@@ -141,9 +146,9 @@ ActiveRecord::Schema.define(:version => 20111128182400) do
     t.float    "tax2"
     t.float    "quantity",    :default => 1.0, :null => false
     t.float    "price",       :default => 0.0, :null => false
-    t.float    "subtotal"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "localizations", :force => true do |t|

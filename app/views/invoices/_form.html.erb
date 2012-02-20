@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+  <%= f.hidden_field :tax1 %>
+  <%= f.hidden_field :tax1_label %>
+  <%= f.hidden_field :tax2 %>
+  <%= f.hidden_field :tax2_label %>
+  <%= f.hidden_field :compound %>
   <div class="inline-form">
     <div class="field">
       <%= f.label :subject, :class => 'mandatory' %>
@@ -40,14 +44,10 @@
       <div class="th">Description</div>
       <div class="th">Quantity</div>
       <div class="th">Price</div>
-      <div class="th">Subtotal</div>
-      <div class="th">Taxes</div>
-      <% unless @invoice.user.profile.tax1.blank? %>
-        <div class="th tax1 hidden" data-taxvalue="<%= @invoice.user.profile.tax1 %>"><%= @invoice.user.profile.tax1_name %></div>
-      <% end %>
-      <% unless @invoice.user.profile.tax2.blank? %>
-        <div class="th tax2 hidden" data-taxvalue="<%= @invoice.user.profile.tax2 %>" data-taxcompound="<%= @invoice.user.profile.compound %>"><%= @invoice.user.profile.tax2_name %></div>
-      <% end %>
+      <div class="th <%= 'hidden' unless @invoice.any_taxes? %>">Subtotal</div>
+      <div class="th <%= 'hidden' unless @invoice.any_taxes? %>">Taxes</div>
+      <div class="th tax1 hidden" data-taxvalue="<%= @invoice.tax1 %>"><%= @invoice.tax1_name %></div>
+      <div class="th tax2 hidden" data-taxvalue="<%= @invoice.tax2 %>" data-taxcompound="<%= @invoice.compound %>"><%= @invoice.tax2_name %></div>
       <div class="th">Amount</div>
     </div>
     <%= f.fields_for :line_items %>
@@ -57,15 +57,15 @@
   <table style="width:100%" id="total">
     <tr>
       <td colspan=6>Subtotal: </td>
-      <td id="subtotal"><%= @invoice.line_items.collect(&:subtotal).sum.round(2) %></td>
+      <td id="subtotal"><%= @invoice.subtotal %></td>
     </tr>
-    <tr class="<%= 'hidden' unless @invoice.tax1 > 0 %>">
-      <td colspan=6><%= @invoice.user.profile.tax1_name %>: </td>
-      <td id="taxtotal1"><%= @invoice.tax1 %></td>
+    <tr class="<%= 'hidden' if @invoice.tax1.blank? %>">
+      <td colspan=6><%= @invoice.tax1_name %>: </td>
+      <td id="taxtotal1"><%= @invoice.tax1_amount %></td>
     </tr>
-    <tr class="<%= 'hidden' unless @invoice.tax2 > 0 %>">
-      <td colspan=6><%= @invoice.user.profile.tax2_name %>: </td>
-      <td id="taxtotal2"><%= @invoice.tax2 %></td>
+    <tr class="<%= 'hidden' if @invoice.tax2.blank? %>">
+      <td colspan=6><%= @invoice.tax2_name %>: </td>
+      <td id="taxtotal2"><%= @invoice.tax2_amount %></td>
     </tr>
     <tr>
       <td colspan=6><%= f.label :discount, 'Discount % ' %></td>

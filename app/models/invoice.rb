@@ -1,7 +1,9 @@
 class Invoice < ActiveRecord::Base
+  include Taxable
+  
   belongs_to :user
   belongs_to :customer
-  has_many :line_items, :dependent => :destroy
+  has_many :line_items, :dependent => :destroy, :order => 'position'
   has_many :payments, :dependent => :destroy
 
   before_create :generate_invoice_number_and_slug
@@ -15,18 +17,22 @@ class Invoice < ActiveRecord::Base
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount,
-                  :line_items_attributes
+                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound
 
   def to_param
     slug
   end
   
-  def tax1
+  def tax1_amount
     line_items.collect{|l| l.try(:tax1) || 0 }.sum.round(2)
   end
   
-  def tax2
+  def tax2_amount
     line_items.collect{|l| l.try(:tax2) || 0 }.sum.round(2)
+  end
+  
+  def discount_amount
+    (subtotal * discount / 100.0).round(2)
   end
   
   def subtotal
@@ -34,8 +40,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def amount_due
-    total = line_items.collect(&:line_total).sum
-    ((total - total * discount/100.0).round(2)).round(2)
+    subtotal + tax1_amount + tax2_amount - discount_amount
   end
 
   def balance_calc
@@ -65,5 +70,18 @@ class Invoice < ActiveRecord::Base
 
   def update_balance
     self.balance = self.balance_calc
+  end
+  
+  def prepare_new_invoice
+    profile = user.profile
+    self.currency ||= profile.localization && Localization.find_by_reference(profile.localization) && Localization.find_by_reference(profile.localization).currency || "USD"
+    self.discount ||= 0
+    self.line_items.build(:quantity => 1, :price => 0.0)
+    self.note ||= profile.invoice_signature
+    self.tax1 = profile.tax1
+    self.tax1_label = profile.tax1_label
+    self.tax2 = profile.tax2
+    self.tax2_label = profile.tax2_label
+    self.compound = profile.compound
   end
 end

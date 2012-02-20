@@ -11,4 +11,8 @@ class LineItem < ActiveRecord::Base
   def subtotal
     quantity * price
   end
+  
+  def tax_amount
+    (try(:tax1) || 0) + (try(:tax2) || 0)
+  end
 end
