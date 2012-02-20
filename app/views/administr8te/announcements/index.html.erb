@@ -4,6 +4,7 @@
 
 <h1>Site Announcements</h1>
 
+<% if @announcements.any? %>
 <table>
   <tr>
     <th>Message</th>
@@ -27,3 +28,6 @@
   </tr>
 <% end %>
 </table>
+<% else %>
+  <p class='no-occurence'>No site-wide announcements yet.</p>
+<% end %>

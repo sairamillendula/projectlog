@@ -1,6 +1,6 @@
 <h1>Manage Users</h1>
 
-<p class="right">Server Time: <b><%= Time.zone.now %></b></p>
+<p class="right">Server Time: <b><%= Time.zone.now.strftime("%d-%m-%Y %H:%M") %></b></p>
 
 <div id="activity-search">
 <span>Total: <b><%= pluralize(User.standard.size, 'standard user') %></b> and <b><%= pluralize(User.admin.size, 'administrator') %></b></span>
@@ -25,10 +25,6 @@
     <th><%= sortable "last_sign_in_at", {}, "Last Sign in" %></th>
     <th><%= sortable "current_sign_in_ip", {}, "Current IP" %></th>
     <th><%= sortable "created_at" %></th>
-    <th><%= sortable "updated_at" %></th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% for user in @users %>
@@ -38,10 +34,9 @@
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
     <td style="text-align:center"><%= user.sign_in_count %></td>
-    <td><%= user.last_sign_in_at %></td>
+    <td><%= user.last_sign_in_at.strftime("%d-%m-%Y %H:%M") if user.last_sign_in_at.present? %></td>
     <td><%= user.current_sign_in_ip %></td>
-    <td><%= user.created_at.strftime("%d-%m-%y %H:%M") %></td>
-    <td><%= user.updated_at.strftime("%d-%m-%y %H:%M") %></td>
+    <td><%= user.created_at.strftime("%d-%m-%Y") %></td>
   </tr>
 <% end %>
 </table>

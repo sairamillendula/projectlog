@@ -72,6 +72,15 @@ p.info {
 	font-size: 12px;
 }
 
+.active, .inactive {
+	font-size: x-small;
+	color: #fff;
+	padding: 4px;
+}
+
+.active { background: #6cc644; }
+.inactive { background: #f26535; }
+
 .field_with_errors label {
 	color: #c00;
 } 
