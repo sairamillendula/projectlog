@@ -37,6 +37,11 @@
 #transaction_note {
 	width: 580px;
 }
+#transaction_toggle_search_form {
+  display: block;
+  margin-top: 10px;
+  width: 300px;
+}
 
 .receipt_top {
 	background: image-url("receipt_top.png") no-repeat;

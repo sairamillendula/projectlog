@@ -1,6 +1,7 @@
-<%= link_to "Show/Hide Advanced Search", "#", :id => "toggle_search_form" %>
-<div id="transactions-search">	
-  <%= link_to 'Create Report', new_report_path %> 
+<div id="transaction_toggle_search_form" class="floatl">
+  <%= link_to "Show/Hide Advanced Search", "#", :id => "toggle_search_form" %>
+</div>
+<div id="transactions-search" class="floatr">	
   <span id="export" class="right">
     <%= form_tag transactions_path, :method => 'get', :id => "transactions_search" do %>
   	  <%= hidden_field_tag :direction, params[:direction] %>
@@ -10,6 +11,7 @@
 	<% end %>
  </span>
 </div>
+<%= clear %>
 <div id="transactions-advanced-search" style="display: none;" class="info">
   <h2>Advanced Search</h2>
   <%= form_tag "", :method => :get do %>
