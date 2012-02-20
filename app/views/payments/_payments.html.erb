@@ -28,6 +28,6 @@
   <tr class="payments_balance">
     <td>Balance:</td>
     <td><%= number_to_currency(@invoice.balance) %></td>
-    <td colspan="2"><%= link_to 'Add Payment', "#{new_invoice_payment_path(@invoice)}?update_payments=yes", :remote => true %></td>
+    <td colspan="2"><%= link_to 'Add Payment', "#{new_invoice_payment_path(@invoice)}?update_payments=yes", :remote => true unless @invoice.is_fully_paid? %></td>
   </tr>
 </table>

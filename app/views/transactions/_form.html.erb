@@ -14,11 +14,15 @@
 <div class="inline-form">
   <div class="field">
     <%= f.label :date, :class => "mandatory" %>
-    <%= f.text_field :date, :size => 12, :class => 'date', :autofocus => true %>
+    <%= f.text_field :date, :class => 'date', :autofocus => true %>
   </div>
   <div class="field">
     <%= f.label :expense, "Type", :class => "mandatory" %>
     <%= f.radio_button :expense, true %> Expense <%= f.radio_button :expense, false %> <span>Income</span> <%= clear %>
+  </div>
+  <div class="field">
+    <%= f.label :note, "Description", :class => "mandatory" %>
+    <%= f.text_field :note %>
   </div>
   <div class="field">
     <%= f.label :amount, :class => "mandatory" %>
@@ -35,10 +39,6 @@
   <div class="field">
     <%= f.label :total %>
     <%= f.text_field :total, :size => 8 %>
-  </div>
-  <div class="field">
-    <%= f.label :note, "Description" %>
-    <%= f.text_field :note %>
   </div>
   <div class="field">
     <%= f.label :category_name, 'Category' %>

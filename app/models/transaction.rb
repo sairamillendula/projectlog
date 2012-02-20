@@ -4,7 +4,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :user
   
   attr_accessible :expense, :date, :amount, :tax1, :tax2, :total, :receipt, :note, :recurring, :project_id, :category_id, :category_name, :user_id
-  validates_presence_of :date, :amount
+  validates_presence_of :date, :amount, :note
   validates_numericality_of :amount
   validates_numericality_of :tax1, :tax2, :allow_blank => true
   

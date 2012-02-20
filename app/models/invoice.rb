@@ -54,7 +54,11 @@ class Invoice < ActiveRecord::Base
   def paid?
     status == "Paid"
   end
-
+  
+  def is_fully_paid?
+    balance_calc = 0
+  end
+  
   def generate_invoice_number_and_slug
     p = user.profile
     if p.last_invoice && p.last_invoice[1..4] == Date.today.year.to_s
