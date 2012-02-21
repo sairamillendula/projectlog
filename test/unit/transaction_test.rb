@@ -46,7 +46,7 @@ class TransactionTest < ActiveSupport::TestCase
   
   test 'subtotal with all taxes' do
     transaction = Transaction.new
-    transaction.total = 200
+    transaction.total = 1500
     transaction.tax1 = 10 # 10%
     transaction.tax2 = 5 # 5%
     

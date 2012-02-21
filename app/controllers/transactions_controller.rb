@@ -34,7 +34,6 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = current_user.transactions.new
-    @transaction.copy_tax_setting(current_user.profile)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -90,7 +89,7 @@ class TransactionsController < ApplicationController
   end
   
   def monthly_report
-    @transactions = current_user.transactions.includes(:category, :project).order("date DESC")
+    @transactions = current_user.transactions.by_period(current_user.profile.fiscal_period).includes(:category, :project).order("date DESC")
   end
   
   private

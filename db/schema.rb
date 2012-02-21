@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220111438) do
+ActiveRecord::Schema.define(:version => 20120221161314) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -210,6 +210,7 @@ ActiveRecord::Schema.define(:version => 20120220111438) do
     t.text     "invoice_signature"
     t.string   "website"
     t.string   "last_invoice"
+    t.date     "fiscal_year"
   end
 
   add_index "profiles", ["address1"], :name => "index_profiles_on_address1"
@@ -311,9 +312,6 @@ ActiveRecord::Schema.define(:version => 20120220111438) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "tax1_label"
-    t.string   "tax2_label"
-    t.boolean  "compound"
   end
 
   create_table "users", :force => true do |t|

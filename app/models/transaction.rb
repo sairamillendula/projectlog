@@ -5,7 +5,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   
-  attr_accessible :expense, :date, :total, :tax1, :tax2, :tax1_label, :tax2_label, :compound, :receipt, :note, :recurring, :project_id, :category_id, :category_name, :user_id
+  attr_accessible :expense, :date, :total, :tax1, :tax2, :tax1_label, :tax2_label, :tax1_amount, :tax2_amount, :compound, :receipt, :note, :recurring, :project_id, :category_id, :category_name, :user_id
   validates_presence_of :date, :total, :note
   validates_numericality_of :total
   validates_numericality_of :tax1, :tax2, :allow_blank => true
@@ -17,25 +17,10 @@ class Transaction < ActiveRecord::Base
   scope :from_date, lambda {|date| where("transactions.date >= ?", date)}
   scope :to_date, lambda {|date| where("transactions.date <= ?", date)}
   scope :by_keyword, lambda {|keyword| where('transactions.note LIKE ?', "%#{keyword}%")}
+  scope :by_period, lambda {|date_range| where(:date => date_range)}
   
   def subtotal
-    if tax2 && compound
-      (total / ((1 + ((try(:tax1) || 0) / 100.0)) * (1 + ((try(:tax2) || 0) / 100.0)))).round(2)
-    else
-      (total / (1 + ((try(:tax1) || 0) / 100.0) + ((try(:tax2) || 0) / 100.0))).round(2)
-    end
-  end
-  
-  def tax1_amount
-    (subtotal * ((try(:tax1) || 0) / 100.0)).round(2)
-  end
-  
-  def tax2_amount
-    if tax2 && compound
-      ((subtotal + tax1_amount) * ((try(:tax2) || 0) / 100.0)).round(2)
-    else
-      (subtotal * ((try(:tax2) || 0) / 100.0)).round(2)
-    end
+    (total - (try(:tax1) || 0) - (try(:tax2) || 0)).round(2)
   end
   
   def self.search(search)

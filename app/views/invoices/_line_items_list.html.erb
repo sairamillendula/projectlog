@@ -16,12 +16,12 @@
         <td><%= line.line_type %></td>
         <td><%= line.description %></td>
         <td><%= line.quantity %></td>
-        <td><%= Money.from_float(line.price, @invoice.currency).format(:symbol => true) %></td>
+        <td><%= number_to_currency(line.price) %></td>
         <% if @invoice.any_taxes? %>
-          <td><%= Money.from_float(line.subtotal, @invoice.currency).format(:symbol => true) %></td>
-          <td><%= Money.from_float(line.tax_amount, @invoice.currency).format(:symbol => true) %></td>
+          <td><%= number_to_currency(line.subtotal) %></td>
+          <td><%= number_to_currency(line.tax_amount) %></td>
         <% end %>
-        <td><%= Money.from_float(line.line_total, @invoice.currency).format(:symbol => true) %></td>
+        <td><%= number_to_currency(line.line_total) %></td>
       <% end %>
     <% end %>
     <!-- SUBTOTAL -->
@@ -30,7 +30,7 @@
       <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
       <td class="align_right">Subtotal</td>
       <td>
-        <b><%= Money.from_float(@invoice.subtotal, @invoice.currency).format(:symbol => true) %></b>
+        <b><%= number_to_currency(@invoice.subtotal) %></b>
       </td>
     </tr>
     <% end %>
@@ -40,7 +40,7 @@
       <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
       <td class="align_right"><%= @invoice.tax1_name %></td>
       <td>
-        <b><%= Money.from_float(@invoice.tax1_amount, @invoice.currency).format(:symbol => true) %></b>
+        <b><%= number_to_currency(@invoice.tax1_amount) %></b>
       </td>
     </tr>
     <% end %>
@@ -50,7 +50,7 @@
       <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
       <td class="align_right"><%= @invoice.tax2_name %></td>
       <td>
-        <b><%= Money.from_float(@invoice.tax2_amount, @invoice.currency).format(:symbol => true) %></b>
+        <b><%= number_to_currency(@invoice.tax2_amount) %></b>
       </td>
     </tr>
     <% end %>
@@ -66,7 +66,7 @@
       <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
       <td class="align_right">Amount Due:</td>
       <td>
-        <b><%= Money.from_float(@invoice.amount_due, @invoice.currency).format(:symbol => true) %></b>
+        <b><%= number_to_currency(@invoice.amount_due) %></b>
       </td>
     </tr>
   <% end %>

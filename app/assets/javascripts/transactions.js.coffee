@@ -26,10 +26,8 @@
       tax2 = 0
       
       if tax2_rate > 0 and compound
-        console.log 'compound'
         subtotal = Math.round((total / ((1 + (tax1_rate/100)) * (1 + (tax2_rate/100))))*100)/100
       else
-        console.log "#{total} / (1 + #{(tax1_rate/100)} + #{(tax2_rate/100)})"
         subtotal = Math.round(total / (1 + (tax1_rate/100) + (tax2_rate/100)) * 100)/100
       
       if tax1_rate > 0

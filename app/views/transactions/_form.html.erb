@@ -37,10 +37,6 @@
     <%= f.text_field :tax2, :size => 8 %>
   </div>
   <div class="field">
-    <%= f.label :total %>
-    <%= f.text_field :total, :size => 8 %>
-  </div>
-  <div class="field">
     <%= f.label :category_name, 'Category' %>
 	<%= f.text_field :category_name, data: {autocomplete_source: categories_path} %>
   </div>

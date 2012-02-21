@@ -4,19 +4,19 @@ module Taxable
   end
   
   module InstanceMethods
-    def tax1_name
-      if tax1_label.blank? then
-        "Tax 1 (#{tax1}%)"
+    def tax1_name(show_percentage = true)
+      if tax1_label.blank?
+        show_percentage ? "Tax 1 (#{tax1}%)" : "Tax 1"
       else
-        "#{tax1_label} (#{tax1}%)"
+        show_percentage ? "#{tax1_label} (#{tax1}%)" : tax1_label
       end
     end
 
-    def tax2_name
-      if tax2_label.blank? then
-        "Tax 2 (#{tax2}%)"
+    def tax2_name(show_percentage = true)
+      if tax2_label.blank?
+        show_percentage ? "Tax 2 (#{tax2}%)" : "Tax 2"
       else
-        "#{tax2_label} (#{tax2}%)"
+        show_percentage ? "#{tax2_label} (#{tax2}%)" : tax2_label
       end
     end
     

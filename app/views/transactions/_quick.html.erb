@@ -1,13 +1,7 @@
-<% 
-  transaction = current_user.transactions.new
-  transaction.copy_tax_setting(current_user.profile)
-%>
-<%= form_for(transaction, :method => :post, :remote => true) do |f| %>
-<%= f.hidden_field :tax1, :id => "tax1_rate" %>
-<%= f.hidden_field :tax1_label %>
-<%= f.hidden_field :tax2, :id => "tax2_rate" %>
-<%= f.hidden_field :tax2_label %>
-<%= f.hidden_field :compound, :id => "compound" %>
+<%= form_for(current_user.transactions.new, :method => :post, :remote => true) do |f| %>
+<%= hidden_field_tag :tax1, current_user.profile.try(:tax1) || 0,  :id => "tax1_rate" %>
+<%= hidden_field_tag :tax2, current_user.profile.try(:tax1) || 0, :id => "tax2_rate" %>
+<%= hidden_field_tag :compound, current_user.profile.try(:compound) || false, :id => "compound" %>
 
 <table class='borders'>
   <tr>
@@ -24,17 +18,17 @@
   </tr>
   <tr class="transaction-fields">
 	<td style="vertical-align:top;"><%= f.radio_button(:expense, true) %> Expense<br> <%= f.radio_button(:expense, false) %> Income</td>
-	<% if transaction.any_taxes? %>
+	<% if current_user.profile.any_taxes? %>
   	<td style="vertical-align:top; word-wrap: break-word; width: 100px;">
-	    <% unless transaction.tax1.blank? %>
-	      <%= transaction.tax1_name %><br><%= text_field_tag :tax1, '', :class => "numbers", :disabled => true %><br>
+	    <% unless current_user.profile.tax1.blank? %>
+	      <%= current_user.profile.tax1_name(false) %><br><%= f.text_field :tax1, :class => "numbers", :id => "tax1" %><br>
 	    <% end %>
-	    <% unless transaction.tax2.blank? %>
-  	    <%= transaction.tax2_name %><br><%= text_field_tag :tax2, '', :class => "numbers", :disabled => true %>
+	    <% unless current_user.profile.tax2.blank? %>
+  	    <%= current_user.profile.tax2_name(false) %><br><%= f.text_field :tax2, :class => "numbers", :id => "tax2" %>
 	    <% end %>
   	</td>
 	<% end %>
-	<td style="vertical-align:top;" colspan="<%= transaction.any_taxes? ? '1' : '2' %>">Category<br><%= f.text_field :category_name, data: {autocomplete_source: categories_path} %><br>
+	<td style="vertical-align:top;" colspan="<%= current_user.profile.any_taxes? ? '1' : '2' %>">Category<br><%= f.text_field :category_name, data: {autocomplete_source: categories_path} %><br>
 		Project<br><%= collection_select(:transaction, :project_id, current_user.projects.all, :id, :title, {:prompt => true, :class => 'transaction_project'}) %>
 	</td>
 	<td></td>

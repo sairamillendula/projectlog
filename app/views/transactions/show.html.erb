@@ -4,34 +4,36 @@
 <div class="receipt_mid">
   <p>
     <b>Date:</b>
-	<%= l @transaction.date %> <span class="type"><%= @transaction.expense? ? "EXPENSE" : "INCOME" %></span>
+  	<%= l @transaction.date %> <span class="type"><%= @transaction.expense? ? "EXPENSE" : "INCOME" %></span>
   </p>
+  <% if @transaction.subtotal != @transaction.total %>
   <p>
     <b>Sub Total:</b>
-	<%= number_to_currency(@transaction.total) %>
+  	<%= number_to_currency(@transaction.subtotal) %>
   </p>
+  <% end %>
   <p>
     <b>Description:</b>
-	<%= @transaction.note %>
+  	<%= @transaction.note %>
   </p>
 
-  <% if @transaction.tax1.present? %>
+  <% if (@transaction.try(:tax1) || 0) > 0 %>
   <p>
-    <b><%= current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : "Tax 1" %>:</b>
-	<%= number_to_currency(@transaction.tax1) %>
+    <b>Tax 1:</b>
+  	<%= number_to_currency(@transaction.tax1) %>
   </p>
   <% end %>
 
-  <% if @transaction.tax2.present? %>
+  <% if (@transaction.try(:tax2) || 0) > 0 %>
   <p>
-    <b><%= current_user.profile.tax2_label.present? ? current_user.profile.tax2_label : "Tax 2" %>:</b>
-	<%= number_to_currency(@transaction.tax2) %>
+    <b>Tax 2:</b>
+  	<%= number_to_currency(@transaction.tax2) %>
   </p>
   <% end %>
 
   <p>
     <b>Total:</b>
-	<%= number_to_currency(@transaction.total) %>
+  	<%= number_to_currency(@transaction.total) %>
   </p>
   <p>
     <b>Category:</b>
@@ -39,12 +41,12 @@
   </p>
   <p>
     <b>Project:</b>
-	<%= link_to @transaction.project.title, expenses_project_path(@transaction.project) unless @transaction.project.nil? %>
+  	<%= link_to @transaction.project.title, expenses_project_path(@transaction.project) unless @transaction.project.nil? %>
   </p>
   <% if @transaction.receipt.present? %>
   <p>
     <b>Receipt:</b>
-	<%= @transaction.receipt %>
+  	<%= @transaction.receipt %>
   </p>
   <% end %>
 </div>

@@ -73,6 +73,12 @@
         <p class="info">How many hours equal a full working day? Required to convert hours to days</p>
         <%= f.number_field :hours_per_day, :size => 5 %>
       </div>
+      <div class="field">
+        <h2><%= label_tag "Start of fiscal year" %></h2>
+
+        <p class="info">Select start date and month</p>
+        <%= f.date_select :fiscal_year, :discard_year => true, :order => [:day, :month], :prompt => true %>
+      </div>
       <br />
       <h2>Invoice settings</h2>
         <div class="field">
