@@ -31,6 +31,14 @@ module Taxable
       taxes << ["Both", 3] unless tax1.blank? || tax2.blank?
       taxes
     end
+    
+    def copy_tax_setting(profile)
+      self.tax1       = profile.tax1
+      self.tax1_label = profile.tax1_label
+      self.tax2       = profile.tax2
+      self.tax2_label = profile.tax2_label
+      self.compound   = profile.compound
+    end
   end
   
   def self.included(receiver)

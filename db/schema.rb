@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220022113) do
+ActiveRecord::Schema.define(:version => 20120220111438) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -300,10 +300,9 @@ ActiveRecord::Schema.define(:version => 20120220022113) do
   create_table "transactions", :force => true do |t|
     t.boolean  "expense",     :default => true
     t.date     "date"
-    t.float    "amount"
+    t.float    "total"
     t.float    "tax1"
     t.float    "tax2"
-    t.float    "total"
     t.string   "receipt"
     t.text     "note"
     t.boolean  "recurring",   :default => false
@@ -312,6 +311,9 @@ ActiveRecord::Schema.define(:version => 20120220022113) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tax1_label"
+    t.string   "tax2_label"
+    t.boolean  "compound"
   end
 
   create_table "users", :force => true do |t|

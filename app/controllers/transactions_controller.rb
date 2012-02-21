@@ -34,6 +34,7 @@ class TransactionsController < ApplicationController
 
   def new
     @transaction = current_user.transactions.new
+    @transaction.copy_tax_setting(current_user.profile)
 
     respond_to do |format|
       format.html # new.html.erb

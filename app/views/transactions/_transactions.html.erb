@@ -16,7 +16,7 @@
 	<tr>
 	  <th><%= sortable "expense", { :remote => true } %></th>
 	  <th><%= sortable "date", { :remote => true } %></th>
-	  <th><%= sortable "amount", { :remote => true } %></th>
+	  <th><%= sortable "total", { :remote => true } %></th>
 	  <th><%= sortable "note", {:remote => true } %></th>
 	  <th><%= sortable "project_id", {:remote => true } %></th>
 	  <th><%= sortable "category_id", {:remote => true } %></th>
@@ -27,7 +27,7 @@
 	<tr id="row_for_transaction_<%= transaction.id %>">
 	  <td><%= transaction.expense? ? content_tag(:span, 'Expense', :class => 'expense') : content_tag(:span, 'Income', :class => 'income') %></td>
 	  <td><%= l transaction.date, :format => :short %></td>
-	  <td><%= number_to_currency(transaction.amount) %></td>
+	  <td><%= number_to_currency(transaction.total) %></td>
 	  <td><%= link_to truncate(transaction.note, :length => 34), transaction %></td>
 	  <td><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></td>
 	  <td><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></td>

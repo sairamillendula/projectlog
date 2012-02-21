@@ -7,8 +7,8 @@
 	<%= l @transaction.date %> <span class="type"><%= @transaction.expense? ? "EXPENSE" : "INCOME" %></span>
   </p>
   <p>
-    <b>Amount:</b>
-	<%= number_to_currency(@transaction.amount) %>
+    <b>Sub Total:</b>
+	<%= number_to_currency(@transaction.total) %>
   </p>
   <p>
     <b>Description:</b>

@@ -1,11 +1,13 @@
 class Transaction < ActiveRecord::Base
+  include Taxable
+  
   belongs_to :project
   belongs_to :category
   belongs_to :user
   
-  attr_accessible :expense, :date, :amount, :tax1, :tax2, :total, :receipt, :note, :recurring, :project_id, :category_id, :category_name, :user_id
-  validates_presence_of :date, :amount, :note
-  validates_numericality_of :amount
+  attr_accessible :expense, :date, :total, :tax1, :tax2, :tax1_label, :tax2_label, :compound, :receipt, :note, :recurring, :project_id, :category_id, :category_name, :user_id
+  validates_presence_of :date, :total, :note
+  validates_numericality_of :total
   validates_numericality_of :tax1, :tax2, :allow_blank => true
   
   scope :expenses, where(expense: true)
@@ -16,8 +18,24 @@ class Transaction < ActiveRecord::Base
   scope :to_date, lambda {|date| where("transactions.date <= ?", date)}
   scope :by_keyword, lambda {|keyword| where('transactions.note LIKE ?', "%#{keyword}%")}
   
-  def total
-    amount + (try(:tax1) || 0) + (try(:tax2) || 0)
+  def subtotal
+    if tax2 && compound
+      (total / ((1 + ((try(:tax1) || 0) / 100.0)) * (1 + ((try(:tax2) || 0) / 100.0)))).round(2)
+    else
+      (total / (1 + ((try(:tax1) || 0) / 100.0) + ((try(:tax2) || 0) / 100.0))).round(2)
+    end
+  end
+  
+  def tax1_amount
+    (subtotal * ((try(:tax1) || 0) / 100.0)).round(2)
+  end
+  
+  def tax2_amount
+    if tax2 && compound
+      ((subtotal + tax1_amount) * ((try(:tax2) || 0) / 100.0)).round(2)
+    else
+      (subtotal * ((try(:tax2) || 0) / 100.0)).round(2)
+    end
   end
   
   def self.search(search)
@@ -36,17 +54,6 @@ class Transaction < ActiveRecord::Base
     current_user = user
     self.category = current_user.categories.find_or_create_by_name(name) if name.present?
   end
-  
-  def total_incomes
-    transactions.incomes.inject(0) { |sum, p| sum + p.total }
-  end
-  
-  def total_expenses
-    transactions.expenses.inject(0) { |sum, p| sum + p.total }
-  end
-  #def total_incomes
-  #  transactions.incomes.inject(0) { |sum, p| sum + p.total }
-  #end
   
   # CLASS METHODS
   # =============
