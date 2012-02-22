@@ -44,7 +44,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def balance_calc
-    (amount_due - payments.collect(&:amount).sum).round(2)
+    (amount_due - payments.collect(&:amount).sum.round(2)).round(2)
   end
 
   def self.status_list

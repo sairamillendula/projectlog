@@ -79,7 +79,6 @@
     taxtotal1 = 0.0
     taxtotal2 = 0.0
     $(".item-subtotal").each ->
-      console.log $(this)
       if $(this).closest(".fields").is(":visible")
         subtotal += parseFloat($(this).text()) 
     $(".item-tax1 input").each ->
@@ -96,15 +95,18 @@
     $("#taxtotal1").html(Math.round(taxtotal1 * 100) / 100)
     $("#taxtotal2").html(Math.round(taxtotal2 * 100) / 100)
     
-    total = subtotal + taxtotal1 + taxtotal2
+    
     discount = 0
     if parseFloat($("#invoice_discount").val()) > 0
       discount = parseFloat($("#invoice_discount").val()) / 100
-    $("#amount_due").html(Math.round(total * (1 - discount) * 100) / 100)
+    discount_amount = Math.round(subtotal * discount * 100) / 100
+    
+    total = subtotal + taxtotal1 + taxtotal2 - discount_amount
+    $("#amount_due").html(Math.round(total * 100)/100)
     
 @Invoices.Show =
   init: ->
-    if $('#invoice_line_items .line_item').length > 2
+    if $('#invoice_line_items .line_item').length > 1
       $('#invoice_line_items tbody').sortable
         axis: 'y'
         items: ".line_item"

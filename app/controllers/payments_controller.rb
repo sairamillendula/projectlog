@@ -20,6 +20,8 @@ class PaymentsController < ApplicationController
     @invoice = current_user.invoices.find_by_slug!(params[:invoice_id])
     @payment = Payment.new(params[:payment])
     @payment.invoice = @invoice
+    @payment.amount = @payment.amount.round(2)
+    
     if @payment.save
       update_invoice
       if params[:update_payments] == 'yes'
