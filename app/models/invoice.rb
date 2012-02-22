@@ -24,11 +24,15 @@ class Invoice < ActiveRecord::Base
   end
   
   def tax1_amount
-    line_items.collect{|l| l.try(:tax1) || 0 }.sum.round(2)
+    (subtotal * ((try(:tax1) || 0) / 100)).round(2)
   end
   
   def tax2_amount
-    line_items.collect{|l| l.try(:tax2) || 0 }.sum.round(2)
+    if tax2 and compound
+      ((subtotal + tax1_amount) * ((try(:tax2) || 0) / 100)).round(2)
+    else
+      (subtotal * ((try(:tax2) || 0) / 100)).round(2)
+    end
   end
   
   def discount_amount

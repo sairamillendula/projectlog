@@ -9,7 +9,7 @@ class LineItem < ActiveRecord::Base
   
   # subtotal excludes taxes
   def subtotal
-    quantity * price
+    (try(:quantity) || 0) * (try(:price) || 0)
   end
   
   def tax_amount

@@ -19,7 +19,7 @@
     <!-- SUBTOTAL -->
     <% if @invoice.any_taxes? or @invoice.discount_amount > 0 %>
     <tr class="total-fields">
-      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+      <td colspan="3"></td>
       <td class="align_right">Subtotal</td>
       <td>
         <b><%= number_to_currency(@invoice.subtotal) %></b>
@@ -29,7 +29,7 @@
     <!-- TAX 1 -->
     <% if @invoice.tax1_amount > 0 %>
     <tr class="total-fields">
-      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+      <td colspan="3"></td>
       <td class="align_right"><%= @invoice.tax1_name %></td>
       <td>
         <b><%= number_to_currency(@invoice.tax1_amount) %></b>
@@ -39,7 +39,7 @@
     <!-- TAX 2 -->
     <% if @invoice.tax2_amount > 0 %>
     <tr class="total-fields">
-      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+      <td colspan="3"></td>
       <td class="align_right"><%= @invoice.tax2_name %></td>
       <td>
         <b><%= number_to_currency(@invoice.tax2_amount) %></b>
@@ -49,13 +49,13 @@
     <!-- DISCOUNT -->
     <% if @invoice.discount && @invoice.discount > 0 %>
       <tr class="total-fields">
-        <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+        <td colspan="3"></td>
         <td class="align_right">Discount</td>
         <td><b><%= @invoice.discount %> %</b></td>
       </tr>
     <% end %>
     <tr class="total-fields">
-      <td colspan="<%= @invoice.any_taxes? ? 5 : 3 %>"></td>
+      <td colspan="3"></td>
       <td class="align_right">Amount Due:</td>
       <td>
         <b><%= number_to_currency(@invoice.amount_due) %></b>
