@@ -13,7 +13,6 @@ class Transaction < ActiveRecord::Base
   scope :expenses, where(expense: true)
   scope :incomes, where(expense: false)
   scope :by_category, lambda {|category_id| where(category_id: category_id)}
-  scope :by_period, lambda {|start_date, end_date| where(date: (start_date)..(end_date))}
   scope :from_date, lambda {|date| where("transactions.date >= ?", date)}
   scope :to_date, lambda {|date| where("transactions.date <= ?", date)}
   scope :by_keyword, lambda {|keyword| where('transactions.note LIKE ?', "%#{keyword}%")}

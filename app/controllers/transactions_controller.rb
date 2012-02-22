@@ -8,7 +8,7 @@ class TransactionsController < ApplicationController
     @transactions = @transactions.by_keyword(params[:search]) unless params[:search].blank?
     @transactions = @transactions.by_category(params[:category_id]) unless params[:category_id].blank?
     if !params[:start_date].blank? and !params[:end_date].blank?
-      @transactions = @transactions.by_period(params[:start_date], params[:end_date])
+      @transactions = @transactions.by_period((params[:start_date]..params[:end_date]))
     elsif !params[:start_date].blank?
       @transactions = @transactions.from_date(params[:start_date])
     elsif !params[:end_date].blank?

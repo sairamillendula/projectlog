@@ -1,8 +1,8 @@
 <% if @transactions.empty? %>
-  <% if params[:search] %>
+  <% if searching?(params) %>
     <%= render "table_header" %>
       <div class="no-occurence">
-        <p>No transaction matches '<%= params[:search] %>'.</p>
+        <p>No transaction <%= humanize_search_params(params) %>.</p>
       </div>
   <% else %>
       <div class="no-occurence">
@@ -12,7 +12,7 @@
 
 <% else %>
   <%= render "table_header" %>
-    <table class="activities">
+  <table class="activities">
 	<tr>
 	  <th><%= sortable "expense", { :remote => true } %></th>
 	  <th><%= sortable "date", { :remote => true } %></th>

@@ -10,7 +10,7 @@
   <%= render 'quick' %>
 </div>
 
-<h1><%= params[:search] ? "Listing transactions that match '#{params[:search]}'" : "Transactions" %></h1>
+<h1><%= searching?(params) ? "Listing transactions #{humanize_search_params(params)}" : "Transactions" %></h1>
 <div id="transactions">
   <%= render "transactions" %>
 </div>
