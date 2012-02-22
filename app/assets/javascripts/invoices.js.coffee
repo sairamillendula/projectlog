@@ -104,9 +104,11 @@
     
 @Invoices.Show =
   init: ->
-    $('#invoice_line_items tbody').sortable
-      axis: 'y'
-      items: ".line_item"
-      update: ->
-        $.post($("#invoice_line_items").data('update-url'), $(this).sortable('serialize'))
-  
+    if $('#invoice_line_items .line_item').length > 2
+      $('#invoice_line_items tbody').sortable
+        axis: 'y'
+        items: ".line_item"
+        update: ->
+          $.post($("#invoice_line_items").data('update-url'), $(this).sortable('serialize'))
+    else
+      $('#invoice_line_items .line_item').addClass('no-drag')

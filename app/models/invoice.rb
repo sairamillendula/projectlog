@@ -40,7 +40,7 @@ class Invoice < ActiveRecord::Base
   end
 
   def amount_due
-    subtotal + tax1_amount + tax2_amount - discount_amount
+    (subtotal + tax1_amount + tax2_amount - discount_amount).round(2)
   end
 
   def balance_calc
