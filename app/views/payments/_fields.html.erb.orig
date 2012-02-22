@@ -1,0 +1,31 @@
+<<<<<<< HEAD
+<% if @refresh %>
+  <input type="hidden" name="update_payments" value="yes" />
+<% end %>
+<div class="inline-form">
+  <div class="field">
+    <%= f.label :amount, :class =>'mandatory' %>
+    <%= f.text_field :amount, :class => "date" %>
+  </div>
+  <div class="field">
+    <%= f.label :date, :class => 'mandatory' %>
+    <%= f.text_field :date, :class => "date" %>
+  </div>
+</div>
+=======
+<%= form_for([@invoice, @payment], :remote => true) do |f| %>
+  <% if @refresh %>
+    <input type="hidden" name="update_payments" value="yes" />
+  <% end %>
+  <div class="inline-form">
+    <div class="field">
+      <%= f.label :amount, :class =>'mandatory' %>
+      <%= f.text_field :amount %>
+    </div>
+    <div class="field">
+      <%= f.label :date %>
+      <%= f.text_field :date, :class => "date" %>
+    </div>
+  </div>
+<% end %>
+>>>>>>> dcea18d8d1d51d3a2f3d47f415584c186e83cea7

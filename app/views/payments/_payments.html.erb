@@ -1,13 +1,13 @@
 <table id='payments_table'>
   <tr>
-    <th></th>
+    <th>&nbsp;</th>
     <th>Amount</th>
     <th>Date</th>
-    <th></th>
+    <th>&nbsp;</th>
   </tr>
 <% @payments.each do |payment| %>
   <tr>
-    <td></td>
+    <td>&nbsp;</td>
     <td>
       <%= number_to_currency(payment.amount) %>
     </td>
@@ -23,7 +23,7 @@
   <tr class="payments_total">
     <td>Total:</td>
     <td><%= number_to_currency(@total.round 2) %></td>
-    <td colspan="2"></td>
+    <td colspan="2">&nbsp;</td>
   </tr>
   <tr class="payments_balance">
     <td>Balance:</td>
