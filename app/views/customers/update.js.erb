@@ -1,0 +1,13 @@
+<% if @customer.errors.blank? %>
+  $("#customer_dialog").dialog("destroy").remove();
+  location.reload();
+<% else %>
+   $('<div id="contact-error"></div>')
+		.html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @customer.errors.full_messages.to_sentence %></div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+    });
+<% end %>

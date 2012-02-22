@@ -30,6 +30,11 @@ class CustomersController < ApplicationController
 
   def edit
     @customer = current_user.customers.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -52,8 +57,10 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
         format.html { redirect_to(@customer, :notice => 'Customer was successfully updated.') }
+        format.js
       else
         format.html { render :action => "edit" }
+        format.js
       end
     end
   end

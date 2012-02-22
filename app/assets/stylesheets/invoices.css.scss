@@ -129,6 +129,10 @@ table#total {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+#invoice_line_items td {
+        vertical-align: top;
+}
+
 #invoice_line_items .line_item {
   cursor: move;
 }
@@ -137,21 +141,16 @@ table#total {
   cursor: auto !important;
 }
 
+tr.total-fields { font-weight: bold; }
+
 .i_total {
 	text-align: right;
 	padding-right: 10px;
-	font-weight: bold;
 	width: 100px;
 }
 
-#i_type {
-	width: 60px;
-}
-
-#i_description {
-	width: auto;
-}
-
+#i_type { width: 60px; }
+#i_description { width: auto; }
 #i_price, #i_qty, #i_subtotal { width: 80px; }
 
 input#invoice_discount {
@@ -195,11 +194,6 @@ span.invoice.paid {
 	float: right;
 }
 
-h1.company {
-	font-size: 36px;
-	padding-bottom: 36px;
-}
-
 div.company-info, div.customer-info {
     width: 300px;
     border: solid 1px #e5e5e5;
@@ -208,8 +202,8 @@ div.company-info, div.customer-info {
     margin-bottom: 20px;
     clear: both;
 }
-div.company-info { float: right; }
 
+div.company-info { float: right; }
 
 textarea.invoice-sig-area {
     width: 430px;

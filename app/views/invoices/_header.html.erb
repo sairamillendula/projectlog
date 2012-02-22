@@ -1,4 +1,9 @@
-<h1>INVOICE #<%= @invoice.invoice_number %> <span id="invoice-status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span></h1>
+<h1>INVOICE <span id="invoice-status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span></h1>
+
+<p>
+ <b>ID:</b>
+ <%= @invoice.invoice_number %> 
+</p>
 
 <p>
   <b>Issue Date:</b>

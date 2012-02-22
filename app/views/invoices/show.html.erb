@@ -3,21 +3,21 @@
 <div id="invoice-page">
 
   <div id="companies">
-    <% if get_company_info(@invoice.user.profile).size > 0 %>
-	  <div class="company-info">
+    <div class="company-info">
+      <% if get_company_info(@invoice.user.profile).size > 0 %>
 	    From: <%= get_company_info @invoice.user.profile %>
-	  </div>
-	<% end %>
+	  <% else %>
+	    From: <%= link_to 'Edit', settings_path, :class => 'no-print' %>
+	  <% end %>
+	</div>
 	
 	<div class="customer-info">
-	  To: <b><%= @invoice.customer.name %></b><br/>
-	  <% if @invoice.customer.address1.present? %>
-	    <%= @invoice.customer.address1 %><br />
-	  <% else %>
-		<%= link_to 'Edit info', edit_customer_path(@invoice.customer) %>
-	  <% end %>
-	  <% if @invoice.customer.address2.present? %><%= @invoice.customer.address2 %><br /><% end %>
-	  <%= @invoice.customer.city %> <%= @invoice.customer.province %> <%= @invoice.customer.postal_code %><br />
+	  <% if @invoice.customer.address1.present? and @invoice.customer.city.present? and @invoice.customer.postal_code.present? %>
+        To: <%= get_customer_info @invoice.customer %>
+      <% else %>
+        To: <%= get_customer_info @invoice.customer %>
+    	<%= link_to 'Edit', edit_customer_path(@invoice.customer), :remote => :true, :class => 'no-print' %>
+      <% end %>
 	</div>
   </div>
 
