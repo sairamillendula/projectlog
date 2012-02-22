@@ -8,7 +8,7 @@
 	    From: <%= get_company_info @invoice.user.profile %>
 	  </div>
 	<% end %>
-	<br />
+	
 	<div class="customer-info">
 	  To: <b><%= @invoice.customer.name %></b><br/>
 	  <% if @invoice.customer.address1.present? %>

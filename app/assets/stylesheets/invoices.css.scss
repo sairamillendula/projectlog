@@ -33,7 +33,7 @@
 
     .td, .th {
        display: table-cell;
-	   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;       
+	   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
 
     .th {
@@ -121,6 +121,7 @@ table#total {
 
 #line_items_list {
 	margin-top: 60px;
+	margin-bottom: 50px;
 }
 
 #invoice_line_items td, #invoice_line_items th {
@@ -197,16 +198,14 @@ h1.company {
 
 div.company-info, div.customer-info {
     width: 300px;
-    float: right;
     border: solid 1px #e5e5e5;
     background: #f5f5f5;
     padding: 10px;
     margin-bottom: 20px;
+    clear: both;
 }
+div.company-info { float: right; }
 
-div.customer-info {
-	margin-bottom: 10px;
-}
 
 textarea.invoice-sig-area {
     width: 430px;

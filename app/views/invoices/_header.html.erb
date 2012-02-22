@@ -12,7 +12,7 @@
 
 <% if user_signed_in? %>
   <% if !@invoice.paid? %>
-  <p>
+  <p class='no-print'>
     <b>Balance:</b>
     <span id="invoice-balance"><%= @invoice.balance %></span>
   </p>

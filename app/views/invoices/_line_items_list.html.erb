@@ -4,11 +4,7 @@
     <th id="i_description">Description</th>
     <th>Qty</th>
     <th>Price</th>
-    <% if @invoice.any_taxes? %>
-      <th>Subtotal</th>
-      <th>Taxes</th>
-    <% end %>
-    <th>Amount</th>
+    <th>Subtotal</th>
   </tr>
   <% if @invoice.line_items.any? %>
     <% @invoice.line_items.each do |line| %>
@@ -17,11 +13,7 @@
         <td><%= line.description %></td>
         <td><%= line.quantity %></td>
         <td><%= number_to_currency(line.price) %></td>
-        <% if @invoice.any_taxes? %>
-          <td><%= number_to_currency(line.subtotal) %></td>
-          <td><%= number_to_currency(line.tax_amount) %></td>
-        <% end %>
-        <td><%= number_to_currency(line.line_total) %></td>
+        <td><%= number_to_currency(line.price * line.quantity) %></td>
       <% end %>
     <% end %>
     <!-- SUBTOTAL -->
