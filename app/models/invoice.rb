@@ -56,7 +56,7 @@ class Invoice < ActiveRecord::Base
   end
   
   def is_fully_paid?
-    balance_calc = 0
+    balance_calc == 0
   end
   
   def generate_invoice_number_and_slug

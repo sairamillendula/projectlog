@@ -6,17 +6,16 @@
     <b>Date:</b>
   	<%= l @transaction.date %> <span class="type"><%= @transaction.expense? ? "EXPENSE" : "INCOME" %></span>
   </p>
-  <% if @transaction.subtotal != @transaction.total %>
-  <p>
-    <b>Sub Total:</b>
-  	<%= number_to_currency(@transaction.subtotal) %>
-  </p>
-  <% end %>
   <p>
     <b>Description:</b>
   	<%= @transaction.note %>
   </p>
-
+  <% if @transaction.subtotal != @transaction.total %>
+  <p>
+    <b>Subtotal:</b>
+    <%= number_to_currency(@transaction.subtotal) %>
+  </p>
+  <% end %>
   <% if (@transaction.try(:tax1) || 0) > 0 %>
   <p>
     <b>Tax 1:</b>
