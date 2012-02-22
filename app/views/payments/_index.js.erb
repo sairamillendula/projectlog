@@ -5,8 +5,9 @@ $('<div id="payments_dialog"></div>')
 autoOpen: true,
 modal: true,
 title: 'Payments',
-buttons: { 'Close' : function(){ $(this).dialog("close"); } },
+buttons: { 'Close' : function(){ $(this).dialog("destroy").remove(); } },
 show: "fade",
 hide: "fade",
-width: 420
+width: 420,
+close: function(event, ui) { $(this).remove(); }
 });
