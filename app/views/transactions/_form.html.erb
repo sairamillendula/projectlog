@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <%= hidden_field_tag :tax1, current_user.profile.try(:tax1) || 0,  :id => "tax1_rate" %>
+  <%= hidden_field_tag :tax2, current_user.profile.try(:tax2) || 0, :id => "tax2_rate" %>
+  <%= hidden_field_tag :compound, current_user.profile.try(:compound) || false, :id => "compound" %>
 <div class="inline-form">
   <div class="field">
     <%= f.label :date, :class => "mandatory" %>
@@ -26,15 +28,15 @@
   </div>
   <div class="field">
     <%= f.label :total, :class => "mandatory" %>
-    <%= f.text_field :total, :size => 8 %>
+    <%= f.text_field :total, :size => 8, :id => "total" %>
   </div>
   <div class="field">
 	<%= f.label :tax2, current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : 'Tax 1' %>
-    <%= f.text_field :tax1, :size => 8 %>
+    <%= f.text_field :tax1, :size => 8, :id => "tax1" %>
   </div>
   <div class="field">
 	<%= f.label :tax2, current_user.profile.tax2_label.present? ? current_user.profile.tax2_label : 'Tax 2' %>
-    <%= f.text_field :tax2, :size => 8 %>
+    <%= f.text_field :tax2, :size => 8, :id => "tax2" %>
   </div>
   <div class="field">
     <%= f.label :category_name, 'Category' %>
@@ -51,5 +53,8 @@
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
-  $("#transaction_date").focus();
+  $(function() {
+    $("#transaction_date").focus();
+    Transactions.Form.init();
+  });
 </script>

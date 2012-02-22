@@ -8,7 +8,9 @@
     
     $('#transaction_category_name').autocomplete
       source: $('#transaction_category_name').data('autocomplete-source')
-    
+
+@Transactions.Form =
+  init: ->
     $('#total').live 'keyup', ->
       total = parseFloat($(this).val())
       total = 0 if isNaN(total)

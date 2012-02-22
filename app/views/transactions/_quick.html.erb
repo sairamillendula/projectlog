@@ -1,6 +1,6 @@
 <%= form_for(current_user.transactions.new, :method => :post, :remote => true) do |f| %>
 <%= hidden_field_tag :tax1, current_user.profile.try(:tax1) || 0,  :id => "tax1_rate" %>
-<%= hidden_field_tag :tax2, current_user.profile.try(:tax1) || 0, :id => "tax2_rate" %>
+<%= hidden_field_tag :tax2, current_user.profile.try(:tax2) || 0, :id => "tax2_rate" %>
 <%= hidden_field_tag :compound, current_user.profile.try(:compound) || false, :id => "compound" %>
 
 <table class='borders'>
