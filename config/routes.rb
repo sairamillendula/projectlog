@@ -38,8 +38,10 @@ Projectlog::Application.routes.draw do
   end
   
   resources :projects do
+    
     collection do
-      get "closed"
+      get 'closed'
+      get 'quick'
     end
     resources :activities
     
@@ -51,13 +53,13 @@ Projectlog::Application.routes.draw do
   
   resources :reports do
     collection do
-      get "search"
+      get 'search'
     end
     member do
-      get "shared"
+      get 'shared'
       post 'shared/approve', :action => 'approve'
     end
-    resources :emails, :only => [ :new, :create ], :controller => "reports/emails"
+    resources :emails, :only => [ :new, :create ], :controller => 'reports/emails'
   end
   
   resources :reports do

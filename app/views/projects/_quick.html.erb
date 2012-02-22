@@ -1,20 +1,9 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation" class="alert">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@project, :remote => true) do |f| %>
 
 <div class="inline-form">
   <div class="field">
     <%= f.label :title, :class => 'mandatory' %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :style => 'width:auto;' %>
   </div>
 
   <div class="field">
@@ -26,9 +15,9 @@
 	<div class="field">
 	  <%= f.label :customer_id, :class => 'mandatory' %>
         <% if @project.persisted? || @project.customer.blank?  %>
-	    <%# Hide the customer field if it's a new project but already has the customer set up. %>
+	      <%# Hide the customer field if it's a new project but already has the customer set up. %>
 	      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = { :prompt => "Select Customer" } ) %>
-	      or <%= link_to "Create Customer", new_customer_path, :remote => true %>
+	      <%= link_to "Add a Customer", new_customer_path, :remote => true %>
 	    <% else %>
 	     <%= @project.customer.name %> <%= clear %></p>
 	     <%= f.hidden_field :customer_id, :value => @project.customer.id %>
@@ -48,32 +37,14 @@
 	  <span id="per_diem">
 		Total days allowed <%= f.text_field :total_unit, :id => "per_diem_total_unit", :size => '6' %> at a rate of <%= f.text_field :default_rate, :id => "per_diem_default_rate", :size => '6' %><%= number_to_currency("") %>
 	    <% if current_user.profile.hours_per_day.nil? %>
-	      <span id="hours-per-day-notice">Update your <%= link_to 'settings', settings_path %> to convert Hours Worked to Days</span>
+	      <span id="hours-per-day-notice">Hours by Day not set. Update your <%= link_to 'settings', settings_path %> to convert Activities to Days</span>
 		<% end %>
 	  </span>
 		
 	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :id => "fixed_default_rate", :size => '8' %><%= number_to_currency("") %></span>
     </div>  <%# billing-scenario %>
   </div>  <%# billing %>
-  
-  <% if !@project.new_record? %>
-    <div class="field">
-	  <%= f.label :status %>
-	  <%= f.select(:status, options_for_select([['Open', true], ['Closed', false]])) %>
-	</div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :description %>
-    <span class="markdown"><a href="http://getprojectlog.com/help/knowledgebase/markdown/?src=app" target="_blank">Markdown accepted</a></span><br/>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <p class="submit"><%= submit_or_cancel(f) %></p>
-  </div>
 <% end %>
-</div>
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function(){

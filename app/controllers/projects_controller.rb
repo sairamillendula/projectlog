@@ -35,6 +35,15 @@ class ProjectsController < ApplicationController
     @project.customer = current_user.customers.find_by_id(params[:customer_id])
     respond_to do |format|
       format.html # new.html.erb
+      format.js
+    end
+  end
+  
+  def quick
+    @project = current_user.projects.new
+    @project.customer = current_user.customers.find_by_id(params[:customer_id])
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -48,8 +57,10 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         format.html { redirect_to(@project, :notice => 'Project was successfully created.') }
+        format.js
       else
         format.html { render :action => "new" }
+        format.js
       end
     end
   end

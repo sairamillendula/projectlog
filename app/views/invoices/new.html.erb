@@ -1,3 +1,5 @@
 <h1>New invoice</h1>
 
+<%= content_tag(:p, ("Define " + (link_to 'Tax and Invoice settings', settings_path)).html_safe +  " to save time", :class => 'warning') if current_user.profile.tax1.nil? %>
+
 <%= render 'form' %>
