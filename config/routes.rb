@@ -74,7 +74,7 @@ Projectlog::Application.routes.draw do
   end
   
   namespace :administr8te do
-    resource :dashboard, :only => [ :show ], :controller => "dashboard"
+    resource :dashboard, :only => [ :show ], :controller => 'dashboard'
     resource :settings
     resources :clients, :only => [ :index ]
     resources :plans
@@ -84,12 +84,12 @@ Projectlog::Application.routes.draw do
   end
   
   # allow "/users/login" and "/login"
-  devise_for :user, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" },
-                    :controllers => { :registrations => "registrations" } do
-    get "/register", :to => "registrations#new"
-    get "/login", :to => "devise/sessions#new"
-    get "/logout", :to => "devise/sessions#destroy"
+  devise_for :user, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }, 
+                    :controllers => { :registrations => "registrations" }
+  devise_scope :user do
+    get '/register', :to => 'registrations#new'
+    get '/login', :to => 'devise/sessions#new'
+    get '/logout', :to => 'devise/sessions#destroy'
   end
-
-  match '/settings' => "profiles#edit", :as => "settings" 
+  match '/settings' => 'profiles#edit', :as => 'settings'
 end

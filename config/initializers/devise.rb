@@ -102,6 +102,11 @@ Devise.setup do |config|
 
   # Defines which key will be used when locking and unlocking an account
   # config.unlock_keys = [ :email ]
+  
+  # Time interval you can reset your password with a reset password key.
+  # Don't put a too small interval or your users won't have the time to
+  # change their passwords.
+  config.reset_password_within = 8.hours
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email

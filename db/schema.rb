@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.float    "time",        :null => false
     t.text     "description", :null => false
     t.integer  "project_id",  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "activities", ["date"], :name => "index_activities_on_date"
@@ -31,21 +31,21 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.text     "hidden_by_user_ids"
     t.datetime "starts_at"
     t.datetime "ends_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "billing_codes", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "categories", ["name"], :name => "index_categories_on_name"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "phone"
     t.string   "email"
     t.integer  "customer_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "contacts", ["customer_id"], :name => "index_contacts_on_customer_id"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "printable_name", :null => false
     t.string   "iso3"
     t.integer  "numcode"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "countries", ["id"], :name => "index_countries_on_id", :unique => true
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "province"
     t.string   "country"
     t.integer  "user_id",     :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.string   "city"
     t.text     "note"
     t.string   "website"
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "description",                   :null => false
     t.string   "api_key",                       :null => false
     t.string   "list_key"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "emailings", ["api_key"], :name => "index_emailings_on_api_key"
@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.text     "note"
     t.integer  "customer_id",                                                                :null => false
     t.integer  "user_id",                                                                    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                                 :null => false
+    t.datetime "updated_at",                                                                 :null => false
     t.string   "invoice_number",                                                             :null => false
     t.decimal  "discount",                    :precision => 5, :scale => 2, :default => 0.0, :null => false
     t.string   "currency",       :limit => 3,                                                :null => false
@@ -143,8 +143,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "description",                  :null => false
     t.float    "quantity",    :default => 1.0, :null => false
     t.float    "price",       :default => 0.0, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "position"
   end
 
@@ -152,8 +152,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "name",                                       :null => false
     t.string   "reference"
     t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.string   "currency",   :limit => 3, :default => "USD", :null => false
   end
 
@@ -165,8 +165,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.integer  "invoice_id", :null => false
     t.float    "amount",     :null => false
     t.date     "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "payments", ["invoice_id"], :name => "index_payments_on_invoice_id"
@@ -177,8 +177,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.text     "features"
     t.float    "price",                          :null => false
     t.boolean  "active",      :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "plans", ["id"], :name => "index_plans_on_id"
@@ -197,8 +197,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "localization"
     t.float    "hours_per_day"
     t.integer  "user_id",                              :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "tax1_label"
     t.float    "tax1"
     t.string   "tax2_label"
@@ -229,8 +229,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "default_rate"
     t.integer  "user_id",                            :null => false
     t.integer  "customer_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.integer  "billing_code_id"
     t.boolean  "internal",        :default => false
     t.boolean  "status",          :default => true
@@ -257,15 +257,15 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
   create_table "provinces", :force => true do |t|
     t.string   "name"
     t.string   "short_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "provinces", ["name"], :name => "index_provinces_on_name"
 
   create_table "reports", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
     t.integer  "project_id"
     t.date     "start_date"
@@ -286,8 +286,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.text     "value"
     t.integer  "thing_id"
     t.string   "thing_type", :limit => 30
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   add_index "settings", ["thing_id"], :name => "index_settings_on_thing_id"
@@ -307,25 +307,26 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.integer  "user_id"
     t.integer  "project_id"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "email",                                 :default => "",    :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
     t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                               :null => false
+    t.datetime "updated_at",                                               :null => false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "admin",                               :default => false
+    t.boolean  "admin",                                 :default => false
     t.integer  "plan_id"
   end
 

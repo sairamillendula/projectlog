@@ -1,10 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.1'
+gem 'rails', '3.2.1'
 
-gem 'sass-rails'
-gem 'coffee-script'
-gem 'uglifier'
+gem 'mysql2'
 gem 'devise'
 gem 'heroku'
 gem 'jquery-rails'
@@ -19,24 +17,23 @@ gem 'bourbon'
 gem 'cancan', :git => 'git://github.com/ryanb/cancan.git'
 gem 'clarity'
 gem 'money'
-gem 'nested_form', :git => "git://github.com/ryanb/nested_form.git"
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+gem 'hominid'
 
+group :assets do
+  gem 'sass-rails', "~> 3.2.3"
+  gem 'coffee-rails', "~> 3.2.1"
+  gem 'uglifier', '>= 1.0.3'
+end 
 
 group :development do
-  gem "letter_opener"
+  gem 'letter_opener'
 end
 
 group :development, :test do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
-  gem "mysql2" #Disable for now as I can't install it
   gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
   gem 'therubyracer'
   gem 'spork-testunit'
-end
-
-# 3.1 Heroku
-group :production do
-  gem 'pg'
 end
