@@ -31,7 +31,7 @@ class ContactTest < ActiveSupport::TestCase
   end
 
   test "should update contact" do
-    contact = customers(:one)
+    contact = contacts(:one)
     assert contact.update_attributes(:email => 'test@test.com')
   end
 

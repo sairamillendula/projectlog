@@ -4,7 +4,12 @@ puts "Creating default Emailing API"
 Emailing.create(:description => '[TEST] Mailchimp - Clients list', :api_key => '7ee733e3c16671ed80d116acf8b1942a-us2', :list_key => 'ef5a8f01a9' )
 
 puts "Creating users..."
-user1 = User.find_by_email("user@gmail.com") || User.create!(:email => "user@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan', :admin => 'true')
+user1 = User.find_by_email("user@gmail.com")
+unless user1
+  user1 = User.new(:email => "user@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan')
+  user1.admin = true
+  user1.save!
+end
 user2 = User.find_by_email("user2@gmail.com") || User.create!(:email => "user2@gmail.com", :password => "123456", :first_name => 'Magic', :last_name => 'Johnson')
 
 puts "Creating customers..."

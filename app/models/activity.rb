@@ -1,10 +1,10 @@
 class Activity < ActiveRecord::Base
   belongs_to :project
   
-  attr_accessible :date, :time, :description
+  attr_accessible :date, :time, :description, :project_id
   
-  validates_numericality_of(:time)
-  validates_presence_of(:date, :time, :description, :project_id)
+  validates_numericality_of :time
+  validates_presence_of :date, :time, :description, :project_id
   
   def self.search(search)
     if search
