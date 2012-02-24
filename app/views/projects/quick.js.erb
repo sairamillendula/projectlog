@@ -1,13 +1,1 @@
-$("#new_project_dialog").remove();
-$('<div id="new_project_dialog"></div>')
-.html('<%= escape_javascript render(:partial => 'quick') %>')
-.dialog({
-  autoOpen: true,
-  modal: true,
-  title: 'Create Project',
-  buttons: { 'Create Project' : function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("destroy").remove(); } },
-  show: "fade",
-  hide: "fade",
-  width: 420,
-  close: function(event, ui) { $(this).remove(); }
-});
+<%= render 'form_dialog', dialog_js_id: 'new_project_dialog', partial: render('quick'), title: 'Create Project', width: 420 %>

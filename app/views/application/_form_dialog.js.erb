@@ -1,0 +1,23 @@
+<% 
+  dialog_js_id ||= "generic_dialog"
+  main_action_title ||= title
+  width ||= nil
+  height ||= nil
+%>
+$('<div id="<%= dialog_js_id %>"></div>')
+.html('<%= escape_javascript(partial) %>')
+.dialog({
+  autoOpen: true,
+  modal: true,
+  title: '<%= title %>',
+  buttons: { '<%= main_action_title %>' : function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("destroy").remove(); } },
+  show: "fade",
+  hide: "fade",
+  <% if width %>
+  width: <%= width %>,
+  <% end %>
+  <% if height %>
+  height: <%= height %>,
+  <% end %>
+  close: function(event, ui) { $(this).remove(); }
+});
