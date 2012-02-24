@@ -19,6 +19,7 @@ gem 'clarity'
 gem 'money'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'hominid'
+gem 'capistrano'
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"
@@ -27,7 +28,7 @@ group :assets do
 end 
 
 group :development do
-  gem 'letter_opener'
+  gem 'letter_opener' 
 end
 
 group :development, :test do
@@ -36,4 +37,8 @@ group :development, :test do
   gem 'mocha'
   gem 'therubyracer'
   gem 'spork-testunit'
+end
+
+group :production do
+  gem 'exception_notification'
 end
