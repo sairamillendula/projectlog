@@ -16,12 +16,10 @@
     <%= f.label :title, :class => 'mandatory' %>
     <%= f.text_field :title %>
   </div>
-
   <div class="field">
     <%= f.label :internal, 'Internal?', :for => "internal" %>
     <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
   </div>
-
   <div id="billing">
 	<div class="field">
 	  <%= f.label :customer_id, :class => 'mandatory' %>
@@ -34,7 +32,6 @@
 	     <%= f.hidden_field :customer_id, :value => @project.customer.id %>
 	    <% end %>
 	</div>
-	
 	<div class="field">
 	  <%= f.label :billing_code_id, 'Billing Method' %>
 	  <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
@@ -42,17 +39,23 @@
 	
 	<div id="billing-scenario">
 	  <span id="hourly">
-	    Total hours allowed for this project: <%= f.text_field :total_unit, :id => "hourly_total_unit", :size => '8' %> at a rate of <%= f.text_field :default_rate, :id => "hourly_default_rate", :size => '8' %><%= number_to_currency("") %>
+	    Total hours allowed:<br />
+	    <%= f.text_field :total_unit, :id => "hourly_total_unit", :class => 'short' %> Hours at a rate of 
+	    <%= f.text_field :default_rate, :id => "hourly_default_rate", :class => 'short' %><%= number_to_currency("") %>
 	  </span>
 		
 	  <span id="per_diem">
-		Total days allowed <%= f.text_field :total_unit, :id => "per_diem_total_unit", :size => '6' %> at a rate of <%= f.text_field :default_rate, :id => "per_diem_default_rate", :size => '6' %><%= number_to_currency("") %>
+		Total days allowed:<br />
+		<%= f.text_field :total_unit, :id => "per_diem_total_unit", :class => 'short' %> Days at a rate of 
+		<%= f.text_field :default_rate, :id => "per_diem_default_rate", :class => 'short' %><%= number_to_currency("") %>
 	    <% if current_user.profile.hours_per_day.nil? %>
 	      <span id="hours-per-day-notice">Update your <%= link_to 'settings', settings_path %> to convert Hours Worked to Days</span>
 		<% end %>
 	  </span>
 		
-	  <span id="fixed">Fixed price: <%= f.text_field :default_rate, :id => "fixed_default_rate", :size => '8' %><%= number_to_currency("") %></span>
+	  <span id="fixed">
+	    Fixed price: <%= f.text_field :default_rate, :id => "fixed_default_rate", :class => 'medium' %> <%= number_to_currency("") %>
+	  </span>
     </div>  <%# billing-scenario %>
   </div>  <%# billing %>
   

@@ -130,15 +130,17 @@ table#total {
 }
 
 #invoice_line_items td {
-        vertical-align: top;
+    vertical-align: top;
 }
 
+#invoice_line_items tr td.first-row { padding-top: 20px; }
+
 #invoice_line_items .line_item {
-  cursor: move;
+    cursor: move;
 }
 
 .no-drag {
-  cursor: auto !important;
+    cursor: auto !important;
 }
 
 tr.total-fields { font-weight: bold; }

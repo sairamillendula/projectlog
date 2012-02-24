@@ -1,18 +1,8 @@
 <div id="intro">
   <ul>
-    <li id="customers" class="step">
-	  <div class="step-inner">
-	    <span class="step-id">-1-</span>
-		<h2>Customers</h2>
-		<p>We all need Customers to operate so this is the starting point</p>
-		<% if current_user.customers.any? %><p class="check"><%= image_tag "check.png" %></p>
-		<% else %><p class="buttonorange"><%= link_to '+ New Customer', new_customer_path, :remote => true %></p>
-		<% end %>
-	  </div>
-    </li>
 	<li id="projects" class="step">
       <div class="step-inner">
-		<span class="step-id">-2-</span>
+		<span class="step-id">-1-</span>
 		<h2>Projects</h2>
 		<p>Projects are fun wether they are Billable or Internal</p>
 		<% if current_user.customers.any? %><p class="buttonorange"><%= link_to '+ New Project', quick_projects_path, :remote => true %></p>
@@ -23,7 +13,7 @@
 	</li>
 	<li id="time" class="step">
 	  <div class="step-inner">
-	    <span class="step-id">-3-</span>
+	    <span class="step-id">-2-</span>
 		<h2>Time Tracking</h2>
 		<p>Timesheet should be easy & speedy. Same goes with reporting</p>
 		<% if current_user.activities.any? %><p class="check"><%= image_tag "check.png" %></p>
@@ -33,10 +23,18 @@
 	</li>
 	<li id="invoice" class="step">
 	  <div class="step-inner">
-	    <span class="step-id">-4-</span>
+	    <span class="step-id">-3-</span>
 		<h2>Invoices</h2>
 		<p>Get rewarded. Send invoices to customers and track payments</p>
 		<p class="buttonorange inactive">+ New Invoice</p>
+	  </div>
+    </li>
+    <li id="expenses" class="step">
+	  <div class="step-inner">
+	    <span class="step-id">-4-</span>
+		<h2>Expenses</h2>
+		<p>Keep track of revenues and expenses. Quick & Easy</p>
+		<p class="buttonorange inactive">+ New Transaction</p>
 	  </div>
     </li>
   </ul>

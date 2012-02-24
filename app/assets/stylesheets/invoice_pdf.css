@@ -5,6 +5,8 @@ body {
 
 #invoice-page { margin-top: 40px; }
 
+h1 { margin-bottom: 50px; font-size: 40px; }
+
 #invoice_line_items {
 	margin-bottom: 20px;
 	width: 100%;
@@ -12,7 +14,7 @@ body {
 	display: table;
 }
 
-#line_items_list { margin-top: 120px; margin-bottom: 50px; }
+#line_items_list { margin-top: 60px; margin-bottom: 160px; }
 
 #invoice_line_items th {
 	background-color: #f5f5f5;
@@ -29,6 +31,7 @@ body {
 }
 
 #invoice_line_items tr.total-fields { font-weight: bold; }
+#invoice_line_items tr td.first-row { padding-top: 30px; }
 #invoice_line_items tr th#i_type { width: 60px; }
 #invoice_line_items tr th#i_description { width: auto; }
 #invoice_line_items tr th#i_price, #invoice_line_items tr th#i_subtotal { width: 90px; }
@@ -41,18 +44,16 @@ div.company-info, div.customer-info {
     border: solid 1px #e5e5e5;
     background: #f5f5f5;
     padding: 10px;
-    margin-bottom: 20px;
     clear: both;
 }
-div.company-info { float: right; }
+div.company-info { float: right; margin-bottom: 40px; }
+div.customer-info { margin-bottom: 10px; }
 
 #inv_note {
-	margin-top: 10px;
 	padding: 10px;
 	border-top: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
 	background: #f5f5f5;
-	width: 100%;
 }
 
 @media print {

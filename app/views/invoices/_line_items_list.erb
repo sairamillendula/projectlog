@@ -19,8 +19,8 @@
     <!-- SUBTOTAL -->
     <% if @invoice.any_taxes? or @invoice.discount_amount > 0 %>
     <tr class="total-fields"> 
-      <td colspan="4" class="i_total">Subtotal</td>
-      <td><%= number_to_currency(@invoice.subtotal, unit: @invoice.currency) %></td>
+      <td colspan="4" class="i_total first-row">Subtotal</td>
+      <td class="first-row"><%= number_to_currency(@invoice.subtotal, unit: @invoice.currency) %></td>
     </tr>
     <% end %>
     <!-- TAX 1 -->

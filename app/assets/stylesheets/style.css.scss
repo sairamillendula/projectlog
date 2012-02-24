@@ -60,6 +60,7 @@ img {
 	background-image: -moz-linear-gradient(#E96050,#DF4338);
 	background-image: -o-linear-gradient(#E96050,#DF4338);
 	background-image: linear-gradient(#E96050,#DF4338);
+	@include rounded-corners(4px);
 	text-align: center;
 	padding: 4px;
 	color: #fff;
@@ -296,66 +297,6 @@ header {
 
 p.buttonorange.inactive {
 	color: #464646;
-}
-
-/* Introduction */
-.intro-title {
-	text-align: center;
-	font-weight: bold;
-	font-size: 20px;
-	line-height: 20px;
-	margin-bottom: 10px;
-	color: #2c2d31;
-}
-
-.intro-tagline {
-	text-align: center;
-	font-size: 16px;
-	line-height: 26px;
-	color: #a4a5aa;
-	border-bottom: 1px solid #ededf3;
-	padding-bottom: 25px;
-	margin-bottom: 35px;
-	font-weight: normal;
-}
-
-#intro ul {
-	list-style: none;
-	margin: 0 0 30px 0;
-	padding: 0;
-	width: 910px;
-}
-
-#intro li {
-	display: inline;
-	float: left;
-	width: 202px;
-	height: 207px;
-	margin: 0 10px 60px 0;
-	overflow: hidden;
-}
-
-.step {
-	background: #f1f1f3;
-	@include rounded-corners(3px);
-	padding: 5px;
-}
-
-.step-id {
-	font-style: italic;
-}
-
-.step-inner {
-	background: white;
-	height: 180px;
-	border: 1px solid #cbcecf;
-	@include rounded-corners(2px);
-	padding: 25px 23px 0 23px;
-	text-align: center;
-}
-
-.check {
-	padding-top: 13px;
 }
 
 /* Site Layout */

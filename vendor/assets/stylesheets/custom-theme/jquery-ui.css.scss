@@ -436,10 +436,10 @@ button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra pad
  *
  * Projectlog modal
  */
-.ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; background: #6a6a6a; border: 0; padding: 5px; font-size: 13px; font-family: inherit;}
-.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative; background: #f1f1f1; border: none; border-radius: 4 4 0 0; -moz-border-radius: 4 4 0 0; }
-.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; font-size: 16px; } 
-.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; background: #6a6a6a; border: 0; padding: 5px; font-size: 14px; font-family: inherit;}
+.ui-dialog .ui-dialog-titlebar { padding: .4em 1em; position: relative; background: #f1f1f1; border: none; border-radius: 4 4 0 0; -moz-border-radius: 4 4 0 0; height: 40px;}
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; font-size: 20px; } 
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 35%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
 .ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
 .ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
 .ui-dialog .ui-dialog-content { position: relative; border: 0; padding: .5em 1em; overflow: auto; zoom: 1; background: #f1f1f1; }
