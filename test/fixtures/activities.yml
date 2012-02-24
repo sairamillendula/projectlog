@@ -1,6 +1,5 @@
 <% for a in 1..100 %>
 fix_<%= a %>:
-  id: <%= a %>
   date: <%= Time.now %>
   time: 2.5
   description: Activity <%= a %>

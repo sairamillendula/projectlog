@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= form_for(@project, :html => {:id => "project-form"}) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation" class="alert">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -18,7 +18,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :internal, 'Internal?' %>
+    <%= f.label :internal, 'Internal?', :for => "internal" %>
     <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
   </div>
 
@@ -76,41 +76,5 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-$(document).ready(function(){
-$("#internal").change(function() { 
-	$("#billing").toggle();
-	$("#internal-notice").toggle(); 
-	} );
-});
-</script>
-<script type="text/javascript" charset="utf-8">
-hideBillingScenario = function () {
-    $("#hourly, #per_diem, #fixed").hide();
-};
-
-handleNewSelection = function () {
-
-    hideBillingScenario();
-
-    switch ($(this).find('option:selected').val()) {
-        case '1':
-            $("#hourly").show();
-        break;
-        case '2':
-            $("#per_diem").show();
-        break;
-        case '3':
-            $("#fixed").show();
-        break;
-    }
-};
-
-$(document).ready(function() {
-
-    $("#project_billing_code_id").change(handleNewSelection);
-
-    // Run the event handler once now to ensure everything is as it should be
-    handleNewSelection.apply($("#project_billing_code_id"));
-
-});
+    Projects.Form.init();
 </script>

@@ -2,7 +2,7 @@
 
 one:
   date: 2011-11-17
-  total: 15
+  total: 150
   tax1: 10
   tax2: 5
   receipt: MyString
@@ -13,7 +13,7 @@ one:
 
 two:
   date: 2011-11-17
-  total: 15
+  total: 150
   tax1: 15
   tax2: 5
   receipt: MyString

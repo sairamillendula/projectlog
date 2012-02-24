@@ -1,0 +1,5 @@
+<% if @project.errors.blank? %>
+  window.location = '<%= project_url(@project) %>';
+<% else %>
+  <%= render 'form_error_dialog', object: @project %>
+<% end %>

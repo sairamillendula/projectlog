@@ -4,9 +4,6 @@ one:
   description: 'description'
   quantity: '2'
   price: '60'
-  tax1: '0'
-  tax2: '0'
-  line_total: '120'
 
 two:
   invoice: one
@@ -14,9 +11,6 @@ two:
   description: 'description'
   quantity: '2'
   price: '60'
-  tax1: '5'
-  tax2: '8'
-  line_total: '133'
     
 three:
   invoice: two
@@ -24,6 +18,3 @@ three:
   description: 'description'
   quantity: '2'
   price: '60'
-  tax1: '0'
-  tax2: '0'
-  line_total: '120'

@@ -1,0 +1,21 @@
+<% 
+  width ||= nil
+  height ||= nil
+%>
+
+$('<div id="<%= dom_id(object) %>-error"></div>')
+	.html('<div class="alert">Please fix the following errors: <%= escape_javascript object.errors.full_messages.to_sentence %></div>')
+	.dialog({
+		autoOpen: true,
+		buttons: { 'OK' : function(){ $(this).dialog("destroy"); } },
+		modal: true,
+		show: "fade",
+		hide: "fade",
+		<% if width %>
+    width: <%= width %>,
+    <% end %>
+    <% if height %>
+    height: <%= height %>,
+    <% end %>
+		close: function(event, ui) { $(this).remove(); }
+  });
