@@ -41,5 +41,11 @@
         $('#per_diem').find("input[type=text]").attr("disabled", true)
         $('#fixed').find("input[type=text]").attr("disabled", false)
         
+@Projects.Show =
+  init: ->
+    $('#empty_activity_box .new_activity_link').click ->
+      $('#empty_activity_box').hide()
+      $('#first_activity_form').show()
+      return false
         
         

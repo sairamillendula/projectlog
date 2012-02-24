@@ -7,9 +7,14 @@
       <p>No activity matches '<%= params[:search] %>'.</p>
     </div>
   <% else %>
-    <div class="no-occurence">
-	  <p class="new_activity_link">Create an <%= link_to 'Activity', new_project_activity_path(@project) %></p>
-	</div>
+    <div class="no-occurence" id="empty_activity_box">
+  	  <p class="new_activity_link">Create an <%= link_to 'Activity', new_project_activity_path(@project) %></p>
+  	</div>
+  	<div id="first_activity_form" style="display: none;">
+  	<%= form_for([@project, @project.activities.new]) do |f| %>
+      <%= render :partial => "activities/fields", :locals => { :f => f} %>
+    <% end %>
+    </div>
   <% end %>
 
 <% else %>
