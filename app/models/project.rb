@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   before_save :clears_if_internal
   
   attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :total_unit, :budget, :billable_amount,
-                  :unit_left
+                  :unit_left, :customer_name
   
   scope :open, where(:status => true)
   scope :closed, where(:status => false)
@@ -73,5 +73,13 @@ class Project < ActiveRecord::Base
       self.default_rate = nil
       self.total_unit = nil
     end
+  end
+  
+  def customer_name
+    customer.try(:name)
+  end
+  
+  def customer_name=(name)
+    self.customer = self.user.customers.find_or_create_by_name(name) if name.present?
   end
 end

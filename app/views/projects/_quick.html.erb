@@ -13,14 +13,8 @@
 
   <div id="billing">
 	<div class="field">
-	  <%= f.label :customer_id, :class => 'mandatory' %>
-        <% if @project.persisted? || @project.customer.blank?  %>
-	      <%# Hide the customer field if it's a new project but already has the customer set up. %>
-	      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = { :prompt => "Select Customer" } ) %>
-	    <% else %>
-	     <%= @project.customer.name %> <%= clear %></p>
-	     <%= f.hidden_field :customer_id, :value => @project.customer.id %>
-	    <% end %>
+	  <%= f.label :customer_name, :class => 'mandatory' %>
+	  <%= f.text_field :customer_name %>
 	</div>
 	
 	<div class="field">

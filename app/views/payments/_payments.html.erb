@@ -9,7 +9,7 @@
   <tr>
     <td>&nbsp;</td>
     <td>
-      <%= number_to_currency(payment.amount) %>
+      <%= Money.from_float(payment.amount, @invoice.currency).format(:symbol => true) %>
     </td>
     <td>
       <%= payment.date %>
@@ -22,12 +22,12 @@
 <% end %>
   <tr class="payments_total">
     <td>Total:</td>
-    <td><%= number_to_currency(@total.round 2) %></td>
+    <td><%= Money.from_float(@total.round(2), @invoice.currency).format(:symbol => true) %></td>
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr class="payments_balance">
     <td>Balance:</td>
-    <td><%= number_to_currency(@invoice.balance) %></td>
+    <td><%= Money.from_float(@invoice.balance, @invoice.currency).format(:symbol => true) %></td>
     <td colspan="2"><%= link_to 'Add Payment', "#{new_invoice_payment_path(@invoice)}?update_payments=yes", :remote => true unless @invoice.is_fully_paid? %></td>
   </tr>
 </table>

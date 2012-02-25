@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   
   def quick
     @project = current_user.projects.new
-    @project.customer = current_user.customers.find_by_id(params[:customer_id])
+    
     respond_to do |format|
       format.js
     end
@@ -52,8 +52,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(params[:project])
-    
+    @project = current_user.projects.build
+    @project.assign_attributes(params[:project])
     respond_to do |format|
       if @project.save
         format.html { redirect_to(@project, :notice => 'Project was successfully created.') }

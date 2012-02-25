@@ -12,29 +12,29 @@
         <td><%= line.line_type %></td>
         <td><%= line.description %></td>
         <td><%= line.quantity %></td>
-        <td><%= number_to_currency(line.price, unit: @invoice.currency) %></td>
-        <td><%= number_to_currency(line.price * line.quantity, unit: @invoice.currency) %></td>
+        <td><%= Money.from_float(line.price, @invoice.currency).format(:symbol => true) %></td>
+        <td><%= Money.from_float(line.price * line.quantity, @invoice.currency).format(:symbol => true) %></td>
       <% end %>
     <% end %>
     <!-- SUBTOTAL -->
     <% if @invoice.any_taxes? or @invoice.discount_amount > 0 %>
     <tr class="total-fields"> 
       <td colspan="4" class="i_total first-row">Subtotal</td>
-      <td class="first-row"><%= number_to_currency(@invoice.subtotal, unit: @invoice.currency) %></td>
+      <td><%= Money.from_float(@invoice.subtotal, @invoice.currency).format(:symbol => true) %></td>
     </tr>
     <% end %>
     <!-- TAX 1 -->
     <% if @invoice.tax1_amount > 0 %>
     <tr class="total-fields">
       <td colspan="4" class="i_total"><%= @invoice.tax1_name %></td>
-      <td><%= number_to_currency(@invoice.tax1_amount, unit: @invoice.currency) %></td>
+      <td><%= Money.from_float(@invoice.tax1_amount, @invoice.currency).format(:symbol => true) %></td>
     </tr>
     <% end %>
     <!-- TAX 2 -->
     <% if @invoice.tax2_amount > 0 %>
     <tr class="total-fields">
       <td colspan="4" class="i_total"><%= @invoice.tax2_name %></td>
-      <td><%= number_to_currency(@invoice.tax2_amount, unit: @invoice.currency) %></td>
+      <td><%= Money.from_float(@invoice.tax2_amount, @invoice.currency).format(:symbol => true) %></td>
     </tr>
     <% end %>
     <!-- DISCOUNT -->
@@ -46,7 +46,7 @@
     <% end %>
     <tr class="total-fields">
       <td colspan="4" class="i_total">Amount Due</td>
-      <td><%= number_to_currency(@invoice.amount_due, unit: @invoice.currency) %></td>
+      <td><%= Money.from_float(@invoice.amount_due, @invoice.currency).format(:symbol => true) %></td>
     </tr>
   <% end %>
 </table>
