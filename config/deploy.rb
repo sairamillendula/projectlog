@@ -13,15 +13,15 @@ set :branch, 'master'
 set :scm_commnand, '/usr/bin/git'
 set :local_scm_command, 'git'
 
-set :user, 'maximil2'
+set :user, 'sysadmin'
 set :use_sudo, true
 
-set :base_path, "/home/getproje/rails_apps/projectlog_prod"
-set :deploy_to, "/home/getproje/rails_apps/projectlog_prod"
+set :base_path, "/var/www/clients/client1/web1/web"
+set :deploy_to, "/var/www/clients/client1/web1/web/projectlogapp-prod"
 
-role :web, "206.174.211.1"                          # Your HTTP server, Apache/etc
-role :app, "206.174.211.1"                          # This may be the same as your `Web` server
-role :db,  "206.174.211.1", :primary => true # This is where Rails migrations will run
+role :web, "50.56.203.46"                          # Your HTTP server, Apache/etc
+role :app, "50.56.203.46"                          # This may be the same as your `Web` server
+role :db,  "50.56.203.46", :primary => true # This is where Rails migrations will run
 ####################
 
 ##### STRATEGY #####
