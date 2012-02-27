@@ -54,6 +54,19 @@ class Transaction < ActiveRecord::Base
     def total_expenses(transactions)
       transactions.select{|t| t.expense }.inject(0) { |sum, p| sum + p.total }
     end
+    
+    def fiscal_periods(from, to)
+      
+      if fiscal_year.blank?
+        from = Date.new(this_year - 1, 1, 1)
+        to = Date.new(this_year, 1, 1)
+        (from..to)
+      else
+        from = Date.new(this_year - 1, fiscal_year.month, fiscal_year.day)
+        to = Date.new(this_year, fiscal_year.month, fiscal_year.day)
+        (from..to)
+      end
+    end
   end
   
 end

@@ -14,7 +14,7 @@
     <td><%= f.text_field :date, :class => "date" %></td>
     <td><%= f.number_field :total, :class => "numbers", :id => "total" %></td>
     <td><%= f.text_field :note, :size => 78 %></td>
-    <td><span class="small submit"><%= f.submit 'Create' %></span></td>
+    <td><span class="small submit"><%= f.submit 'Create', :name => @transactions.empty? ? "quick" : nil %></span></td>
   </tr>
   <tr class="transaction-fields">
 	<td style="vertical-align:top;"><%= f.radio_button(:expense, true) %> Expense<br> <%= f.radio_button(:expense, false) %> Income</td>

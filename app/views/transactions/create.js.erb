@@ -1,7 +1,11 @@
 <% unless @transaction.errors.any? %>
-  $('#new-transaction-form').html('<%= escape_javascript(render 'quick') %>');
-  $("#transactions").html("<%= escape_javascript(render("transactions")) %>");
-  $("#row_for_transaction_<%= @transaction.id %>").effect("highlight", {}, 1000);
+  <% if @is_quick %>
+    window.location = "<%= transactions_url %>";
+  <% else %>
+    $('#new-transaction-form').html('<%= escape_javascript(render 'quick') %>');
+    $("#transactions").html("<%= escape_javascript(render("transactions")) %>");
+    $("#row_for_transaction_<%= @transaction.id %>").effect("highlight", {}, 1000);
+  <% end %>
 <% else %>
   $('<div id="transaction-error"></div>')
 		.html('<div class="alert">Please fix the following errors: <%= escape_javascript @transaction.errors.full_messages.to_sentence %></div>')

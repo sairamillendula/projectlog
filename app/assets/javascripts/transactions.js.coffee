@@ -1,13 +1,16 @@
 @Transactions = {}
 @Transactions.Index =
   init: ->
-    new ToggleSearch($('#toggle_search_form'), $('#transactions-search'), $('#transactions-advanced-search')).toggle()
+    new ToggleSearch($('#toggle_search_form'), $('#transactions-search'), $('#transactions-advanced-search')).toggle()  
     
     if document.URL.indexOf("form=advanced") >= 0
-       $("#toggle_search_form").click();
+       $("#toggle_search_form").click()
+       
+    $('#transaction_category_name').live 'focus', ->
+      $(this).autocomplete
+        source: $('#transaction_category_name').data('autocomplete-source')
     
-    $('#transaction_category_name').autocomplete
-      source: $('#transaction_category_name').data('autocomplete-source')
+    
 
 @Transactions.Form =
   init: ->
@@ -42,3 +45,8 @@
           tax2 = Math.round(subtotal * (tax2_rate/100) * 100)/100
       $('#tax1').val(tax1)
       $('#tax2').val(tax2)
+
+@Transactions.MonthlyReport =
+  init: ->
+    $('#fiscal_year').bind 'change', ->
+      window.location = "#{$(this).data('url')}?#{$(this).serialize()}"

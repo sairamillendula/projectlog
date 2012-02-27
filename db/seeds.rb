@@ -52,10 +52,10 @@ puts "Creating categories..."
 Category.create([{name: 'Auto', user_id: 1}, {name: 'Food', user_id: 1}, {name: 'Internet', user_id: 1}, {name: 'Consulting', user_id: 2}])
 
 puts "Creating transactions..."
-200.times do |t|
+500.times do |t|
   transaction = User.all.sample.transactions.create(
     :expense => [true, false].sample,
-    :date => Date.today - (1..100).to_a.sample,
+    :date => Date.today - (1..900).to_a.sample,
     :note => "Transaction #{t}",
     :total => [ 10, 20, 30, 3.5, 43.5, 110, 7.5, 12.5, 50, 450, 999, 1200, 1000.5 ].sample,
     :tax1 => [ 0, 1, 2, 3, 3.5, 43.5, 11, 7.5, 12.5, 50, 450, 1200 ].sample,

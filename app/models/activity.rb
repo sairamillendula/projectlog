@@ -8,7 +8,7 @@ class Activity < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('"activities"."description" LIKE ?', "%#{search}%")
+      where('activities.description LIKE ?', "%#{search}%")
     else
       scoped
     end

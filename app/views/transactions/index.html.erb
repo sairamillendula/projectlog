@@ -10,14 +10,12 @@
   <%= render 'quick' %>
 </div>
 
-<h1><%= searching?(params) ? "Listing transactions #{humanize_search_params(params)}" : "Transactions" %></h1>
 <div id="transactions">
   <%= render "transactions" %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
   $(function() {
-    Transactions.Index.init();
     Transactions.Form.init();
   });
 </script>

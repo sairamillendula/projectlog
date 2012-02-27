@@ -3,32 +3,47 @@
 </ul>
 
 <h1>Monthly Financial Report</h1>
-
-<div id="pl_summary">
-  <div class='card-inner'>
-    <span id="total_income">Total Incomes: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(@transactions)) %></span></span>
-  	<span id="total_expense">Total Expenses: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(@transactions)) %></span></span>
+<div>
+  <%= label_tag 'fiscal_year' %>
+  <%= select_tag 'fiscal_year', options_for_select(@periods, @fiscal_year), "data-url" => transactions_reports_monthly_url %>
+</div>
+<% if @transactions.empty? %>
+  <div class="no-occurence">
+     <p>There is no transaction in this fiscal year (<%= @fiscal_year %>)</p>
   </div>
-</div>	 
+<% else %>
+  <div id="pl_summary">
+    <div class='card-inner'>
+      <span id="total_income">Total Incomes: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(@transactions)) %></span></span>
+    	<span id="total_expense">Total Expenses: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(@transactions)) %></span></span>
+    </div>
+  </div>	 
   
-<% @transactions.group_by{|t| t.date.strftime "%Y %b" }.each do |date_str,transactions| %>
-  <h2 class="date_period">
-    <%= date_str %>
-    <span class="total_right">
-	  Inc.: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(transactions)) %></span> | 
-	  Exp.: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(transactions)) %></span>
-	</span>
-  </h2>
-  <ul>
-  <% transactions.each do |transaction| %>
-    <li class="transactions_list">
-      <span id="t_date"><%= l transaction.date, :format => :short %></span>
-  	  <span id="t_type"><% if transaction.expense? %><span class="t_expense">Expense</span><% else %><span class="t_income">Income</span> <% end %></span>
-      <span id="t_amount"><%= number_to_currency(transaction.total) %></span>
-      <div id="t_note_short"><%= truncate(transaction.note, :length => 45) %></div>
-  	  <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
-  	  <div id="t_project"><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></div>
-  	</li>
+  <% @transactions.group_by{|t| t.date.strftime "%Y %b" }.each do |date_str,transactions| %>
+    <h2 class="date_period">
+      <%= date_str %>
+      <span class="total_right">
+  	  Inc.: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(transactions)) %></span> | 
+  	  Exp.: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(transactions)) %></span>
+  	</span>
+    </h2>
+    <ul>
+    <% transactions.each do |transaction| %>
+      <li class="transactions_list">
+        <span id="t_date"><%= l transaction.date, :format => :short %></span>
+    	  <span id="t_type"><% if transaction.expense? %><span class="t_expense">Expense</span><% else %><span class="t_income">Income</span> <% end %></span>
+        <span id="t_amount"><%= number_to_currency(transaction.total) %></span>
+        <div id="t_note_short"><%= truncate(transaction.note, :length => 45) %></div>
+    	  <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
+    	  <div id="t_project"><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></div>
+    	</li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
-<% end %>
+<% end %>  
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    Transactions.MonthlyReport.init();
+  });
+</script>

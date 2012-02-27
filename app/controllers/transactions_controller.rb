@@ -49,10 +49,10 @@ class TransactionsController < ApplicationController
   def create
     @transaction = current_user.transactions.build
     @transaction.assign_attributes(params[:transaction])
-
+    @is_quick = params[:quick].present?
     respond_to do |format|
       if @transaction.save
-        @transactions = current_user.transactions.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
+        @transactions = current_user.transactions.order("created_at DESC").page(1).per(20)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render json: @transaction, status: :created, location: @transaction }
         format.js
@@ -89,7 +89,14 @@ class TransactionsController < ApplicationController
   end
   
   def monthly_report
-    @transactions = current_user.transactions.by_period(current_user.profile.fiscal_period).includes(:category, :project).order("date DESC")
+    current_period = current_user.profile.fiscal_period
+    unless params[:fiscal_year].blank?
+      period = Profile.to_period(params[:fiscal_year])
+      current_period = period unless period.nil?
+    end
+    @transactions = current_user.transactions.by_period(current_period).includes(:category, :project).order("date DESC")
+    @periods = current_user.profile.fiscal_range
+    @fiscal_year = Profile.period_to_s(current_period.first, current_period.last)
   end
   
   private
