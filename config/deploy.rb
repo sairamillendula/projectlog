@@ -45,7 +45,7 @@ end
 
 namespace :rake_tasks do
   task :bootstrap_db, :roles => :app do
-    run "cd #{release_path}; bundle exec rake RAILS_ENV=#{rails_env} -f #{release_path}/Rakefile db:drop db:migrate db:seed --trace"
+    run "rvmsudo cd #{release_path}; bundle exec rake RAILS_ENV=#{rails_env} -f #{release_path}/Rakefile db:drop db:migrate db:seed --trace"
   end
 end
 
@@ -107,11 +107,11 @@ end
 namespace :db do
   desc "Migrate and Seed database"
   task :migrate, :roles => :app do
-    run "cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:migrate db:seed --trace"
+    run "rvmsudo cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:migrate db:seed --trace"
   end
   
   desc "Drop & Migrate database"
   task :reset, :roles => :app do
-    run "cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:drop db:migrate --trace"
+    run "rvmsudo cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:drop db:migrate --trace"
   end
 end
