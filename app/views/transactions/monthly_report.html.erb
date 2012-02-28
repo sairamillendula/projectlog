@@ -2,14 +2,15 @@
   <%= link_to '← All Transactions', transactions_path %>
 </ul>
 
-<h1>Monthly Financial Report</h1>
-<div>
-  <%= label_tag 'fiscal_year' %>
-  <%= select_tag 'fiscal_year', options_for_select(@periods, @fiscal_year), "data-url" => transactions_reports_monthly_url %>
-</div>
+<h1>Monthly Financial Report
+  <div class='floatr'>
+    <%= select_tag 'fiscal_year', options_for_select(@periods, @fiscal_year), "data-url" => transactions_reports_monthly_url %>
+  </div>
+</h1>
+
 <% if @transactions.empty? %>
   <div class="no-occurence">
-     <p>There is no transaction in this fiscal year (<%= @fiscal_year %>)</p>
+    <p>There is no transactions in this fiscal year (<%= @fiscal_year %>)</p>
   </div>
 <% else %>
   <div id="pl_summary">

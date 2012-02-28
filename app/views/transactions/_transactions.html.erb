@@ -2,7 +2,7 @@
   <% if searching?(params) %>
     <%= render "table_header" %>
     <div class="no-occurence">
-      <p>No transaction <%= humanize_search_params(params) %>.</p>
+      <p>No transactions <%= humanize_search_params(params) %></p>
     </div>
   <% end %>
 <% else %>

@@ -5,10 +5,11 @@
 		<span class="step-id">-1-</span>
 		<h2>Projects</h2>
 		<p>Projects are fun wether they are Billable or Internal</p>
-		<% if current_user.customers.any? %><p class="buttonorange"><%= link_to '+ New Project', quick_projects_path, :remote => true %></p>
-		<% else %><p class="buttonorange inactive">+ New Project</p>
+		<% if current_user.projects.empty? %>
+		  <p class="buttonorange"><%= link_to '+ New Project', quick_projects_path, :remote => true %></p>
+		<% else %>
+		  <p class="check"><%= image_tag "check.png" unless !current_user.projects.any? %></p>
 		<% end %>
-		<p class="check"><%= image_tag "check.png" unless !current_user.projects.any? %></p>
 	  </div>
 	</li>
 	<li id="time" class="step">
