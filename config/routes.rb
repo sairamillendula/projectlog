@@ -1,4 +1,6 @@
 Projectlog::Application.routes.draw do
+  root :to => 'dashboard#show'
+    
   resources :transactions
   get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
   resources :categories do
@@ -6,8 +8,6 @@ Projectlog::Application.routes.draw do
       get 'expenses'
     end
   end
-  
-  root :to => 'dashboard#show'
 
   resource :dashboard do
     resources :activities, :controller => "dashboard/activities"
