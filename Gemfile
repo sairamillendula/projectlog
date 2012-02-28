@@ -20,6 +20,7 @@ gem 'money'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'hominid'
 gem 'capistrano'
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"
@@ -35,7 +36,6 @@ group :development, :test do
   gem 'rb-fsevent'
   gem 'guard-livereload'
   gem 'mocha'
-  gem 'therubyracer'
   gem 'spork-testunit'
 end
 
