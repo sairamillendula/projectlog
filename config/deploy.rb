@@ -43,7 +43,11 @@ namespace :deploy do
   task :start do ; end
   task :stop  do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+    # restart nginx
     run "touch #{File.join(current_path, "tmp/restart.txt")}"
+    
+    # restart thin
+    run "#{try_sudo} /etc/init.d/thin restart"
   end
 end
 
