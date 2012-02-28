@@ -20,7 +20,7 @@ set :local_scm_command, 'git'
 set :user, 'sysadmin'
 set :use_sudo, true
 
-set :base_path, "/var/www/clients/client1/web1/web"
+set :base_path, "/var/www/clients/client1/web1/web/projectlogapp-prod"
 set :deploy_to, "/var/www/clients/client1/web1/web/projectlogapp-prod"
 
 role :web, "50.56.203.46"                          # Your HTTP server, Apache/etc
@@ -33,9 +33,9 @@ after "deploy:setup", "init:set_permissions"
 after "deploy:setup", "init:database_yaml"
 after "deploy:setup", "init:production_file"
 
-before "deploy:finalize_update", "config:symlink_shared_configurations"
-before "deploy:finalize_update", "config:symlink_production_file"
-after "deploy:update_code", "assets:compile"
+after "deploy:finalize_update", "config:symlink_shared_configurations"
+after "deploy:finalize_update", "config:symlink_production_file"
+after "deploy:finalize_update", "assets:compile"
 after "deploy", "deploy:cleanup" # keeps only last 5 releases
 ####################
 
