@@ -61,35 +61,17 @@ Projectlog::Application.configure do
   config.action_mailer.default_url_options = { :host => 'projectlogapp.com' }
   config.action_mailer.raise_delivery_errors = true
   
-  # Getprojectlog Email server setup - Disabled for now: Not needed on Heroku.
-  # config.action_mailer.delivery_method = :smtp
-  # ActionMailer::Base.smtp_settings = {  
-  #   :address              => "mail.projectlogapp.com",  
-  #   :port                 => 587,
-  #   :user_name            => "notifications+projectlogapp.com",  
-  #   :password             => "10eytd10",  
-  #   :authentication       => "plain",  
-  #   :enable_starttls_auto => false
-  
-  # :address        => "<%= mail_server_address %>",
-  # :port           => "<%= mail_server_post %>",
-  # :authentication => "<%= mail_server_auth %>",
-  # :user_name      => "<%= mail_server_username %>",
-  # :password       => "<%= mail_server_password %>",
-  #:domain         => "<%= mail_server_domain %>",
-  # :enable_starttls_auto => "<%= mail_server_starttls %>"
-  # }
-  
+  # Getprojectlog Email server setup
+  config.action_mailer.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com'
+    :address        => "<%= mail_server_address %>",
+    :port           => "<%= mail_server_post %>",
+    :authentication => "<%= mail_server_auth %>",
+    :user_name      => "<%= mail_server_username %>",
+    :password       => "<%= mail_server_password %>",
+    :domain         => "<%= mail_server_domain %>",
+    :enable_starttls_auto => "<%= mail_server_starttls %>"
   }
-  ActionMailer::Base.delivery_method = :smtp
-
 
   config.middleware.use ExceptionNotifier,
     :email_prefix => "[Exception]",
