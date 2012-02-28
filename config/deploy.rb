@@ -35,6 +35,7 @@ after "deploy:setup", "init:production_file"
 
 before "deploy:finalize_update", "config:symlink_shared_configurations"
 before "deploy:finalize_update", "config:symlink_production_file"
+after "deploy:update_code", "assets:compile"
 after "deploy", "deploy:cleanup" # keeps only last 5 releases
 ####################
 
@@ -109,6 +110,13 @@ EOF
     
     run "mkdir -p #{shared_path}/config"
     put template.result(binding), "#{shared_path}/config/production.rb" 
+  end
+end
+
+namespace :assets do
+  desc "Compile assets"
+  task :compile do
+    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:clean; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
 

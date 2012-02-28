@@ -77,6 +77,7 @@ Projectlog::Application.configure do
   # :user_name      => "<%= mail_server_username %>",
   # :password       => "<%= mail_server_password %>",
   #:domain         => "<%= mail_server_domain %>",
+  #:openssl_verify_mode => "none",
   # :enable_starttls_auto => <%= mail_server_starttls %>
   # }
   
