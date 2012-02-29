@@ -31,7 +31,7 @@ Projectlog::Application.configure do
   #config.assets.precompile += %w( login.css jquery.ui.theme.css )
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Specify the default JavaScript compressor
   config.assets.js_compressor  = :uglifier
@@ -40,7 +40,7 @@ Projectlog::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = true
+  config.assets.compile = false
 
   # Generate digests for assets URLs
   config.assets.digest = true

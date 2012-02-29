@@ -21,8 +21,8 @@ set :local_scm_command, 'git'
 set :user, 'sysadmin'
 set :use_sudo, true
 
-set :base_path, "/var/www/clients/client1/web1/web/projectlogapp-prod"
-set :deploy_to, "/var/www/clients/client1/web1/web/projectlogapp-prod"
+set :base_path, "/var/www/projectlogapp.com/web"
+set :deploy_to, "/var/www/projectlogapp.com/web/projectlogapp-prod"
 
 role :web, "50.56.203.46"                          # Your HTTP server, Apache/etc
 role :app, "50.56.203.46"                          # This may be the same as your `Web` server
