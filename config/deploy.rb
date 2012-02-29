@@ -116,7 +116,7 @@ end
 namespace :assets do
   desc "Compile assets"
   task :compile do
-    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:clean; RAILS_ENV=production bundle exec rake assets:precompile --trace"
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:clean; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
 
