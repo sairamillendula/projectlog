@@ -28,7 +28,7 @@ Projectlog::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( login.css jquery.ui.theme.css )
+  #config.assets.precompile += %w( login.css jquery.ui.theme.css )
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
@@ -61,16 +61,7 @@ Projectlog::Application.configure do
   config.action_mailer.default_url_options = { :host => 'projectlogapp.com' }
   config.action_mailer.raise_delivery_errors = true
   
-  # Getprojectlog Email server setup - Disabled for now: Not needed on Heroku.
-  # config.action_mailer.delivery_method = :smtp
-  # ActionMailer::Base.smtp_settings = {  
-  #   :address              => "mail.projectlogapp.com",  
-  #   :port                 => 587,
-  #   :user_name            => "notifications+projectlogapp.com",  
-  #   :password             => "10eytd10",  
-  #   :authentication       => "plain",  
-  #   :enable_starttls_auto => false
-  
+  ActionMailer::Base.delivery_method = :smtp
   # :address        => "<%= mail_server_address %>",
   # :port           => "<%= mail_server_post %>",
   # :authentication => "<%= mail_server_auth %>",
@@ -80,15 +71,5 @@ Projectlog::Application.configure do
   #:openssl_verify_mode => "none",
   # :enable_starttls_auto => <%= mail_server_starttls %>
   # }
-  
-  ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
-    :port           => '587',
-    :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
-    :domain         => 'heroku.com'
-  }
-  ActionMailer::Base.delivery_method = :smtp
   
 end
