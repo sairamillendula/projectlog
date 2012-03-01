@@ -73,7 +73,6 @@ class CustomersController < ApplicationController
         format.html { redirect_to customers_url }
       end      
     rescue ActiveRecord::DeleteRestrictionError => e
-      raise e
       respond_to do |format|
         format.html { redirect_to(customer_url(@customer), :alert => 'This customer cannot be deleted because of projects/invoices associated') }
       end      
