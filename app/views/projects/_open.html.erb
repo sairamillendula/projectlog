@@ -1,17 +1,15 @@
 <h1>Open Projects</h1>
 
-  <% @open_projects.each do |project| %>
-    <ul id="card-entries">
-	  <li id="card">
-	    <div class="card-inner">
-	  	  <h1><%= link_to project.title, project %></h1>
-	      <p class="tagline">
-	          <%= project.customer_id.present? ? project.customer.name : 'Internal' %>
-	      </p>
-	    </div>
-	  </li>
-	</ul>
-  <% end %>
+<% @open_projects.each do |project| %>
+  <ul id="card-entries">
+    <li id="card" class="<%= cycle('odd', 'even') %>">
+	  <div class="card-inner">
+	    <h1><%= link_to project.title, project %></h1>
+	    <p class="tagline"><%= project.customer_id.present? ? project.customer.name : 'Internal' %></p>
+	  </div>
+	</li>
+  </ul>
+<% end %>
 
 <div class="clear right">
   <%= paginate @open_projects, :remote => true %>   

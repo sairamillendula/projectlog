@@ -1,0 +1,38 @@
+<h1 style='text-align:center;'>Choose a Plan</h1>
+
+<ul id="card-entries">
+  <li id="card">
+    <div class="card-inner customer">
+      <h1><span class='floatr'>$10/month</span>Basic Plan</h1>
+
+      <p></p>
+      <ul>
+        <li>Unlimited Timesheet</li>
+        <li>Unlimited Invoices</li>
+      </ul>
+    </div>
+  </li>
+  <li id="card" style='margin-right:0;'>
+      <div class="card-inner customer">
+        <h1><span class='floatr'>$15/month</span>Premium Plan</h1>
+        
+        <p></p>
+        <ul>
+          <li>Unlimited Timesheet</li>
+          <li>Unlimited Invoices</li>
+          <li>Accounting</li>
+        </ul>
+      </div>
+    </li>
+</ul>
+
+<br /><br />
+<h2>Billing Information</h2>
+<p>First Name: <%= text_field_tag "" %></p>
+<p>Last Name: <%= text_field_tag "" %></p>
+<p>Card Number: <%= text_field_tag "" %></p>
+<p>Expiration Date:
+   <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+   <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+   CCV: <%= text_field_tag "", "", :size => 6 %></p>
+<p><%= button_tag "Subscribe" %> or checkout with <a href='http://paypal.com'>PayPal</a></p>

@@ -1,28 +1,28 @@
 <% if current_user.customers.empty? %>
   <div class="no-occurence">
-     <p>You need to create a <%= link_to 'Customer', new_customer_path %> first</p>
+    <p>You need to create a <%= link_to 'Customer', new_customer_path %> first</p>
   </div>
 <% else %>
 
 <% if current_user.projects.empty? %>
   <div class="no-occurence">
-     <p>Add a new <%= link_to 'Project', new_project_path %></p>
+    <p>Add a new <%= link_to 'Project', new_project_path %></p>
   </div>
 <% else %>
 
-   <% if @open_projects.empty? %>
-     <div class="no-occurence">
-        <p>No Open Projects</p>
-     </div>
-   <% else %>
-     <ul id="sub-menu">
-		<li class="buttonorange"><%= link_to '+ New Project', new_project_path %>
+  <% if @open_projects.empty? %>
+    <div class="no-occurence">
+      <p>No Open Projects</p>
+    </div>
+  <% else %>
+    <ul id="sub-menu">
+	  <li class="buttonorange"><%= link_to '+ New Project', new_project_path %>
 	</ul>
 
-     <div id="open-projects">
-       <%= render :partial => 'projects/open' %>
-     </div>
-   <% end %>
+    <div id="open-projects">
+      <%= render :partial => 'projects/open' %>
+    </div>
+  <% end %>
 <% end %>
 
    <% if !@closed_projects.empty? %>
