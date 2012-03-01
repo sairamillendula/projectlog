@@ -11,7 +11,7 @@ class ProfilesControllerTest < ActionController::TestCase
     @user.profile = nil
     @user.save!
     assert_difference('Profile.count') do
-      post :create, :profile => @profile.attributes
+      post :create, :profile => @profile.attributes.except("id", "created_at", "updated_at", "last_invoice")
     end
 
     assert_redirected_to profile_path(assigns(:profile))
@@ -24,7 +24,7 @@ class ProfilesControllerTest < ActionController::TestCase
   end
 
   test "should update profile" do
-    put :update, :id => @profile.to_param, :profile => @profile.attributes
+    put :update, :id => @profile.to_param, :profile => @profile.attributes.except("id", "created_at", "updated_at", "last_invoice")
     assert_redirected_to settings_path
   end
 

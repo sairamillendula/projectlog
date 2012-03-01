@@ -21,7 +21,7 @@ class ContactsControllerTest < ActionController::TestCase
 
   test "should create contact" do
     assert_difference('Contact.count') do
-      post :create, :contact => @contact.attributes, :customer_id => @customer.to_param
+      post :create, :contact => @contact.attributes.except("id", "created_at", "updated_at"), :customer_id => @customer.to_param
     end
 
     assert_redirected_to customer_path(assigns(:customer))
@@ -39,7 +39,7 @@ class ContactsControllerTest < ActionController::TestCase
   end
 
   test "should update contact" do
-    put :update, :id => @contact.to_param, :contact => @contact.attributes, :customer_id => @customer.to_param
+    put :update, :id => @contact.to_param, :contact => @contact.attributes.except("id", "created_at", "updated_at"), :customer_id => @customer.to_param
     assert_redirected_to customer_path(assigns(:customer))
   end
 

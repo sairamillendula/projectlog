@@ -21,7 +21,7 @@ class ActivitiesControllerTest < ActionController::TestCase
 
   test "should create activity" do
     assert_difference('Activity.count') do
-      post :create, :activity => @activity.attributes, :project_id => @project.to_param
+      post :create, :activity => @activity.attributes.except("id", "created_at", "updated_at"), :project_id => @project.to_param
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -39,7 +39,7 @@ class ActivitiesControllerTest < ActionController::TestCase
   end
 
   test "should update activity" do
-    put :update, :id => @activity.to_param, :activity => @activity.attributes, :project_id => @project.to_param
+    put :update, :id => @activity.to_param, :activity => @activity.attributes.except("id", "created_at", "updated_at"), :project_id => @project.to_param
     assert_redirected_to project_path(assigns(:project))
   end
 

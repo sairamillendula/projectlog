@@ -27,7 +27,7 @@ class Administr8te::PlansControllerTest < ActionController::TestCase
 
   test "should create administr8te_plan" do
     assert_difference('Plan.count') do
-      post :create, plan: @plan.attributes.merge(name: "#{@plan.name} 2")
+      post :create, plan: @plan.attributes.except("id", "created_at", "updated_at").merge(name: "#{@plan.name} 2")
     end
 
     assert_redirected_to administr8te_plan_path(assigns(:plan))
@@ -46,7 +46,7 @@ class Administr8te::PlansControllerTest < ActionController::TestCase
   end
 
   test "should update administr8te_plan" do
-    put :update, id: @plan.to_param, plan: @plan.attributes
+    put :update, id: @plan.to_param, plan: @plan.attributes.except("id", "created_at", "updated_at")
     assert_redirected_to administr8te_plan_path(assigns(:plan))
   end
 

@@ -17,7 +17,7 @@ class PaymentsControllerTest < ActionController::TestCase
 
   test "should create payment" do
     assert_difference('Payment.count') do
-      post :create, invoice_id: @invoice.slug, payment: @payment.attributes, format: "js"
+      post :create, invoice_id: @invoice.slug, payment: @payment.attributes.except("id", "created_at", "updated_at"), format: "js"
     end
     assert_response :success
     assert_not_nil assigns(:invoice)
@@ -32,7 +32,7 @@ class PaymentsControllerTest < ActionController::TestCase
   end
 
   test "should update payment" do
-    put :update, invoice_id: @invoice.slug, id: @payment.to_param, payment: @payment.attributes, format: "js"
+    put :update, invoice_id: @invoice.slug, id: @payment.to_param, payment: @payment.attributes.except("id", "created_at", "updated_at"), format: "js"
     assert_response :success
     assert_not_nil assigns(:invoice)
     assert_not_nil assigns(:payment)

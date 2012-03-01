@@ -3,7 +3,7 @@ class Report < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
   
-  attr_accessible :project_id, :start_date, :end_date, :slug, :approved, :approved_at, :approved_ip
+  attr_accessible :project_id, :start_date, :end_date, :slug, :approved, :approved_at, :approved_ip, :user_id
   validates_presence_of :start_date, :end_date, :user_id, :slug
   validate :start_date_must_be_smaller_than_end_date
   

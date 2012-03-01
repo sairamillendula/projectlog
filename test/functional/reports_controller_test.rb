@@ -14,7 +14,7 @@ class ReportsControllerTest < ActionController::TestCase
 
   test "should create report" do
     assert_difference('Report.count') do
-      post :create, :report => @report.attributes
+      post :create, :report => @report.attributes.except("id", "created_at", "updated_at")
     end
 
     assert_redirected_to report_path(assigns(:report))

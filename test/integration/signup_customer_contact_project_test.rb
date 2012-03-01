@@ -49,7 +49,7 @@ class SignupCustomerContactProjectTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_template 'new'
     
-    post projects_path, :project => projects(:open_and_billable).attributes.merge(:title => "#{projects(:open_and_billable).title} 2").reject {|k, v| ["id", "user_id", "created_at", "updted_at"].include? k }
+    post projects_path, :project => projects(:open_and_billable).attributes.merge(:title => "#{projects(:open_and_billable).title} 2").reject {|k, v| ["id", "user_id", "created_at", "updated_at"].include? k }
     
     assert assigns(:project).valid?
     assert_response :redirect

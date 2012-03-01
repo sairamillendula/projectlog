@@ -19,7 +19,7 @@ class TransactionsControllerTest < ActionController::TestCase
 
   test "should create transaction" do
     assert_difference('Transaction.count') do
-      post :create, transaction: @transaction.attributes
+      post :create, transaction: @transaction.attributes.except("id", "created_at", "updated_at")
     end
 
     assert_redirected_to transaction_path(assigns(:transaction))
@@ -36,7 +36,7 @@ class TransactionsControllerTest < ActionController::TestCase
   end
 
   test "should update transaction" do
-    put :update, id: @transaction.to_param, transaction: @transaction.attributes
+    put :update, id: @transaction.to_param, transaction: @transaction.attributes.except("id", "created_at", "updated_at")
     assert_redirected_to transaction_path(assigns(:transaction))
   end
 

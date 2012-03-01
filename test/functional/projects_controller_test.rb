@@ -22,7 +22,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, :project => @project.attributes.merge(:title => "#{@project.title} 2")
+      post :create, :project => @project.attributes.except("id", "created_at", "updated_at").merge(:title => "#{@project.title} 2")
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -41,7 +41,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project" do
-    put :update, :id => @project.to_param, :project => @project.attributes
+    put :update, :id => @project.to_param, :project => @project.attributes.except("id", "created_at", "updated_at")
     assert_redirected_to project_path(assigns(:project))
   end
 

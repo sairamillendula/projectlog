@@ -70,6 +70,7 @@ class InvoicesController < ApplicationController
     flash.now[:notice] = "Invoice sent successfully"
     @invoice.status = "Sent"
     @invoice.save
+    respond_to { |format| format.js }
   end
 
   def show

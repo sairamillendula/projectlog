@@ -27,7 +27,7 @@ class Administr8te::EmailingsControllerTest < ActionController::TestCase
 
   test "should create administr8te_emailing" do
     assert_difference('Emailing.count') do
-      post :create, emailing: @emailing.attributes.merge(description: "#{@emailing.description} 2")
+      post :create, emailing: @emailing.attributes.except("id", "created_at", "updated_at").merge(description: "#{@emailing.description} 2")
     end
 
     assert_redirected_to administr8te_emailings_path
@@ -46,7 +46,7 @@ class Administr8te::EmailingsControllerTest < ActionController::TestCase
   end
 
   test "should update administr8te_emailing" do
-    put :update, id: @emailing.to_param, emailing: @emailing.attributes
+    put :update, id: @emailing.to_param, emailing: @emailing.attributes.except("id", "created_at", "updated_at")
     assert_redirected_to administr8te_emailings_path
   end
 

@@ -20,7 +20,7 @@ class Dashboard::ActivitiesControllerTest < ActionController::TestCase
 
   test "should create activity" do
     assert_difference('Activity.count') do
-      post :create, :activity => @activity.attributes, :project_id => projects(:open_and_billable).to_param, :format => :js
+      post :create, :activity => @activity.attributes.except("id", "created_at", "updated_at"), :project_id => projects(:open_and_billable).to_param, :format => :js
     end
     assert_response :success
     assert_template "create"
@@ -38,7 +38,7 @@ class Dashboard::ActivitiesControllerTest < ActionController::TestCase
   end
 
   test "should update activity in JS" do
-      put :update, :id => @activity.to_param, :activity => @activity.attributes, :format => :js
+      put :update, :id => @activity.to_param, :activity => @activity.attributes.except("id", "created_at", "updated_at"), :format => :js
       assert_response :success
       assert_template "update"
     end

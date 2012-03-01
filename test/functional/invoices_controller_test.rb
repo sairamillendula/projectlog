@@ -19,7 +19,7 @@ class InvoicesControllerTest < ActionController::TestCase
 
   test "should create invoice" do
     assert_difference('Invoice.count') do
-      post :create, invoice: @invoice.attributes
+      post :create, invoice: @invoice.attributes.except("id", "created_at", "updated_at", "slug")
     end
 
     assert_redirected_to invoice_path(assigns(:invoice))
@@ -36,7 +36,7 @@ class InvoicesControllerTest < ActionController::TestCase
   end
 
   test "should update invoice" do
-    put :update, id: @invoice.to_param, invoice: @invoice.attributes
+    put :update, id: @invoice.to_param, invoice: @invoice.attributes.except("id", "created_at", "updated_at", "slug")
     assert_redirected_to invoice_path(assigns(:invoice))
   end
 
@@ -50,7 +50,7 @@ class InvoicesControllerTest < ActionController::TestCase
 
   test "should send invoice to client with attach" do
     contact = contacts(:three)
-    post :send_email, format: "js", id: @invoice.to_param, send_invoice: { subject: "Invoice for bla-bla", body: "See invoice attached", contact_id: contact.id, attach: "1"}
+    post :send_email, format: :js, id: @invoice.to_param, send_invoice: { subject: "Invoice for bla-bla", body: "See invoice attached", contact_id: contact.id, attach: "1"}
     assert_response :success
   end
 

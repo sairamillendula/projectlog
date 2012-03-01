@@ -17,7 +17,7 @@ class Invoice < ActiveRecord::Base
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount,
-                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound
+                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound, :user_id
 
   def to_param
     slug

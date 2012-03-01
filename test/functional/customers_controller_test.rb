@@ -22,7 +22,7 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should create customer" do
     assert_difference('Customer.count') do
-      post :create, :customer => @customer.attributes.merge(:name => "#{@customer.name} Jr.")
+      post :create, :customer => @customer.attributes.except("id", "created_at", "updated_at").merge(:name => "#{@customer.name} Jr.")
     end
 
     assert_redirected_to customer_path(assigns(:customer))
@@ -41,7 +41,7 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test "should update customer" do
-    put :update, :id => @customer.to_param, :customer => @customer.attributes
+    put :update, :id => @customer.to_param, :customer => @customer.attributes.except("id", "created_at", "updated_at")
     assert_redirected_to customer_path(assigns(:customer))
   end
 
@@ -56,8 +56,7 @@ class CustomersControllerTest < ActionController::TestCase
   end
 
   test "should not destroy customer with invoices" do
-    assert_raise(ActiveRecord::DeleteRestrictionError) do
-      delete :destroy, :id => @customer_with_invoice.to_param
-    end
+    delete :destroy, :id => @customer_with_invoice.to_param
+    assert_equal 'This customer cannot be deleted because of projects/invoices associated', flash[:alert]
   end
 end
