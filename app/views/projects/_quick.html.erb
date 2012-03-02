@@ -5,7 +5,6 @@
     <%= f.label :title, :class => 'mandatory' %>
     <%= f.text_field :title, :style => 'width:280px;' %>
   </div>
-
   <div class="field">
     <%= f.label :internal, 'Internal?', :for => 'internal' %>
     <%= f.check_box :internal, :id => 'internal' %> <i id="internal-notice" style="display:none;">Internal projects are not billable</i>
@@ -13,10 +12,9 @@
 
   <div id="billing">
 	<div class="field">
-	  <%= f.label :customer_name, :class => 'mandatory' %>
-	  <%= f.text_field :customer_name %>
-	</div>
-	
+	  <%= f.label :customer_name, 'Customer', :class => 'mandatory' %>
+	  <%= f.text_field :customer_name, :style => 'width:280px;' %>
+	</div>	
 	<div class="field">
 	  <%= f.label :billing_code_id, 'Billing Method' %>
 	  <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
@@ -25,12 +23,12 @@
 	<div id="billing-scenario">
 	  <span id="hourly">
 	    Total hours allowed:<br /> 
-	    <%= f.text_field :total_unit, :id => "hourly_total_unit", :class => 'short' %> hours at a rate of <%= f.text_field :default_rate, :id => "hourly_default_rate", :class => 'short' %><%= number_to_currency("") %>
+	    <%= f.text_field :total_unit, :id => "hourly_total_unit", :class => 'short' %> hours at a rate of <%= f.text_field :default_rate, :id => "hourly_default_rate", :class => 'short' %> <%= number_to_currency("") %>
 	  </span>
 		
 	  <span id="per_diem">
 		Total days allowed: <br />
-		<%= f.text_field :total_unit, :id => "per_diem_total_unit", :class => 'short' %> days at a rate of <%= f.text_field :default_rate, :id => "per_diem_default_rate", :class => 'short' %><%= number_to_currency("") %>
+		<%= f.text_field :total_unit, :id => "per_diem_total_unit", :class => 'short' %> days at a rate of <%= f.text_field :default_rate, :id => "per_diem_default_rate", :class => 'short' %> <%= number_to_currency("") %>
 	  </span>
 		
 	  <span id="fixed">

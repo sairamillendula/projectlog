@@ -34,7 +34,7 @@
   </div>
   <div class="field">
     <%= f.label :province %>
-    <%= collection_select(:customer, :province, Province.all, :name, :name, options = {:prompt => ""}) %>
+    <%= collection_select(:customer, :province, Province.all, :name, :name, :prompt => true) %>
   </div>
   <div class="field">
     <%= f.label :postal_code %>
@@ -42,7 +42,7 @@
   </div>
   <div class="field">
     <%= f.label :country %>
-    <%= collection_select(:customer, :country, Country.all, :printable_name, :printable_name, options = {:prompt => ""}) %>
+    <%= collection_select(:customer, :country, Country.all, :printable_name, :printable_name, :prompt => true) %>
   </div>
   <div class="field">
     <%= f.label :website %>

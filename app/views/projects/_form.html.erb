@@ -24,9 +24,13 @@
 	<div class="field">
 	  <%= f.label :customer_id, :class => 'mandatory' %>
         <% if @project.persisted? || @project.customer.blank?  %>
-	      <%# Hide the customer field if it's a new project but already has the customer set up. %>
-	      <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
-	      or <%= link_to "Create Customer", new_customer_path, :remote => true %>
+	      <%# Hide customer field if it's a new project with customer already assigned %>
+	      <% if current_user.customers.any? %>
+	        <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
+            or <%= link_to "Create Customer", new_customer_path, :remote => true %>
+          <% else %>
+	        <%= f.text_field :customer_name %>
+	      <% end %>	      
 	    <% else %>
 	      <%= @project.customer.name %> <%= clear %></p>
 	      <%= f.hidden_field :customer_id, :value => @project.customer.id %>
@@ -34,20 +38,20 @@
 	</div>
 	<div class="field">
 	  <%= f.label :billing_code_id, 'Billing Method' %>
-	  <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, options = {:prompt => "Select Billing method"} ) %><br />
+	  <%= collection_select(:project, :billing_code_id, BillingCode.all, :id, :name, :prompt => "Select Billing method" ) %><br />
 	</div>
 	
 	<div id="billing-scenario">
 	  <span id="hourly">
 	    Total hours allowed:<br />
 	    <%= f.text_field :total_unit, :id => "hourly_total_unit", :class => 'short' %> Hours at a rate of 
-	    <%= f.text_field :default_rate, :id => "hourly_default_rate", :class => 'short' %><%= number_to_currency("") %>
+	    <%= f.text_field :default_rate, :id => "hourly_default_rate", :class => 'short' %> <%= number_to_currency("") %>
 	  </span>
 		
 	  <span id="per_diem">
 		Total days allowed:<br />
 		<%= f.text_field :total_unit, :id => "per_diem_total_unit", :class => 'short' %> Days at a rate of 
-		<%= f.text_field :default_rate, :id => "per_diem_default_rate", :class => 'short' %><%= number_to_currency("") %>
+		<%= f.text_field :default_rate, :id => "per_diem_default_rate", :class => 'short' %> <%= number_to_currency("") %>
 	    <% if current_user.profile.hours_per_day.nil? %>
 	      <span id="hours-per-day-notice">Update your <%= link_to 'settings', settings_path %> to convert Hours Worked to Days</span>
 		<% end %>

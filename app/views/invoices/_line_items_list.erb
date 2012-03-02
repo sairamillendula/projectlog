@@ -20,7 +20,7 @@
     <% if @invoice.any_taxes? or @invoice.discount_amount > 0 %>
     <tr class="total-fields"> 
       <td colspan="4" class="i_total first-row">Subtotal</td>
-      <td><%= Money.from_float(@invoice.subtotal, @invoice.currency).format(:symbol => true) %></td>
+      <td class="first-row"><%= Money.from_float(@invoice.subtotal, @invoice.currency).format(:symbol => true) %></td>
     </tr>
     <% end %>
     <!-- TAX 1 -->
