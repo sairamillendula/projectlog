@@ -88,7 +88,14 @@ class ProjectsController < ApplicationController
   
   def expenses
     @project = current_user.projects.find(params[:id])
-    @transactions = @project.transactions.order('date DESC')
+    current_period = current_user.profile.fiscal_period
+    unless params[:fiscal_year].blank?
+      period = Profile.to_period(params[:fiscal_year])
+      current_period = period unless period.nil?
+    end
+    @transactions = @project.transactions.by_period(current_period).order('date DESC')
+    @periods = current_user.profile.fiscal_range
+    @fiscal_year = Profile.period_to_s(current_period.first, current_period.last)
   end
   
 private
