@@ -1,14 +1,31 @@
-<% if @project.transactions.any? %>
-  <h1>All Transactions for <%= @project.title %></h1>
+<ul id="sub-menu">
+  <%= link_to '← All Transactions', transactions_path %>
+</ul>
+
+<h1>All Transactions for <%= @project.title %>
+  <% if @periods.size > 1 %>
+  <div class='floatr'>
+    <%= select_tag 'fiscal_year', options_for_select(@periods, @fiscal_year), "data-url" => expenses_project_url(@project) %>
+  </div>
+  <% end %>
+</h1>
+
+<% if @transactions.any? %>  
   <div id="pl_summary">
     <div class='card-inner'>
-	  <span id="total_income">Total Incomes: <span id="curr_income"><%= number_to_currency(@project.total_incomes) %></span></span>
-	  <span id="total_expense">Total Expenses: <span id="curr_expense"><%= number_to_currency(@project.total_expenses) %></span></span>
+	  <span id="total_income">Total Incomes: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(@transactions)) %></span></span>
+	  <span id="total_expense">Total Expenses: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(@transactions)) %></span></span>
     </div>
   </div>	 
   
   <% @transactions.group_by{|t| t.date.strftime "%Y %b" }.each do |date_str,transactions| %>
-    <h2 class="date_period"><%= date_str %></h2>
+    <h2 class="date_period">
+      <%= date_str %>
+      <span class="total_right">
+  	  Inc.: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(transactions)) %></span> | 
+  	  Exp.: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(transactions)) %></span>
+  	</span>
+    </h2>
     <ul>
     <% transactions.each do |transaction| %>
       <li class="transactions_list">
@@ -23,5 +40,10 @@
   <% end %>
   
 <% else %>
-  <p class="no-occurence">No Transaction for this project</p>
+  <p class="no-occurence">No Transaction in fiscal year (<%= @fiscal_year %>)</p>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    Transactions.MonthlyReport.init();
+  });
+</script>

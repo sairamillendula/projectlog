@@ -21,6 +21,7 @@ gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'hominid'
 gem 'capistrano'
 gem 'therubyracer'
+gem 'newrelic_rpm'
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"
