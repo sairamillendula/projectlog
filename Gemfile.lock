@@ -137,6 +137,7 @@ GEM
     net-ssh (2.3.0)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    newrelic_rpm (3.3.2)
     orm_adapter (0.0.6)
     pdfkit (0.5.2)
     polyglot (0.3.3)
@@ -221,6 +222,7 @@ DEPENDENCIES
   money
   mysql2
   nested_form!
+  newrelic_rpm
   pdfkit
   rails (= 3.2.1)
   rails-settings!
