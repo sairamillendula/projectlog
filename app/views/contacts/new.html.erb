@@ -1,7 +1,7 @@
 <h1>Add Contact for <%= @customer.name %></h1>
 
 <%= form_for([@customer, @customer.contacts.new]) do |f| %>
-  <%= render :partial => "fields.html", :locals => { :f => f} %>
+  <%= render :partial => "fields", :locals => { :f => f} %>
 
 	<div class="actions">
 	  <p class="submit"><%= submit_or_cancel(f) %></p>

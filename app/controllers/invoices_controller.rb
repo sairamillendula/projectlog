@@ -62,7 +62,7 @@ class InvoicesController < ApplicationController
     @new_line_item = LineItem.new
     contact = Contact.find(params[:send_invoice][:contact_id])
     attach = if params[:send_invoice][:attach] == "1" then
-               render_to_string(:action => 'show.html', :layout => 'pdfattach')
+               render_to_string(:action => 'show', :layout => 'pdfattach')
              else
                nil
              end

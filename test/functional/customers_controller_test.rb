@@ -57,6 +57,6 @@ class CustomersControllerTest < ActionController::TestCase
 
   test "should not destroy customer with invoices" do
     delete :destroy, :id => @customer_with_invoice.to_param
-    assert_equal 'This customer cannot be deleted because of projects/invoices associated', flash[:alert]
+    assert_equal 'This customer cannot be deleted because of existing projects/invoices associated', flash[:alert]
   end
 end
