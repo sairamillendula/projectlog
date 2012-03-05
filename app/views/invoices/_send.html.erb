@@ -1,15 +1,15 @@
 <%= form_for :send_invoice, :url => send_email_invoice_path(@invoice), :method => :post, :remote => :true do |f| %>
-  <br />
-    <%= f.label :to, "Recipient" %>
-    <%= f.text_field :to, :value => @invoice.customer.contacts.map{|c| c.email}.join(",") %> 
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject, :value => @subject %> <br />
-    <%= f.label :body, "Message" %> <br />
-    <%= f.text_area :body, :value => @body %> <br />
-    <%= f.check_box :attach %>
-    <%= f.label :attach, 'Attach PDF' %>
- <div class="status_indicator"></div>
-   <%= f.submit "Send" %>
+  <%= f.label :to, "Recipient" %>
+  <%= f.text_field :to, :value => @invoice.customer.contacts.map{|c| c.email}.join(",") %><br />
+  <%= f.label :subject %><br />
+  <%= f.text_field :subject, :value => @subject %><br />
+  <%= f.label :body, "Message" %> <br />
+  <%= f.text_area :body, :value => @body %><br />
+  <%= f.check_box :attach %>
+  <%= f.label :attach, 'Attach PDF' %>
+
+  <div class="status_indicator"></div>
+  <%= f.submit "Send" %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
@@ -18,7 +18,7 @@
       $(this).tagsInput({
         autocomplete_url:'<%= customer_contacts_url(@invoice.customer) %>',
         width: "380px",
-        height: "33px",
+        height: "27px",
         defaultText: 'Type contact name'
       });
     });

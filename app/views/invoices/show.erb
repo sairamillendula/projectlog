@@ -1,27 +1,28 @@
 <%= render "submenu" %>
 
 <div id="invoice-page">
+  <div id="invoice-top">
+    <div id="companies">
+      <div class="company-info">
+        <% if get_company_info(@invoice.user.profile).size > 0 %>
+      	  From: <%= get_company_info @invoice.user.profile %>
+      	<% else %>
+      	  From: <%= link_to 'Edit', settings_path, :class => 'no-print' %>
+      	<% end %>
+      </div>
 
-  <div id="companies">
-    <div class="company-info">
-      <% if get_company_info(@invoice.user.profile).size > 0 %>
-	    From: <%= get_company_info @invoice.user.profile %>
-	  <% else %>
-	    From: <%= link_to 'Edit', settings_path, :class => 'no-print' %>
-	  <% end %>
-	</div>
-	
-	<div class="customer-info">
-	  <% if @invoice.customer.address1.present? and @invoice.customer.city.present? and @invoice.customer.postal_code.present? %>
-        To: <%= get_customer_info @invoice.customer %>
-      <% else %>
-        To: <%= get_customer_info @invoice.customer %>
-    	<%= link_to 'Edit', edit_customer_path(@invoice.customer), :remote => :true, :class => 'no-print' %>
-      <% end %>
-	</div>
+      <div class="customer-info">
+        <% if @invoice.customer.address1.present? and @invoice.customer.city.present? and @invoice.customer.postal_code.present? %>
+          To: <%= get_customer_info @invoice.customer %>
+        <% else %>
+          To: <%= get_customer_info @invoice.customer %>
+          <%= link_to 'Edit', edit_customer_path(@invoice.customer), :remote => :true, :class => 'no-print' %>
+        <% end %>
+      </div>
+    </div>
+
+    <%= render 'header' %>
   </div>
-
-  <%= render 'header' %>
 
   <div id="line_items_list"><%= render 'line_items_list' %></div>
   

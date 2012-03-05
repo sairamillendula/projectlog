@@ -3,20 +3,22 @@
   <section id="content" role="main">
     <div id="invoice-page" class="invoice <%= @invoice.status.parameterize %>">
     
-	  <div id="companies">
-        <% if get_company_info(@invoice.user.profile).size > 0 %>
-	      <div class="company-info">
-	      From: <%= get_company_info @invoice.user.profile %>
-		  </div>
-	    <% end %>
-	    <div class="customer-info">
-	      To: <%= get_customer_info @invoice.customer %>
+	  <div id="invoice-top">
+	    <div id="companies">
+          <% if get_company_info(@invoice.user.profile).size > 0 %>
+	        <div class="company-info">
+	        From: <%= get_company_info @invoice.user.profile %>
+		    </div>
+	      <% end %>
+	      <div class="customer-info">
+	        To: <%= get_customer_info @invoice.customer %>
+	      </div>
 	    </div>
-	  </div>
 
-	  <h1>INVOICE</h1>
+	    <h1>INVOICE</h1>
     
-      <%= render 'invoice_shared_header' %>
+        <%= render 'invoice_shared_header' %>
+      </div>
 
 	  <div id="line_items_list"><%= render 'line_items_list' %></div>
     

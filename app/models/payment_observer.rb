@@ -33,7 +33,7 @@ class PaymentObserver < ActiveRecord::Observer
     payment.invoice.user.transactions.create(
       :expense => false,
       :date    => payment.date,
-      :note    => "Payment from #{payment.invoice.customer.name} (#{invoice.invoice_number})",
+      :note    => "Payment from #{payment.invoice.customer.name} ##{invoice.invoice_number}",
       :total   => total,
       :tax1    => tax1,
       :tax2    => tax2

@@ -1,20 +1,19 @@
 <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
-  <br />
-    <%= f.label :to, "Recipient " %>
-    <%= f.text_field :to, :value => current_user.connections.select { |c| c.email.present? }.map { |c| c.email }.join(',') %> 
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %> <br />
-    <%= f.label :body, "Message" %> <br />
-    <%= f.text_area :body %> <br />
-    <%= f.hidden_field :report_link %><br />
+  <%= f.label :to, "Recipient" %>
+  <%= f.text_field :to, :value => current_user.connections.select { |c| c.email.present? }.map { |c| c.email }.join(',') %><br />
+  <%= f.label :subject %><br />
+  <%= f.text_field :subject %><br />
+  <%= f.label :body, "Message" %><br />
+  <%= f.text_area :body %><br />
+  <%= f.hidden_field :report_link %><br />
  
- <div>
-   <h2>Or share this public link with guests:</h2>
-   <p><%= shared_report_url(@report) %></p>
- </div>
+  <div>
+    <h2>Or share this public link with guests:</h2>
+    <p><%= shared_report_url(@report) %></p>
+  </div>
 
- <div class="status_indicator"></div>
-   <%= f.submit "Send" %>
+  <div class="status_indicator"></div>
+  <%= f.submit "Send" %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">
@@ -23,7 +22,7 @@
       $(this).tagsInput({
         autocomplete_url: '<%= contacts_report_emails_url(@report) %>',
         width: "380px",
-        height: "33px",
+        height: "27px",
         defaultText: 'Type contact name'
       });
     });
