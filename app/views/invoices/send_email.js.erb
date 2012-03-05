@@ -1,10 +1,11 @@
+$("#send_report_email_dialog").dialog("destroy").remove();
 $('<div id="email-sent"></div>')
   .html('<div class="notice">Email successfully sent!</div>')
   .dialog({
     autoOpen: true,
-    buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+    buttons: { 'OK' : function(){ $(this).dialog("destroy").remove(); $('#send_invoice_to').expire();} },
     show: "fade",
     hide: "fade",
+    close: function(event, ui) { $(this).dialog("desotry").remove(); $('#send_invoice_to').expire();}
   });
-$("#send_report_email_dialog").dialog("close");
 <%= render "payments/status_update" %>

@@ -3,10 +3,17 @@ class ContactsController < ApplicationController
 
   def index
     @customer = current_user.customers.find(params[:customer_id])
-    @contacts = @customer.contacts.all
+    unless params[:term].blank?
+      @contacts = @customer.contacts.where("first_name LIKE ? OR last_name LIKE ?", "%#{params[:term]}%", "%#{params[:term]}%")
+    else
+      @contacts = @customer.contacts.all
+    end
 
     respond_to do |format|
       format.html # index.html.erb
+      format.json { 
+        render :json => @contacts.map{|contact| {label: "#{contact.first_name} #{contact.last_name}", value: contact.email} } 
+      }
     end
   end
 

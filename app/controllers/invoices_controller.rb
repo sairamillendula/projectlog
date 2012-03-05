@@ -60,13 +60,13 @@ class InvoicesController < ApplicationController
   def send_email
     @invoice = Invoice.includes(:customer, :line_items).find_by_slug!(params[:id])
     @new_line_item = LineItem.new
-    contact = Contact.find(params[:send_invoice][:contact_id])
+    recipients = params[:send_invoice][:to].split(",")
     attach = if params[:send_invoice][:attach] == "1" then
                render_to_string(:action => 'show', :layout => 'pdfattach')
              else
                nil
              end
-    InvoicesMailer.invoice_by_email(@invoice, params[:send_invoice][:subject], params[:send_invoice][:body], current_user, contact, attach).deliver
+    InvoicesMailer.invoice_by_email(@invoice, params[:send_invoice][:subject], params[:send_invoice][:body], current_user, recipients, attach).deliver
     flash.now[:notice] = "Invoice sent successfully"
     @invoice.status = "Sent"
     @invoice.save
