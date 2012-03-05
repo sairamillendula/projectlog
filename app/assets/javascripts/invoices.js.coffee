@@ -67,7 +67,7 @@
     tax1 = Math.round(subtotal * (tax1_rate/100) * 100)/100
     
     if tax2_rate > 0
-      if compound
+      if compound == "true"
         tax2 = Math.round((subtotal + tax1) * (tax2_rate/100)*100)/100
       else
         tax2 = Math.round(subtotal * (tax2_rate/100) * 100)/100
