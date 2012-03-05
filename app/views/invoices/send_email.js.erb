@@ -6,6 +6,6 @@ $('<div id="email-sent"></div>')
     buttons: { 'OK' : function(){ $(this).dialog("destroy").remove(); $('#send_invoice_to').expire();} },
     show: "fade",
     hide: "fade",
-    close: function(event, ui) { $(this).dialog("desotry").remove(); $('#send_invoice_to').expire();}
+    close: function(event, ui) { $(this).dialog("destroy").remove(); $('#send_invoice_to').expire();}
   });
 <%= render "payments/status_update" %>

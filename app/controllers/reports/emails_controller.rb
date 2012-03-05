@@ -1,4 +1,6 @@
 class Reports::EmailsController < ApplicationController
+  before_filter :authenticate_user!
+  
   def new
     @report = Report.find_by_slug!(params[:report_id])
     @email = Reports::Email.new(:body => Settings["reports.email.body"],
@@ -19,4 +21,16 @@ class Reports::EmailsController < ApplicationController
       format.js
     end
   end
+  
+  def contacts
+    @contacts = current_user.connections.where("first_name LIKE ? OR last_name LIKE ?", "%#{params[:term]}%", "%#{params[:term]}%")
+    
+    respond_to do |format|
+      format.html
+      format.json { 
+        render :json => @contacts.map{|contact| {label: "#{contact.first_name} #{contact.last_name}", value: contact.email} } 
+      }
+    end
+  end
+  
 end

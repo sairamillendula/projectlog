@@ -1,4 +1,3 @@
-$("#send_report_email_dialog").remove();
 $('<div id="send_report_email_dialog"></div>')
 		.html('<%= escape_javascript render("form") %>')
 		.dialog({
@@ -11,7 +10,7 @@ $('<div id="send_report_email_dialog"></div>')
            $(this).find("form").bind('ajax:error', function(){             
            		$("<div></div>").html('<div class="alert">Something went wrong! Please try again in a moment.</div>').dialog({
            			autoOpen: true,
-           			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+           			buttons: { 'OK' : function(){ $(this).dialog("destroy").remove();$('#reports_email_to').expire(); } },
            			show: "fade",
            			hide: "fade",
                });
@@ -23,9 +22,10 @@ $('<div id="send_report_email_dialog"></div>')
 			     // disable the Send button
 			     $(this).parent().find("button:contains('Send')").button("disable");
 			  }, 
-			  'Cancel' : function(){ $(this).dialog("close"); }
+			  'Cancel' : function(){ $(this).dialog("destroy").remove();$('#reports_email_to').expire(); }
 			},
 			show: "fade",
 			hide: "fade",
-			width: 420
+			width: 420,
+			close: function(event, ui) { $(this).dialog("destroy").remove(); $('#reports_email_to').expire();}
     });

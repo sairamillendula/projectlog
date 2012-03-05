@@ -7,7 +7,8 @@
 			show: "fade",
 			hide: "fade",
     });
-  $("#send_report_email_dialog").dialog("close");
+  $("#send_report_email_dialog").dialog("destroy").remove();
+  $('#reports_email_to').expire();
 <% else %>
   $("#send_report_email_dialog .status_indicator").html("");
   //Enable Send button again
@@ -16,7 +17,7 @@
 		.html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @email.errors.full_messages.to_sentence %></div>')
 		.dialog({
 			autoOpen: true,
-			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			buttons: { 'OK' : function(){ $(this).dialog("destroy").remove(); } },
 			show: "fade",
 			hide: "fade",
     });

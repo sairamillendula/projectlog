@@ -1,7 +1,7 @@
 <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
   <br />
     <%= f.label :to, "Recipient " %>
-    <%= f.select :to, current_user.connections.select { |c| c.email.present? }.collect { |c| [c.full_name, c.email] }, { :prompt => "Select a contact" } %> <br />
+    <%= f.text_field :to, :value => current_user.connections.select { |c| c.email.present? }.map { |c| c.email }.join(',') %> 
     <%= f.label :subject %><br />
     <%= f.text_field :subject %> <br />
     <%= f.label :body, "Message" %> <br />
@@ -16,3 +16,16 @@
  <div class="status_indicator"></div>
    <%= f.submit "Send" %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $("#reports_email_to").livequery(function() {
+      $(this).tagsInput({
+        autocomplete_url: '<%= contacts_report_emails_url(@report) %>',
+        width: "380px",
+        height: "33px",
+        defaultText: 'Type contact name'
+      });
+    });
+  });
+</script>

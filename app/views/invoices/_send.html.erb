@@ -2,7 +2,6 @@
   <br />
     <%= f.label :to, "Recipient" %>
     <%= f.text_field :to, :value => @invoice.customer.contacts.map{|c| c.email}.join(",") %> 
-    <%#= f.select :contact_id, contacts_options(@invoice.customer) %> <br />
     <%= f.label :subject %><br />
     <%= f.text_field :subject, :value => @subject %> <br />
     <%= f.label :body, "Message" %> <br />
