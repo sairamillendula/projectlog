@@ -1,6 +1,6 @@
 <%= form_for @email, :url => report_emails_path(@report), :remote => :true do |f| %>
   <%= f.label :to, "Recipient" %>
-  <%= f.text_field :to, :value => current_user.connections.select { |c| c.email.present? }.map { |c| c.email }.join(',') %><br />
+  <%= f.text_field :to %><br />
   <%= f.label :subject %><br />
   <%= f.text_field :subject %><br />
   <%= f.label :body, "Message" %><br />
@@ -22,7 +22,7 @@
       $(this).tagsInput({
         autocomplete_url: '<%= contacts_report_emails_url(@report) %>',
         width: "380px",
-        height: "27px",
+        height: "auto",
         defaultText: 'Type contact name'
       });
     });

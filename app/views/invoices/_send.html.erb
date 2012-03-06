@@ -1,6 +1,6 @@
 <%= form_for :send_invoice, :url => send_email_invoice_path(@invoice), :method => :post, :remote => :true do |f| %>
   <%= f.label :to, "Recipient" %>
-  <%= f.text_field :to, :value => @invoice.customer.contacts.map{|c| c.email}.join(",") %><br />
+  <%= f.text_field :to %><br />
   <%= f.label :subject %><br />
   <%= f.text_field :subject, :value => @subject %><br />
   <%= f.label :body, "Message" %> <br />
@@ -18,7 +18,7 @@
       $(this).tagsInput({
         autocomplete_url:'<%= customer_contacts_url(@invoice.customer) %>',
         width: "380px",
-        height: "27px",
+        height: "auto",
         defaultText: 'Type contact name'
       });
     });
