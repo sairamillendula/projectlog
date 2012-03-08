@@ -114,12 +114,17 @@ EOF
 end
 
 namespace :db do
-  desc "Migrate and Seed database"
+  desc "Migrate database"
   task :migrate, :roles => :app do
-    run "cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:migrate db:seed --trace"
+    run "cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:migrate --trace"
   end
   
-  desc "Drop & Migrate database"
+  desc "Seed database"
+  task :seed, :roles => :app do
+    run "cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:seed --trace"
+  end
+  
+  desc "Drop database then Migrate"
   task :reset, :roles => :app do
     run "cd #{current_path}; bundle exec rake RAILS_ENV=production -f #{current_path}/Rakefile db:drop db:migrate --trace"
   end
