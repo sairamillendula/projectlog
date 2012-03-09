@@ -1,4 +1,6 @@
-<h1>Sign in</h1>
+<div class='dialog'>
+  <%= render 'layouts/flash' %>
+  <h1>Sign in</h1>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <h2><%= f.label :email %></h2>
@@ -15,3 +17,4 @@
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>
+</div>

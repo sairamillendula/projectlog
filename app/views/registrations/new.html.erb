@@ -1,7 +1,9 @@
-<h1>Sign up</h1>
+<div class='dialog signup'>
+  <%= render 'layouts/flash' %>
+  <h1>Sign up</h1>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
 
   <h2><%= f.label :first_name %></h2>
   <%= f.text_field :first_name %>
@@ -20,6 +22,21 @@
 
   <p>By clicking Create my account you agree to the <%= link_to 'Terms of Service', "http://getprojectlog.com/terms/", :target => "_blank" %> and <%= link_to 'Privacy', "http://getprojectlog.com/privacy/", :target => "_blank" %>.</p>
 
-   <p class="submit left"><%= submit_tag "Create my account", :disable_with => "Processing ..." %></p>
-   
-<% end %>
+  <p class="submit left"><%= submit_tag "Create my account", :disable_with => "Processing ..." %></p>
+  <% end %>
+</div>
+
+<div id='signup_sidebar'>
+  <div id="logo">    
+     <h1>Projectlog</h1>
+  </div>
+  <h2>You're just 60 seconds away from your new Projectlog account.</h2>
+  
+  <p>You Receive:</p>
+  <ul id="advantages">
+    <li>FREE Trial (cancel anytime)</li>
+    <li>Security and Reliability</li>
+    <li>Great Customer Service</li>
+    <li>Export your data anytime</li>
+  </ul>
+</div>

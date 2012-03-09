@@ -1,6 +1,8 @@
-<h1>Forgot your password?</h1>
+<div class='dialog'>
+  <%= render 'layouts/flash' %>
+  <h1>Forgot your password?</h1>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <p>Please provide email attached to your account and check your inbox.</p>
@@ -9,4 +11,5 @@
   <%= f.email_field :email %>
 
   <p class="submit left"><%= f.submit "Send me reset password instructions" %></p>
-<% end %>
+  <% end %>
+</div>
