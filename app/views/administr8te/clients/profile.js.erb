@@ -1,0 +1,10 @@
+$('<div id="client_profile"></div>')
+		.html('<%= escape_javascript render(:partial => 'profile') %>')
+		.dialog({
+			autoOpen: true,
+			modal: true,
+			title: '<%= @user.full_name %>',
+			show: "fade",
+			hide: "fade",
+			width: 420
+    });

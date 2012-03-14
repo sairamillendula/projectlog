@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
   scope :admin, where(:admin => true)
   scope :with_free_plan, joins(:plan).where("plans.name = ?", "Free")
   scope :with_paid_plan, joins(:plan).where("plans.name != ?", "Free")
+  scope :active, where('last_sign_in_at < ?', 2.months.ago)
   
   # Devise change to allow users edit their accounts without providing a password
   def password_required?
@@ -53,8 +54,8 @@ class User < ActiveRecord::Base
     end
   end
   
-  
 private
+
   def build_profile_and_set_default_plan
     logger.debug "It's time to create the account."
        self.create_profile

@@ -4,7 +4,7 @@ $('<div id="new_contact_dialog"></div>')
 		.dialog({
 			autoOpen: true,
 			modal: true,
-			title: 'Add a Contact for <%= @customer.name %>',
+			title: 'New contact for <%= @customer.name %>',
 			buttons: { 'Create Contact' :  function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("close"); } },
 			show: "fade",
 			hide: "fade",

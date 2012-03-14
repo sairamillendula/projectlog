@@ -78,7 +78,12 @@ Projectlog::Application.routes.draw do
   namespace :administr8te do
     resource :dashboard, :only => [ :show ], :controller => 'dashboard'
     resource :settings
-    resources :clients, :only => [ :index ]
+    resources :clients, :only => [ :index ] do
+      member do
+        get 'summary'
+        get 'profile'
+      end
+    end
     resources :plans
     resources :announcements
     resources :emailings

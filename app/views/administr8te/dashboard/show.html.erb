@@ -26,14 +26,18 @@
   </tr>
   <tr>
     <td>Users with Free plan</td>
-    <td><b><%= User.standard.with_free_plan.size %></b></td>
+    <td><b><%= User.standard.with_free_plan.size %></b> (<%= User.standard.with_free_plan.size / User.standard.size * 100 %>%)</td>
     <td><%= total_users_with_free_plan_created(Date.today) %></td>
     <td><%= total_users_with_free_plan_created(1.week.ago.to_date) %></td>
     <td><%= total_users_with_free_plan_created(1.month.ago.to_date) %></td>
   </tr>
   <tr>
     <td>Users with Paid plan</td>
-    <td><b><%= User.standard.with_paid_plan.size %></b></td>
+    <td><b><%= User.standard.with_paid_plan.size %></b>
+        <% if User.standard.with_paid_plan.any? %>
+          (<%= number_to_percentage(User.standard.with_paid_plan.size / User.standard.size, :precision => 2) %>)
+        <% end %>
+    </td>
     <td><%= total_users_with_paid_plan_created(Date.today) %></td>
     <td><%= total_users_with_paid_plan_created(1.week.ago.to_date) %></td>
     <td><%= total_users_with_paid_plan_created(1.month.ago.to_date) %></td>
@@ -51,13 +55,16 @@
     <th>Paid plan</th>
   </tr>
   <tr>
-    <td>Active Users</td>
-    <td></td>
-    <td></td>
+    <td>Active Users 
+        <span class="tipsied grayed_out" title="Last Sign In within the last 2 months">
+        <%= image_tag("info_icon.png", {:border=>0, :size => '12x12'}) %></span>
+    </td>
+    <td><%= User.active.with_free_plan.size %></td>
+    <td><%= User.active.with_paid_plan.size %></td>
   </tr>
   <tr>
     <td>Average Projects per User</td>
-    <td><%= average_projects_per_user %></td>
+    <td><%= average_data_per_user(:projects) %></td>
     <td></td>
   </tr>
   <tr>

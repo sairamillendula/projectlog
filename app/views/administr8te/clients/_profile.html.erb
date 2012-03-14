@@ -1,0 +1,14 @@
+<div class="col_left" style="float:left;">
+  <% if get_company_info(@user.profile).size > 0 %>
+    <%= get_company_info @user.profile %>
+  <% else %>
+    Empty Company Address
+  <% end %>
+</div>
+<div class="col_right" style="float:left;padding-left:20px;">
+  Localization: <b><%= @user.profile.localization %></b><br />
+  Hours Per Day: <b><%= @user.profile.hours_per_day %></b><br />
+  Tax1: <b><%= @user.profile.tax1_label %> - <%= @user.profile.tax1 %>%</b><br />
+  Tax2: <b><%= @user.profile.tax2_label %> - <%= @user.profile.tax2 %>%</b><br />
+  Fiscal Year: <b><%= @user.profile.fiscal_year %></b><br />
+</div>

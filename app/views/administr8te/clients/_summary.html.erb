@@ -1,0 +1,21 @@
+<div class="col_left" style="float:left;">
+  <p>Total Projects:</p>
+  <p>Total Customers:</p>
+  <p>Total Contacts:</p>
+  <p>Total Invoices:</p>
+  <p>Total Transactions:</p>
+  <p>Total Reports:</p>
+</div>
+<div class="col_right" style="float:left;padding-left:10px;">
+  <p><b><%= @user.projects.size %></b> (avg: <%= average_data_per_user(:projects) %>)</p>
+  <p><b><%= @user.customers.size %></b> (avg: <%= average_data_per_user(:customers) %>)</p>
+  <p><b><%= @user.connections.size %></b> (avg: <%= average_data_per_user(:connections) %>)</p>
+  <p><b><%= @user.invoices.size %></b> (avg: <%= average_data_per_user(:invoices) %>)</p>
+  <p><b><%= @user.transactions.size %></b> (avg: <%= average_data_per_user(:transactions) %>)</p>
+  <p><b><%= @user.reports.size %></b> (avg: <%= average_data_per_user(:reports) %>)</p> 
+</div>
+<div class="col_last" style="width: 130px; float:left; padding-left:10px; text-align:center;">
+  <p id="active_plan" class="blue_on_blue" style="width:100%;"><%= @user.plan.name %></p>
+  <p>Localization:<br />
+     <b><%= @user.profile.localization %></b></p>
+</div>

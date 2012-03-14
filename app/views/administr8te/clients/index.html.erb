@@ -19,8 +19,7 @@
   <tr>
     <th><%= sortable "" %></th>
     <th><%= sortable "email" %></th>
-    <th><%= sortable "first_name" %></th>
-    <th><%= sortable "last_name" %></th>
+    <th><%= sortable "full_name" %></th>
     <th><%= sortable "sign_in_count" %></th>
     <th><%= sortable "last_sign_in_at", {}, "Last Sign in" %></th>
     <th><%= sortable "current_sign_in_ip", {}, "Current IP" %></th>
@@ -30,9 +29,8 @@
 <% for user in @users %>
   <tr>
     <td><% if user.admin%><span class="administrator"><% end %></td>
-    <td><%= user.email %></td>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
+    <td><%= link_to user.email, summary_administr8te_client_path(user), :remote => true %></td>
+    <td><%= link_to user.full_name, profile_administr8te_client_path(user), :remote => true %></td>
     <td style="text-align:center"><%= user.sign_in_count %></td>
     <td><%= user.last_sign_in_at.strftime("%d-%m-%Y %H:%M") if user.last_sign_in_at.present? %></td>
     <td><%= user.current_sign_in_ip %></td>
