@@ -6,7 +6,7 @@ module Administr8te::DashboardHelper
   
   def average_data_per_user(model_name)
     @data_belonging_to_standard_users = User.standard.joins(model_name).count
-    @average_data_per_user = @data_belonging_to_standard_users.to_f / User.standard.size.to_f
+    @average_data_per_user = (@data_belonging_to_standard_users.to_f / User.standard.size.to_f).round(2)
   end
   
   def average_subscription_time_in_days
