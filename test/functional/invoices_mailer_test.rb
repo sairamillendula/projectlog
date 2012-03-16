@@ -12,7 +12,7 @@ class InvoicesMailerTest < ActionMailer::TestCase
       contact = contacts(:three)
       assert contact.save
       
-      message = InvoicesMailer.invoice_by_email(invoice, "Invoice for bla-bla", "See invoice attached", user, contact, nil).deliver
+      message = InvoicesMailer.invoice_by_email(invoice, "Invoice for bla-bla", "See invoice attached", user, contact.email, nil).deliver
       assert_equal "Invoice for bla-bla", message.subject
       assert_equal ["erin.kelly@zylog.com"], message.to
       assert message.body =~ /See invoice attached/
