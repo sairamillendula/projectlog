@@ -1,0 +1,35 @@
+@import "variables";
+
+#trial_status {
+	background: #ffffcc;
+	padding: 3px;
+	border: 1px solid #F3B539;
+	font-size: 13px;
+}
+
+#days_left { 
+	background: #F3B539;
+	padding: 3px;
+	color: #fff;
+	font-weight: bold;
+	@include rounded-corners(3px);
+}
+
+div#select-plan {
+	padding-top: 10px;
+	clear: both;
+}
+
+#billing_fields {
+	padding-top: 20px;
+	clear: both;
+	
+	&.inline-form label {
+		width: 140px;
+	}
+	
+	&input {width:184px;}
+	#card_code {width: 55px;}
+}
+
+img#cvv {position: relative; top:5px;}

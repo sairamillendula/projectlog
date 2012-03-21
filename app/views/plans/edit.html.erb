@@ -1,10 +1,62 @@
-<h1>Change your Plan</h1>
+<h1>Update your Subscription
+  <span class='floatr'><%= image_tag('lock_active.png', :alt => 'secure page', :style => 'margin-top:5px;') %></span>
+</h1>
 
-<p class="info" style="font-size:13px">You can upgrade/downgrade your plan anytime. Changes will become effective at next billing cycle.</p>
-<br />
+<p class="info" style="font-size:13px">You can upgrade or downgrade anytime. Changes will become effective at next billing cycle.</p>
+
+<p id='trial_status'>You have <%= content_tag(:span, '## days left', :id => 'days_left') %> on your Unlimited Free Trial</p>
 
 <%= form_tag(plan_path, :method => :put) do %>
-  <%= label_tag :plan_id, "Select your new plan" %>
-  <%= select_tag :plan_id, options_from_collection_for_select(@plans, :id, :name, current_user.plan_id) %>
-  <span class="submit"><%= submit_tag "Change my Plan" %></span>
+  <!%= label_tag :plan_id, "Select your new plan" %>
+  <!%= select_tag :plan_id, options_from_collection_for_select(@plans, :id, :name, current_user.plan_id) %>
+  <div id="select-plan">
+    <% @plans.each do |plan| %>
+      <ul id="card-entries">
+        <li id="card" class="<%= cycle('odd', 'even') %>">
+          <div class="card-inner">
+            <h1><%= plan.name %>
+        	    <span class='floatr'>$<%= plan.price %></span>
+        	</h1>
+        	<p class="tagline"><%= simple_format(plan.features) %></p>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div id="billing_fields" class="inline-form">
+    <div class="field">
+      <!%= f.label :email %>
+      <!%= f.text_field :email %>
+    </div>
+    <!% if @subscription.payment_provided? %>
+      <!-- Payment has been provided. Click "Subscribe" to complete the subscription. -->
+    <!% else %>
+      <div class="field">
+        <%= label_tag :card_name, "Name on Card", :class => 'mandatory' %>
+        <%= text_field_tag :card_name, nil, name: nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_number, "Card Number", :class => 'mandatory' %>
+        <%= text_field_tag :card_number, nil, name: nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_code, "Security Code (CVV)", :class => 'mandatory' %>
+        <%= text_field_tag :card_code, nil, name: nil %> <%= image_tag('cvv.png', :alt => 'CVV', :id => 'cvv') %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_month, "Expires on", :class => 'mandatory' %>
+        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+      </div>
+    <!% end %>
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+    <div class="actions">
+      <!%= f.submit "Subscribe" %>
+      <span class="submit"><%= submit_tag "Confirm Subscription" %></span>
+    </div>
+  </div>
 <% end %>
+

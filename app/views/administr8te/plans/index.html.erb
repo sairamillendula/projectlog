@@ -7,7 +7,6 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Features</th>
     <th>Description</th>
     <th>Price</th>
     <th>Status</th>
@@ -20,7 +19,6 @@
 <% @plans.each do |plan| %>
   <tr>
     <td><%= plan.name %></td>
-    <td><%= plan.features %></td>
     <td><%= plan.description %></td>
     <td><%= plan.price %></td>
     <td><%= plan.active? ? 'Active' : 'Inactive' %></td>
