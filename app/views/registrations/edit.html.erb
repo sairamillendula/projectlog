@@ -26,7 +26,13 @@
   <div id="current_plan">
     <h2>Your current Plan</h2>
     <p id="active_plan" class="blue_on_blue"><%= current_user.plan.name %></p>
-    <span id="upgrade_btn"><%= link_to 'Upgrade', edit_plan_path, :class => 'buttonorange' %></span>
+    <% if current_user.current_subscription %>
+      <span id="upgrade_btn"><%= link_to 'Manage Subscription', current_subscriptions_path, :class => 'buttonorange' %></span>
+    <% else %>
+      <span id="upgrade_btn"><%= link_to 'Upgrade', new_subscription_path, :class => 'buttonorange' %></span>
+    <% end %>
+    
+    <!-- <span id="upgrade_btn"><%= link_to 'Cancel', cancel_subscriptions_path, :confirm => "Are you sure?", :method => :delete, :class => 'buttonorange' %></span> -->
   </div>
   
   <h3>Cancel my Account</h3> 

@@ -7,6 +7,13 @@ Projectlog::Application.routes.draw do
       get 'find_by_note'
     end
   end
+  resources :subscriptions, :only => [:new, :create, :edit, :update] do
+    collection do
+      delete 'cancel'
+      get 'current'
+      post 'reactivate'
+    end
+  end
   
   resources :categories do
     member do
@@ -102,5 +109,6 @@ Projectlog::Application.routes.draw do
     get '/login', :to => 'devise/sessions#new'
     get '/logout', :to => 'devise/sessions#destroy'
   end
+  post '/paypal/ipn' => 'paypal#ipn'
   match '/settings' => 'profiles#edit', :as => 'settings'
 end

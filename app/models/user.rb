@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
   has_many :transactions, :dependent => :destroy
   has_many :categories, :dependent => :destroy
   belongs_to :plan
+  has_many :subscriptions, :dependent => :destroy
+  has_many :subscription_transactions, :dependent => :destroy
+  belongs_to :current_subscription, :class_name => "Subscription", :foreign_key => "subscription_id"
   
   scope :standard, where(:admin => false)
   scope :admin, where(:admin => true)
@@ -53,6 +56,12 @@ class User < ActiveRecord::Base
     else
       scoped
     end
+  end
+  
+  def trial_days_left
+    days_left = Settings['subscriptions.trial_period'] - (Date.today - created_at.to_date).to_i
+    days_left = 0 if days_left < 0
+    days_left
   end
   
 private

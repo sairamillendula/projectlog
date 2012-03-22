@@ -378,8 +378,8 @@ p.buttonorange.inactive {
 }
 
 ul#card-entries { padding-left: 0px; }
-li#card.even { margin-right: 0px; }
-#card {
+li.card.even { margin-right: 0px; }
+.card {
 	width: 420px;
 	margin-right: 20px;
 	margin-bottom: 20px;
@@ -389,6 +389,10 @@ li#card.even { margin-right: 0px; }
 	list-style: none;
 	display: inline;
 	float: left;
+}
+
+.card.active {
+  background: blue;
 }
 
 .card-inner {
@@ -415,14 +419,14 @@ li#card.even { margin-right: 0px; }
 	margin-bottom: 0;
 }
 
-#card:hover {
+.card:hover {
 	-moz-box-shadow: 0px 0px 6px #999;
 	-webkit-box-shadow: 0px 0px 6px #999;
 	box-shadow: 0px 0px 6px #999;
 	cursor: pointer;
 }
 
-#card.contact:hover {
+.card.contact:hover {
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;

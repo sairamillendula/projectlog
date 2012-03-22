@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  paypal_profile_id: MyString
+  state: MyString
+  pending_subscription_id: 1
+  modify_on: 2012-03-22 09:29:08
+  start_date: 2012-03-22 09:29:08
+  active: false
+  plan_id: 1
+  user_id: 1
+
+two:
+  paypal_profile_id: MyString
+  state: MyString
+  pending_subscription_id: 1
+  modify_on: 2012-03-22 09:29:08
+  start_date: 2012-03-22 09:29:08
+  active: false
+  plan_id: 1
+  user_id: 1
