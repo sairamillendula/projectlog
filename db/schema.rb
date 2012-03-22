@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120222071040) do
+ActiveRecord::Schema.define(:version => 20120322115011) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -179,6 +179,8 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.boolean  "active",      :default => false
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+    t.string   "frequency"
+    t.boolean  "displayable"
   end
 
   add_index "plans", ["id"], :name => "index_plans_on_id"
@@ -295,6 +297,29 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
   add_index "settings", ["thing_type"], :name => "index_settings_on_thing_type"
   add_index "settings", ["var"], :name => "index_settings_on_var"
 
+  create_table "subscription_transactions", :force => true do |t|
+    t.string   "code"
+    t.float    "amount"
+    t.integer  "subscription_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "subscriptions", :force => true do |t|
+    t.string   "paypal_profile_id"
+    t.string   "state"
+    t.integer  "pending_subscription_id"
+    t.datetime "modify_on"
+    t.datetime "start_date"
+    t.boolean  "active"
+    t.integer  "plan_id"
+    t.integer  "user_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "slug"
+  end
+
   create_table "transactions", :force => true do |t|
     t.boolean  "expense",     :default => true
     t.date     "date"
@@ -328,6 +353,7 @@ ActiveRecord::Schema.define(:version => 20120222071040) do
     t.string   "last_name"
     t.boolean  "admin",                  :default => false
     t.integer  "plan_id"
+    t.integer  "subscription_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

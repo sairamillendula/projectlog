@@ -1,0 +1,28 @@
+<h1>Payment History</h1>
+<% unless current_user.subscription_transactions.blank? %>
+  <table>
+  <% for transaction in current_user.subscription_transactions %>
+    <tr>
+      <td><%= transaction.created_at.strftime("%B %d, %Y") %></td>
+      <td>Transaction #<%= transaction.code %></td>
+      <td><%= number_to_currency(transaction.amount) %></td>
+      <td><%= link_to "Printable Receipt (PDF)" %></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>
+
+<h2>Your current plan: <%= current_user.plan.name %></h2>
+<% if current_user.current_subscription %>
+  <% if current_user.current_subscription.cancelled? %>
+    <h2>You've cancelled your subscription. You can continue to use the <%= current_user.current_subscription.plan.name %> plan until it expires on <%= current_user.current_subscription.modify_on.strftime("%B %d, %Y") %>.</h2>
+    <%= link_to 'Reactivate', reactivate_subscriptions_path, :method => :post, :class => 'buttonorange' %>
+  <% else %>
+    <% if current_user.current_subscription.next_payment_due.to_date != current_user.current_subscription.created_at.to_date %>
+      <h2>Next payment will be processed on <%= current_user.current_subscription.next_payment_due.strftime("%B %d, %Y") %>.</h2>
+    <% end %>
+    <%= link_to 'Edit Subscription & Payment Method', edit_subscription_path(current_user.current_subscription), :class => 'buttonorange' %>
+  <% end %>
+<% else %>
+  <%= link_to 'Upgrade', new_subscription_path, :class => 'buttonorange' %>
+<% end %>

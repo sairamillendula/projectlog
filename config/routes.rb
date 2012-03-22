@@ -2,6 +2,14 @@ Projectlog::Application.routes.draw do
   root :to => 'dashboard#show'
     
   resources :transactions
+  resources :subscriptions, :only => [:new, :create, :edit, :update] do
+    collection do
+      delete 'cancel'
+      get 'current'
+      post 'reactivate'
+    end
+  end
+  
   get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
   resources :categories do
     member do
@@ -98,5 +106,6 @@ Projectlog::Application.routes.draw do
     get '/login', :to => 'devise/sessions#new'
     get '/logout', :to => 'devise/sessions#destroy'
   end
+  post '/paypal/ipn' => 'paypal#ipn'
   match '/settings' => 'profiles#edit', :as => 'settings'
 end

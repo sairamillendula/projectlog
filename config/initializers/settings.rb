@@ -14,3 +14,4 @@ Click the following link to see the invoice in your browser: %{invoice_link}
 
 Bye!
 "
+Settings.defaults['subscriptions.trial_period'] = 30

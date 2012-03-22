@@ -33,6 +33,10 @@
     <%= f.radio_button :active, true %> Active
     <%= f.radio_button  :active, false %> Inactive
   </div>
+  <div class="field">
+    <%= f.label :displayable, :class => 'mandatory' %>
+    <%= f.check_box :displayable %>
+  </div>
   <div class="actions">
     <p class="submit"><%= submit_or_cancel(f) %></p>
   </div>

@@ -27,7 +27,14 @@
       <small>The <code>%{invoice_link}</code> tag will be dynamically replaced with the actual link to the invoice.</small> <br />
       <%= text_area_tag :"settings[invoices.email.body]", Settings['invoices.email.body'], :size => "60x10" %>
     </p>
-
+    
+    <h3>Subscription trial period</h3>
+    <p>Subscription trial period (day).</p>
+    <p>
+      <%= label_tag :"settings[subscriptions.trial_period]", "Default trial period (day)" %><br />
+      <%= text_field_tag :"settings[subscriptions.trial_period]", Settings['subscriptions.trial_period'], :size => 5 %>
+    </p>
+    
     <p>
       <span class="submit"><%= submit_tag "Save settings" %></span>
     </p>

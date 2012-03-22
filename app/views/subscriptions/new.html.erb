@@ -1,0 +1,69 @@
+<h1>Update your Subscription
+  <span class='floatr'><%= image_tag('lock_active.png', :alt => 'secure page', :style => 'margin-top:5px;') %></span>
+</h1>
+
+<p class="info" style="font-size:13px">You can upgrade or downgrade anytime. Changes will become effective at next billing cycle.</p>
+
+<p id='trial_status'>You have <%= content_tag(:span, "#{pluralize(current_user.trial_days_left, 'day')} left", :id => 'days_left') %> on your Unlimited Free Trial</p>
+
+<%= form_for(@subscription) do |f| %>
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation" class="alert">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :plan_id %>
+  <div id="select-plan">
+    <% @plans.each do |plan| %>
+      <ul id="card-entries">
+        <li class="card <%= cycle('odd', 'even') %>" data-plan-id="<%= plan.id %>">
+          <div class="card-inner">
+            <h1><%= plan.name %>
+        	    <span class='floatr'>$<%= plan.price %></span>
+        	</h1>
+        	<p class="tagline"><%= simple_format(plan.features) %></p>
+          </div>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div id="billing_fields" class="inline-form">
+    <div class="field">
+      <%= f.label :card_name, "Name on Card", :class => 'mandatory' %>
+      <%= f.text_field :card_name  %>
+    </div>
+    <div class="field">
+      <%= f.label :card_number, "Card Number", :class => 'mandatory' %>
+      <%= f.text_field :card_number %>
+    </div>
+    <div class="field">
+      <%= f.label :card_code, "Security Code (CVV)", :class => 'mandatory' %>
+      <%= f.text_field :card_code, :value => "" %> <%= image_tag('cvv.png', :alt => 'CVV', :id => 'cvv') %>
+    </div>
+    <div class="field">
+      <%= label_tag :card_month, "Expires on", :class => 'mandatory' %>
+      <%= select_date @subscription.card_expiration ? Date.new(@subscription.card_expiration["year"].to_i, @subscription.card_expiration["month"].to_i, 1) : nil, :prefix => "subscription[card_expiration]", :add_month_numbers => true, :discard_day => true, :order => [:month, :year], :start_year => Time.now.year, :end_year => Time.now.year + 15 %>
+    </div>
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+    <div class="actions">
+      <!%= f.submit "Subscribe" %>
+      <span class="submit"><%= submit_tag "Confirm Subscription", disable_with: "Processing..." %></span>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    Subscriptions.Form.init();
+  });
+</script>

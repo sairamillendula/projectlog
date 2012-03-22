@@ -9,10 +9,11 @@
 <%= form_tag(plan_path, :method => :put) do %>
   <!%= label_tag :plan_id, "Select your new plan" %>
   <!%= select_tag :plan_id, options_from_collection_for_select(@plans, :id, :name, current_user.plan_id) %>
+  <%= hidden_field_tag :plan_id, current_user.plan_id %>
   <div id="select-plan">
     <% @plans.each do |plan| %>
       <ul id="card-entries">
-        <li id="card" class="<%= cycle('odd', 'even') %>">
+        <li class="card <%= cycle('odd', 'even') %> <%= current_user.plan_id == plan.id ? 'active' : '' %>" data-plan-id="<%= plan.id %>">
           <div class="card-inner">
             <h1><%= plan.name %>
         	    <span class='floatr'>$<%= plan.price %></span>
@@ -34,20 +35,24 @@
     <!% else %>
       <div class="field">
         <%= label_tag :card_name, "Name on Card", :class => 'mandatory' %>
-        <%= text_field_tag :card_name, nil, name: nil %>
+        <%= text_field_tag :card_name, nil %>
+      </div>
+      <div class="field">
+        <%= label_tag :card_type, "Card Type", :class => 'mandatory' %>
+        <%= select_tag :card_type, options_for_select(["Visa", "Master"]) %>
       </div>
       <div class="field">
         <%= label_tag :card_number, "Card Number", :class => 'mandatory' %>
-        <%= text_field_tag :card_number, nil, name: nil %>
+        <%= text_field_tag :card_number, nil %>
       </div>
       <div class="field">
         <%= label_tag :card_code, "Security Code (CVV)", :class => 'mandatory' %>
-        <%= text_field_tag :card_code, nil, name: nil %> <%= image_tag('cvv.png', :alt => 'CVV', :id => 'cvv') %>
+        <%= text_field_tag :card_code, nil %> <%= image_tag('cvv.png', :alt => 'CVV', :id => 'cvv') %>
       </div>
       <div class="field">
         <%= label_tag :card_month, "Expires on", :class => 'mandatory' %>
-        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+        <%= select_month nil, {add_month_numbers: true}, {id: "card_month"} %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {id: "card_year"} %>
       </div>
     <!% end %>
     <div id="stripe_error">
@@ -60,3 +65,8 @@
   </div>
 <% end %>
 
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    Plans.Edit.init();
+  });
+</script>
