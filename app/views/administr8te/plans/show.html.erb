@@ -4,10 +4,7 @@
   <li class="buttonorange"><%= link_to '+ New Plan', new_administr8te_plan_path %></li>
 </ul>
 
-<p>
-  <b>Name:</b>
-  <%= @plan.name %>
-</p>
+<h1><%= @plan.name %></h1>
 
 <p>
   <b>Features:</b>
@@ -21,10 +18,15 @@
 
 <p>
   <b>Price:</b>
-  <%= @plan.price %>
+  $<%= @plan.price %>
 </p>
 
 <p>
   <b>Status:</b>
   <%= @plan.active? ? 'Active' : 'Inactive' %>
+</p>
+
+<p>
+  <b>Displayable:</b>
+  <%= @plan.displayable? ? 'Yes' : 'No' %>
 </p>

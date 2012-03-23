@@ -1,4 +1,4 @@
-<p class="info">Fill out the form below to change your subscription information or cancel your subscription. If you do not want to change your subscription, you can go back to <%= link_to 'Managing your Subscription', current_subscriptions_path %></p>
+<p class="info" style="font-size:13px">Change your subscription information or cancel your subscription. You can also return to your <%= link_to 'Current Subscription', current_subscriptions_path %></p>
 
 <h1>Change Payment Method</h1>
 <%= form_for(@subscription) do |f| %>
@@ -35,8 +35,7 @@
       <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
     </div>
     <div class="actions">
-      <!%= f.submit "Subscribe" %>
-      <span class="submit"><%= submit_tag "Change Payment", disable_with: "Processing..." %></span>
+      <p class="submit"><%= submit_tag "Change Payment", disable_with: "Processing..." %></p>
     </div>
   </div>
 <% end %>
