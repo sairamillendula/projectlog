@@ -28,8 +28,13 @@ div#select-plan {
 		width: 140px;
 	}
 	
-	&input {width:184px;}
-	#card_code {width: 55px;}
+	#subscription_card_name, #subscription_card_number {width:184px;}
+	#subscription_card_code {width: 55px;}
+	
+	&p.submit {
+		margin-left:150px;
+		&input {width: 162px;}
+	}
 }
 
 img#cvv {position: relative; top:5px;}

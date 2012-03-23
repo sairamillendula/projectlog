@@ -66,4 +66,7 @@ puts "Creating transactions..."
   transaction.save
 end
 
+puts "Creating plans..."
+Plan.create(name: 'Premium', description: 'Sole Paying Plan', price: '15', active: true, displayable: true)
+
 puts "All set"
