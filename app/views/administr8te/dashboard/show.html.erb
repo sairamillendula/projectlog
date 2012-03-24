@@ -1,5 +1,5 @@
 <p class="right info" style='font-size: 13px;'>
-  <b><%= pluralize(User.standard.recently_online.count, 'user') %></b> connected within the last 5 minutes ||
+  <b><%= pluralize(@recently_online_users.count, 'user') %></b> connected within the last 5 minutes ||
   Server Time: <b><%= Time.zone.now %></b>
 </p>
 
