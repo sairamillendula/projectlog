@@ -29,6 +29,11 @@
     <%= f.text_field :price, :size => '8' %>
   </div>
   <div class="field">
+    <%= f.label :frequency, :class => 'mandatory' %>
+    <%= f.select(:frequency, Plan::FREQUENCY, {:prompt => true}) %>
+    <%=  %>
+  </div>
+  <div class="field">
     <%= f.label :active, :class => 'mandatory' %>
     <%= f.radio_button :active, true %> Active
     <%= f.radio_button  :active, false %> Inactive
