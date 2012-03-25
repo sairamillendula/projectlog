@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
   before_filter :load_plans, :only => [:new, :create]
   
   def new
-    @subscription = current_user.subscriptions.build
+    @subscription = current_user.subscriptions.build(card_name: 'John Doe', card_number: '5468402944292202')
   end
   
   def create
@@ -11,7 +11,7 @@ class SubscriptionsController < ApplicationController
     @subscription.start_date = Time.now
     @subscription.validate_card = true
     if @subscription.save
-      redirect_to success_subscription_url, :notice => "Your subscription has been successfully updated."
+      redirect_to success_subscription_url(@subscription), :notice => "Your subscription has been successfully updated."
     else
       render :action => :new
     end
@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.valid?
       new_profile_options = @subscription.profile_options.merge(profile_id: @subscription.paypal_profile_id)
       if @subscription.update_profile(new_profile_options)
-        redirect_to current_subscriptions_url, notice: "Your subscription has been successfully updated."
+        redirect_to success_subscriptions_url, notice: "Your subscription has been successfully updated."
       else
         render action: :edit
       end
@@ -62,12 +62,12 @@ class SubscriptionsController < ApplicationController
   end
   
   def success
-    @transaction = current_user.subscription_transactions.first
+    @transaction = current_user.subscriptions.find_by_slug(params[:id])
   end
   
   def receipt
     @subscription = current_user.current_subscription
-    @transaction = @subscription.subscription_transactions.find(params[:code])
+    @transaction = @subscription.subscription_transactions.find_by_code(params[:code])
     
     respond_to do |format|
       format.pdf

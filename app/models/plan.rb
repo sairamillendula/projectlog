@@ -1,13 +1,15 @@
 class Plan < ActiveRecord::Base
   has_many :users, :dependent => :restrict
   
-  attr_accessible :name, :description, :features, :price, :active, :displayable
+  attr_accessible :name, :description, :features, :price, :active, :displayable, :frequency
   validates_presence_of :name, :price, :description
   validates_uniqueness_of :name
   
   scope :active, where(:active => true)
   scope :displayable, where(:displayable => true)
   scope :free, find_by_name("free")
+  
+  FREQUENCY = ['Month']
   
   def features # Make sure features doesn't return nil
     self[:features] || ""

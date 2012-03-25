@@ -1,15 +1,19 @@
 <h1>Payment History</h1>
-<% unless current_user.subscription_transactions.blank? %>
-  <table>
-  <% current_user.subscription_transactions.order('created_at DESC').each do |transaction| %>
-    <tr>
-      <td><%= transaction.created_at.strftime("%B %d, %Y") %></td>
-      <td>Transaction #<%= transaction.code %></td>
-      <td><%= number_to_currency(transaction.amount) %></td>
-      <td><%= link_to "Printable Receipt (PDF)", receipt_subscription_payment_path(current_user.current_subscription, transaction.code) %></td>
-    </tr>
+<% if current_user.current_subscription %>
+  <% if current_user.subscription_transactions.blank? %>
+    <p>You will find your billing history here as soon as we hear back from our payment gateway. It may take a few hours but this is normal.</p>
+  <% else %>
+    <table>
+    <% current_user.subscription_transactions.order('created_at DESC').each do |transaction| %>
+      <tr>
+        <td><%= transaction.created_at.strftime("%B %d, %Y") %></td>
+        <td>Transaction #<%= transaction.code %></td>
+        <td><%= number_to_currency(transaction.amount) %></td>
+        <td><%= link_to "Printable Receipt (PDF)", receipt_subscription_payment_path(current_user.current_subscription, transaction.code) %></td>
+      </tr>
+    <% end %>
+    </table>
   <% end %>
-  </table>
 <% end %>
 
 <h2>Your current plan: <%= current_user.plan.name %></h2>

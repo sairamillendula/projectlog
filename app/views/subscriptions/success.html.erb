@@ -1,10 +1,6 @@
 <div id="image">
-  <%= image_tag('check.png') %>
-</div>
-
-<div id="receipt">
-  <p>Date <%= @transaction.created_at %></p>
-  <p>Date <%= @transaction.created_at %></p>
-  <p>Date <%= @transaction.created_at %></p>
-  <p>Date <%= @transaction.created_at %></p>
+  <%= image_tag('check.png') %><br />
+  <p><%= @transaction.user.full_name %>, thank you for choosing the <%= @transaction.plan.name %> plan.</p>
+  <p>We sent you an email to confirm this change as well.</p>
+  <p><%= link_to 'Manage Subscription', current_subscriptions_path, :class => 'buttonorange' %></p>
 </div>
