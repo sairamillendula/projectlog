@@ -24,10 +24,19 @@ class Administr8te::ClientsController < Administr8te::BaseController
     end
   end
   
+  def transactions
+    @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
 private
 
   def sort_column
-    User.column_names.include?(params[:sort]) ? params[:sort] : "email"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
 
   def sort_direction

@@ -93,11 +93,13 @@ Projectlog::Application.routes.draw do
       member do
         get 'summary'
         get 'profile'
+        get 'transactions'
       end
     end
     resources :plans
     resources :announcements
     resources :emailings
+    resources :subscriptions, :only => [:index, :show]
     resource :logs, :only => [ :show ]
   end
   

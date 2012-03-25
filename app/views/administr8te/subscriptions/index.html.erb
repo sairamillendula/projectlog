@@ -1,0 +1,34 @@
+<h1>Subcriptions Transactions</h1>
+
+<span id="export" class="right">
+  <%= form_tag administr8te_subscriptions_path, :method => 'get' do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <%= text_field_tag :search, params[:search] %>
+    <span class="small submit"><%= submit_tag "Search", :name => nil %></span>
+  <% end %>
+</span>
+
+<table class="admin">
+  <tr>
+    <th><%= sortable "created_at", {}, "Date" %></th>
+    <th><%= sortable "user" %></th>
+    <th><%= sortable "code" %></th>
+    <th><%= sortable "amount" %></th>
+    <th><%= sortable "subscription_id", {}, "Subscription ID" %></th>
+  </tr>
+
+<% for subscription in @subscriptions %>
+  <tr>
+    <td><%= subscription.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+    <td><%= link_to subscription.user.full_name, transactions_administr8te_client_path(subscription.user), :remote => true %></td>
+    <td><%= subscription.code %></td>
+    <td><%= subscription.amount %></td>
+    <td><%= subscription.subscription_id %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="right">
+   <%= paginate @subscriptions, :params => { :controller => "administr8te/subscriptions", :action => "index" } %>
+</div>

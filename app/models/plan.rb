@@ -21,5 +21,9 @@ class Plan < ActiveRecord::Base
     max_plan = Plan.active.order('price DESC').first
     self == max_plan
   end
+  
+  def costing?
+    price > 0
+  end
 
 end
