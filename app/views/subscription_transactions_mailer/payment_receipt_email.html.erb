@@ -113,7 +113,7 @@
 		<tr>
 			<td bgcolor="#456265" width="600" class="promocell">
 			  <multiline label="Main feature intro">
-				<p style="font-size:16px; color:#e1d8c1; font-weight:bold; padding-bottom:0;">Welcome to Projectlog <%= @user.first_name%>!</p>
+				<p style="font-size:20px; color:#e1d8c1; font-weight:bold; padding-bottom:0;">Projectlog Payment Receipt</p>
 			  </multiline>
 			</td>
 		</tr>
@@ -131,10 +131,16 @@
 					<tr>
 						<td bgcolor="#ffffff" class="contentblock">
 
-							<h4 class="secondary"><strong><singleline label="Title">Get Started</singleline></strong></h4>
 							<multiline label="Description">
-							  <p>Projectlog helps you track time, submit timesheet, send invoices and track expenses/revenues. The Easy way!</p>
-							  <p style="margin-bottom:0;">Your account is accessible anytime at <%= login_url(:host => "projectlogapp.com") %></p>
+							  <p>Here is the invoice for your Projectlog subscription. Paid in full up to date. No payment is due.</p>
+
+                                <p><b>Date:</b> <%= @transaction.created_at.strftime("%d-%m-%Y %H:%M") %></p>
+                                <p><b>Transaction Number:</b> <%= @transaction.code %></p>
+                                <p><b>Plan:</b> <%= @transaction.subscription.plan.name %></p>
+                                <p><b>Amount charged:</b> $<%= @transaction.amount %> (USD)</p>
+                                <p><b>Company:</b> <%= @transaction.user.profile.company %></p>
+                                <p><b>Name:</b> <%= @transaction.user.full_name %></p>
+                                <p><b>Card Type:</b> <!%= @transaction.card_type %></p>
 							</multiline>
 
 						</td>
@@ -156,13 +162,16 @@
 					<tr>
 						<td bgcolor="#ffffff" class="contentblock">
 
-							<h4 class="secondary"><strong><singleline label="Title">Get Help</singleline></strong></h4>
-							<multiline label="Description"><p>Feel free to contact us if your require assistance.</p>
-							  <ul style="margin-bottom: 0px;">
-							    <li><a href="http://getprojectlog.com/help">Find answers in the Knowledge Base</a></li>
-							    <li>Reply to this message</li>
-							    <li>Connect to <a href="http://twitter.com/getprojectlog">Twitter</a></li>
-							  </ul>
+							<multiline label="Description">
+                              Projectlog<br />
+                              65 Blvd Fournier<br />
+                              Gatineau, QC, J8X3P6<br />
+                              Canada<br /><br />
+
+                              contact@getprojectlog.com<br />
+                              http://getprojectlog.com<br /><br />
+
+                              Thank you for subscribing!
 							</multiline>
 
 						</td>
@@ -182,3 +191,4 @@
 	</table>
 </body>
 </html>
+<%= render :file => 'subscriptions/receipt' %>

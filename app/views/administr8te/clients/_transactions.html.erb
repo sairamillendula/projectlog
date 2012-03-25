@@ -1,3 +1,4 @@
+<% if @user.subscription_transactions.any? %>
 <table>
   <tr>
     <th>Date</th>
@@ -13,3 +14,7 @@
   </tr>
   <% end %>
 </table>
+
+<% else %>
+  <p style='text-align:center;'>Looks like we haven't heard back from PayPal yet</p>
+<% end %>
