@@ -13,7 +13,12 @@ Projectlog::Application.routes.draw do
       get 'current'
       post 'reactivate'
     end
+    
+    member do
+      get 'success'
+    end
   end
+  get 'subscriptions/:slug/payments/:code', :controller => 'subscriptions', :action => 'receipt', :as => 'receipt_subscription_payment'
   
   resources :categories do
     member do
@@ -54,13 +59,16 @@ Projectlog::Application.routes.draw do
       get 'closed'
       get 'quick'
     end
+    
     resources :activities
     
     member do
       get 'expenses'
     end
   end
+  
   resources :activities
+  resources :transactions
   
   resources :reports do
     collection do

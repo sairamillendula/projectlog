@@ -1,12 +1,12 @@
 <h1>Payment History</h1>
 <% unless current_user.subscription_transactions.blank? %>
   <table>
-  <% for transaction in current_user.subscription_transactions %>
+  <% current_user.subscription_transactions.order('created_at DESC').each do |transaction| %>
     <tr>
       <td><%= transaction.created_at.strftime("%B %d, %Y") %></td>
       <td>Transaction #<%= transaction.code %></td>
       <td><%= number_to_currency(transaction.amount) %></td>
-      <td><%= link_to "Printable Receipt (PDF)" %></td>
+      <td><%= link_to "Printable Receipt (PDF)", receipt_subscription_payment_path(current_user.current_subscription, transaction.code) %></td>
     </tr>
   <% end %>
   </table>

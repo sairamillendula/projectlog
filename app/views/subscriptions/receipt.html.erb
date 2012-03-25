@@ -1,0 +1,22 @@
+<h1>Projectlog Subscription Receipt</h1>
+
+<p>Here is the invoice for your Projectlog subscription. Paid in full up to date. No payment is due.</p><br />
+
+<p><b>Date:</b> <%= @transaction.created_at.strftime("%d-%m-%Y %H:%M") %></p>
+<p><b>Transaction Number:</b> <%= @transaction.code %></p>
+<p><b>Plan:</b> <%= @transaction.subscription.plan.name %></p>
+<p><b>Amount charged:</b> $<%= @transaction.amount %> (USD)</p>
+<p><b>Company:</b> <%= @transaction.user.profile.company %></p>
+<p><b>Name:</b> <%= @transaction.user.full_name %></p>
+<p><b>Card Type:</b> <!%= @transaction.card_type %></p>
+
+<br />
+Projectlog<br />
+65 Blvd Fournier<br />
+Gatineau, QC, J8X3P6<br />
+Canada<br /><br />
+
+contact@getprojectlog.com<br />
+http://getprojectlog.com<br /><br />
+
+Thank you for subscribing!

@@ -11,7 +11,7 @@ class SubscriptionsController < ApplicationController
     @subscription.start_date = Time.now
     @subscription.validate_card = true
     if @subscription.save
-      redirect_to edit_user_registration_url, :notice => "Your plan has been updated!"
+      redirect_to success_subscription_url, :notice => "Your subscription has been successfully updated."
     else
       render :action => :new
     end
@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.valid?
       new_profile_options = @subscription.profile_options.merge(profile_id: @subscription.paypal_profile_id)
       if @subscription.update_profile(new_profile_options)
-        redirect_to current_subscriptions_url, notice: "Your subscription has been updated successfully."
+        redirect_to current_subscriptions_url, notice: "Your subscription has been successfully updated."
       else
         render action: :edit
       end
@@ -48,7 +48,7 @@ class SubscriptionsController < ApplicationController
   end
   
   def current
-    
+    @subscription = current_user.current_subscription
   end
   
   def reactivate
@@ -61,7 +61,21 @@ class SubscriptionsController < ApplicationController
     end
   end
   
-  private
+  def success
+    @transaction = current_user.subscription_transactions.first
+  end
+  
+  def receipt
+    @subscription = current_user.current_subscription
+    @transaction = @subscription.subscription_transactions.find(params[:code])
+    
+    respond_to do |format|
+      format.pdf
+      format.html
+    end
+  end
+  
+private
   
   def load_plans
     @plans = Plan.active.displayable.where("price > 0").order('price ASC') 

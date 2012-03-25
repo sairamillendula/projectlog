@@ -3,6 +3,7 @@ class Subscription < ActiveRecord::Base
   
   belongs_to :plan
   belongs_to :user
+  has_many :subscription_transactions
   
   attr_accessor :card_name, :card_number, :card_code, :card_expiration, :validate_card
   
