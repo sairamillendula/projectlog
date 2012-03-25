@@ -1,7 +1,7 @@
 class SubscriptionTransactionObserver < ActiveRecord::Observer
   
   def after_create(transaction)
-    # TODO: send invoice email
+    SubscriptionTransactionMailer.payment_receipt_email(transaction).deliver
   end
 end
 
