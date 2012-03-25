@@ -7,6 +7,7 @@ class Administr8te::SubscriptionsController < Administr8te::BaseController
   end
   
 private
+
   def sort_column
     SubscriptionTransaction.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end

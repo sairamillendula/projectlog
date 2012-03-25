@@ -1,16 +1,21 @@
 Projectlog::Application.routes.draw do
   root :to => 'dashboard#show'
-    
-  resources :transactions
+  
   resources :subscriptions, :only => [:new, :create, :edit, :update] do
     collection do
       delete 'cancel'
       get 'current'
       post 'reactivate'
     end
+    
+    member do
+      get 'success'
+    end
   end
   
   get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
+  get 'subscriptions/:slug/payments/:code', :controller => 'subscriptions', :action => 'receipt', :as => 'receipt_subscription_payment'
+  
   resources :categories do
     member do
       get 'expenses'
@@ -46,18 +51,20 @@ Projectlog::Application.routes.draw do
   end
   
   resources :projects do
-    
     collection do
       get 'closed'
       get 'quick'
     end
+    
     resources :activities
     
     member do
       get 'expenses'
     end
   end
+  
   resources :activities
+  resources :transactions
   
   resources :reports do
     collection do

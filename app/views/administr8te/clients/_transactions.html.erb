@@ -5,9 +5,9 @@
     <th>Code</th>
   </tr>
   
-  <% @user.subscription_transactions.each do |transaction| %>
+  <% @user.subscription_transactions.order('created_at DESC').each do |transaction| %>
   <tr>
-    <td><%= transaction.created_at.strftime("%d-%m-%Y %H:%M") %></td>
+    <td><%= transaction.created_at.strftime("%d-%m-%Y %H:%M:%S") %></td>
     <td><%= transaction.amount %></td>
     <td><%= transaction.code %></td>
   </tr>
