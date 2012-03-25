@@ -4,7 +4,6 @@ gem 'rails', '3.2.2'
 
 gem 'mysql2'
 gem 'devise'
-gem 'heroku'
 gem 'jquery-rails'
 gem 'tabs_on_rails'
 gem 'kaminari'
