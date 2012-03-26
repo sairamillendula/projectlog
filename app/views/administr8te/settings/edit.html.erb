@@ -1,7 +1,7 @@
 <%= form_tag administr8te_settings_path, :method => :put do %>
   <div>
     <h3>Report email settings</h3>
-    <p>These fields are shown by default when an user tries to send a report via email.</p>
+    <p class="info">These fields are shown by default when user sends a report by email.</p>
 
     <p>
       <%= label_tag :"settings[reports.email.subject]", "Default subject" %>
@@ -10,12 +10,12 @@
 
     <p>
       <%= label_tag :"settings[reports.email.body]", "Default body" %><br />
-      <small>The <code>%{report_link}</code> tag will be dynamically replaced with the actual link to the report.</small> <br />
+      <span class='highlight'>The <code>%{report_link}</code> tag will be dynamically replaced with the actual link to the report.</span><br />
       <%= text_area_tag :"settings[reports.email.body]", Settings['reports.email.body'], :size => "60x10" %>
     </p>
 
     <h3>Invoice email settings</h3>
-    <p>These fields are shown by default when an user tries to send an invoice via email.</p>
+    <p class="info">These fields are shown by default when user sends an invoice by email.</p>
 
     <p>
       <%= label_tag :"settings[invoices.email.subject]", "Default subject" %>
@@ -24,15 +24,23 @@
 
     <p>
       <%= label_tag :"settings[reports.email.body]", "Default body" %><br />
-      <small>The <code>%{invoice_link}</code> tag will be dynamically replaced with the actual link to the invoice.</small> <br />
+      <span class='highlight'>The <code>%{invoice_link}</code> tag will be dynamically replaced with the actual link to the invoice.</span><br />
       <%= text_area_tag :"settings[invoices.email.body]", Settings['invoices.email.body'], :size => "60x10" %>
     </p>
     
-    <h3>Subscription trial period</h3>
-    <p>Subscription trial period (day).</p>
+    <h3>Subscriptions</h3>
     <p>
-      <%= label_tag :"settings[subscriptions.trial_period]", "Default trial period (day)" %><br />
+      <%= label_tag :"settings[subscriptions.trial_period]", "Default Trial Period (day)" %>
       <%= text_field_tag :"settings[subscriptions.trial_period]", Settings['subscriptions.trial_period'], :size => 5 %>
+    </p>
+    <p>
+      <%= label_tag :"settings.defaults[subscriptions.max_failed_payments]", "Max failed payments before we cancel subscription" %>
+      <%= text_field_tag :"settings.defaults[subscriptions.max_failed_payments]", Settings.defaults['subscriptions.max_failed_payments'], :size => 5 %>
+    </p>
+    <p>
+      <%= label_tag :"settings[subscription_receipt_signature]", "Subscription Transaction Default Receipt Signature" %><br />
+      <span <span class='highlight'>This is used in both PDF and Email receipt</span><br />
+      <%= text_area_tag :"settings[subscription_receipt_signature]", Settings['subscription_receipt_signature'], :size => "60x16" %>
     </p>
     
     <p>
