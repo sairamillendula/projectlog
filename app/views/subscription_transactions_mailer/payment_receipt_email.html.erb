@@ -163,15 +163,7 @@
 						<td bgcolor="#ffffff" class="contentblock">
 
 							<multiline label="Description">
-                              Projectlog<br />
-                              65 Blvd Fournier<br />
-                              Gatineau, QC, J8X3P6<br />
-                              Canada<br /><br />
-
-                              contact@getprojectlog.com<br />
-                              http://getprojectlog.com<br /><br />
-
-                              Thank you for subscribing!
+                              <%= simple_format(Settings.defaults['subscription_receipt_signature']) %>
 							</multiline>
 
 						</td>
@@ -191,4 +183,3 @@
 	</table>
 </body>
 </html>
-<%= render :file => 'subscriptions/receipt' %>

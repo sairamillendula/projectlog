@@ -4,16 +4,27 @@ Settings.defaults['reports.email.body'] =
 
 Click the following link to see the report: %{report_link}
 
-Bye!
-"
+Bye!"
+
 Settings.defaults['invoices.email.subject'] = "Invoice for %{invoice_subject} from %{user_company}"
 Settings.defaults['invoices.email.body'] = "Hello,
 
 I wish to submit an invoice for our project.
 Click the following link to see the invoice in your browser: %{invoice_link}
 
-Bye!
-"
+Bye!"
+
 Settings.defaults['subscriptions.trial_period'] = 30
 Settings.defaults['subscriptions.max_failed_payments'] = 3
 Settings.defaults['subscriptions.auto_bill_outstanding'] = true
+
+Settings.defaults['subscription_receipt_signature'] = "
+Projectlog
+65 Blvd Fournier
+Gatineau, QC, J8X3P6 
+Canada
+
+contact@getprojectlog.com
+http://getprojectlog.com
+
+Thank you for subscribing!"

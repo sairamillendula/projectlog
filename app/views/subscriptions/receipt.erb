@@ -1,4 +1,5 @@
-<h1>Projectlog Subscription Receipt</h1>
+<%= image_tag("195.png") %>
+<h2>Projectlog Subscription Receipt</h2>
 
 <p>Here is the invoice for your Projectlog subscription. Paid in full up to date. No payment is due.</p><br />
 
@@ -8,15 +9,7 @@
 <p><b>Amount charged:</b> $<%= @transaction.amount %> (USD)</p>
 <p><b>Company:</b> <%= @transaction.user.profile.company %></p>
 <p><b>Name:</b> <%= @transaction.user.full_name %></p>
-<p><b>Card Type:</b> <!%= @transaction.card_type %></p>
+<p><b>Card Type:</b> <%= @transaction.subscription.card_type %></p>
 
 <br />
-Projectlog<br />
-65 Blvd Fournier<br />
-Gatineau, QC, J8X3P6<br />
-Canada<br /><br />
-
-contact@getprojectlog.com<br />
-http://getprojectlog.com<br /><br />
-
-Thank you for subscribing!
+<%= simple_format(Settings.defaults['subscription_receipt_signature']) %>
