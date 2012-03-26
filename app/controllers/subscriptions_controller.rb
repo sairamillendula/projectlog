@@ -70,7 +70,7 @@ class SubscriptionsController < ApplicationController
     @transaction = @subscription.subscription_transactions.find_by_code(params[:code])
     
     respond_to do |format|
-      format.pdf
+      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'receipt.html', :layout => 'pdfattach')).to_pdf }
       format.html
     end
   end

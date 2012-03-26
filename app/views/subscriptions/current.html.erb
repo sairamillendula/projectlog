@@ -9,7 +9,7 @@
         <td><%= transaction.created_at.strftime("%B %d, %Y") %></td>
         <td>Transaction #<%= transaction.code %></td>
         <td><%= number_to_currency(transaction.amount) %></td>
-        <td><%= link_to "Printable Receipt (PDF)", receipt_subscription_payment_path(current_user.current_subscription, transaction.code) %></td>
+        <td><%= link_to "Printable Receipt (PDF)", receipt_subscription_payment_path(current_user.current_subscription, transaction.code, format: 'pdf') %></td>
       </tr>
     <% end %>
     </table>
