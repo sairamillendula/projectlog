@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
   def create
     @subscription = current_user.subscriptions.build(params[:subscription])
     @subscription.start_date = Time.now
-    @subscription.validate_card = true
+    @subscription.do_validate_card = true
     if @subscription.save
       redirect_to success_subscription_url(@subscription), :notice => "Your subscription has been successfully updated."
     else

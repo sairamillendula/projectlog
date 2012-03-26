@@ -5,10 +5,11 @@ class Subscription < ActiveRecord::Base
   belongs_to :user
   has_many :subscription_transactions
   
-  attr_accessor :card_name, :card_number, :card_code, :card_expiration, :validate_card
+  attr_accessor :card_name, :card_number, :card_code, :card_expiration, :do_validate_card
   
-  validates :plan_id, :card_name, :card_number, :card_code, :card_expiration, :presence => true, :if => Proc.new{|s| !s.validate_card.blank?}
+  validates :plan_id, :card_name, :card_number, :card_code, :card_expiration, :presence => true, :if => Proc.new{|s| !s.do_validate_card.blank?}
   after_validation :generate_slug
+  before_create :extract_card_type
   
   def to_param
     slug
@@ -59,11 +60,20 @@ class Subscription < ActiveRecord::Base
       :description => plan.description,
       :period => plan.frequency,
       :frequency => 1,
-      :email => user.email
+      :email => user.email,
+      :max_failed_payments => Settings['max_failed_payments'],
+      :auto_bill_outstanding => Settings['auto_bill_outstanding']
     }
   end
   
   private
+  
+  def extract_card_type
+    cc = credit_card
+    cc.valid? # let active merchant determine credit card type for us
+    self.card_type = cc.type
+    self.currency = "USD"
+  end
   
   def generate_slug
     self.slug = Devise.friendly_token.downcase if slug.nil?
