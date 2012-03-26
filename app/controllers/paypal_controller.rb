@@ -31,14 +31,24 @@ class PaypalController < ApplicationController
   
   # user has been billed
   def recurring_payment(notify)
-    subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-    subscription.next_payment_date = Time.zone.parse(notify.params['next_payment_date'])
-    subscription.save
+    Subscription.transaction do
+      subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
+      puts notify.params['next_payment_date']
+      subscription.next_payment_date = Time.strptime(params['next_payment_date'], "%H:%M:%S %b %d, %Y %Z").in_time_zone
+      subscription.save(validate: false)
     
-    SubscriptionTransaction.create(code: notify.transaction_id, 
-                                   amount: subscription.plan.price, 
-                                   subscription_id: subscription.id, 
-                                   user_id: subscription.user_id)
+      transaction = SubscriptionTransaction.new(code: notify.transaction_id, 
+                                     amount: subscription.plan.price, 
+                                     subscription_id: subscription.id, 
+                                     user_id: subscription.user_id)
+      if transaction.save                               
+        begin
+          SubscriptionTransactionsMailer.payment_receipt_email(transaction).deliver
+        rescue
+          
+        end
+      end
+    end
   end
   
   def recurring_payment_failed(notify)
@@ -59,8 +69,8 @@ class PaypalController < ApplicationController
   # profile created, not billed yet
   def recurring_payment_profile_created(notify)
     subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-    subscription.next_payment_date = Time.zone.parse(notify.params['next_payment_date'])
-    subscription.save
+    subscription.next_payment_date = Time.strptime(params['next_payment_date'], "%H:%M:%S %b %d, %Y %Z").in_time_zone
+    subscription.save(validate: false)
   end
   
   def recurring_payment_profile_cancel(notify)
