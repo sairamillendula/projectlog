@@ -24,11 +24,11 @@ class SubscriptionsController < ApplicationController
   def update
     @subscription = current_user.current_subscription
     @subscription.assign_attributes(params[:subscription])
-    @subscription.validate_card = true
+    @subscription.do_validate_card = true
     if @subscription.valid?
       new_profile_options = @subscription.profile_options.merge(profile_id: @subscription.paypal_profile_id)
       if @subscription.update_profile(new_profile_options)
-        redirect_to success_subscriptions_url, notice: "Your subscription has been successfully updated."
+        redirect_to success_subscription_url(@subscription), notice: "Your subscription has been successfully updated."
       else
         render action: :edit
       end
