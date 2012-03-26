@@ -1,11 +1,9 @@
-<p class="info" style="font-size:13px">Change your subscription information or cancel your subscription. You can also return to your <%= link_to 'Current Subscription', current_subscriptions_path %></p>
+<p class="info" style="font-size:13px">Change your subscription information or cancel your subscription. You can also return to <%= link_to 'Current Subscription', current_subscriptions_path %></p>
 
 <h1>Change Payment Method</h1>
 <%= form_for(@subscription) do |f| %>
   <% if @subscription.errors.any? %>
     <div id="error_explanation" class="alert">
-      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
-
       <ul>
       <% @subscription.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -27,7 +25,7 @@
       <%= f.label :card_code, "Security Code (CVV)", :class => 'mandatory' %>
       <%= f.text_field :card_code, :value => "" %> <%= image_tag('cvv.png', :alt => 'CVV', :id => 'cvv') %>
     </div>
-    <div class="field">
+    <div class="field" style='clear:both;'>
       <%= label_tag :card_month, "Expires on", :class => 'mandatory' %>
       <%= select_date @subscription.card_expiration ? Date.new(@subscription.card_expiration["year"].to_i, @subscription.card_expiration["month"].to_i, 1) : nil, :prefix => "subscription[card_expiration]", :add_month_numbers => true, :discard_day => true, :order => [:month, :year], :start_year => Time.now.year, :end_year => Time.now.year + 15 %>
     </div>
@@ -35,10 +33,10 @@
       <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
     </div>
     <div class="actions">
-      <p class="submit"><%= submit_tag "Change Payment", disable_with: "Processing..." %></p>
+      <p class="submit"><%= submit_tag "Update Payment", disable_with: "Processing..." %></p>
     </div>
   </div>
 <% end %>
 
 <h1>Or cancel your subscription</h1>
-<%= link_to 'Cancel Subscription', cancel_subscriptions_path, :confirm => "Are you sure?", :method => :delete, :class => 'buttonorange' %>
+<%= link_to 'Cancel Subscription', cancel_subscriptions_path, :confirm => "Are you sure you want to cancel your subscription?", :method => :delete, :class => 'buttonorange' %>

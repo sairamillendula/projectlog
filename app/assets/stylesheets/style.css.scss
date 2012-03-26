@@ -105,7 +105,8 @@ p.info {
 
 .active { background: #6cc644; }
 .inactive { background: #f26535; }
-.field_with_errors label { color: #c00; } 
+.field_with_errors label { color: #c00; }
+.field_with_errors { display: inline; }
 
 /* Header */
 header {
@@ -718,6 +719,7 @@ div.field {
 	&:active {
 		background: #eeeeee image-url("white-grad-active.png") repeat-x scroll 0% 0%;
 	}
+	&:disabled {border-color: #bbbbbb; color: #464646; cursor: default;}
 }
 
 .small.submit input {
