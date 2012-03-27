@@ -26,15 +26,16 @@ Projectlog::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # Getprojectlog Email server setup
-  config.action_mailer.delivery_method = :smtp
-      ActionMailer::Base.smtp_settings = {  
-        :address              => "mail.projectlogapp.com",  
-        :port                 => 587,
-        :user_name            => "notifications+projectlogapp.com",  
-        :password             => "10eytd10",  
-        :authentication       => "plain",  
-        :enable_starttls_auto => false
-      }
+  # config.action_mailer.delivery_method = :smtp
+  #     ActionMailer::Base.smtp_settings = {  
+  #       :address              => "mail.projectlogapp.com",  
+  #       :port                 => 587,
+  #       :user_name            => "notifications+projectlogapp.com",  
+  #       :password             => "10eytd10",  
+  #       :authentication       => "plain",  
+  #       :enable_starttls_auto => false
+  #     }
+  config.action_mailer.delivery_method = :letter_opener
   
   # Used by the letter_opener gem to show email in browser
   #config.action_mailer.delivery_method = :letter_opener

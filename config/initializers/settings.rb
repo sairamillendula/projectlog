@@ -16,7 +16,8 @@ Bye!"
 
 Settings.defaults['subscriptions.trial_period'] = 30
 Settings.defaults['subscriptions.max_failed_payments'] = 3
-Settings.defaults['subscriptions.auto_bill_outstanding'] = true
+Settings.defaults['subscriptions.auto_bill_outstanding'] = false
+Settings.defaults['subscriptions.default_costing_plan_id'] = 2
 
 Settings.defaults['subscription_receipt_signature'] = "
 Projectlog

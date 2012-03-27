@@ -8,6 +8,7 @@ class SubscriptionsController < ApplicationController
   
   def create
     @subscription = current_user.subscriptions.build(params[:subscription])
+    @subscription.plan = Plan.find(Settings['subscriptions.default_costing_plan_id'])
     @subscription.start_date = Time.now
     @subscription.do_validate_card = true
     if @subscription.save
@@ -65,7 +66,7 @@ class SubscriptionsController < ApplicationController
     @subscription.assign_attributes(params[:subscription])
     @subscription.do_validate_card = true
     if @subscription.valid?
-      if @subscription.modify(params[:subscription].merge(:timeframe => current_user.plan.costing? ? :renewal : :now))
+      if @subscription.modify(params[:subscription].merge(:plan => @subscription.plan, :timeframe => current_user.plan.costing? ? :renewal : :now))
         redirect_to current_subscriptions_url, :notice => "Your subscription has been reactivated successfully."
       else
         redirect_to current_subscriptions_url, alert: "Failed to reactivate your subscription, please contact system administrator."

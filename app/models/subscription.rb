@@ -16,7 +16,6 @@ class Subscription < ActiveRecord::Base
   end
   
   def activate
-    self.modify_on = nil
     self.active = true
     self.save!
     user.current_subscription = self
@@ -29,6 +28,7 @@ class Subscription < ActiveRecord::Base
     self.active = false
     self.save!
     
+    user.current_subscription = nil
     user.plan_id = Plan.find_by_name("Free").id
     user.save!
   end

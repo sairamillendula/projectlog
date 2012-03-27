@@ -5,13 +5,12 @@ class PaypalController < ApplicationController
   class SubscriptionError < Exception;end
   
   def ipn
-    transaction_types = [""]
     puts "Received IPN"
     notify = Paypal::Notification.new(request.raw_post)
     if notify.acknowledge
       begin
         txn_type = notify.type
-        
+        puts txn_type
         # call appropriate handle base on transaction type
         send(txn_type, notify)
          
@@ -33,7 +32,6 @@ class PaypalController < ApplicationController
   
   # user has been billed
   def recurring_payment(notify)
-    
     begin
       Subscription.transaction do
 	      subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
@@ -51,6 +49,8 @@ class PaypalController < ApplicationController
 	        rescue
 	          
 	        end
+	      else
+	        raise SubscriptionError
 	      end
 	    end
     rescue

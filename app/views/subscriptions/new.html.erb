@@ -19,11 +19,10 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :plan_id %>
   <div id="select-plan">
     <% @plans.each do |plan| %>
       <ul id="card-entries">
-        <li class="card <%= cycle('odd', 'even') %>" data-plan-id="<%= plan.id %>">
+        <li class="card <%= cycle('odd', 'even') %>">
           <div class="card-inner">
             <h1><%= plan.name %>
         	    <span class='floatr'>$<%= plan.price.round(0) %> / <%= plan.frequency %></span>
@@ -60,10 +59,3 @@
     </div>
   </div>
 <% end %>
-
-
-<script type="text/javascript" charset="utf-8">
-  $(function() {
-    Subscriptions.Form.init();
-  });
-</script>
