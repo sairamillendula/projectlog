@@ -4,7 +4,7 @@ gem 'rails', '3.2.2'
 
 gem 'mysql2'
 gem 'devise'
-gem 'jquery-rails'
+gem 'jquery-rails', '~>2.0.1'
 gem 'tabs_on_rails'
 gem 'kaminari'
 gem 'pdfkit'
