@@ -1,16 +1,14 @@
-<h1>Update your Subscription
+<h1>New Subscription
   <span class='floatr'><%= image_tag('lock_active.png', :alt => 'secure page', :style => 'margin-top:5px;') %></span>
 </h1>
 
-<p class="info" style="font-size:13px">You can upgrade or downgrade anytime. Changes will become effective at next billing cycle.</p>
+<p class="info" style="font-size:13px">You can upgrade or downgrade your subscription anytime.</p>
 
 <p id='trial_status'>You have <%= content_tag(:span, "#{pluralize(current_user.trial_days_left, 'day')} left", :id => 'days_left') %> on your Unlimited Free Trial</p>
 
 <%= form_for(@subscription) do |f| %>
   <% if @subscription.errors.any? %>
     <div id="error_explanation" class="alert">
-      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
-
       <ul>
       <% @subscription.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
