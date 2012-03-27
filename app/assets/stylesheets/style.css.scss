@@ -384,7 +384,7 @@ li.card.even { margin-right: 0px; }
 	width: 420px;
 	margin-right: 20px;
 	margin-bottom: 20px;
-	background: #F1F1F3;
+	background: #f1f1f3;
 	@include rounded-corners(3px);
 	padding: 5px;
 	list-style: none;
@@ -393,12 +393,12 @@ li.card.even { margin-right: 0px; }
 }
 
 .card.active {
-  background: blue;
+  background: #999;
 }
 
 .card-inner {
 	background: white;
-	border: 1px solid #CBCECF;
+	border: 1px solid #cbcecf;
 	@include rounded-corners(2px);
 	padding: 20px;
 	text-align: left;
