@@ -1,0 +1,42 @@
+<h1>Reactivate subscription</h1>
+
+<p class="info" style="font-size:13px">Your subscription will become effective at <%= current_user.current_subscription.modify_on.strftime("%B %d, %Y") %>.</p>
+
+<%= form_for(@subscription, :url => reactivate_subscriptions_path, :method => :put) do |f| %>
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation" class="alert">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="billing_fields" class="inline-form">
+    <div class="field">
+      <%= f.label :card_name, "Name on Card", :class => 'mandatory' %>
+      <%= f.text_field :card_name  %>
+    </div>
+    <div class="field">
+      <%= f.label :card_number, "Card Number", :class => 'mandatory' %>
+      <%= f.text_field :card_number %>
+    </div>
+    <div class="field">
+      <%= f.label :card_code, "Security Code (CVV)", :class => 'mandatory' %>
+      <%= f.text_field :card_code, :value => "" %> <%= image_tag('cvv.png', :alt => 'CVV', :id => 'cvv') %>
+    </div>
+    <div class="field">
+      <%= label_tag :card_month, "Expires on", :class => 'mandatory' %>
+      <%= select_date @subscription.card_expiration ? Date.new(@subscription.card_expiration["year"].to_i, @subscription.card_expiration["month"].to_i, 1) : nil, :prefix => "subscription[card_expiration]", :add_month_numbers => true, :discard_day => true, :order => [:month, :year], :start_year => Time.now.year, :end_year => Time.now.year + 15 %>
+    </div>
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+    <div class="actions">
+      <p class="submit"><%= submit_tag "Reactivate", disable_with: "Processing..." %></p>
+    </div>
+  </div>
+<% end %>

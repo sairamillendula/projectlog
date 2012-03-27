@@ -5,4 +5,9 @@ class SubscriptionTransactionsMailer < ActionMailer::Base
     @transaction = subscription_transaction
     mail(:to => @transaction.user.email, :subject => "Projectlog Payment Receipt")
   end
+  
+  def subscription_cancelled_email(subscription)
+    @subscription = subscription
+    mail(:to => @subscription.user.email, :subject => "Projectlog Subscription Cancelled")
+  end
 end
