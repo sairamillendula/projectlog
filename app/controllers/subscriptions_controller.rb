@@ -11,6 +11,8 @@ class SubscriptionsController < ApplicationController
     @subscription.start_date = Time.now
     @subscription.do_validate_card = true
     if @subscription.save
+      SubscriptionsMailer.new_subscription_email(@subscription).deliver
+      AdminMailer.new_subscription_email(@subscription).deliver
       redirect_to success_subscription_url(@subscription), :notice => "Your subscription has been successfully updated."
     else
       render :action => :new
@@ -28,6 +30,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.valid?
       new_profile_options = @subscription.profile_options.merge(profile_id: @subscription.paypal_profile_id)
       if @subscription.update_profile(new_profile_options)
+        SubscriptionsMailer.update_subscription_email(@subscription).deliver
         redirect_to success_subscription_url(@subscription), notice: "Your subscription has been successfully updated."
       else
         render action: :edit
@@ -41,6 +44,7 @@ class SubscriptionsController < ApplicationController
     # cancel on due date
     subscription = current_user.current_subscription
     if subscription.cancel(:timeframe => :renewal)
+      AdminMailer.cancel_subscription_email(subscription).deliver
       redirect_to current_subscriptions_url, :notice => "Your subscription has been cancelled successfully."
     else
       redirect_to edit_subscription_url(subscription), :alert => "Failed to cancel your subscription, please contact system administrator."

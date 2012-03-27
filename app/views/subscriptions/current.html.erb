@@ -1,6 +1,6 @@
 <h1>Payment History</h1>
 <% if current_user.current_subscription %>
-  <% if current_user.subscription_transactions.blank? %>
+  <% if current_user.subscription_transactions.blank? and !current_user.current_subscription.cancelled? %>
     <p>You will find your billing history here as soon as we hear back from our payment gateway. It may take a few hours but this is normal.</p>
   <% else %>
     <table>

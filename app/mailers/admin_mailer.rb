@@ -1,5 +1,5 @@
 class AdminMailer < ActionMailer::Base
-  default from: "notifications@projectlogapp.com"
+  default from: "Projectlog <notifications@projectlogapp.com>"
   
   def new_user_registered(user)
     @user = user
@@ -11,4 +11,13 @@ class AdminMailer < ActionMailer::Base
     mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] Administrator change")
   end
   
+  def new_subscription_email(subscription)
+    @subscription = subscription
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] New Subscription")
+  end
+  
+  def cancel_subscription_email(subscription)
+    @subscription = subscription
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] Cancelled Subscription")
+  end
 end

@@ -56,10 +56,10 @@ class PaypalController < ApplicationController
   end
   
   def recurring_payment_expired(notify)
-    # not applicable since we dont limited number of subscription
+    # not applicable since we dont limit number of subscription
   end
   
-  # profile suspended due to max payment failed, number of failed is configured in 
+  # profile suspended due to max payment failed, number of failed attempts is configured in 
   # see initializers/settings.rb
   # see Subscription#profile_options
   def recurring_payment_suspended_due_to_max_failed_payment(notify)

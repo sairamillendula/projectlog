@@ -140,7 +140,7 @@
                                 <p><b>Amount charged:</b> $<%= @transaction.amount %> (USD)</p>
                                 <p><b>Company:</b> <%= @transaction.user.profile.company %></p>
                                 <p><b>Name:</b> <%= @transaction.user.full_name %></p>
-                                <p><b>Card Type:</b> <!%= @transaction.card_type %></p>
+                                <p><b>Card Type:</b> <%= @transaction.subscription.card_type %></p>
 							</multiline>
 
 						</td>
