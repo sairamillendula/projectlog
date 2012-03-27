@@ -20,4 +20,17 @@ class AdminMailer < ActionMailer::Base
     @subscription = subscription
     mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] Cancelled Subscription")
   end
+  
+  def new_transaction_created(transaction)
+    @transaction = transaction
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] New transaction created")
+  end
+  
+  def ipn_processing_failed(txn_type, txn_id, exception)
+    @txn_type = txn_type
+    @txn_id = txn_id
+    @exception = exception
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] IPN Processing failed")
+  end
+  
 end

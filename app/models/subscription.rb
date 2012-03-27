@@ -16,7 +16,7 @@ class Subscription < ActiveRecord::Base
   end
   
   def activate
-    # TODO: send email
+    self.modify_on = nil
     self.active = true
     self.save!
     user.current_subscription = self
@@ -25,7 +25,6 @@ class Subscription < ActiveRecord::Base
   end
   
   def deactivate
-    # TODO: send email
     # revert to free plan
     self.active = false
     self.save!

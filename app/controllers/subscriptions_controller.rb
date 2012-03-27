@@ -44,6 +44,7 @@ class SubscriptionsController < ApplicationController
     # cancel on due date
     subscription = current_user.current_subscription
     if subscription.cancel(:timeframe => :renewal)
+      SubscriptionTransactionsMailer.subscription_cancelled_email(subscription).deliver
       AdminMailer.cancel_subscription_email(subscription).deliver
       redirect_to current_subscriptions_url, :notice => "Your subscription has been cancelled successfully."
     else
@@ -55,13 +56,22 @@ class SubscriptionsController < ApplicationController
     @subscription = current_user.current_subscription
   end
   
+  def modify
+    @subscription = current_user.subscriptions.build(card_name: 'John Doe', card_number: '5468402944292202')
+  end
+  
   def reactivate
-    subscription = current_user.current_subscription
-    subscription.profile_options = {}
-    if subscription.reactivate
-      redirect_to current_subscriptions_url, :notice => "Your subscription has been reactivated successfully."
+    @subscription = current_user.current_subscription
+    @subscription.assign_attributes(params[:subscription])
+    @subscription.do_validate_card = true
+    if @subscription.valid?
+      if @subscription.modify(params[:subscription].merge(:timeframe => current_user.plan.costing? ? :renewal : :now))
+        redirect_to current_subscriptions_url, :notice => "Your subscription has been reactivated successfully."
+      else
+        redirect_to current_subscriptions_url, alert: "Failed to reactivate your subscription, please contact system administrator."
+      end
     else
-      redirect_to current_subscriptions_url, alert: "Failed to reactivate your subscription, please contact system administrator."
+      render :action => :modify
     end
   end
   

@@ -11,7 +11,8 @@ Projectlog::Application.routes.draw do
     collection do
       delete 'cancel'
       get 'current'
-      post 'reactivate'
+      get 'modify'
+      put 'reactivate'
     end
     
     member do
