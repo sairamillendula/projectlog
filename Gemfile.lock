@@ -18,13 +18,6 @@ GIT
       money
 
 GIT
-  remote: git://github.com/olimart/paypal_pro_recurring.git
-  revision: 5eb41b9d44432c8aaa77c05cae9d26607e826fc0
-  specs:
-    paypal_pro_recurring (0.0.1)
-      rails (~> 3.2.2)
-
-GIT
   remote: git://github.com/ryanb/cancan.git
   revision: 9eebeb21558bdd056e3e7b07f7e6eb57c1656973
   specs:
@@ -35,6 +28,12 @@ GIT
   revision: 486e0f0e93f3ca455d5d0fc7869053257b6afce2
   specs:
     nested_form (0.2.0)
+
+PATH
+  remote: /Users/hoangnghiem/Documents/Extensions/paypal_pro_recurring
+  specs:
+    paypal_pro_recurring (0.0.1)
+      rails (~> 3.2.2)
 
 GEM
   remote: http://rubygems.org/

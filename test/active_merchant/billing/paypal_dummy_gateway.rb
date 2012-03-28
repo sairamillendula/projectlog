@@ -13,6 +13,10 @@ module ActiveMerchant
       def profiles
         @profiles ||= {}
       end
+      
+      def create_dummy_profile(options)
+        self.profiles[options[:profile_id]] = profile_details_from_options(options)
+      end
 
       def recurring(amount, credit_card_or_reference, options = {})
         profile_id = get_profile_id
@@ -30,6 +34,7 @@ module ActiveMerchant
       end
 
       def update_recurring(options={})
+        profile_id = options.delete(:profile_id)
         credit_card_or_reference = options.delete(:credit_card)
         case normalize(credit_card_or_reference)
         when '1'
@@ -43,15 +48,7 @@ module ActiveMerchant
 
       def cancel_recurring(profile_id, options = {})
         raise "Profile is nil" if profile_id.blank?
-        credit_card_or_reference = options.delete(:credit_card) || "1"
-        case normalize(credit_card_or_reference)
-        when '1'
-          Response.new(true, SUCCESS_MESSAGE, {:profile_id => profile_id}, :test => true)
-        when '2'
-          Response.new(false, FAILURE_MESSAGE, {:profile_id => profile_id, :error => FAILURE_MESSAGE },:test => true)
-        else
-          raise Error, ERROR_MESSAGE
-        end
+        return Response.new(true, SUCCESS_MESSAGE, :test => true)
       end
 
       def status_recurring(profile_id)

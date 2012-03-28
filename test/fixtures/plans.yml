@@ -1,5 +1,4 @@
 free:
-  id: 1
   name: "Free"
   description: "Basic Plan free for everyone who sign up"
   features: "A very interesting plan because you don't have to pay."
@@ -8,8 +7,7 @@ free:
   displayable: true
 
 paid:
-  id: 2
-  name: "Paid"
+  name: "Premium"
   description: "Paid Plan for pretty tests"
   features: "A very interesting plan that's used for tests."
   price: 9.99
@@ -17,7 +15,6 @@ paid:
   displayable: true
 
 inactive:
-  id: 3
   name: "Bronze"
   description: "Lots of features"
   features: "..."

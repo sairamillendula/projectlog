@@ -1,3 +1,9 @@
-IPN processing for transaction <%= @txn_type %> of transaction id <%= @txn_id %> failed.
+IPN "<%= @txn_type %>" failed.
+Transaction id: <%= @txn_id %>.
 
-<%= @exception.backtrace %>
+Error: <%= @exception.message %>
+Stacktrace:
+
+<% @exception.backtrace.each do |bt| %>
+  <%= bt %>
+<% end %>

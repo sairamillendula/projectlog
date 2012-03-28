@@ -138,7 +138,7 @@
                                 <p><b>Transaction Number:</b> <%= @transaction.code %></p>
                                 <p><b>Plan:</b> <%= @transaction.subscription.plan.name %></p>
                                 <p><b>Amount charged:</b> $<%= @transaction.amount %> (USD)</p>
-                                <p><b>Company:</b> <%= @transaction.user.profile.company %></p>
+                                <p><b>Company:</b> <%= @transaction.user.profile ? @transaction.user.profile.company : '' %></p>
                                 <p><b>Name:</b> <%= @transaction.user.full_name %></p>
                                 <p><b>Card Type:</b> <%= @transaction.subscription.card_type %></p>
 							</multiline>
