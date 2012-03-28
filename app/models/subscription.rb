@@ -1,5 +1,6 @@
 class Subscription < ActiveRecord::Base
   include PaypalProRecurring::Subscribable
+  include ActionView::Helpers::DateHelper
   
   belongs_to :plan
   belongs_to :user
@@ -64,8 +65,24 @@ class Subscription < ActiveRecord::Base
       :auto_bill_outstanding => Settings['auto_bill_outstanding']
     }
   end
+
+  def create_audit
+    AuditTrail.create(:user_id => user_id, :action => 'subscribed', :message => "to the #{plan.name} plan")
+  end
   
-  private
+  def update_audit
+    AuditTrail.create(:user_id => user_id, :action => 'updated', :message => "subscription")
+  end
+  
+  def cancel_audit
+    AuditTrail.create(:user_id => user_id, :action => 'canceled', :message => "subcscription from the #{plan.name} plan (#{distance_of_time_in_words_to_now(created_at)} old)")
+  end
+  
+  def reactivate_audit
+    AuditTrail.create(:user_id => user_id, :action => 'reactivated', :message => "subcscription to the #{plan.name} plan")
+  end
+  
+private
   
   def extract_card_type
     cc = credit_card
@@ -77,4 +94,5 @@ class Subscription < ActiveRecord::Base
   def generate_slug
     self.slug = Devise.friendly_token.downcase if slug.nil?
   end
+  
 end

@@ -1,0 +1,18 @@
+<% if @user.audit_trails.any? %>
+<table>
+  <tr>
+    <th style="width: 95px;">Date</th>
+    <th>Log</th>
+  </tr>
+  
+  <% @user.audit_trails.order('created_at DESC').each do |audit_trail| %>
+  <tr>
+    <td><%= audit_trail.created_at.strftime("%d-%m-%Y") %></td>
+    <td><%= audit_trail.action_tag %> <%= audit_trail.message %></td>
+  </tr>
+  <% end %>
+</table>
+
+<% else %>
+  <p style='text-align:center;'>Looks like user has not subscribed to any paying plans yet.</p>
+<% end %>

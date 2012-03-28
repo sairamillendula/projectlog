@@ -1,11 +1,5 @@
 <%= form_tag administr8te_settings_path, :method => :put do %>
   <div>
-    <h3>System Email</h3>
-    <p>
-      <%= label_tag :"settings.defaults[default_email_sender]", "Default Email Sender" %>
-      <%= text_field_tag :"settings.defaults[default_email_sender]", Settings.defaults['default_email_sender'], :size => 60 %>
-    </p>
-    
     <h3>Report email settings</h3>
     <p class="info">These fields are shown by default when user sends a report by email.</p>
 

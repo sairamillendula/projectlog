@@ -1,0 +1,29 @@
+<h1>Audit Trail</h1>
+
+<div id="activity-search">
+  <span id="export" class="right">
+  <%= form_tag administr8te_audit_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <span class="small submit"><%= submit_tag "Search", :name => nil %></span>
+  <% end %>
+  </span> 
+</div>
+
+<table class="admin">
+  <tr>
+    <th>History</th>
+  </tr>
+
+  <% @audit_trails.each do |audit_trail| %>
+  <tr>
+    <td>
+      <span class='trail_date'><%= distance_of_time_in_words_to_now(audit_trail.created_at) %></span>
+      <%= link_to audit_trail.user.full_name, history_administr8te_client_path(audit_trail.user), :remote => true %> <%= audit_trail.action_tag %> <%= audit_trail.message %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<div class="right">
+  <%= paginate @audit_trails, :params => { :controller => "administr8te/audit_trails", :action => "index" } %>
+</div>
