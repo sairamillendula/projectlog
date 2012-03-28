@@ -98,12 +98,14 @@ Projectlog::Application.routes.draw do
         get 'summary'
         get 'profile'
         get 'transactions'
+        get 'history'
       end
     end
     resources :plans
     resources :announcements
     resources :emailings
     resources :subscriptions, :only => [:index, :show]
+    get '/audit', :controller => :audit_trails, :action => :index
     resource :logs, :only => [ :show ]
   end
   

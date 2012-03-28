@@ -43,6 +43,17 @@ p.revenues {
 #users-chart {
 	margin-bottom: 20px;
 }
+/* Audit */
+.trail_date {color: #777;}
+.action {
+	text-transform:uppercase;
+	color: #fff;
+	
+	&.subscribed {background: blue;}
+	&.canceled {background: red;}
+	&.reactivated {background: YellowGreen;}
+	&.updated {background: green;}
+}
 
 /* Logs */
 #log-disclaimer {

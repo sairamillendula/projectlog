@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions, :dependent => :destroy
   has_many :subscription_transactions, :dependent => :destroy
   belongs_to :current_subscription, :class_name => "Subscription", :foreign_key => "subscription_id"
+  has_many :audit_trails, :dependent => :destroy
   
   scope :standard, where(:admin => false)
   scope :admin, where(:admin => true)

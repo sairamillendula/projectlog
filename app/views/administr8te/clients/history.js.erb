@@ -1,0 +1,10 @@
+$('<div id="client_history"></div>')
+		.html('<%= escape_javascript render(:partial => 'history') %>')
+		.dialog({
+			autoOpen: true,
+			modal: true,
+			title: '<%= @user.full_name %>',
+			show: "fade",
+			hide: "fade",
+			width: 550
+    });

@@ -1,1 +1,1 @@
-<%= @subscription.user.full_name %> (<%= @subscription.user.email %>) unsubscribed after <%= pluralize(@subscription.created_at.month- @subscription.modify_on.month, 'month') %>
+<%= @subscription.user.full_name %> (<%= @subscription.user.email %>) unsubscribed (<%= distance_of_time_in_words_to_now(@subscription.created_at.month) %> old)

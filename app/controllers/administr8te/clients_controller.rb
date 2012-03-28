@@ -33,6 +33,15 @@ class Administr8te::ClientsController < Administr8te::BaseController
     end
   end
   
+  def history
+    @user = User.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+  
 private
 
   def sort_column
