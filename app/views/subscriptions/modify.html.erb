@@ -1,14 +1,12 @@
-<h1>New Subscription
-  <span class='floatr'><%= image_tag('lock_active.png', :alt => 'secure page', :style => 'margin-top:5px;') %></span>
-</h1>
+<h1>Reactivate subscription</h1>
 
-<p class="info" style="font-size:13px">You can upgrade or downgrade your subscription anytime.</p>
+<p class="info" style="font-size:13px">Your subscription will become effective at <%= current_user.current_subscription.modify_on.strftime("%B %d, %Y") %>.</p>
 
-<p id='trial_status'>You have <%= content_tag(:span, "#{pluralize(current_user.trial_days_left, 'day')} left", :id => 'days_left') %> on your Unlimited Free Trial</p>
-
-<%= form_for(@subscription) do |f| %>
+<%= form_for(@subscription, :url => reactivate_subscriptions_path, :method => :put) do |f| %>
   <% if @subscription.errors.any? %>
     <div id="error_explanation" class="alert">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
       <ul>
       <% @subscription.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -17,21 +15,6 @@
     </div>
   <% end %>
 
-  <div id="select-plan">
-    <% @plans.each do |plan| %>
-      <ul id="card-entries">
-        <li class="card <%= cycle('odd', 'even') %>">
-          <div class="card-inner">
-            <h1><%= plan.name %>
-        	    <span class='floatr'>$<%= plan.price.round(0) %> / <%= plan.frequency %></span>
-        	</h1>
-        	<p class="tagline"><%= simple_format(plan.features) %></p>
-          </div>
-        </li>
-      </ul>
-    <% end %>
-  </div>
-  
   <div id="billing_fields" class="inline-form">
     <div class="field">
       <%= f.label :card_name, "Name on Card", :class => 'mandatory' %>
@@ -53,7 +36,7 @@
       <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
     </div>
     <div class="actions">
-      <p class="submit"><%= submit_tag "Confirm Subscription", disable_with: "Processing..." %></p>
+      <p class="submit"><%= submit_tag "Reactivate", disable_with: "Processing..." %></p>
     </div>
   </div>
 <% end %>

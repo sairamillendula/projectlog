@@ -1,3 +1,5 @@
+require File.expand_path("../../../test/active_merchant/billing/paypal_dummy_gateway.rb", __FILE__)
+
 Projectlog::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -49,16 +51,21 @@ Projectlog::Application.configure do
   config.static_cache_control = "public, max-age=3600"
 
   # Getprojectlog Email server setup
-  config.action_mailer.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {  
-    :address              => "mail.projectlogapp.com",  
-    :port                 => 587,
-    :user_name            => "notifications+projectlogapp.com",  
-    :password             => "10eytd10",  
-    :authentication       => "plain",  
-    :enable_starttls_auto => false  
-  }
+  # config.action_mailer.delivery_method = :smtp
+  #   ActionMailer::Base.smtp_settings = {  
+  #     :address              => "mail.projectlogapp.com",  
+  #     :port                 => 587,
+  #     :user_name            => "notifications+projectlogapp.com",  
+  #     :password             => "10eytd10",  
+  #     :authentication       => "plain",  
+  #     :enable_starttls_auto => false  
+  #   }
   
   # Raise exception on mass assignment protection for Active Record models
   config.active_record.mass_assignment_sanitizer = :strict
+  
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
+    Subscription.gateway = ::ActiveMerchant::Billing::PaypalDummyGateway.new
+  end
 end

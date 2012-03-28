@@ -20,9 +20,9 @@
 <% if current_user.current_subscription %>
   <% if current_user.current_subscription.cancelled? %>
     <h2>You've cancelled your subscription. You can continue to use the <%= current_user.current_subscription.plan.name %> plan until it expires on <%= current_user.current_subscription.modify_on.strftime("%B %d, %Y") %>.</h2>
-    <p><%= link_to 'Reactivate', reactivate_subscriptions_path, :method => :post, :class => 'buttonorange' %></p>
+    <p><%= link_to 'Reactivate', modify_subscriptions_path, :class => 'buttonorange' %></p>
   <% else %>
-    <h2>Next payment will be processed on <%= current_user.current_subscription.next_payment_date.strftime("%B %d, %Y") %>.</h2>
+    <h2>Next payment will be processed on <%= current_user.current_subscription.next_payment_due.strftime("%B %d, %Y") %>.</h2>
     <p><%= link_to 'Edit Subscription & Payment Method', edit_subscription_path(current_user.current_subscription), :class => 'buttonorange' %></p>
   <% end %>
 <% else %>
