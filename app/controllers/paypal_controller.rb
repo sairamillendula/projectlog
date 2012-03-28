@@ -2,8 +2,6 @@ class PaypalController < ApplicationController
   include ActiveMerchant::Billing::Integrations
   # skip_before_filter :verify_authenticity_token
   
-  class SubscriptionError < Exception;end
-  
   def ipn
     puts "Received IPN"
     notify = Paypal::Notification.new(request.raw_post)
@@ -13,7 +11,7 @@ class PaypalController < ApplicationController
         # call appropriate handle base on transaction type
         send(txn_type, notify)
          
-      rescue SubscriptionError => e
+      rescue => e
         AdminMailer.ipn_processing_failed(notify.type, notify.transaction_id, e).deliver
         raise
       end
@@ -35,7 +33,7 @@ class PaypalController < ApplicationController
       Subscription.transaction do
 	      subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
 	      subscription.next_payment_date = Time.strptime(params['next_payment_date'], "%H:%M:%S %b %d, %Y %Z").in_time_zone
-	      subscription.save(validate: false)
+	      subscription.save!(validate: false)
 	    
 	      transaction = SubscriptionTransaction.new(code: notify.transaction_id, 
 	                                     amount: subscription.plan.price, 
@@ -44,15 +42,15 @@ class PaypalController < ApplicationController
 	      if transaction.save                               
 	        begin
 	          SubscriptionTransactionsMailer.payment_receipt_email(transaction).deliver
-	        rescue
-	          
+	        rescue => e
+	          puts "Failed to send email due to #{e}"
 	        end
-	      else
-	        raise SubscriptionError
+        else
+          raise "cannot create transaction."
 	      end
 	    end
-    rescue
-      raise SubscriptionError
+    rescue => e
+      raise "Failed to process recurring_payment IPN due to #{e}"
     end
     
   end
@@ -69,34 +67,31 @@ class PaypalController < ApplicationController
   # see initializers/settings.rb
   # see Subscription#profile_options
   def recurring_payment_suspended_due_to_max_failed_payment(notify)
-    puts "recurring_payment_suspended_due_to_max_failed_payment"
     begin
       subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-      subscription.cancel(:timeframe => :renewal)
-      puts "cancelled"
-    rescue
-      raise SubscriptionError
+      raise "Failed to cancel subscription" unless subscription.cancel(:timeframe => :renewal)
+    rescue => e
+      raise "Failed to process recurring_payment_suspended_due_to_max_failed_payment IPN."
     end
   end
   
-  # profile created, not billed yet
+  # profile created, not billed yet, CAN BE FAILED SILENCELY!
   def recurring_payment_profile_created(notify)
-    begin
-      subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-	    subscription.next_payment_date = Time.strptime(params['next_payment_date'], "%H:%M:%S %b %d, %Y %Z").in_time_zone
-	    subscription.save(validate: false)
-    rescue
-      raise SubscriptionError
-    end
-    
+    subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
+    subscription.next_payment_date = Time.strptime(params['next_payment_date'], "%H:%M:%S %b %d, %Y %Z").in_time_zone
+    subscription.save(validate: false)
   end
   
   def recurring_payment_profile_cancel(notify)
-    subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
+    begin
+      subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
     
-    # make sure subscription is cancelled
-    unless subscription.cancelled?
-      subscription.cancel(:timeframe => :renewal)
+      # make sure subscription is cancelled
+      unless subscription.cancelled?
+        raise unless subscription.cancel(:timeframe => :renewal)
+      end
+    rescue => e
+      raise "Failed to process recurring_payment_profile_cancel IPN"
     end
   end
   

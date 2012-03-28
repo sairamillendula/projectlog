@@ -1,5 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+not_charge_yet:
+  paypal_profile_id: "I-P3UPYH02PVEC"
+  state: active
+  pending_subscription:
+  modify_on: 
+  start_date: <%= Time.now %>
+  active: true
+  plan: paid
+  user: three
+  slug: tzcfszxk5s8ghrdeqrbb
+  card_type: master
+  currency: USD
+
 active:
   paypal_profile_id: "1923819238"
   state: active
@@ -7,8 +20,11 @@ active:
   modify_on: 2012-03-22 09:29:08
   start_date: 2012-03-22 09:29:08
   active: true
-  plan_id: 2
+  plan: paid
   user: paid
+  slug: tzcfszxk5s8ghrdeqrbb
+  card_type: master
+  currency: USD
 
 changed:
   paypal_profile_id: "992384923847"
@@ -17,9 +33,11 @@ changed:
   modify_on: 2012-03-22 09:29:08
   start_date: 2012-03-22 09:29:08
   active: true
-  plan_id: 2
+  plan: paid
   user: paid
-
+  slug: tzcfszxk5s8ghrdeqrbb
+  card_type: master
+  currency: USD
 
 pending:
   paypal_profile_id: "0928340923049"
@@ -27,5 +45,8 @@ pending:
   modify_on: 2012-03-22 09:29:08
   start_date: 2012-03-22 09:29:08
   active: false
-  plan_id: 2
+  plan: paid
   user: paid
+  slug: tzcfszxk5s8ghrdeqrbb
+  card_type: master
+  currency: USD

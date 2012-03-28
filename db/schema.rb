@@ -38,10 +38,9 @@ ActiveRecord::Schema.define(:version => 20120327044743) do
   create_table "audit_trails", :force => true do |t|
     t.integer  "user_id"
     t.string   "action"
-    t.boolean  "success",    :default => true
     t.text     "message"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "billing_codes", :force => true do |t|
