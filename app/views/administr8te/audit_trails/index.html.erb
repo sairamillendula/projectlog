@@ -1,3 +1,4 @@
+<% if @audit_trails.any?  %>
 <h1>Audit Trail</h1>
 
 <div id="activity-search">
@@ -27,3 +28,7 @@
 <div class="right">
   <%= paginate @audit_trails, :params => { :controller => "administr8te/audit_trails", :action => "index" } %>
 </div>
+
+<% else %>
+  <p class='no-occurence'>Nothing to report yet</p>
+<% end %>

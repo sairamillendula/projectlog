@@ -67,6 +67,6 @@ puts "Creating transactions..."
 end
 
 puts "Creating plans..."
-Plan.create(name: 'Premium', description: 'Sole Paying Plan', price: '15', active: true, displayable: true)
+Plan.create(name: 'Premium', description: 'Sole Paying Plan', price: '15', frequency: 'Month', active: true, displayable: true)
 
 puts "All set"

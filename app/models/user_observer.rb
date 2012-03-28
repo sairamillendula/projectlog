@@ -6,6 +6,7 @@ class UserObserver < ActiveRecord::Observer
   def after_create(user)
     AdminMailer.new_user_registered(user).deliver
     WelcomeMailer.welcome_email(user).deliver
+    AuditTrail.create(:user_id => user.id, :action => 'signed up')
     
     #listSubscribe(string apikey, string id, string email_address, array merge_vars, string email_type, bool double_optin, bool update_existing, bool replace_interests, bool send_welcome)
     begin

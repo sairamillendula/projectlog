@@ -1,1 +1,9 @@
-Your subscription is cancelled.
+Dear <%= @subscription.user.full_name %>,
+
+<p>This is to confirm your subscription is cancelled. Your account with all the benefits of current subscription remains active until it expires on <%= @subscription.modify_on.strftime("%B %d, %Y") %> but you will no longer be charged after that.</p>
+
+<p>We're sorry to see you leave. If you wish to share feedback please drop us a note <a mailto="contact@getprojectlog.com">contact@getprojectlog.com</a></p>
+
+<p>Sincerely,</p>
+
+<b>The Projectlog Team</b>
