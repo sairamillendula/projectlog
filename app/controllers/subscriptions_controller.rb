@@ -73,13 +73,14 @@ class SubscriptionsController < ApplicationController
       else
         redirect_to current_subscriptions_url, alert: "Failed to reactivate your subscription, please contact system administrator."
       end
-    @subscription = current_user.current_subscription
-    @subscription.profile_options = {}
-    if @subscription.reactivate
-      @subscription.reactivate_audit
-      redirect_to current_subscriptions_url, :notice => "Your subscription has been reactivated successfully."
-    else
-      render :action => :modify
+      @subscription = current_user.current_subscription
+      @subscription.profile_options = {}
+      if @subscription.reactivate
+        @subscription.reactivate_audit
+        redirect_to current_subscriptions_url, :notice => "Your subscription has been reactivated successfully."
+      else
+        render :action => :modify
+      end
     end
   end
   

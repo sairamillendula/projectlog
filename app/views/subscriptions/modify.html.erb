@@ -1,12 +1,10 @@
 <h1>Reactivate subscription</h1>
 
-<p class="info" style="font-size:13px">Your subscription will become effective at <%= current_user.current_subscription.modify_on.strftime("%B %d, %Y") %>.</p>
+<p class="info" style="font-size:13px">Your subscription will become effective on <%= current_user.current_subscription.modify_on.strftime("%B %d, %Y") %>.</p>
 
 <%= form_for(@subscription, :url => reactivate_subscriptions_path, :method => :put) do |f| %>
   <% if @subscription.errors.any? %>
     <div id="error_explanation" class="alert">
-      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
-
       <ul>
       <% @subscription.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
