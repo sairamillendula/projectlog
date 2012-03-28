@@ -17,6 +17,7 @@ class Subscription < ActiveRecord::Base
   end
   
   def activate
+    puts "activate"
     self.active = true
     self.save!
     user.current_subscription = self
@@ -25,6 +26,7 @@ class Subscription < ActiveRecord::Base
   end
   
   def deactivate
+    puts "deactivate"
     # revert to free plan
     self.active = false
     self.save!
@@ -35,8 +37,8 @@ class Subscription < ActiveRecord::Base
   end
   
   def handle_gateway_response(subscription, request_type, response_type, response)
-    puts "Request #{request_type}"
-    puts response.inspect
+    puts "Request paypal #{request_type}"
+    puts "Response #{response_type}"
   end
   
   def credit_card

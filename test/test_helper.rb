@@ -10,6 +10,7 @@ Spork.prefork do
   ENV["RAILS_ENV"] = "test"
   require File.expand_path('../../config/environment', __FILE__)
   require 'rails/test_help'
+  require 'timecop'
   require File.join(File.dirname(__FILE__), 'active_merchant', 'billing', 'paypal_dummy_gateway')
 
   class ActiveSupport::TestCase

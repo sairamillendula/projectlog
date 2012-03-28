@@ -1,21 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  paypal_profile_id: MyString
-  state: MyString
-  pending_subscription_id: 1
+active:
+  paypal_profile_id: "1923819238"
+  state: active
+  pending_subscription: pending
   modify_on: 2012-03-22 09:29:08
   start_date: 2012-03-22 09:29:08
-  active: false
-  plan_id: 1
-  user_id: 1
+  active: true
+  plan_id: 2
+  user: paid
 
-two:
-  paypal_profile_id: MyString
-  state: MyString
-  pending_subscription_id: 1
+changed:
+  paypal_profile_id: "992384923847"
+  state: changed
+  pending_subscription: pending
+  modify_on: 2012-03-22 09:29:08
+  start_date: 2012-03-22 09:29:08
+  active: true
+  plan_id: 2
+  user: paid
+
+
+pending:
+  paypal_profile_id: "0928340923049"
+  state: pending
   modify_on: 2012-03-22 09:29:08
   start_date: 2012-03-22 09:29:08
   active: false
-  plan_id: 1
-  user_id: 1
+  plan_id: 2
+  user: paid

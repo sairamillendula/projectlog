@@ -10,7 +10,6 @@ class PaypalController < ApplicationController
     if notify.acknowledge
       begin
         txn_type = notify.type
-        puts txn_type
         # call appropriate handle base on transaction type
         send(txn_type, notify)
          
@@ -35,7 +34,6 @@ class PaypalController < ApplicationController
     begin
       Subscription.transaction do
 	      subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-	      puts notify.params['next_payment_date']
 	      subscription.next_payment_date = Time.strptime(params['next_payment_date'], "%H:%M:%S %b %d, %Y %Z").in_time_zone
 	      subscription.save(validate: false)
 	    
@@ -71,10 +69,13 @@ class PaypalController < ApplicationController
   # see initializers/settings.rb
   # see Subscription#profile_options
   def recurring_payment_suspended_due_to_max_failed_payment(notify)
+    puts "recurring_payment_suspended_due_to_max_failed_payment"
     begin
       subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
+      subscription.cancel(:timeframe => :renewal)
+      puts "cancelled"
     rescue
-      raise SubscriptionError, "Subscription #{subscription.slug} has been suspended by Paypal due to max failed payment reached."
+      raise SubscriptionError
     end
   end
   
@@ -92,7 +93,11 @@ class PaypalController < ApplicationController
   
   def recurring_payment_profile_cancel(notify)
     subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-    subscription.cancel(:timeframe => :renewal)
+    
+    # make sure subscription is cancelled
+    unless subscription.cancelled?
+      subscription.cancel(:timeframe => :renewal)
+    end
   end
   
   def recurring_payment_outstanding_payment(notify)
