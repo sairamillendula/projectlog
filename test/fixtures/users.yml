@@ -13,3 +13,12 @@ two:
  last_name: Gérvaiz
  admin: false
  plan: free
+ 
+paid:
+  email: user3@gmail.com
+  encrypted_password: "$2a$10$v6iEa1Q1GqPnc3XfRBBBLOi2LyN8r.d5IzqTftdhsdld/GtrHbS9K" # '123456'
+  first_name: Foo
+  last_name: bar
+  admin: false
+  plan: paid
+  current_subscription: changed

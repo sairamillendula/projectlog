@@ -33,9 +33,9 @@ module ActiveMerchant
         credit_card_or_reference = options.delete(:credit_card)
         case normalize(credit_card_or_reference)
         when '1'
-          Response.new(true, SUCCESS_MESSAGE, {:paid_amount => money}, :test => true)
+          Response.new(true, SUCCESS_MESSAGE, {:profile_id => profile_id}, :test => true)
         when '2'
-          Response.new(false, FAILURE_MESSAGE, {:paid_amount => money, :error => FAILURE_MESSAGE },:test => true)
+          Response.new(false, FAILURE_MESSAGE, {:profile_id => profile_id, :error => FAILURE_MESSAGE },:test => true)
         else
           raise Error, ERROR_MESSAGE
         end
@@ -43,12 +43,12 @@ module ActiveMerchant
 
       def cancel_recurring(profile_id, options = {})
         raise "Profile is nil" if profile_id.blank?
-        credit_card_or_reference = options.delete(:credit_card)
+        credit_card_or_reference = options.delete(:credit_card) || "1"
         case normalize(credit_card_or_reference)
         when '1'
-          Response.new(true, SUCCESS_MESSAGE, {:paid_amount => money}, :test => true)
+          Response.new(true, SUCCESS_MESSAGE, {:profile_id => profile_id}, :test => true)
         when '2'
-          Response.new(false, FAILURE_MESSAGE, {:paid_amount => money, :error => FAILURE_MESSAGE },:test => true)
+          Response.new(false, FAILURE_MESSAGE, {:profile_id => profile_id, :error => FAILURE_MESSAGE },:test => true)
         else
           raise Error, ERROR_MESSAGE
         end
@@ -66,8 +66,16 @@ module ActiveMerchant
       # * <tt>profile_id</tt> -- A string containing the +profile_id+ of the
       # recurring payment already in place for a given credit card. (REQUIRED)
       def suspend_recurring(profile_id, options = {})
-        raise_error_if_blank('profile_id', profile_id)
-        commit 'ManageRecurringPaymentsProfileStatus', build_manage_profile_request(profile_id, 'Suspend', options)
+        rraise "Profile is nil" if profile_id.blank?
+        credit_card_or_reference = options.delete(:credit_card) || "1"
+        case normalize(credit_card_or_reference)
+        when '1'
+          Response.new(true, SUCCESS_MESSAGE, {:profile_id => profile_id}, :test => true)
+        when '2'
+          Response.new(false, FAILURE_MESSAGE, {:profile_id => profile_id, :error => FAILURE_MESSAGE },:test => true)
+        else
+          raise Error, ERROR_MESSAGE
+        end
       end
 
       # Reactivates a suspended recurring payment profile.
@@ -77,8 +85,16 @@ module ActiveMerchant
       # * <tt>profile_id</tt> -- A string containing the +profile_id+ of the
       # recurring payment already in place for a given credit card. (REQUIRED)
       def reactivate_recurring(profile_id, options = {})
-        raise_error_if_blank('profile_id', profile_id)
-        commit 'ManageRecurringPaymentsProfileStatus', build_manage_profile_request(profile_id, 'Reactivate', options)
+        raise "Profile is nil" if profile_id.blank?
+        credit_card_or_reference = options.delete(:credit_card) || "1"
+        case normalize(credit_card_or_reference)
+        when '1'
+          Response.new(true, SUCCESS_MESSAGE, {:profile_id => profile_id}, :test => true)
+        when '2'
+          Response.new(false, FAILURE_MESSAGE, {:profile_id => profile_id, :error => FAILURE_MESSAGE },:test => true)
+        else
+          raise Error, ERROR_MESSAGE
+        end
       end
 
       # Bills outstanding amount to a recurring payment profile.
@@ -88,8 +104,16 @@ module ActiveMerchant
       # * <tt>profile_id</tt> -- A string containing the +profile_id+ of the
       # recurring payment already in place for a given credit card. (REQUIRED)
       def bill_outstanding_amount(profile_id, options = {})
-        raise_error_if_blank('profile_id', profile_id)
-        commit 'BillOutstandingAmount', build_bill_outstanding_amount(profile_id, options)
+        raise "Profile is nil" if profile_id.blank?
+        credit_card_or_reference = options.delete(:credit_card) || "1"
+        case normalize(credit_card_or_reference)
+        when '1'
+          Response.new(true, SUCCESS_MESSAGE, {:profile_id => profile_id}, :test => true)
+        when '2'
+          Response.new(false, FAILURE_MESSAGE, {:profile_id => profile_id, :error => FAILURE_MESSAGE },:test => true)
+        else
+          raise Error, ERROR_MESSAGE
+        end
       end
 
       def profile_details_from_options(options)

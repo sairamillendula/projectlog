@@ -40,6 +40,7 @@ group :development, :test do
   gem 'guard-livereload'
   gem 'mocha'
   gem 'spork-testunit'
+  gem 'timecop'
 end
 
 group :production do
