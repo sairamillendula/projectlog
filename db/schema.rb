@@ -320,11 +320,11 @@ ActiveRecord::Schema.define(:version => 20120327044743) do
     t.integer  "pending_subscription_id"
     t.datetime "modify_on"
     t.datetime "start_date"
-    t.boolean  "active"
+    t.boolean  "active",                  :default => false
     t.integer  "plan_id"
     t.integer  "user_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
     t.string   "slug"
     t.string   "card_type"
     t.string   "currency"

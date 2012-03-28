@@ -45,10 +45,10 @@ class SubscriptionsController < ApplicationController
   
   def cancel
     # cancel on due date
-    subscription = current_user.current_subscription
-    if subscription.cancel(:timeframe => :renewal)
-      SubscriptionTransactionsMailer.subscription_cancelled_email(subscription).deliver
-      AdminMailer.cancel_subscription_email(subscription).deliver
+    @subscription = current_user.current_subscription
+    if @subscription.cancel(:timeframe => :renewal)
+      SubscriptionTransactionsMailer.subscription_cancelled_email(@subscription).deliver
+      AdminMailer.cancel_subscription_email(@subscription).deliver
       redirect_to current_subscriptions_url, :notice => "Your subscription has been cancelled successfully."
     else
       redirect_to edit_subscription_url(@subscription), :alert => "Failed to cancel your subscription, please contact system administrator."

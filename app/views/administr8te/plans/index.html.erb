@@ -13,17 +13,15 @@
     <th>User count</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @plans.each do |plan| %>
   <tr>
-    <td><%= plan.name %></td>
+    <td><%= link_to plan.name, administr8te_plan_path(plan) %></td>
     <td><%= plan.description %></td>
     <td><%= plan.price %></td>
-    <td><%= plan.active? ? 'Active' : 'Inactive' %></td>
+    <td><%= plan.active? ? content_tag(:span, 'Active', :class => 'active') : content_tag(:span, 'Inactive', :class => 'inactive') %></td>
     <td><%= pluralize plan.users.count, "user" %></td>
-    <td><%= link_to 'Show', administr8te_plan_path(plan) %></td>
     <td><%= link_to 'Edit', edit_administr8te_plan_path(plan) %></td>
     <td>
       <% if plan.can_be_destroyed? %>

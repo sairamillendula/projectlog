@@ -1,3 +1,4 @@
+<% if @subscriptions.any? %>
 <h1>Subcriptions Transactions</h1>
 
 <span id="export" class="right">
@@ -32,3 +33,7 @@
 <div class="right">
    <%= paginate @subscriptions, :params => { :controller => "administr8te/subscriptions", :action => "index" } %>
 </div>
+
+<% else %>
+  <p class='no-occurence'>No subscriptions yet</p>
+<% end %>

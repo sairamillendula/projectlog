@@ -49,6 +49,7 @@ p.revenues {
 	text-transform:uppercase;
 	color: #fff;
 	
+	&.signed.up {background: indigo;}
 	&.subscribed {background: blue;}
 	&.canceled {background: red;}
 	&.reactivated {background: YellowGreen;}

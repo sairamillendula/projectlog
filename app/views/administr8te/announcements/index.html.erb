@@ -1,10 +1,10 @@
+<% if @announcements.any? %>
 <ul id="sub-menu">
   <li class="buttonorange"><%= link_to '+ New Announcement', new_administr8te_announcement_path %></li>
 </ul>
 
 <h1>Site Announcements</h1>
 
-<% if @announcements.any? %>
 <table>
   <tr>
     <th>Message</th>
@@ -16,7 +16,7 @@
     <th></th>
   </tr>
 
-<% @announcements.each do |announcement| %>
+  <% @announcements.each do |announcement| %>
   <tr>
     <td><%= truncate(announcement.message, :length => 30) %></td>
     <td><%= l announcement.starts_at, :format => :long %></td>
@@ -26,8 +26,9 @@
     <td><%= link_to 'Edit', edit_administr8te_announcement_path(announcement) %></td>
     <td><%= link_to 'Destroy', administr8te_announcement_path(announcement), confirm: 'Are you sure?', method: :delete %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
+
 <% else %>
-  <p class='no-occurence'>No site-wide announcements yet.</p>
+  <p class='no-occurence'>Create a site-wide <%= link_to 'Announcement', new_administr8te_announcement_path %></p>
 <% end %>

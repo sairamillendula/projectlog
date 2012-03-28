@@ -69,7 +69,7 @@ class Subscription < ActiveRecord::Base
   end
 
   def create_audit
-    AuditTrail.create(:user_id => user_id, :action => 'subscribed', :message => "to the #{plan.name} plan")
+    AuditTrail.create(:user_id => user_id, :action => 'subscribed', :message => "to the #{plan.name} plan (after #{distance_of_time_in_words(created_at-user.created_at)})")
   end
   
   def update_audit
