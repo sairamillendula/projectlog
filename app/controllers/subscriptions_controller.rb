@@ -65,8 +65,6 @@ class SubscriptionsController < ApplicationController
   end
   
   def reactivate
-    puts current_user.inspect
-    puts Plan.all.inspect
     @subscription = current_user.current_subscription
     @subscription.assign_attributes(params[:subscription])
     @subscription.do_validate_card = true
