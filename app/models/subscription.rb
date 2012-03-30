@@ -84,6 +84,14 @@ class Subscription < ActiveRecord::Base
     AuditTrail.create(:user_id => user_id, :action => 'reactivated', :message => "subcscription to the #{plan.name} plan")
   end
   
+  def card_type_name
+    if card_type == 'master'
+      'mastercard'
+    else
+      card_type
+    end
+  end
+  
 private
   
   def extract_card_type

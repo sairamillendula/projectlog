@@ -1,5 +1,8 @@
-<img src='<%= Rails.root.join("app", "assets", "images", "logo.png") %>'>
-<h2>Projectlog Subscription Receipt</h2>
+<div style="line-height:50px;">
+  <h2>Projectlog Subscription Receipt
+    <span style="float:right;"><img src='<%= Rails.root.join("app", "assets", "images", "logo.png") %>' width='150px'></span>    
+  </h2>
+</div>
 
 <p>Here is the invoice for your Projectlog subscription. Paid in full up to date. No payment is due.</p><br />
 
@@ -9,7 +12,7 @@
 <p><b>Amount charged:</b> $<%= @transaction.amount %> (USD)</p>
 <p><b>Company:</b> <%= @transaction.user.profile.company %></p>
 <p><b>Name:</b> <%= @transaction.user.full_name %></p>
-<p><b>Card Type:</b> <%= @transaction.subscription.card_type %></p>
+<p><b>Card Type:</b> <%= @transaction.subscription.card_type_name %></p>
 
 <br />
 <%= simple_format(Settings.defaults['subscription_receipt_signature']) %>

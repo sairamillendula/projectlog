@@ -1,8 +1,9 @@
-@import "style";
 @import "variables";
 
 body { 
 	background: #f2f2f2;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	line-height: 20px;
 }
 
 #container {
@@ -23,9 +24,29 @@ body {
     display: block;
     font-size: 14px;
 	margin-left: auto;
-	margin-right:auto;
-
+	margin-right: auto;
 }
+
+#logo h1 {
+	text-align: left;
+	padding-left: 54px;
+	background: image-url("195.png") no-repeat;
+	float: left;
+	font-family: 'Pacifico', serif;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 400;
+	text-shadow: none;
+	text-decoration: none;
+	text-transform: none;
+	letter-spacing: 0em;
+	word-spacing: 0em;
+	height: 61px;
+	line-height: 44px;
+	margin-top: 0;
+	padding-top: 0;
+}
+
 .dialog.signup {float:left;}
 
 .dialog a {color: #4183C4; text-decoration: none;}

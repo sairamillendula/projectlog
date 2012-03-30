@@ -19,7 +19,7 @@
 
   <div id="select-plan">
     <% @plans.each do |plan| %>
-      <ul id="card-entries">
+      <ul class="card-entries">
         <li class="card <%= cycle('odd', 'even') %>">
           <div class="card-inner">
             <h1><%= plan.name %>
