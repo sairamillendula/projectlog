@@ -23,3 +23,91 @@
 
 .medium { width: 100px; }
 .short { width: 60px; }
+
+.submit input {
+	@include rounded-corners(15px);
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	border: 1px solid #bbbbbb;
+	color: #464646;
+	background: #f2f2f2 image-url("white-grad.png") repeat-x scroll left top;
+	cursor: pointer;
+	font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+	font-size: 14px !important;
+	line-height: 16px;
+	padding: 6px 12px;
+	text-decoration: none;
+	width: auto;
+
+	&:hover {
+		border-color: #666;
+		color: black;
+	}
+
+	&:active {
+		background: #eeeeee image-url("white-grad-active.png") repeat-x scroll 0% 0%;
+	}
+	&:disabled {border-color: #bbbbbb; color: #464646; cursor: default;}
+}
+
+.notice {
+	background-color: #ddfab9;
+	border: 1px solid #c3e09f;
+	color: #617f41;
+	padding: 4px;
+	margin-bottom: 10px;
+}
+
+.warning {
+	background: #DF4338;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #E96050), color-stop(100%, #DF4338));
+	background-image: -webkit-linear-gradient(#E96050,#DF4338);
+	background-image: -moz-linear-gradient(#E96050,#DF4338);
+	background-image: -o-linear-gradient(#E96050,#DF4338);
+	background-image: linear-gradient(#E96050,#DF4338);
+	@include rounded-corners(4px);
+	text-align: center;
+	padding: 4px;
+	color: #fff;
+	margin-bottom: 20px;
+
+	 a {
+		line-height: 20px;
+		color: yellow;
+		text-decoration: none;
+		}
+	a:hover { 
+		background: none; 
+		text-decoration: underline; 
+		}
+}
+
+.alert, #error_explanation {
+	background-color: #ffe3e2;
+	border: 1px solid #efb1af;
+	color: #c00;
+	padding: 4px;
+	margin-bottom: 20px;
+}
+#error_explanation ul {margin-top:0; margin-bottom:0;}
+
+.info {
+	border: 1px solid #bedce7;
+	padding: 3px;
+	background: #eaf2f5 image-url("info_background.gif") repeat;
+}
+
+p.info {
+	padding-left: 4px;
+	font-size: 12px;
+}
+
+.active, .inactive {
+	color: #fff;
+	padding: 4px;
+}
+
+.active { background: #6cc644; }
+.inactive { background: #f26535; }
+.field_with_errors label { color: #c00; }
+.field_with_errors { display: inline; }

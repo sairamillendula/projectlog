@@ -10,8 +10,8 @@
 
 <div id="customers">
 <% @customers.each do |customer| %>
-  	<ul id="card-entries">
-	  <li id="card" class="<%= cycle('odd', 'even') %>">
+  	<ul class="card-entries">
+	  <li class="card <%= cycle('odd', 'even') %>">
 	    <div class="card-inner customer">
 	      <h1><%= link_to customer.name, customer %></h1>
 	        <p>
