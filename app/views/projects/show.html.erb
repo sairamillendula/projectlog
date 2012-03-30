@@ -21,17 +21,17 @@
 	</div>
   <% end %>
 <% else %>
-  <div id="column_left">
+  <div class="column_left">
     <% if @project.description.blank? %>
 	   <%= render :partial => 'description' %>
 	<% else %>
-      <div id="project_description">
+      
 	    <%= markdown(@project.description) %>
-      </div>
+      
     <% end %>
   </div>
 
-  <div id="column_right">
+  <div class="column_right">
     <%= render :partial => 'column_right' %>
   </div>
 <% end %>

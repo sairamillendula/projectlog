@@ -6,7 +6,7 @@
   </div>
 
 <div id="meta">
-  <div id="column_left">
+  <div class="column_left">
   	<p>
 	  <label class="label">Phone:</label>
 	  <span><%= @customer.phone %></span><br/>
@@ -28,9 +28,9 @@
 	</p>
   </div>
 
-  <div id="column_right">
+  <div class="column_right">
 	<% if @customer.note.present? %>
-	   <p><%= markdown(@customer.note) %></p>
+	   <%= markdown(@customer.note) %>
 	<% else %>
 	   <%= render :partial => 'note' %>
 	<% end %>
