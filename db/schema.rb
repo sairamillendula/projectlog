@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120327044743) do
+ActiveRecord::Schema.define(:version => 20120329050029) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -320,7 +320,7 @@ ActiveRecord::Schema.define(:version => 20120327044743) do
     t.integer  "pending_subscription_id"
     t.datetime "modify_on"
     t.datetime "start_date"
-    t.boolean  "active",                  :default => false
+    t.boolean  "active"
     t.integer  "plan_id"
     t.integer  "user_id"
     t.datetime "created_at",                                 :null => false
@@ -329,6 +329,7 @@ ActiveRecord::Schema.define(:version => 20120327044743) do
     t.string   "card_type"
     t.string   "currency"
     t.datetime "next_payment_date"
+    t.boolean  "card_declined",           :default => false
   end
 
   create_table "transactions", :force => true do |t|

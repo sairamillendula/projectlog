@@ -10,6 +10,7 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :date, :total, :note
   validates_numericality_of :total
   validates_numericality_of :tax1, :tax2, :allow_blank => true
+  validate :validate_limit, :on => :create
   
   scope :expenses, where(expense: true)
   scope :incomes, where(expense: false)
@@ -71,6 +72,20 @@ class Transaction < ActiveRecord::Base
         to = Date.new(this_year, fiscal_year.month, fiscal_year.day)
         (from..to)
       end
+    end
+  end
+  
+  private
+  
+  def validate_limit
+    user = User.find(self['user_id'])
+    perm = user.plan.permissions[:transaction]
+    if perm[:accessible]
+      if perm[:limit] > 0 && user.transactions.count > perm[:limit]
+        errors.add(:base, "You have reached max #{perm[:limit]} transactions limit. Please upgrade plan.")
+      end
+    else
+      errors.add(:base, "You are not allowed to create transaction. Please upgrade plan.")
     end
   end
   

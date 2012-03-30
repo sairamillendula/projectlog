@@ -10,4 +10,8 @@ class SubscriptionsMailer < ActionMailer::Base
     @subscription = subscription
     mail(:to => @subscription.user.email, :subject => "Subscription change")
   end
+  
+  def credit_card_declined_email(subscription)
+    
+  end
 end

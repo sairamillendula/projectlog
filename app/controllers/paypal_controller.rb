@@ -69,8 +69,16 @@ class PaypalController < ApplicationController
   def recurring_payment_suspended_due_to_max_failed_payment(notify)
     begin
       subscription = Subscription.find_by_slug(notify.params['rp_invoice_id'])
-      raise "Failed to cancel subscription" unless subscription.cancel(:timeframe => :renewal)
+      if subscription.cancel(:timeframe => :renewal)
+        subscription.card_declined = true
+        subscription.save(validate: false)
+        AdminMailer.credit_card_declined_email(subscription)
+        SubscriptionsMailer.credit_card_declined_email(subscription)
+      else
+        raise "Failed to cancel subscription" 
+      end
     rescue => e
+      puts e
       raise "Failed to process recurring_payment_suspended_due_to_max_failed_payment IPN."
     end
   end
@@ -91,6 +99,7 @@ class PaypalController < ApplicationController
         raise unless subscription.cancel(:timeframe => :renewal)
       end
     rescue => e
+      puts e
       raise "Failed to process recurring_payment_profile_cancel IPN"
     end
   end

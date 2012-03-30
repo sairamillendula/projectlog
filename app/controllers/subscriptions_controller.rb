@@ -70,6 +70,8 @@ class SubscriptionsController < ApplicationController
     @subscription.do_validate_card = true
     if @subscription.valid?
       if @subscription.modify(params[:subscription].merge(:plan => @subscription.plan, :timeframe => current_user.plan.costing? ? :renewal : :now))
+        @subscription.card_declined = false
+        @subscription.save
         @subscription.reactivate_audit
         redirect_to current_subscriptions_url, :notice => "Your subscription has been reactivated successfully."
       else

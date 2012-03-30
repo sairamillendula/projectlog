@@ -13,6 +13,7 @@ Projectlog::Application.routes.draw do
       get 'current'
       get 'modify'
       put 'reactivate'
+      get 'card_declined'
     end
     
     member do

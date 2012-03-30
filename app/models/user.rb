@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   
   after_create :build_profile_and_set_default_plan
+  before_destroy :cancel_paypal_profile
   
   has_one  :profile, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
@@ -79,6 +80,12 @@ private
   
   def self.count_on(date)
     where("date(created_at) = ?", date).count(:id)
+  end
+  
+  def cancel_paypal_profile
+    unless current_subscription.blank?
+      current_subscription.cancel(:timeframe => :now)
+    end
   end
   
 end
