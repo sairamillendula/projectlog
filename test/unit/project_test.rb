@@ -11,7 +11,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
   
   test "should not save without a title" do
-    project = Project.new
+    project = users(:one).projects.new
     assert !project.valid?
     assert project.errors[:title].any?
     assert_equal ["can't be blank"], project.errors[:title]
@@ -54,6 +54,21 @@ class ProjectTest < ActiveSupport::TestCase
     project.destroy
     assert_raise(ActiveRecord::RecordNotFound) { Project.find(project.id) }
     assert !project.activities.any?
+  end
+  
+  test "should require upgrade plan if max limit reached" do
+    5.times do |x|
+      project = users(:one).projects.new
+      project.customer_id = '1'
+      project.title = "MacBook Air redesign #{x}"
+      project.save
+    end
+    
+    project = users(:one).projects.new
+    project.customer_id = '1'
+    project.title = 'MacBook Air redesign 100'
+    assert !project.save
+    assert_equal ["You have reached max 5 projects limit. Please upgrade plan."], project.errors[:base]
   end
   
 end

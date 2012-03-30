@@ -12,6 +12,7 @@ class Invoice < ActiveRecord::Base
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
 
   validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true
+  validate :validate_limit, :on => :create
 
   accepts_nested_attributes_for :line_items, :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
@@ -91,5 +92,19 @@ class Invoice < ActiveRecord::Base
     self.tax2 = profile.tax2
     self.tax2_label = profile.tax2_label
     self.compound = profile.compound
+  end
+  
+  private
+  
+  def validate_limit
+    user = User.find(self['user_id'])
+    perm = user.plan.permissions[:invoice]
+    if perm[:accessible]
+      if perm[:limit] > 0 && user.invoices.count > perm[:limit]
+        errors.add(:base, "You have reached max #{perm[:limit]} invoices limit. Please upgrade plan.")
+      end
+    else
+      errors.add(:base, "You are not allowed to create invoice. Please upgrade plan.")
+    end
   end
 end

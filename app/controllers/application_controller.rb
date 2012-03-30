@@ -13,10 +13,14 @@ private
   end
   
   def after_sign_in_path_for(user)
-    if pending_announcement = Announcement.current_announcement_for(user)
-      announcement_path(pending_announcement)
+    if user.current_subscription && user.current_subscription.card_declined
+      card_declined_subscriptions_path
     else
-      user.admin? ? administr8te_dashboard_path : super
+      if pending_announcement = Announcement.current_announcement_for(user)
+        announcement_path(pending_announcement)
+      else
+        user.admin? ? administr8te_dashboard_path : super
+      end
     end
   end
   

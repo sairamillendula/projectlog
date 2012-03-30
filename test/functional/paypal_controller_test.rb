@@ -73,6 +73,9 @@ class PaypalControllerTest < ActionController::TestCase
   end
   
   test "recurring_payment_suspended_due_to_max_failed_payment success" do
+    AdminMailer.expects(:credit_card_declined_email).once
+    SubscriptionsMailer.expects(:credit_card_declined_email).once
+    
     post :ipn, @ipn_params.merge("txn_type" => "recurring_payment_suspended_due_to_max_failed_payment", "rp_invoice_id" => @subscription.slug)
     assert_response :success
     
@@ -81,6 +84,10 @@ class PaypalControllerTest < ActionController::TestCase
     assert @subscription.cancelled?
     assert_equal @next_payment_date.to_date, @subscription.modify_on.to_date
     assert_nil @subscription.pending_subscription
+    
+    # send declined email to user
+    
+    # assert_equal @subscription.user.email, ActionMailer::Base.deliveries.last.to.first
   end
   
   test "recurring_payment_suspended_due_to_max_failed_payment fail" do
