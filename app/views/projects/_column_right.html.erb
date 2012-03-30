@@ -19,7 +19,7 @@
   </p>
   <p>
    <label class="label-wide">
-     <%= @project.hourly? ? "Hours left:" : "Days left:" unless (@project.fixed? or @project.billing_code_id.nil?) %>
+     <%= @project.hourly? ? "Hours Left:" : "Days Left:" unless (@project.fixed? or @project.billing_code_id.nil?) %>
    </label>
    <%= show_unit_left unless @project.fixed? %>
   </p>
