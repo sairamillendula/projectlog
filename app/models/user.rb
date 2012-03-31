@@ -65,6 +65,10 @@ class User < ActiveRecord::Base
     days_left
   end
   
+  def trial?
+    plan.costing? && current_subscription.nil? && subscriptions.blank?
+  end
+  
 private
 
   def build_profile_and_set_default_plan
@@ -73,7 +77,7 @@ private
     logger.debug "The account should be created now."
     
     logger.debug "It's time to select a plan."
-       self.update_attributes(:plan_id => Plan.find_by_name!("Free").id)
+       self.update_attributes(:plan_id => Plan.find_by_name!(Settings['subscriptions.default_costing_plan']).id)
     logger.debug "Default plan should be added."
   end  
   

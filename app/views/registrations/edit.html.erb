@@ -25,7 +25,7 @@
 <div id="column_right">
   <div id="current_plan">
     <h2>Your current Plan</h2>
-    <p id="active_plan" class="blue_on_blue"><%= current_user.plan.name %></p>
+    <p id="active_plan" class="blue_on_blue"><%= current_user.plan.name %><% if current_user.trial? %> (<%= pluralize(Settings['subscriptions.trial_period'], 'Day') %>Trial)<% end %></p>
     <% if current_user.current_subscription %>
       <span id="upgrade_btn"><%= link_to 'Manage Subscription', current_subscriptions_path, :class => 'buttonorange' %></span>
     <% else %>
