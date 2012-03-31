@@ -2,8 +2,12 @@ class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   helper_method :sort_column, :sort_direction
   set_tab :projects
+  before_filter :check_accessible, :only => [:index, :new]
+  before_filter :check_limit, :only => [:new]
   
   def index
+    return redirect_to upgrade_required_subscriptions_url, notice: "You cannot access this page. Please upgrade plan." unless current_permissions[:project][:accessible]
+    
     @open_projects = current_user.projects.scoped.open.page(params[:page]).per(6)
     @closed_projects = current_user.projects.closed.page(1).per(10)
 
@@ -105,6 +109,18 @@ private
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+  
+  def check_accessible
+    unless current_permissions[:project][:accessible]
+      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+    end
+  end
+  
+  def check_limit
+    if current_permissions[:project][:limit] > 0 && current_user.projects.count >= current_permissions[:project][:limit]
+      return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:project][:limit]} projects for this plan. Please upgrade plan."
+    end
   end
   
 end

@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :set_locale
+  helper_method :current_permissions
+    
+  def current_permissions
+    @current_permissions ||= current_user.plan.permissions
+  end  
     
 private
   def load_user
