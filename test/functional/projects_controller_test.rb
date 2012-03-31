@@ -55,7 +55,7 @@ class ProjectsControllerTest < ActionController::TestCase
   
   test "should redirect to upgrade plan page if max limit reached when user click create new project" do
     projects = []
-    5.times {
+    15.times {
       projects << Project.new
     }
     @controller.current_user.stubs(:projects => projects)

@@ -1,9 +1,18 @@
 set :output, "#{path}/log/cron_log.log"
 set :environment, 'development'
 
-every 1.minute do
+every 1.hour do
   rake "subscription:process_modifications"
 end
+
+every 2.hour do
+  rake "user:revert"
+end
+
+every 1.day, :at => '01:00 AM' do
+  rake "user:alert_expire"
+end
+
 
 # Use this file to easily define all of your cron jobs.
 #
