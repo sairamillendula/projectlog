@@ -42,8 +42,8 @@ class UserTest < ActiveSupport::TestCase
   test "should have the free plan automatically asigned after creation" do
     u = User.create!(:email => "asdf@adsf.com", :password => "123456", :first_name => 'A', :last_name => 'M')
     assert u.plan, "user doesn't have a plan"
-    assert_equal u.plan, Plan.find_by_name!("Free")
-    assert User.with_free_plan.all.include?(u)
+    assert_equal u.plan, Plan.find_by_name("Premium")
+    assert User.with_paid_plan.all.include?(u)
   end
   
   test "should find user" do
