@@ -2,6 +2,8 @@ class InvoicesController < ApplicationController
   before_filter :authenticate_user!, :except => [:shared]
   helper_method :sort_column, :sort_direction
   set_tab :invoices
+  before_filter :check_accessible, :only => [:index, :new]
+  before_filter :check_limit, :only => [:new]
 
   def index
     @invoices = current_user.invoices.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
@@ -152,6 +154,18 @@ class InvoicesController < ApplicationController
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+  
+  def check_accessible
+    unless current_permissions[:invoice][:accessible]
+      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+    end
+  end
+  
+  def check_limit
+    if current_permissions[:invoice][:limit] > 0 && current_user.invoices.count >= current_permissions[:invoice][:limit]
+      return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:invoice][:limit]} invoices for this plan. Please upgrade plan."
+    end
   end
 
 end

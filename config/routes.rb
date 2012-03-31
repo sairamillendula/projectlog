@@ -8,6 +8,7 @@ Projectlog::Application.routes.draw do
       get 'modify'
       put 'reactivate'
       get 'card_declined'
+      get 'upgrade_required'
     end
     
     member do

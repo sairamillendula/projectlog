@@ -3,6 +3,9 @@ class TransactionsController < ApplicationController
   helper_method :sort_column, :sort_direction
   set_tab :accounting
   
+  before_filter :check_accessible, :only => [:index, :new]
+  before_filter :check_limit, :only => [:new]
+  
   def index
     @transactions = current_user.transactions.order(sort_column + " " + sort_direction).page(params[:page]).per(20) 
     @transactions = @transactions.by_keyword(params[:search]) unless params[:search].blank?
@@ -43,7 +46,7 @@ class TransactionsController < ApplicationController
   end
 
   def edit
-    @transaction = current_user.transactions.find(params[:id])
+    @transaction = Transaction.find(params[:id])
   end
 
   def create
@@ -106,5 +109,17 @@ class TransactionsController < ApplicationController
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  end
+  
+  def check_accessible
+    unless current_permissions[:transaction][:accessible]
+      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+    end
+  end
+  
+  def check_limit
+    if current_permissions[:transaction][:limit] > 0 && current_user.transactions.count >= current_permissions[:transaction][:limit]
+      return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:transaction][:limit]} transactions for this plan. Please upgrade plan."
+    end
   end
 end

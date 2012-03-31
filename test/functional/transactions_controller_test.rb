@@ -2,8 +2,8 @@ require 'test_helper'
 
 class TransactionsControllerTest < ActionController::TestCase
   setup do
-    sign_in users(:one)
-    @transaction = transactions(:one)
+    sign_in users(:three)
+    @transaction = transactions(:three)
   end
 
   test "should get index" do
@@ -46,5 +46,16 @@ class TransactionsControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to transactions_path
+  end
+  
+  test "should redirect to upgrade plan page if user cannot accessible to accounting" do
+    sign_in users(:one)
+    get :index
+    assert_redirected_to upgrade_required_subscriptions_path
+  end
+  
+  test "should NOT redirect to upgrade plan page when user can accessible to accounting" do
+    get :index
+    assert_response :success
   end
 end

@@ -53,5 +53,17 @@ class InvoicesControllerTest < ActionController::TestCase
     post :send_email, format: :js, id: @invoice.to_param, send_invoice: { subject: "Invoice for bla-bla", body: "See invoice attached", to: contact.email, attach: "1"}
     assert_response :success
   end
+  
+  test "should redirect to upgrade plan page if max limit reached when user click create new invoice" do
+    invoices = []
+    10.times {
+      invoices << Invoice.new
+    }
+    @controller.current_user.stubs(:invoices => invoices)
+    
+    get :new
+    assert_redirected_to upgrade_required_subscriptions_path
+  end
+  
 
 end

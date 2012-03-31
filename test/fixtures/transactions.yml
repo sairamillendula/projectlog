@@ -21,3 +21,14 @@ two:
   user: one
   project: one
   category: one
+  
+three:
+  date: 2011-11-17
+  total: 150
+  tax1: 10
+  tax2: 5
+  receipt: MyString
+  note: MyText
+  user: three
+  project: one
+  category: one  
