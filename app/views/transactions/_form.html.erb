@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :note, "Description", :class => "mandatory" %>
-    <%= f.text_field :note %>
+    <%= f.text_field :note_name, data: {autocomplete_source: find_by_note_transactions_path} %>
   </div>
   <div class="field">
     <%= f.label :total, :class => "mandatory" %>
@@ -44,7 +44,7 @@
   </div>
   <div class="field">
     <%= f.label :project_id %>
-    <%= f.collection_select(:project_id, current_user.projects.all, :id, :title, :prompt => true) %>
+    <%= f.collection_select(:project_id, current_user.projects.order('title ASC'), :id, :title, :prompt => true) %>
   </div>
   <div class="actions">
     <p class="submit"><%= submit_or_cancel(f) %></p>

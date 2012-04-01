@@ -9,7 +9,10 @@
     $('#transaction_category_name').live 'focus', ->
       $(this).autocomplete
         source: $('#transaction_category_name').data('autocomplete-source')
-    
+
+	$('#transaction_note_name').live 'focus', ->
+	  $(this).autocomplete
+	    source: $('#transaction_note_name').data('autocomplete-source')
     
 
 @Transactions.Form =

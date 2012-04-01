@@ -34,8 +34,8 @@
 	background: #EAF2F5 image-url("info_background.gif") no-repeat;
 }
 
-#transaction_note {
-	width: 580px;
+#transaction_note_name, #transaction_note {
+	width: 570px;
 }
 #transaction_toggle_search_form {
   display: block;
@@ -124,14 +124,14 @@ input#new_transaction_date {
 }
 
 input.numbers {
-	width: 90px;
+	width: 100px;
 }
-input#transaction_note {
+input#transaction_note_name, input#transaction_note {
 	max-width: 600px;
 }
 
 /* Transaction new */
 /* Firefox fix */
-input#note {
+input#note, input#note_name {
 	max-width: 600px;
 }

@@ -1,11 +1,15 @@
 Projectlog::Application.routes.draw do
   root :to => 'dashboard#show'
     
-  resources :transactions
-  get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
-  resources :categories do
-    member do
-      get 'expenses'
+  resources :transactions do
+    get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
+    collection do
+      get 'find_by_note'
+    end
+    resources :categories do
+      member do
+        get 'expenses'
+      end
     end
   end
 
@@ -22,9 +26,9 @@ Projectlog::Application.routes.draw do
     resources :contacts, :projects
   end
 
- resources :invoices do
+  resources :invoices do
     member do
-      get "shared"
+      get 'shared'
       get 'add_line_item'
       get 'prepare_email'
       post 'send_email'
@@ -38,7 +42,6 @@ Projectlog::Application.routes.draw do
   end
   
   resources :projects do
-    
     collection do
       get 'closed'
       get 'quick'

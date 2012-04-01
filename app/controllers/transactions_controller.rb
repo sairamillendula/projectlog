@@ -99,7 +99,14 @@ class TransactionsController < ApplicationController
     @fiscal_year = Profile.period_to_s(current_period.first, current_period.last)
   end
   
-  private
+  def find_by_note
+    @transactions = current_user.transactions.order(:note).where("lower(note) like ?", "%#{params[:term].downcase}%")
+    
+    render json: @transactions.map(&:note)
+  end
+  
+private
+
   def sort_column
     Transaction.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end

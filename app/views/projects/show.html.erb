@@ -23,11 +23,9 @@
 <% else %>
   <div class="column_left">
     <% if @project.description.blank? %>
-	   <%= render :partial => 'description' %>
+	  <%= render :partial => 'description' %>
 	<% else %>
-      
-	    <%= markdown(@project.description) %>
-      
+	  <%= markdown(@project.description) %>
     <% end %>
   </div>
 

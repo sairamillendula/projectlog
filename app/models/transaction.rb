@@ -5,7 +5,8 @@ class Transaction < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
   
-  attr_accessible :expense, :date, :total, :tax1, :tax2, :tax1_label, :tax2_label, :tax1_amount, :tax2_amount, :compound, :receipt, :note, :recurring, :project_id, :category_id, :category_name, :user_id
+  attr_accessible :expense, :date, :total, :tax1, :tax2, :tax1_label, :tax2_label, :tax1_amount, :tax2_amount, :compound, :receipt, :note,
+                  :recurring, :project_id, :category_id, :category_name, :user_id, :note_name
   validates_presence_of :date, :total, :note
   validates_numericality_of :total
   validates_numericality_of :tax1, :tax2, :allow_blank => true
@@ -34,9 +35,18 @@ class Transaction < ActiveRecord::Base
     category.try(:name)
   end
   
+  def note_name
+    try(:note)
+  end
+  
   def category_name=(name)
     current_user = user
     self.category = current_user.categories.find_or_create_by_name(name) if name.present?
+  end
+  
+  def note_name=(name)
+    current_user = user
+    self.note = current_user.transactions.find_or_create_by_note(name) if note.present?
   end
   
   # CLASS METHODS
