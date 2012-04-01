@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: git://github.com/olimart/paypal_pro_recurring.git
-  revision: 5eb41b9d44432c8aaa77c05cae9d26607e826fc0
+  revision: 090247e7566e97c1f8f21c2167950dfe077b96d6
   specs:
     paypal_pro_recurring (0.0.1)
       rails (~> 3.2.2)

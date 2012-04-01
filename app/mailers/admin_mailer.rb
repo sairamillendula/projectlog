@@ -33,4 +33,9 @@ class AdminMailer < ActionMailer::Base
     mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] IPN Processing failed")
   end
   
+  def credit_card_declined_email(subscription)
+    @subscription = subscription
+    mail(:to => "app@projectlogapp.com", :subject => "[Projectlog] User credit card declined")
+  end
+  
 end

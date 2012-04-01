@@ -1,7 +1,10 @@
 free:
   name: "Free"
   description: "Basic Plan free for everyone who sign up"
-  features: "A very interesting plan because you don't have to pay."
+  features: |
+    5 Projects
+    10 Invoices
+    NO Transactions
   price: 0.0
   active: true
   displayable: true
@@ -9,10 +12,13 @@ free:
 paid:
   name: "Premium"
   description: "Paid Plan for pretty tests"
-  features: "A very interesting plan that's used for tests."
   price: 9.99
   active: true
   displayable: true
+  features: |
+    YES Projects
+    YES Invoices
+    YES Transactions
 
 inactive:
   name: "Bronze"

@@ -2,6 +2,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :customer_id, :unless => :internal?
   validates_uniqueness_of :title, :scope => :user_id
+  validate :validate_limit, :on => :create
+  
   belongs_to :user
   belongs_to :customer
   belongs_to :billing_code
@@ -74,5 +76,20 @@ class Project < ActiveRecord::Base
   
   def customer_name=(name)
     self.customer = self.user.customers.find_or_create_by_name(name) if name.present?
+  end
+  
+  
+  private
+  
+  def validate_limit
+    user = User.find(self['user_id'])
+    perm = user.plan.permissions[:project]
+    if perm[:accessible]
+      if perm[:limit] > 0 && user.projects.count > perm[:limit]
+        errors.add(:base, "You have reached max #{perm[:limit]} projects limit. Please upgrade plan.")
+      end
+    else
+      errors.add(:base, "You are not allowed to create project. Please upgrade plan.")
+    end
   end
 end

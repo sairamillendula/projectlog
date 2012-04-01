@@ -26,3 +26,18 @@ two:
   hours_per_day: '5'
   website: 'http://getprojectlog.com'
   user: two
+  
+three:
+  company: "Easy 4 Me"
+  address1: "1345 Clever street"
+  address2: MyString
+  city: "Ottawa"
+  province: "Ontario"
+  postal_code: "K1N 5T2"
+  country: "Canada"
+  phone_number: "613 800 0222"
+  localization: "fr-CA"
+  hours_per_day: '7.5'
+  website: 'http://getprojectlog.com'
+  last_invoice: (2011)-020
+  user: three

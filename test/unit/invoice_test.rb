@@ -8,7 +8,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test "should not save without subject, status, customer, due_date, issued_date and currency" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     assert !invoice.valid?
     assert invoice.errors[:subject].any?
     assert invoice.errors[:status].any?
@@ -58,35 +58,35 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test "tax 1 amount" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 10 # 10%
     invoice.stubs(:subtotal).returns(50)
     assert_equal 5, invoice.tax1_amount
   end
   
   test "tax 2 amount" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax2 = 5 # 50%
     invoice.stubs(:subtotal).returns(50)
     assert_equal 2.5, invoice.tax2_amount
   end
   
   test "discount amount" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.discount = 5 # 5%
     invoice.stubs(:subtotal).returns(50)
     assert_equal 2.5, invoice.discount_amount
   end
   
   test "amount due with discount and no tax" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.discount = 5
     invoice.stubs(:subtotal).returns(50)
     assert_equal 47.5, invoice.amount_due
   end
   
   test "amount due with discount and tax 1" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 10
     invoice.discount = 5
     invoice.stubs(:subtotal).returns(50)
@@ -94,7 +94,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test "amount due with discount and tax 2" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax2 = 5
     invoice.discount = 5
     invoice.stubs(:subtotal).returns(50)
@@ -102,7 +102,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test "amount due with discount and all taxes" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 10
     invoice.tax2 = 5
     invoice.discount = 5
@@ -111,7 +111,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test "amount due with discount and all taxes and compound" do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 10
     invoice.tax2 = 5
     invoice.compound = true
@@ -121,7 +121,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test 'taxable tax name' do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 10
     invoice.tax1_label = "Personal"
     invoice.tax2 = 5
@@ -131,7 +131,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test 'should has any taxes if tax1 present' do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 10
     invoice.tax1_label = nil
     invoice.tax2 = ""
@@ -141,7 +141,7 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test 'should has any taxes if tax2 present' do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = ""
     invoice.tax1_label = nil
     invoice.tax2 = 10
@@ -151,13 +151,24 @@ class InvoiceTest < ActiveSupport::TestCase
   end
   
   test 'should has any taxes if tax1 and tax2 present' do
-    invoice = Invoice.new
+    invoice = users(:one).invoices.new
     invoice.tax1 = 4
     invoice.tax1_label = nil
     invoice.tax2 = 10
     invoice.tax2_label = nil
     invoice.compound = true
     assert invoice.any_taxes?
+  end
+  
+  test "should require upgrade plan if max limit reached" do
+    10.times do |x|
+      invoice = users(:one).invoices.new(invoices(:one).attributes.slice(:id, :created_at, :updated_at, :slug).merge(subject: "Invoice #{x}", currency: 'USD', customer_id: customers(:one).id, due_date: Time.now, issued_date: Time.now, status: "ABC"))
+      invoice.save
+    end
+    
+    invoice = users(:one).invoices.new(subject: "abacsfas", currency: 'USD', customer_id: customers(:one).id, due_date: Time.now, issued_date: Time.now, status: "ABC")
+    assert !invoice.save
+    assert_equal ["You have reached max 10 invoices limit. Please upgrade plan."], invoice.errors[:base]
   end
   
 end

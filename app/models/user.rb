@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates_presence_of :first_name, :last_name
   
   after_create :build_profile_and_set_default_plan
+  before_destroy :cancel_paypal_profile
   
   has_one  :profile, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
@@ -65,6 +66,10 @@ class User < ActiveRecord::Base
     days_left
   end
   
+  def trial?
+    plan.costing? && current_subscription.nil? && subscriptions.blank?
+  end
+  
 private
 
   def build_profile_and_set_default_plan
@@ -73,12 +78,18 @@ private
     logger.debug "The account should be created now."
     
     logger.debug "It's time to select a plan."
-       self.update_attributes(:plan_id => Plan.find_by_name!("Free").id)
+       self.update_attributes(:plan_id => Plan.find_by_name!(Settings['subscriptions.default_costing_plan']).id)
     logger.debug "Default plan should be added."
   end  
   
   def self.count_on(date)
     where("date(created_at) = ?", date).count(:id)
+  end
+  
+  def cancel_paypal_profile
+    unless current_subscription.blank?
+      current_subscription.cancel(:timeframe => :now)
+    end
   end
   
 end
