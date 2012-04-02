@@ -112,14 +112,18 @@ class TransactionsController < ApplicationController
   end
   
   def check_accessible
-    unless current_permissions[:transaction][:accessible]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+    unless current_user.admin?
+      unless current_permissions[:transaction][:accessible]
+        return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+      end
     end
   end
   
   def check_limit
-    if current_permissions[:transaction][:limit] > 0 && current_user.transactions.count >= current_permissions[:transaction][:limit]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:transaction][:limit]} transactions for this plan. Please upgrade plan."
+    unless current_user.admin?
+      if current_permissions[:transaction][:limit] > 0 && current_user.transactions.count >= current_permissions[:transaction][:limit]
+        return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:transaction][:limit]} transactions for this plan. Please upgrade plan."
+      end
     end
   end
 end

@@ -74,13 +74,15 @@ class Transaction < ActiveRecord::Base
   
   def validate_limit
     user = User.find(self['user_id'])
-    perm = user.plan.permissions[:transaction]
-    if perm[:accessible]
-      if perm[:limit] > 0 && user.transactions.count > perm[:limit]
-        errors.add(:base, "You have reached max #{perm[:limit]} transactions limit. Please upgrade plan.")
+    unless user.admin?
+      perm = user.plan.permissions[:transaction]
+      if perm[:accessible]
+        if perm[:limit] > 0 && user.transactions.count > perm[:limit]
+          errors.add(:base, "You have reached max #{perm[:limit]} transactions limit. Please upgrade plan.")
+        end
+      else
+        errors.add(:base, "You are not allowed to create transaction. Please upgrade plan.")
       end
-    else
-      errors.add(:base, "You are not allowed to create transaction. Please upgrade plan.")
     end
   end
   

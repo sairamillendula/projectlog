@@ -157,14 +157,18 @@ class InvoicesController < ApplicationController
   end
   
   def check_accessible
-    unless current_permissions[:invoice][:accessible]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+    unless current_user.admin?
+      unless current_permissions[:invoice][:accessible]
+        return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+      end
     end
   end
   
   def check_limit
-    if current_permissions[:invoice][:limit] > 0 && current_user.invoices.count >= current_permissions[:invoice][:limit]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:invoice][:limit]} invoices for this plan. Please upgrade plan."
+    unless current_user.admin?
+      if current_permissions[:invoice][:limit] > 0 && current_user.invoices.count >= current_permissions[:invoice][:limit]
+        return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:invoice][:limit]} invoices for this plan. Please upgrade plan."
+      end
     end
   end
 
