@@ -112,14 +112,18 @@ private
   end
   
   def check_accessible
-    unless current_permissions[:project][:accessible]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+    unless current_user.admin?
+      unless current_permissions[:project][:accessible]
+        return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+      end
     end
   end
   
   def check_limit
-    if current_permissions[:project][:limit] > 0 && current_user.projects.count >= current_permissions[:project][:limit]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:project][:limit]} projects for this plan. Please upgrade plan."
+    unless current_user.admin?
+      if current_permissions[:project][:limit] > 0 && current_user.projects.count >= current_permissions[:project][:limit]
+        return redirect_to upgrade_required_subscriptions_url, alert: "You have reached max #{current_permissions[:project][:limit]} projects for this plan. Please upgrade plan."
+      end
     end
   end
   

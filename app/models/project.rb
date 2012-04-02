@@ -83,13 +83,15 @@ class Project < ActiveRecord::Base
   
   def validate_limit
     user = User.find(self['user_id'])
-    perm = user.plan.permissions[:project]
-    if perm[:accessible]
-      if perm[:limit] > 0 && user.projects.count > perm[:limit]
-        errors.add(:base, "You have reached max #{perm[:limit]} projects limit. Please upgrade plan.")
+    unless user.admin?
+      perm = user.plan.permissions[:project]
+      if perm[:accessible]
+        if perm[:limit] > 0 && user.projects.count > perm[:limit]
+          errors.add(:base, "You have reached max #{perm[:limit]} projects limit. Please upgrade plan.")
+        end
+      else
+        errors.add(:base, "You are not allowed to create project. Please upgrade plan.")
       end
-    else
-      errors.add(:base, "You are not allowed to create project. Please upgrade plan.")
     end
   end
 end
