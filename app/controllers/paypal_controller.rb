@@ -19,7 +19,7 @@ class PaypalController < ApplicationController
     render :nothing => true
   end
   
-  private
+private
   
   # HANDLE IPN 
   # https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_WPRecurringPayments
@@ -114,7 +114,7 @@ class PaypalController < ApplicationController
 
   def recurring_payment_skipped(notify)
     # NOT APPLICABLE
-    # some error occured at paypal side, it will send us recurring_payment_suspended_due_to_max_failed_payment ipn
+    # if some error occured on paypal side, it will send us recurring_payment_suspended_due_to_max_failed_payment ipn
     # so we leave the job for recurring_payment_suspended_due_to_max_failed_payment
   end
   

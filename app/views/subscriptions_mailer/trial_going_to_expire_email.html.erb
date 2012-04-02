@@ -1,6 +1,8 @@
 Hi <%= @user.first_name %>,
 
-<p>You have <%= Settings['subscriptions.alert_trial_expire'] %> trial days left.</p>
+<p>This is to let you know that you have <%= Settings['subscriptions.alert_trial_expire'] %> days left on your unlimited free trial.</p>
+
+<p>At this point you can <%= link_to('upgrade', new_subscription_url, :host => "projectlogapp.com", :protocol => 'https') %> anytime and continue to use Projectlog with no limits or wait until your trial expires. No worries you can always access your account and enjoy the Free plan.</p>
 
 <p>Feel free to contact us if your require assistance.</p>
 
