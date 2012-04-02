@@ -13,12 +13,12 @@ class SubscriptionsMailer < ActionMailer::Base
   
   def credit_card_declined_email(subscription)
     @subscription = subscription
-    mail(:to => @subscription.user.email, :subject => "Your credit card has been declined")
+    mail(:to => @subscription.user.email, :subject => "Your credit card was declined")
   end
   
   def trial_going_to_expire_email(user)
     @user = user
-    mail(:to => user.email, :subject => "You have #{Settings['subscriptions.alert_trial_expire']} trial days left")
+    mail(:to => user.email, :subject => "You have #{Settings['subscriptions.alert_trial_expire']} days left on your trial")
   end
   
   def trial_expired_email(user)

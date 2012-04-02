@@ -23,9 +23,9 @@
         <li class="card <%= cycle('odd', 'even') %>">
           <div class="card-inner">
             <h1><%= plan.name %>
-        	    <span class='floatr'>$<%= plan.price.round(0) %> / <%= plan.frequency %></span>
+        	  <span class='floatr'>$<%= plan.price.round(0) %> / <%= plan.frequency %></span>
         	</h1>
-        	<p class="tagline"><%= simple_format(plan.features) %></p>
+        	<p class="tagline"><%= simple_format(plan.description) %></p>
           </div>
         </li>
       </ul>

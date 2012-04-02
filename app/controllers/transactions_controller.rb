@@ -102,7 +102,7 @@ class TransactionsController < ApplicationController
     @fiscal_year = Profile.period_to_s(current_period.first, current_period.last)
   end
   
-  private
+private
   def sort_column
     Transaction.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end
@@ -113,7 +113,7 @@ class TransactionsController < ApplicationController
   
   def check_accessible
     unless current_permissions[:transaction][:accessible]
-      return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
+      return redirect_to upgrade_required_subscriptions_url, :layout => 'layouts/login', alert: "You cannot access this page. Please upgrade plan."
     end
   end
   

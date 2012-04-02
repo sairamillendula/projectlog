@@ -24,7 +24,7 @@
 
     <p>
       <%= label_tag :"settings[reports.email.body]", "Default body" %><br />
-      <span class='highlight'>The <code>%{invoice_link}</code> tag will be dynamically replaced with the actual link to the invoice.</span><br />
+      <span class='highlight'>The <code>%{invoice_link}</code> tag will be dynamically replaced by the actual link to the invoice.</span><br />
       <%= text_area_tag :"settings[invoices.email.body]", Settings['invoices.email.body'], :size => "60x10" %>
     </p>
     
@@ -32,6 +32,10 @@
     <p>
       <%= label_tag :"settings[subscriptions.trial_period]", "Default Trial Period (day)" %>
       <%= text_field_tag :"settings[subscriptions.trial_period]", Settings['subscriptions.trial_period'], :size => 5 %>
+    </p>
+    <p>
+      <%= label_tag :"settings[subscriptions.alert_trial_expire]", "Send reminder when trial about to expire (day)" %>
+      <%= text_field_tag :"settings[subscriptions.alert_trial_expire]", Settings['subscriptions.alert_trial_expire'], :size => 5 %>
     </p>
     <p>
       <%= label_tag :"settings.defaults[subscriptions.max_failed_payments]", "Max failed payments before we cancel subscription" %>

@@ -1,8 +1,8 @@
 Hi <%= @subscription.user.first_name %>,
 
-<p>Your credit card has been declined. Please update credit card by clicking the link below to reactivate your subscription again.</p>
+<p>Your credit card was declined. Please update your credit card by clicking the link below to reactivate your subscription.</p>
 
-<p><%= link_to modify_subscriptions_url, modify_subscriptions_url %></p>
+<p><%= link_to(modify_subscriptions_url, modify_subscriptions_url, :host => "projectlogapp.com", :protocol => 'https') %></p>
 
 <p>Feel free to contact us if your require assistance.</p>
 
