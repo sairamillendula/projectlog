@@ -16,7 +16,7 @@ namespace :user do
           user.plan = free_plan
           user.save!
           SubscriptionsMailer.trial_expired_email(user)
-          puts "User #{user.email} reverted to free plan."
+          puts "User #{user.email} reverted to free plan"
         end
       end
     end
@@ -29,7 +29,7 @@ namespace :user do
       if user.trial?
         if user.trial_days_left == Settings['subscriptions.alert_trial_expire']
           SubscriptionsMailer.trial_going_to_expire_email(user)
-          puts "Sent trial about to expire email to #{user.email}."
+          puts "Sent trial about to expire email to #{user.email}"
         end
       end
     end

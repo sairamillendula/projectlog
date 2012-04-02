@@ -1,1 +1,8 @@
-<p>You've reached the limit of your current plan. Please <%= link_to 'Upgrade', new_subscription_path, :class => 'buttonorange' %> plan.</p>
+<div class="focus">
+  <h2>You've reached the limit of your current plan.</h2>
+  <p class='tagline'>If you wish to continue please upgrade.<br />
+     It's <b>quick & secure</b> and gives you <b>full access</b>.
+  </p>
+  <p style='text-align:center;'><%= link_to 'Upgrade Plan', new_subscription_path, :class => 'buttonorange' %> or 
+  <%= link_to 'Return', root_path, :class => 'cancel' %></p>
+</div>
