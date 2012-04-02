@@ -1,7 +1,7 @@
 <% if @transactions.any? %>
 <ul id="sub-menu">
   <li class="buttonorange"><%= link_to " ⬇ Export to CSV", params.merge(:format => :csv, :action => "index") %></li>
-  <li class="buttonorange"><%= link_to " Monthly Report", transactions_reports_monthly_path %></li>
+  <li class="buttonorange"><%= link_to " Monthly Report", reports_monthly_transactions_path %></li>
 </ul>
 <% end %>
 

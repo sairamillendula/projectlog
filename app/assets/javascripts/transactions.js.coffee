@@ -10,13 +10,17 @@
       $(this).autocomplete
         source: $('#transaction_category_name').data('autocomplete-source')
 
-	$('#transaction_note_name').live 'focus', ->
+	$('#transaction_note').live 'focus', ->
 	  $(this).autocomplete
-	    source: $('#transaction_note_name').data('autocomplete-source')
+	    source: $('#transaction_note').data('autocomplete-source')
     
 
 @Transactions.Form =
   init: ->
+    $('#transaction_category_name').live 'focus', ->
+      $(this).autocomplete
+        source: $('#transaction_category_name').data('autocomplete-source')
+        
     $('#total').live 'keyup', ->
       total = parseFloat($(this).val())
       total = 0 if isNaN(total)

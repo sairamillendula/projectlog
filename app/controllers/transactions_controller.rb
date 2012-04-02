@@ -102,7 +102,7 @@ class TransactionsController < ApplicationController
   def find_by_note
     @transactions = current_user.transactions.order(:note).where("lower(note) like ?", "%#{params[:term].downcase}%")
     
-    render json: @transactions.map(&:note)
+    render json: @transactions.map(&:note).uniq
   end
   
 private

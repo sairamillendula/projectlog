@@ -24,7 +24,7 @@
   </div>
   <div class="field">
     <%= f.label :note, "Description", :class => "mandatory" %>
-    <%= f.text_field :note_name, data: {autocomplete_source: find_by_note_transactions_path} %>
+    <%= f.text_field :note, data: {autocomplete_source: find_by_note_transactions_path} %>
   </div>
   <div class="field">
     <%= f.label :total, :class => "mandatory" %>

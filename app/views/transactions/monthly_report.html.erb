@@ -5,7 +5,7 @@
 <h1>Monthly Financial Report
   <% if @periods.size > 1 %>
   <div class='floatr'>
-    <%= select_tag 'fiscal_year', options_for_select(@periods, @fiscal_year), "data-url" => transactions_reports_monthly_url %>
+    <%= select_tag 'fiscal_year', options_for_select(@periods, @fiscal_year), "data-url" => reports_monthly_transactions_url %>
   </div>
   <% end %>
 </h1>

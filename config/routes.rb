@@ -2,14 +2,15 @@ Projectlog::Application.routes.draw do
   root :to => 'dashboard#show'
     
   resources :transactions do
-    get 'transactions/reports/monthly', :controller => :transactions, :action => 'monthly_report'
     collection do
+      get 'reports/monthly', :action => 'monthly_report'
       get 'find_by_note'
     end
-    resources :categories do
-      member do
-        get 'expenses'
-      end
+  end
+  
+  resources :categories do
+    member do
+      get 'expenses'
     end
   end
 
