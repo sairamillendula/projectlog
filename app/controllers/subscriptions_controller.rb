@@ -95,6 +95,10 @@ class SubscriptionsController < ApplicationController
     end
   end
   
+  def upgrade_required
+    render :layout => 'login'
+  end
+  
 private
   
   def load_plans

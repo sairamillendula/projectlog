@@ -112,10 +112,15 @@ private
   end
   
   def check_accessible
+<<<<<<< HEAD
+    unless current_permissions[:transaction][:accessible]
+      return redirect_to upgrade_required_subscriptions_url, :layout => 'layouts/login', alert: "You cannot access this page. Please upgrade plan."
+=======
     unless current_user.admin?
       unless current_permissions[:transaction][:accessible]
         return redirect_to upgrade_required_subscriptions_url, alert: "You cannot access this page. Please upgrade plan."
       end
+>>>>>>> 2286980c371458abf36a7f2530d7b7b25713386e
     end
   end
   
