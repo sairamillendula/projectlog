@@ -192,52 +192,6 @@ header {
 	}
 }
 
-.buttonorange {
-	padding: 6px 12px;
-	text-decoration: none;
-	border: 1px solid;
-	border-color: #E3AE43;
-	border-top-color: #F0C851;
-	border-bottom-color: #E0A235;
-	display: inline-block;
-	line-height: 16px;
-	color: #895B2C;
-	text-align: center;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-	text-decoration: none !important;
-	@include rounded-corners(5px);
-	background: -webkit-gradient(linear,left top,left bottom,color-stop(.2, #FAE37A),color-stop(1, #F6CB4F));
-	background: -moz-linear-gradient(center top,#FAE37A 20%,#F6CB4F 100%);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3) /*Top*/, inset 0 0 2px rgba(255, 255, 255, .3) /*Shine*/, 0 1px 2px rgba(0, 0, 0, .29) /*Shadow*/;
-	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3) /*Top*/, inset 0 0 2px rgba(255, 255, 255, .3) /*Shine*/, 0 1px 2px rgba(0, 0, 0, .29) /*Shadow*/;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3) /*Top*/, inset 0 0 2px rgba(255, 255, 255, .3) /*Shine*/, 0 1px 2px rgba(0, 0, 0, .29) /*Shadow*/;
-
-	&:hover {
-		background: -webkit-gradient(linear,left top,left bottom,color-stop(.2, #f6cb4f),color-stop(1, #fae37a));
-		background: -moz-linear-gradient(center top, #f6cb4f 20%, #fae37a 100%);
-		color: #895B2C;
-	}
-
-	&:visited {
-		color: #895B2C;
-	}
-
-	a {
-		text-decoration: none;
-		background: none;
-		color: #895B2C;    
-	}
-}
-
-.buttonorange.inactive {
-	border: 1px solid #bbbbbb;
-	background: #f2f2f2;
-}
-
-p.buttonorange.inactive {
-	color: #464646;
-}
-
 /* Site Layout */
 #main-content {
 	min-height: 800px; /* change this to avoid scrollbar issue with ajax new#transactions */

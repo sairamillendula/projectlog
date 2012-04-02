@@ -13,7 +13,7 @@ body {
 	margin-right:auto;
  }
 
-.dialog {
+.dialog, .focus {
 	width: 340px;
     padding: 15px 30px;
     @include rounded-corners(5px);
@@ -49,15 +49,19 @@ body {
 
 .dialog.signup {float:left;}
 
-.dialog a {color: #4183C4; text-decoration: none;}
+.dialog a, .focus a {color: #4183C4; text-decoration: none;}
 .dialog a:hover {color: #4183C4; text-decoration: underline; background: none;}
 .dialog a:visited {color: #4183C4; text-decoration: none;}
+.focus a:hover {text-decoration: underline;}
 
 .dialog h2 {
 	font-size: 14px;
     margin: 0px 0px 2px;
     padding: 0px;
 }
+
+.focus h2 {color: #2c2d31;}
+.focus p.tagline {font-size: 15px; color: #a4a5aa;}
 
 .dialog input {
 	width: 330px;
