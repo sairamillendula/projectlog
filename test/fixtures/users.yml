@@ -39,3 +39,11 @@ no_plan:
   last_name: Plan
   admin: false
   plan: free
+  
+four:
+  email: user5@gmail.com
+  encrypted_password: "$2a$10$v6iEa1Q1GqPnc3XfRBBBLOi2LyN8r.d5IzqTftdhsdld/GtrHbS9K" # '123456'
+  first_name: Usr
+  last_name: Four
+  admin: false
+  plan: paid  
