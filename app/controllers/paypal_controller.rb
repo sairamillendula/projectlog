@@ -72,8 +72,8 @@ private
       if subscription.cancel(:timeframe => :renewal)
         subscription.card_declined = true
         subscription.save(validate: false)
-        AdminMailer.credit_card_declined_email(subscription)
-        SubscriptionsMailer.credit_card_declined_email(subscription)
+        AdminMailer.credit_card_declined_email(subscription).deliver
+        SubscriptionsMailer.credit_card_declined_email(subscription).deliver
       else
         raise "Failed to cancel subscription" 
       end

@@ -89,4 +89,17 @@ class UserTest < ActiveSupport::TestCase
     assert !u.transactions.any?
   end
   
+  test "should send going to expire email" do
+    user = users(:four)
+    user.created_at = Date.today - 22.days
+    user.save
+    user.reload
+    assert user.trial?
+    assert_equal Settings['subscriptions.alert_trial_expire'], user.trial_days_left
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      SubscriptionsMailer.trial_going_to_expire_email(user).deliver
+    end
+    
+  end
+  
 end
