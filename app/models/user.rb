@@ -35,8 +35,8 @@ class User < ActiveRecord::Base
   scope :admin, where(:admin => true)
   scope :with_free_plan, joins(:plan).where("plans.name = ?", "Free")
   scope :with_paid_plan, joins(:plan).where("plans.name != ?", "Free")
-  scope :active, where('last_sign_in_at < ?', 2.months.ago)
-  scope :recently_online, where('last_sign_in_at < ?', 5.minutes.ago)
+  scope :active, where(:last_sign_in_at => (Time.now.midnight - 2.months.ago)..Time.now)
+  scope :recently_online, where(:last_sign_in_at => (Time.now.midnight - 5.minutes)..Time.now)
   
   # Devise change to allow users edit their accounts without providing a password
   def password_required?
