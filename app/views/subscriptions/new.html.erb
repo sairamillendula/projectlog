@@ -2,8 +2,6 @@
   <span class='floatr'><%= image_tag('lock_active.png', :alt => 'secure page', :style => 'margin-top:5px;') %></span>
 </h1>
 
-<p class="info" style="font-size:13px">You can upgrade or downgrade your subscription anytime.</p>
-
 <p id='trial_status'>You have <%= content_tag(:span, "#{pluralize(current_user.trial_days_left, 'day')} left", :id => 'days_left') %> on your Unlimited Free Trial</p>
 
 <%= form_for(@subscription) do |f| %>
@@ -18,9 +16,9 @@
   <% end %>
 
   <div id="select-plan">
-    <% @plans.each do |plan| %>
-      <ul class="card-entries">
-        <li class="card <%= cycle('odd', 'even') %>">
+    <ul class="card-entries">
+      <% @plans.each do |plan| %>
+        <li class="card no-link <%= cycle('odd', 'even') %>">
           <div class="card-inner">
             <h1><%= plan.name %>
         	  <span class='floatr'>$<%= plan.price.round(0) %> / <%= plan.frequency %></span>
@@ -28,8 +26,18 @@
         	<p class="tagline"><%= simple_format(plan.description) %></p>
           </div>
         </li>
-      </ul>
-    <% end %>
+      <% end %>
+      <li class="card no-link even">
+        <div class="card-inner mktg">
+          <h1>You're in good hands</h1>
+      	  <ul class="tagline">
+      	    <li>Upgrade / Downgrade anytime</li>
+      	    <li>Secure Payment</li>
+      	    <li>Friendly customer support</li>
+      	  </ul>
+        </div>
+      </li>
+    </ul>
   </div>
   
   <div id="billing_fields" class="inline-form">

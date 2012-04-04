@@ -73,4 +73,14 @@ Projectlog::Application.configure do
   # :enable_starttls_auto => <%= mail_server_starttls %>
   # }
   
+  # PayPal configuration
+  #config.after_initialize do
+  #  ActiveMerchant::Billing::Base.mode = :production
+  #  Subscription.gateway = ::ActiveMerchant::Billing::PaypalGateway.new(
+  #    :login =>     "<%= paypal_login %>",
+  #    :password =>  "<%= paypal_password %>",
+  #    :signature => "<%= paypal_signature %>"
+  #  )
+  #end
+
 end
