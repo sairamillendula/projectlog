@@ -3,7 +3,7 @@ class SubscriptionsController < ApplicationController
   before_filter :load_plans, :only => [:new, :create]
   
   def new
-    @subscription = current_user.subscriptions.build(card_name: 'John Doe', card_number: '5468402944292202')
+    @subscription = current_user.subscriptions.build
   end
   
   def create

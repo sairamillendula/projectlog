@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     elsif user.persisted? # Logged in
       can :read, Announcement
+      can :hide, Announcement
     else # Not logged in
       # can :fuck_off
     end

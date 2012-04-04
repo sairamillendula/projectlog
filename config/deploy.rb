@@ -108,6 +108,11 @@ EOF
     mail_server_domain = Capistrano::CLI.ui.ask('What is mail server domain?: ')
     mail_server_starttls = Capistrano::CLI.ui.ask('Is starttls_auto enabled (true|false)?: ')
     
+    # paypal
+    paypal_login = Capistrano::CLI.ui.ask('What is PayPal API login?: ')
+    paypal_password = Capistrano::CLI.ui.ask('What is PayPal API password?: ')
+    paypal_signature = Capistrano::CLI.ui.ask('What is PayPal API key?: ')
+    
     run "mkdir -p #{shared_path}/config"
     put template.result(binding), "#{shared_path}/config/production.rb" 
   end

@@ -103,6 +103,7 @@ class TransactionsController < ApplicationController
   end
   
 private
+
   def sort_column
     Transaction.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end
