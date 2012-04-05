@@ -54,6 +54,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
   
   test "should redirect to upgrade plan page if max limit reached when user click create new project" do
+    sign_in users(:two)
     projects = []
     15.times {
       projects << Project.new

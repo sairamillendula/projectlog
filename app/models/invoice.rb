@@ -101,7 +101,7 @@ class Invoice < ActiveRecord::Base
     unless user.admin?
       perm = user.plan.permissions[:invoice]
       if perm[:accessible]
-        if perm[:limit] > 0 && user.invoices.count > perm[:limit]
+        if perm[:limit] > 0 && user.invoices.count >= perm[:limit]
           errors.add(:base, "You have reached max #{perm[:limit]} invoices limit. Please upgrade plan.")
         end
       else

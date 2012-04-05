@@ -55,6 +55,7 @@ class InvoicesControllerTest < ActionController::TestCase
   end
   
   test "should redirect to upgrade plan page if max limit reached when user click create new invoice" do
+    sign_in users(:two)
     invoices = []
     10.times {
       invoices << Invoice.new

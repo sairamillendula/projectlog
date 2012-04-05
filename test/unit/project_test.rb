@@ -58,15 +58,15 @@ class ProjectTest < ActiveSupport::TestCase
   
   test "should require upgrade plan if max limit reached" do
     5.times do |x|
-      project = users(:one).projects.new
-      project.customer_id = '1'
+      project = users(:two).projects.new
+      project.customer_id = '3'
       project.title = "MacBook Air redesign #{x}"
       project.save
     end
     
-    project = users(:one).projects.new
-    project.customer_id = '1'
-    project.title = 'MacBook Air redesign 100'
+    project = users(:two).projects.new
+    project.customer_id = '3'
+    project.title = 'MacBook Air redesign 6'
     assert !project.save
     assert_equal ["You have reached max 5 projects limit. Please upgrade plan."], project.errors[:base]
   end

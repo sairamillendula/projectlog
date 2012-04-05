@@ -42,7 +42,7 @@ class TransactionTest < ActiveSupport::TestCase
   end
   
   test "should require upgrade plan if max limit reached" do
-    txn = users(:one).transactions.new
+    txn = users(:two).transactions.new
     assert !txn.save
     assert_equal ["You are not allowed to create transaction. Please upgrade plan."], txn.errors[:base]
   end

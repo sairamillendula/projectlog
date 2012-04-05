@@ -49,7 +49,7 @@ class TransactionsControllerTest < ActionController::TestCase
   end
   
   test "should redirect to upgrade plan page if user cannot accessible to accounting" do
-    sign_in users(:one)
+    sign_in users(:two)
     get :index
     assert_redirected_to upgrade_required_subscriptions_path
   end

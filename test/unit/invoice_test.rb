@@ -162,11 +162,11 @@ class InvoiceTest < ActiveSupport::TestCase
   
   test "should require upgrade plan if max limit reached" do
     10.times do |x|
-      invoice = users(:one).invoices.new(invoices(:one).attributes.slice(:id, :created_at, :updated_at, :slug).merge(subject: "Invoice #{x}", currency: 'USD', customer_id: customers(:one).id, due_date: Time.now, issued_date: Time.now, status: "ABC"))
+      invoice = users(:two).invoices.new(invoices(:one).attributes.slice(:id, :created_at, :updated_at, :slug).merge(subject: "Invoice #{x}", currency: 'USD', customer_id: customers(:one).id, due_date: Time.now, issued_date: Time.now, status: "ABC"))
       invoice.save
     end
     
-    invoice = users(:one).invoices.new(subject: "abacsfas", currency: 'USD', customer_id: customers(:one).id, due_date: Time.now, issued_date: Time.now, status: "ABC")
+    invoice = users(:two).invoices.new(subject: "abacsfas", currency: 'USD', customer_id: customers(:one).id, due_date: Time.now, issued_date: Time.now, status: "ABC")
     assert !invoice.save
     assert_equal ["You have reached max 10 invoices limit. Please upgrade plan."], invoice.errors[:base]
   end
