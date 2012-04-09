@@ -37,6 +37,8 @@ after "deploy:setup", "init:production_file"
 after "deploy:finalize_update", "config:symlink_shared_configurations"
 after "deploy:finalize_update", "config:symlink_production_file"
 after "deploy", "deploy:cleanup" # keeps only last 5 releases
+
+after "db:migrate", "deploy:restart"
 ####################
 
 ###### TASKS #######
