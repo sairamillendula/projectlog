@@ -9,7 +9,7 @@ class PaypalController < ApplicationController
       begin
         txn_type = notify.type
         # call appropriate handle base on transaction type
-        send(txn_type, notify)
+        send(txn_type, notify) unless txn_type.blank?
          
       rescue => e
         AdminMailer.ipn_processing_failed(notify.type, notify.transaction_id, e).deliver
