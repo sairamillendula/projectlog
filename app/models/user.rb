@@ -61,7 +61,8 @@ class User < ActiveRecord::Base
   end
   
   def trial_days_left
-    days_left = Settings['subscriptions.trial_period'] - (Date.today - created_at.to_date).to_i
+    trial_limit = try(:trial_days_limit) || Settings['subscriptions.trial_period']
+    days_left = trial_limit - (Date.today - created_at.to_date).to_i
     days_left = 0 if days_left < 0
     days_left
   end
