@@ -25,20 +25,26 @@
 <div class="column_right">
   <div id="current_plan">
     <h2>Your current Plan</h2>
-    <p id="active_plan" class="blue_on_blue"><%= current_user.plan.name %><% if current_user.trial? %> (<%= pluralize(Settings['subscriptions.trial_period'], 'Day') %>Trial)<% end %></p>
+    <p id="active_plan" class="blue_on_blue">
+      <%= current_user.plan.name %>
+      <% if current_user.trial? %>
+        <% if current_user.trial_days_limit.present? %>
+          (<%= pluralize(current_user.trial_days_limit, 'Day') %> Left)
+        <% else %>
+          (<%= pluralize(Settings['subscriptions.trial_period'], 'Day') %>Trial)
+        <% end %>
+      <% end %>
+    </p>
     <% if current_user.current_subscription %>
       <span id="upgrade_btn"><%= link_to 'Manage Subscription', current_subscriptions_path, :class => 'buttonorange' %></span>
     <% else %>
       <span id="upgrade_btn"><%= link_to 'Upgrade', new_subscription_path, :class => 'buttonorange' %></span>
     <% end %>
-    
-    <!-- <span id="upgrade_btn"><%= link_to 'Cancel', cancel_subscriptions_path, :confirm => "Are you sure?", :method => :delete, :class => 'buttonorange' %></span> -->
   </div>
   
   <h3>Cancel my Account</h3> 
-    <p>Unhappy? Cancel your account anytime but make sure you have a backup first because <span style="color:red">all of your account information will be permanently deleted.</p>
-	<p class="submit left"><%= link_to "Delete my Account", registration_path(resource_name), :confirm => "Are you sure you want to delete your account?", :method => :delete, :html => {:class => 'submit' } %></p>
+  <p>Unhappy? Cancel your account anytime but make sure you have a backup first because <span style="color:red">all of your account information will be permanently deleted.</p>
+  <p class="submit left"><%= link_to "Delete my Account", registration_path(resource_name), :confirm => "Are you sure you want to delete your account?", :method => :delete, :html => {:class => 'submit' } %></p>
 
 </div>
-  
 <% end %>

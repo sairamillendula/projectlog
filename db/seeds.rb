@@ -3,6 +3,12 @@
 puts "Creating default Emailing API"
 Emailing.create(:description => '[TEST] Mailchimp - Clients list', :api_key => '7ee733e3c16671ed80d116acf8b1942a-us2', :list_key => 'ef5a8f01a9' )
 
+puts "Creating plans..."
+Plan.create(name: 'Premium', description: 'Sole Paying Plan', price: '15', frequency: 'Month', active: true, displayable: true, features: 
+'YES Projects
+YES Transactions
+YES Invoices')
+
 puts "Creating users..."
 user1 = User.find_by_email("user@gmail.com")
 unless user1
@@ -65,8 +71,5 @@ puts "Creating transactions..."
   )
   transaction.save
 end
-
-puts "Creating plans..."
-Plan.create(name: 'Premium', description: 'Sole Paying Plan', price: '15', frequency: 'Month', active: true, displayable: true)
 
 puts "All set"
