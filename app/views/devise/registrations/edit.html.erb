@@ -34,7 +34,7 @@
     <% if current_user.current_subscription %>
       <span id="upgrade_btn"><%= link_to 'Manage Subscription', current_subscriptions_path, :class => 'buttonorange' %></span>
     <% else %>
-      <% if current_user.trial_days_left =< Settings['subscriptions.alert_trial_expire']  %>
+      <% if current_user.trial_days_left <= Settings['subscriptions.alert_trial_expire']  %>
         <span id="upgrade_btn"><%= link_to 'Upgrade', new_subscription_path, :class => 'buttonorange' %></span>
       <% end %>
     <% end %>
