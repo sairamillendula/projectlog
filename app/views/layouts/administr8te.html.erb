@@ -1,29 +1,26 @@
 <!DOCTYPE>
 <html>
   <head>
-   <title>Projectlog</title>
-   <meta name="description" content="Projectlog is an easy way for consultants and freelancers to send timesheet & invoices" />
-   <meta name="keywords" content="time tracking, invoicing, activity log, collaborative tool, freelancer, consultant, yafoy" />
-   <%= stylesheet_link_tag "application", "administr8te" %>
-   <%= javascript_include_tag "application" %>
-   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-   <%= csrf_meta_tag %>
-   <link href='http://fonts.googleapis.com/css?family=Pacifico&v1' rel='stylesheet' type='text/css'>
+    <title>Projectlog</title>
+    <meta name="description" content="Projectlog is an easy way for consultants and freelancers to send timesheet & invoices" />
+    <meta name="keywords" content="time tracking, invoicing, activity log, collaborative tool, freelancer, consultant, yafoy" />
+    <%= stylesheet_link_tag "application", "administr8te" %>
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <%= csrf_meta_tag %>
   </head>
- <body>
-	
+  <body>	
 	<%= render :partial => 'layouts/header' %>
-   
-  <section id="main-content">
-	<nav id="navbar" role="navigation">
-		<%= render 'layouts/navbar_administr8te' %>
-	</nav>
 	
-    <section id="content" role="main">
-      <%= render 'layouts/flash' %>
+    <section id="main-content">
+	  <nav id="navbar" role="navigation">
+		<%= render 'layouts/navbar_administr8te' %>
+	  </nav>
+	
+      <section id="content" role="main">
+        <%= render 'layouts/flash' %>
  	    <%= yield %>
-   </section>
-  </section> <!-- main-content -->
- 
+      </section>
+    </section>
  </body>
 </html>
