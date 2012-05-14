@@ -24,6 +24,14 @@ class Project < ActiveRecord::Base
   scope :fixed, lambda { where(:billing_code_id => BillingCode.find_by_name!("Fixed").id) }
   
   
+  def title_and_client
+    if internal?
+      "#{title} (Internal)"
+    else
+      "#{title} (#{customer.name})"
+    end
+  end
+  
   # Total hours. Add <%= @project.total_hours %> in Project view
   def total_hours
     activities.sum(:time)

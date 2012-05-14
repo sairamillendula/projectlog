@@ -1,17 +1,17 @@
 <table class="activities">
   <tr>
-    <th><%= sortable "invoice_number", { :controller => "invoices", :action => "index"} %></th>
-    <th><%= sortable "due_date", { :controller => "invoices", :action => "index"} %></th>
+    <th style='width:85px;'><%= sortable "invoice_number", { :controller => "invoices", :action => "index"} %></th>
+    <th style='width:85px;'><%= sortable "due_date", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "subject", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "balance", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "status", { :controller => "invoices", :action => "index"} %></th>
-    <th><%= sortable "customer", { :controller => "invoices", :action => "index"} %></th>
+    <th style='width:55px;'><%= sortable "customer", { :controller => "invoices", :action => "index"} %></th>
     <th></th>
   </tr>
 
 <% @invoices.each do |invoice| %>
   <tr>
-    <td><%= link_to "##{invoice.invoice_number}", invoice %></td>
+    <td><%= link_to "#{invoice.invoice_number}", invoice %></td>
     <td><%= invoice.due_date %></td>
     <td><%= truncate(invoice.subject, length: 40) %></td>
     <td><%= invoice.balance %></td>
