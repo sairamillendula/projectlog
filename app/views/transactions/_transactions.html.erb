@@ -10,18 +10,18 @@
   <%= render "table_header" %>
   <table class="activities">
 	<tr>
-	  <th><%= sortable "expense", { :remote => true } %></th>
+	  <th style='width:35px;'><%= sortable "expense", { :remote => true } %></th>
 	  <th><%= sortable "date", { :remote => true } %></th>
 	  <th><%= sortable "total", { :remote => true } %></th>
 	  <th><%= sortable "note", {:remote => true } %></th>
 	  <th><%= sortable "project_id", {:remote => true } %></th>
 	  <th><%= sortable "category_id", {:remote => true } %></th>
-	  <th></th>
+	  <th style='width:55px;'></th>
 	</tr>
 
 	<% @transactions.each do |transaction| %>
 	<tr id="row_for_transaction_<%= transaction.id %>">
-	  <td><%= transaction.expense? ? content_tag(:span, 'Expense', :class => 'expense') : content_tag(:span, 'Income', :class => 'income') %></td>
+	  <td><%= transaction.expense? ? content_tag(:span, 'Exp.', :class => 'expense') : content_tag(:span, 'Inc.', :class => 'income') %></td>
 	  <td><%= l transaction.date, :format => :short %></td>
 	  <td><%= number_to_currency(transaction.total) %></td>
 	  <td><%= link_to truncate(transaction.note, :length => 34), transaction %></td>

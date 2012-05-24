@@ -29,7 +29,7 @@
   	</td>
 	<% end %>
 	<td style="vertical-align:top;" colspan="<%= current_user.profile.any_taxes? ? '1' : '2' %>">Category<br><%= f.text_field :category_name, data: {autocomplete_source: categories_path}, :tabindex => 4 %><br>
-		Project<br><%= collection_select(:transaction, :project_id, current_user.projects.order('title ASC'), :id, :title, {:prompt => true, :class => 'transaction_project'}, :tabindex => 5) %>
+		Project<br><%= collection_select(:transaction, :project_id, current_user.projects.order('title ASC'), :id, :title_and_client, {:prompt => true, :class => 'transaction_project'}, :tabindex => 5) %>
 	</td>
 	<td></td>
   </tr>

@@ -168,11 +168,11 @@ form #activity_search {
     span {vertical-align: top;}
 
     #t_date {
-	    width: 80px;
+	    width: 70px;
 		display: inline-block;
     }
     #t_type {
-	    width: 80px;
+	    width: 70px;
 		display: inline-block;
 		margin-top: -2px;
 		
@@ -180,7 +180,7 @@ form #activity_search {
 			padding: 2px;
 		    @include rounded-corners(3px);
 		    display: block;
-		    width: 60px;
+		    width: 40px;
 		    text-align: center;
 		}
 		
@@ -199,13 +199,15 @@ form #activity_search {
     #t_note_short {
 	    width: 270px;
 		display: inline-block;
+		vertical-align: top;
     }
     #t_note_long {
 	    width: 400px;
 		display: inline-block;
+		vertical-align: top;
     }
     #t_category, #t_project {
-	    width: 155px;
+	    width: 180px;
 		display: inline-block;
 		
 		a {
