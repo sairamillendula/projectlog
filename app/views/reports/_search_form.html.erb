@@ -13,7 +13,7 @@
 <div id="quick_search">
   <h2>Quick Search</h2>
   <%= form_for @report, :url => reports_path, :html => { :method => :post, :id => "new_quick_report" } do |f| %>
-    <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "quick_search_project_id" %> during 
+    <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title_and_client, :include_blank => "All Projects", :id => "quick_search_project_id" %> during 
     <%= last_months_select :"report[start_date]", :selected => @report.start_date, :id => "quick_search_start_date" %>
     <%= f.hidden_field :end_date, :value => (@report.start_date || Date.today.beginning_of_month) + 1.month - 1.second, :id => "quick_search_end_date" %>
     <span class="submit"><%= f.submit "Create Timesheet", disable_with: 'Please wait...' %></span>
@@ -26,7 +26,7 @@
   <h2>Advanced Search</h2>
   <%= form_for @report, :url => reports_path(:form => "advanced"), :html => { :method => :post, :id => "new_advanced_report" } do |f| %>
 
- <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title, :include_blank => "All Projects", :id => "advanced_search_project_id" %>
+ <p>Show hours for <%= f.collection_select :project_id, current_user.projects.all, :id, :title_and_client, :include_blank => "All Projects", :id => "advanced_search_project_id" %>
    from <%= f.text_field :start_date, :size => 12, :class => "date" %>
    to <%= f.text_field :end_date, :size => 12, :class => "date" %>
    <span class="submit"><%= f.submit 'Create Timesheet', disable_with: 'Please wait...' %></span>

@@ -32,12 +32,13 @@
 	  </td>
 	</tr>
 	<% end %>
-	</table>
+  </table>
 
-	<div class="right">
-	  <%= paginate @transactions, :remote => true, :params => { :controller => "transactions", :action => "index", :transaction_id => @transaction_id } %>
-	</div>
+  <div class="right">
+    <%= paginate @transactions, :remote => true, :params => { controller: "transactions", action: "index", transaction_id: @transaction_id } %>
+  </div>
 <% end %>
+
 <script type="text/javascript" charset="utf-8">
   Transactions.Index.init();
 </script>
