@@ -59,8 +59,7 @@
     </div>
   <% else %>
 
-    <p id='period'><%= @report.user.full_name %>'s hours from <%= l @report.start_date, :format => :long %>
-      to <%= l @report.end_date, :format => :long %></p>
+    <p id='period'><%= @report.user.full_name %>'s hours <%= @report.description %></p>
 
     <p>Project: <b><%= @report.project_title %></b></p>
     <% if params[:search] %>
