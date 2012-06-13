@@ -15,11 +15,7 @@ class ReportTest < ActiveSupport::TestCase
   test "mandatory fields should be filled in" do
     report = Report.new
     assert !report.valid?
-    assert report.errors[:start_date].any?
-    assert report.errors[:end_date].any?
     assert report.errors[:user_id].any?
-    assert_equal ["can't be blank"], report.errors[:start_date]
-    assert_equal ["can't be blank"], report.errors[:end_date]
     assert_equal ["can't be blank"], report.errors[:user_id]
     assert !report.save
   end

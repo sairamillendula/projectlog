@@ -89,7 +89,7 @@ class UserTest < ActiveSupport::TestCase
     assert !u.transactions.any?
   end
   
-  test "should send going to expire email" do
+  test "should send out going to expire email" do
     user = users(:four)
     user.created_at = Date.today - 22.days
     user.save
@@ -99,7 +99,6 @@ class UserTest < ActiveSupport::TestCase
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
       SubscriptionsMailer.trial_going_to_expire_email(user).deliver
     end
-    
   end
   
 end
