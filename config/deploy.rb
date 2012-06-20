@@ -50,7 +50,8 @@ namespace :deploy do
         paypal_signature = Capistrano::CLI.ui.ask('What is PayPal API key?: ')
         
         run "mkdir -p #{shared_path}/config"
-        put template.result(binding), "#{shared_path}/config/production.rb" 
+        put template.result(binding), "#{shared_path}/config/production.rb"
+        puts "Production file created."
     #end
   end
   after "deploy:setup", "deploy:setup_config"
