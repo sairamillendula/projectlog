@@ -32,8 +32,8 @@ namespace :deploy do
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
     puts "Now edit the config files in #{shared_path}."
     
-    desc "Create production.rb"
-    task :production_file do
+    #desc "Create production.rb"
+    #task :production_file do
       template = ERB.new(File.read('config/production.rb.erb'))
         # mail server
         mail_server_address = Capistrano::CLI.ui.ask('What is mail server address ("smtp.domain.com")?: ')
@@ -51,7 +51,7 @@ namespace :deploy do
         
         run "mkdir -p #{shared_path}/config"
         put template.result(binding), "#{shared_path}/config/production.rb" 
-    end
+    #end
   end
   after "deploy:setup", "deploy:setup_config"
 
