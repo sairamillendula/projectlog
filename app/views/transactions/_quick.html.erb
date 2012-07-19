@@ -14,7 +14,7 @@
     <td><%= f.text_field :date, :class => "date", :tabindex => 1 %></td>
     <td><%= f.number_field :total, :class => "numbers", :id => "total", :tabindex => 2 %></td>
     <td><%= f.text_field :note, data: {autocomplete_source: find_by_note_transactions_path}, :tabindex => 3 %></td>
-    <td><span class="small submit"><%= f.submit 'Create', :name => @transactions.empty? ? "quick" : nil, :disable_with => 'Create' %></span></td>
+    <td><span class="small submit"><%= f.submit 'Create', :name => @transactions.empty? ? "quick" : nil, "data-disable-with" => 'Create' %></span></td>
   </tr>
   <tr class="transaction-fields">
 	<td style="vertical-align:top;"><%= f.radio_button(:expense, true) %> Expense<br> <%= f.radio_button(:expense, false) %> Income</td>
