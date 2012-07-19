@@ -10,6 +10,7 @@ class Invoice < ActiveRecord::Base
   before_save :update_balance
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
+  scope :with_balance, where("balance > ?", 0)
   scope :overdue, where("due_date < ?", Date.today)
 
   validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true

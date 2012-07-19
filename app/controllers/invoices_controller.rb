@@ -151,7 +151,7 @@ class InvoicesController < ApplicationController
   end
   
   def overdue
-    @invoices = current_user.invoices.overdue.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    @invoices = current_user.invoices.overdue.with_balance.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     
     respond_to do |format|
       format.js
