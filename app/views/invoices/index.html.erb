@@ -10,7 +10,6 @@
 
   <ul id="sub-menu">
     <li class="buttonorange"><%= link_to '+ New Invoice', new_invoice_path %></li>
-    <li class="buttonorange"><%= link_to 'Overdue Invoices', overdue_path, remote: true %></li>
   </ul>
   
   <%= content_tag(:p, ("You have " + (link_to pluralize(current_user.invoices.overdue.with_balance.size, 'invoice') + ' overdue', overdue_path, remote: true)).html_safe, :class => 'warning') if current_user.invoices.overdue.with_balance.any? %>
