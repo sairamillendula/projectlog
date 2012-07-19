@@ -51,6 +51,7 @@ Projectlog::Application.routes.draw do
       post 'sort'
     end
     collection do
+      get 'overdue'
       post 'create_line_item'
       delete 'delete_line_item/:id', :action => 'delete_line_item'
     end

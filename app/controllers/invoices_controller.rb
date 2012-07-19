@@ -47,6 +47,7 @@ class InvoicesController < ApplicationController
     @id = line_item.id
     invoice = line_item.invoice
     line_item.destroy()
+    
     respond_to do |format|
       format.html { redirect_to invoice, notice: 'Line Item was successfully deleted.' }
       format.js { @invoice = invoice; @new_line_item = LineItem.new }
@@ -72,11 +73,13 @@ class InvoicesController < ApplicationController
     flash.now[:notice] = "Invoice sent successfully"
     @invoice.status = "Sent"
     @invoice.save
+    
     respond_to { |format| format.js }
   end
 
   def show
     @invoice = current_user.invoices.includes(:customer, :line_items).find_by_slug!(params[:id])
+    
     respond_to do |format|
       format.html
       format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
@@ -86,6 +89,7 @@ class InvoicesController < ApplicationController
   def shared # Like show, except is public for everybody.
     @invoice = Invoice.find_by_slug!(params[:id])
     @skip_approve = true
+    
     respond_to do |format|
       format.html { render :layout => "public" }
       format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
@@ -145,8 +149,17 @@ class InvoicesController < ApplicationController
     end
     render nothing: true
   end
+  
+  def overdue
+    @invoices = current_user.invoices.overdue.order(sort_column + " " + sort_direction).page(params[:page]).per(10)
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
-  private
+private
 
   def sort_column
     Invoice.column_names.include?(params[:sort]) ? params[:sort] : "invoice_number"

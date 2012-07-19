@@ -10,6 +10,7 @@ class Invoice < ActiveRecord::Base
   before_save :update_balance
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
+  scope :overdue, where("due_date < ?", Date.today)
 
   validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true
   validate :validate_limit, :on => :create
@@ -94,7 +95,7 @@ class Invoice < ActiveRecord::Base
     self.compound = profile.compound
   end
   
-  private
+private
   
   def validate_limit
     user = User.find(self['user_id'])
@@ -105,7 +106,7 @@ class Invoice < ActiveRecord::Base
           errors.add(:base, "You have reached max #{perm[:limit]} invoices limit. Please upgrade plan.")
         end
       else
-        errors.add(:base, "You are not allowed to create invoice. Please upgrade plan.")
+        errors.add(:base, "You are not allowed to create invoices. Please upgrade plan.")
       end
     end
   end
