@@ -16,7 +16,7 @@
     </td>
     <td>
       <%= link_to 'Edit', edit_invoice_payment_path(@invoice, payment), :remote => true %> 
-      <%= link_to image_tag("bin.png"), [@invoice, payment], :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+      <%= link_to image_tag("bin.png"), [@invoice, payment], :data => {:confirm => 'Are you sure?'}, :method => :delete, :remote => true %>
     </td>
   </tr>
 <% end %>

@@ -41,8 +41,11 @@ Projectlog::Application.routes.draw do
   resources :customers do 
     resources :contacts, :projects
   end
-
+  
+  match '/overdue' => 'invoices#overdue'
+  
   resources :invoices do
+    match '/overdues', :action => 'overdue'
     member do
       get 'shared'
       get 'add_line_item'

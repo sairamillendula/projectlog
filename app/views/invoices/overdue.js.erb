@@ -1,0 +1,13 @@
+$(document).ready(function(){
+	$('<div id="overdue_invoices_dialog"></div>')
+		.html('<%= escape_javascript render(:partial => 'overdue') %>')
+		.dialog({
+			autoOpen: true,
+			modal: true,
+			title: 'Overdue invoices',
+			buttons: { 'Close' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+			width: 420
+	    });
+});

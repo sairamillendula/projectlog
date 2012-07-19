@@ -33,10 +33,10 @@
       <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
     </div>
     <div class="actions">
-      <p class="submit"><%= submit_tag "Update Payment", disable_with: "Processing..." %></p>
+      <p class="submit"><%= submit_tag "Update Payment", 'data-disable-with' => "Processing..." %></p>
     </div>
   </div>
 <% end %>
 
 <h1>Or cancel your subscription</h1>
-<%= link_to 'Cancel Subscription', cancel_subscriptions_path, :confirm => "Are you sure you want to cancel your subscription?", :method => :delete, :class => 'buttonorange' %>
+<%= link_to 'Cancel Subscription', cancel_subscriptions_path, :data => {:confirm => "Are you sure you want to cancel your subscription?"}, :method => :delete, :class => 'buttonorange' %>

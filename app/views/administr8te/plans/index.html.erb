@@ -25,7 +25,7 @@
     <td><%= link_to 'Edit', edit_administr8te_plan_path(plan) %></td>
     <td>
       <% if plan.can_be_destroyed? %>
-        <%= link_to 'Destroy', administr8te_plan_path(plan), confirm: 'Are you sure?', method: :delete %>
+        <%= link_to 'Destroy', administr8te_plan_path(plan), :data => {confirm: 'Are you sure?'}, method: :delete %>
       <% else %>
         <span class="tipsied grayed_out" title="You can't delete this plan because there are users using it.">Destroy</span>
       <% end %>

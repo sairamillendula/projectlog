@@ -34,7 +34,7 @@
       <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
     </div>
     <div class="actions">
-      <p class="submit"><%= submit_tag "Reactivate", disable_with: "Processing..." %></p>
+      <p class="submit"><%= submit_tag "Reactivate", 'data-disable-with' => "Processing..." %></p>
     </div>
   </div>
 <% end %>

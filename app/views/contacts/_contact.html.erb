@@ -10,7 +10,7 @@
       <p><%= contact.phone %>
          <span class='floatr actions' style='display:none;'>
            <%= link_to 'Edit', edit_customer_contact_path(@customer, contact), :remote => true %> |
-           <%= link_to 'Destroy', customer_contact_path(@customer, contact), :method => :delete, :confirm => 'Are you sure?' %>
+           <%= link_to 'Destroy', customer_contact_path(@customer, contact), :data => {:confirm => 'Are you sure?'}, :method => :delete %>
          </span>
       </p>
     </div>

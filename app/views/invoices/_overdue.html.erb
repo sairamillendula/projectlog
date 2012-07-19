@@ -1,0 +1,9 @@
+<table class="activities">
+  <% @invoices.each do |invoice| %>
+    <tr>
+      <td><%= link_to(distance_of_time_in_words_to_now(invoice.due_date) + ' late', invoice_path(invoice.invoice_number), style: "color: #4183C4;") %></td>
+      <td><%= invoice.customer.name %></td>
+      <td><%= number_to_currency(invoice.balance) %></td>
+    </tr>
+  <% end %>
+</table>

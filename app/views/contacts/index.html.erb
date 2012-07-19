@@ -23,7 +23,7 @@
     <td><%= contact.customer_id %></td>
     <td><%= link_to 'Show', customer_contact_path(@customer, contact) %></td>
     <td><%= link_to 'Edit', edit_customer_contact_path(@customer, contact) %></td>
-    <td><%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', contact, :data => {:confirm => 'Are you sure?'}, :method => :delete %></td>
   </tr>
 <% end %>
 </table>

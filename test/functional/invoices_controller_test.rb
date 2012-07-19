@@ -66,5 +66,10 @@ class InvoicesControllerTest < ActionController::TestCase
     assert_redirected_to upgrade_required_subscriptions_path
   end
   
+  test "should get overdue" do
+    get :overdue, :format => 'js'
+    assert_response :success
+    assert_not_nil assigns(:invoices)
+  end
 
 end
