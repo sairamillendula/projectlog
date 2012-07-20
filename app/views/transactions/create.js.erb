@@ -2,7 +2,7 @@
   <% if @is_quick %>
     window.location = "<%= transactions_url %>";
   <% else %>
-    $('#new-transaction-form').html('<%= escape_javascript(render 'quick') %>');
+    $('#transaction_project_id').reset();
     $("#transactions").html("<%= escape_javascript(render("transactions")) %>");
     $("#row_for_transaction_<%= @transaction.id %>").effect("highlight", {}, 1000);
   <% end %>

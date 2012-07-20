@@ -14,7 +14,7 @@ module ApplicationHelper
 
   # Markdown method
   def markdown(text)
-    renderer = Redcarpet::Render::HTML.new(no_links: true, hard_wrap: true, filter_html: true)
+    renderer = Redcarpet::Render::HTML.new(safe_links_only: true, hard_wrap: true)
     md = Redcarpet::Markdown.new(renderer, autolink: true, space_after_headers: true, no_intraemphasis: true)
     md.render(text).html_safe
   end
