@@ -11,7 +11,8 @@ class Invoice < ActiveRecord::Base
 
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
   scope :with_balance, where("balance > ?", 0)
-  scope :overdue, where("due_date < ?", Date.today)
+  scope :late, where("due_date < ?", Date.today)
+  scope :overdue, where("due_date < ? AND balance > ?", Date.today, 0)
 
   validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true
   validate :validate_limit, :on => :create
