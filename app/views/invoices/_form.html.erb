@@ -31,6 +31,7 @@
     <div class="field">
       <%= f.label :customer_id, :class => 'mandatory' %>
       <%= f.select :customer_id, current_user.customers.collect { |c| [c.name, c.id] }, :prompt => true %>
+      or <%= link_to "Add customer", new_customer_path, :remote => true %>
     </div>
     <div class="field">
       <%= f.label :currency %>

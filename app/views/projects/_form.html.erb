@@ -27,7 +27,7 @@
 	      <%# Hide customer field if it's a new project with customer already assigned %>
 	      <% if current_user.customers.any? %>
 	        <%= collection_select(:project, :customer_id, current_user.customers.all, :id, :name, options = {:prompt => "Select Customer"} ) %>
-            or <%= link_to "Create Customer", new_customer_path, :remote => true %>
+            or <%= link_to "Add customer", new_customer_path, :remote => true %>
           <% else %>
 	        <%= f.text_field :customer_name %>
 	      <% end %>	      
