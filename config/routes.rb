@@ -34,7 +34,7 @@ Projectlog::Application.routes.draw do
   end
 
   resources :project_statuses
-  resources :profiles, :contacts, :invoices
+  resources :profiles, :contacts
   
   resource :plan, :only => [:edit, :update]
   
@@ -42,10 +42,9 @@ Projectlog::Application.routes.draw do
     resources :contacts, :projects
   end
   
-  match '/overdue' => 'invoices#overdue'
+  get 'invoices/overdue' => 'invoices#overdue'
   
   resources :invoices do
-    match '/overdues', :action => 'overdue'
     member do
       get 'shared'
       get 'add_line_item'
@@ -54,7 +53,6 @@ Projectlog::Application.routes.draw do
       post 'sort'
     end
     collection do
-      get 'overdue'
       post 'create_line_item'
       delete 'delete_line_item/:id', :action => 'delete_line_item'
     end
