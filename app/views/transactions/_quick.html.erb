@@ -1,4 +1,5 @@
-<%= form_for(current_user.transactions.new, :method => :post, :remote => true) do |f| %>
+<% transaction = current_user.transactions.new %>
+<%= form_for(transaction, :method => :post, :remote => true) do |f| %>
 <%= hidden_field_tag :tax1, current_user.profile.try(:tax1) || 0,  :id => "tax1_rate" %>
 <%= hidden_field_tag :tax2, current_user.profile.try(:tax2) || 0, :id => "tax2_rate" %>
 <%= hidden_field_tag :compound, current_user.profile.try(:compound) || false, :id => "compound" %>
@@ -29,7 +30,7 @@
   	</td>
 	<% end %>
 	<td style="vertical-align:top;" colspan="<%= current_user.profile.any_taxes? ? '1' : '2' %>">Category<br><%= f.text_field :category_name, data: {autocomplete_source: categories_path}, :tabindex => 4 %><br>
-		Project<br><%= collection_select(:transaction, :project_id, current_user.projects.order('title ASC'), :id, :title_and_client, {:prompt => true, :class => 'transaction_project'}, :tabindex => 5) %>
+		Project<br><%= collection_select(transaction, :project_id, current_user.projects.order('title ASC'), :id, :title_and_client, {:prompt => true, :class => 'transaction_project'}, :tabindex => 5) %>
 	</td>
 	<td></td>
   </tr>
