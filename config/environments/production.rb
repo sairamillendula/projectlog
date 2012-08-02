@@ -60,27 +60,35 @@ Projectlog::Application.configure do
   config.active_support.deprecation = :notify
   
   config.action_mailer.default_url_options = { :host => 'projectlogapp.com' }
+  config.action_mailer.asset_host = 'http://projectlogapp.com'
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
   
-  ActionMailer::Base.delivery_method = :smtp
-  # :address        => "<%= mail_server_address %>",
-  # :port           => "<%= mail_server_post %>",
-  # :authentication => "<%= mail_server_auth %>",
-  # :user_name      => "<%= mail_server_username %>",
-  # :password       => "<%= mail_server_password %>",
-  #:domain         => "<%= mail_server_domain %>",
-  #:openssl_verify_mode => "none",
-  # :enable_starttls_auto => <%= mail_server_starttls %>
-  # }
-  
-  # PayPal configuration
-  #config.after_initialize do
-  #  ActiveMerchant::Billing::Base.mode = :production
-  #  Subscription.gateway = ::ActiveMerchant::Billing::PaypalGateway.new(
-  #    :login =>     "<%= paypal_login %>",
-  #    :password =>  "<%= paypal_password %>",
-  #    :signature => "<%= paypal_signature %>"
-  #  )
-  #end
+  # Mail server
+  config.action_mailer.smtp_settings = {
+    :address              => ENV['PRJLOG_MAILSERVER_ADDRESS'],
+    :port                 => ENV['PRJLOG_MAILSERVER_PORT'],
+    :authentication       => ENV['PRJLOG_MAILSERVER_AUTHENTICATION'],
+    :user_name            => ENV['PRJLOG_MAILSERVER_USERNAME'],
+    :password             => ENV['PRJLOG_MAILSERVER_PASSWORD'],
+    :domain               => ENV['PRJLOG_MAILSERVER_DOMAIN'],
+    :openssl_verify_mode  => ENV['PRJLOG_MAILSERVER_OPENSSL_VERIFY_MODE'] == 'true',
+    :enable_starttls_auto => ENV['PRJLOG_MAILSERVER_ENABLE_STARTTLS_AUTO'] == 'true'
+  }
 
+  config.middleware.use ExceptionNotifier,
+    :email_prefix         => "[Exception]",
+    :sender_address       => %{"Exception Notifier" <app@projectlogapp.com>},
+    :exception_recipients => %w{alert@yafoy.com}  
+
+  # PayPal configuration
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :production
+    Subscription.gateway = ::ActiveMerchant::Billing::PaypalGateway.new(
+      :login     => ENV['PRJLOG_PAYPAL_LOGIN'],
+      :password  => ENV["PRJLOG_PAYPAL_PASSWORD"],
+      :signature => ENV["PRJLOG_PAYPAL_SIGNATURE"]
+    )
+  end  
 end
