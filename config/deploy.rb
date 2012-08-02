@@ -30,29 +30,6 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
-    puts "Now edit the config files in #{shared_path}."
-    
-    #desc "Create production.rb"
-    #task :production_file do
-      template = ERB.new(File.read('config/production.rb.erb'))
-        # mail server
-        mail_server_address = Capistrano::CLI.ui.ask('What is mail server address ("smtp.domain.com")?: ')
-        mail_server_post = Capistrano::CLI.ui.ask('What is mail server port (587)?: ')
-        mail_server_auth = Capistrano::CLI.ui.ask('What is mail server authentication method (plain)?: ')
-        mail_server_username = Capistrano::CLI.ui.ask('What is mail server username?: ')
-        mail_server_password = Capistrano::CLI.ui.ask('What is mail server password?: ')
-        mail_server_domain = Capistrano::CLI.ui.ask('What is mail server domain?: ')
-        mail_server_starttls = Capistrano::CLI.ui.ask('Is starttls_auto enabled (true|false)?: ')
-        
-        # paypal
-        paypal_login = Capistrano::CLI.ui.ask('What is PayPal API login?: ')
-        paypal_password = Capistrano::CLI.ui.ask('What is PayPal API password?: ')
-        paypal_signature = Capistrano::CLI.ui.ask('What is PayPal API key?: ')
-        
-        run "mkdir -p #{shared_path}/config"
-        put template.result(binding), "#{shared_path}/config/production.rb"
-        puts "Production file created."
-    #end
   end
   after "deploy:setup", "deploy:setup_config"
 
