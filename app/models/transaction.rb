@@ -17,7 +17,7 @@ class Transaction < ActiveRecord::Base
   scope :by_category, lambda {|category_id| where(category_id: category_id)}
   scope :from_date, lambda {|date| where("transactions.date >= ?", date)}
   scope :to_date, lambda {|date| where("transactions.date <= ?", date)}
-  scope :by_keyword, lambda {|keyword| where('transactions.note LIKE ?', "%#{keyword}%")}
+  scope :by_keyword, lambda {|keyword| where('(transactions.note LIKE ?) OR (transactions.total = ?)', "%#{keyword}%", keyword)}
   scope :by_period, lambda {|date_range| where(:date => date_range)}
   
   def subtotal
