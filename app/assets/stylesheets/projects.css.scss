@@ -149,6 +149,9 @@ form #activity_search {
 	}
 }
 
+//.monthly_incomes { color: #6cc644; }
+//.monthly_expenses { color: #f26535; }
+
 .date_period {
 	font-weight: bold;
 	border-bottom: 1px solid #f2f2f2;
@@ -206,7 +209,7 @@ form #activity_search {
 		display: inline-block;
 		vertical-align: top;
     }
-    #t_category, #t_project {
+    #t_category, #t_project, #t_amount {
 	    width: 180px;
 		display: inline-block;
 		

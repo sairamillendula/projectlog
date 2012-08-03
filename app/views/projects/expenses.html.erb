@@ -22,8 +22,8 @@
     <h2 class="date_period">
       <%= date_str %>
       <span class="total_right">
-  	  Inc.: <span id="curr_income"><%= number_to_currency(Transaction.total_incomes(transactions)) %></span> | 
-  	  Exp.: <span id="curr_expense"><%= number_to_currency(Transaction.total_expenses(transactions)) %></span>
+  	  Inc.: <span class="monthly_incomes"><%= number_to_currency(Transaction.total_incomes(transactions)) %></span> | 
+  	  Exp.: <span class="monthly_expenses"><%= number_to_currency(Transaction.total_expenses(transactions)) %></span>
   	</span>
     </h2>
     <ul>
@@ -31,7 +31,7 @@
       <li class="transactions_list">
         <span id="t_date"><%= l transaction.date, :format => :short %></span>
 	    <span id="t_type"><% if transaction.expense? %><span class="t_expense">Exp.</span><% else %><span class="t_income">Inc.</span> <% end %></span>
-        <span id="t_amount"><%= number_to_currency(transaction.total) %></span>
+        <span id="t_amount"><%= link_to number_to_currency(transaction.total), transaction_path(transaction) %></span>
         <div id="t_note_long"><%= truncate(transaction.note, :length => 70) %></div>
 	    <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
 	  </li>
