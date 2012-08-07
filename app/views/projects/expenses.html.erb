@@ -32,15 +32,15 @@
         <span id="t_date"><%= l transaction.date, :format => :short %></span>
 	    <span id="t_type"><% if transaction.expense? %><span class="t_expense">Exp.</span><% else %><span class="t_income">Inc.</span> <% end %></span>
         <span id="t_amount"><%= link_to number_to_currency(transaction.total), transaction_path(transaction) %></span>
-        <div id="t_note_long"><%= truncate(transaction.note, :length => 70) %></div>
-	    <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
+        <span id="t_note_long"><%= truncate(transaction.note, :length => 70) %></span>
+	    <span id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></span>
 	  </li>
     <% end %>
     </ul>
   <% end %>
   
 <% else %>
-  <p class="no-occurence">No Transaction in fiscal year (<%= @fiscal_year %>)</p>
+  <p class="no-occurence">No transactions found for this period (<%= @fiscal_year %>)</p>
 <% end %>
 <script type="text/javascript" charset="utf-8">
   $(function() {

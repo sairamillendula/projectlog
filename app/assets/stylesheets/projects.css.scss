@@ -209,10 +209,11 @@ form #activity_search {
 		display: inline-block;
 		vertical-align: top;
     }
-    #t_category, #t_project, #t_amount {
+    #t_category, #t_project {
 	    width: 180px;
 		display: inline-block;
-		
+	}
+    #t_category, #t_project, #t_amount {
 		a {
 			text-decoration: none;
 			color: #2C2D31;
@@ -224,6 +225,4 @@ form #activity_search {
 			  background: none;
 		}
     }
-    #t_category { width: 160px; }
-	#t_project { width: 170px; }
 }
