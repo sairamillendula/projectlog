@@ -1,4 +1,10 @@
-<h1>INVOICE <span id="invoice-status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span></h1>
+<h1>INVOICE
+    <% if @invoice.late_and_overdue? %>
+      <span id="invoice-status" class="invoice late">Late</span>
+    <% else %>
+      <span id="invoice-status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span>
+    <% end %>
+</h1>
 
 <p>
   <b>ID:</b>

@@ -67,6 +67,14 @@ class Invoice < ActiveRecord::Base
     balance_calc == 0
   end
   
+  def late?
+    due_date <= Date.today
+  end
+  
+  def late_and_overdue?
+    due_date <= Date.today && balance > 0
+  end
+  
   def generate_invoice_number_and_slug
     p = user.profile
     if p.last_invoice && p.last_invoice[1..4] == Date.today.year.to_s

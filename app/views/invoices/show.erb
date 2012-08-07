@@ -20,15 +20,14 @@
         <% end %>
       </div>
     </div>
-
     <%= render 'header' %>
   </div>
-
-  <div id="line_items_list"><%= render 'line_items_list' %></div>
-  
+  <div id="line_items_list">
+    <%= render 'line_items_list' %>
+  </div>
   <%= render 'note' unless @invoice.note.empty? %>
-  
 </div>
+
 <script type="text/javascript" charset="utf-8">
   $(function() {
     Invoices.Show.init();

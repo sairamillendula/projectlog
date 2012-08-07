@@ -193,6 +193,11 @@ span.invoice.paid {
     background: #e0faec;
 }
 
+span.invoice.late {
+	background: #DF4338;
+	color: #ffffff;
+}
+
 #companies {
 	float: right;
 }
