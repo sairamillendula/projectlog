@@ -13,6 +13,7 @@ class AddCurrencyToLocalization < ActiveRecord::Migration
     Localization.connection.execute("update localizations set currency='EUR' WHERE reference='fr'")
     Localization.connection.execute("update localizations set currency='EUR' WHERE reference='de'")
     Localization.connection.execute("update localizations set currency='INR' WHERE reference='hi-IN'")
+    Localization.connection.execute("update localizations set currency='EUR' WHERE reference='en-IE'")
     Localization.connection.execute("update localizations set currency='EUR' WHERE reference='it'")
     Localization.connection.execute("update localizations set currency='JPY' WHERE reference='ja'")
     Localization.connection.execute("update localizations set currency='LVL' WHERE reference='lv'")

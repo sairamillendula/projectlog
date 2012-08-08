@@ -19,6 +19,7 @@ class CreateLocalizations < ActiveRecord::Migration
     Localization.create(:name => 'France', :reference => 'fr', :country_id => '68')
     Localization.create(:name => 'Germany', :reference => 'de', :country_id => '74')
     Localization.create(:name => 'India', :reference => 'hi-IN', :country_id => '92')
+    Localization.create(:name => 'Ireland', :reference => 'en-IE', :country_id => '96')
     Localization.create(:name => 'Italy', :reference => 'it', :country_id => '98')
     Localization.create(:name => 'Japan', :reference => 'ja', :country_id => '100')
     Localization.create(:name => 'Korea, Republic of', :reference => 'ko', :country_id => '106')

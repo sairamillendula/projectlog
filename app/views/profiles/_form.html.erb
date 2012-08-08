@@ -66,7 +66,7 @@
         <h2><%= f.label :localization %></h2>
 
         <p class="info">Select currency, date and number format</p>
-        <%= collection_select(:profile, :localization, Localization.all, :reference, :name, options = {:prompt => ""}) %>
+        <%= collection_select(:profile, :localization, Localization.order("name"), :reference, :name, options = {:prompt => ""}) %>
       </div>
       <div class="field">
         <h2><%= f.label :hours_per_day %></h2>
