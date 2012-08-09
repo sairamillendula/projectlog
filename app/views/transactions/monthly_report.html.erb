@@ -34,12 +34,12 @@
     <% transactions.each do |transaction| %>
       <li class="transactions_list">
         <span id="t_date"><%= l transaction.date, :format => :short %></span>
-    	  <span id="t_type"><% if transaction.expense? %><span class="t_expense">Exp.</span><% else %><span class="t_income">Inc.</span> <% end %></span>
-        <span id="t_amount"><%= number_to_currency(transaction.total) %></span>
-        <div id="t_note_short"><%= truncate(transaction.note, :length => 45) %></div>
-    	  <div id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></div>
-    	  <div id="t_project"><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></div>
-    	</li>
+    	<span id="t_type"><% if transaction.expense? %><span class="t_expense">Exp.</span><% else %><span class="t_income">Inc.</span> <% end %></span>
+        <span id="t_amount"><%= link_to number_to_currency(transaction.total), transaction_path(transaction) %></span>
+        <span id="t_note_short"><%= truncate(transaction.note, :length => 45) %></span>
+    	<span id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></span>
+    	<span id="t_project" style="max-width: 150px;"><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></span>
+      </li>
     <% end %>
     </ul>
   <% end %>
