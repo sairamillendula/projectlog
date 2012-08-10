@@ -93,6 +93,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    delocalize (0.3.1)
+      rails (>= 3.0)
     devise (2.0.4)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -233,6 +235,7 @@ DEPENDENCIES
   capistrano
   clarity
   coffee-rails (~> 3.2.1)
+  delocalize
   devise
   exception_notification
   google_visualr (~> 2.1)

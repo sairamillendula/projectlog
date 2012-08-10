@@ -24,6 +24,7 @@ gem 'activemerchant', :require => 'active_merchant', :git => 'git://github.com/S
 gem 'paypal_pro_recurring', :git => 'git://github.com/olimart/paypal_pro_recurring.git'
 # gem 'paypal_pro_recurring', :path => "/Users/hoangnghiem/Documents/Extensions/paypal_pro_recurring"
 gem 'whenever', :require => false
+gem "delocalize"
 
 group :assets do
   gem 'sass-rails', "~> 3.2.3"
