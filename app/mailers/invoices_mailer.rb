@@ -4,7 +4,7 @@ class InvoicesMailer < ActionMailer::Base
     @bodytext = body
     if attach
       kit = PDFKit.new(attach)
-      attachments['invoice.pdf'] = kit.to_pdf
+      attachments["Invoice #{invoice.invoice_number}.pdf"] = kit.to_pdf
     end
     mail(:from => "#{user.name} <notifications@projectlogapp.com>", :to => recipients, :subject => subject, :reply_to => user.email)
   end

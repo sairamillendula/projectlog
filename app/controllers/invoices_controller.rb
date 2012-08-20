@@ -65,7 +65,7 @@ class InvoicesController < ApplicationController
     @new_line_item = LineItem.new
     recipients = params[:send_invoice][:to].split(",")
     attach = if params[:send_invoice][:attach] == "1" then
-               render_to_string(:action => 'show', :layout => 'pdfattach')
+               render_to_string(:action => 'show.html', :layout => 'pdfattach')
              else
                nil
              end
@@ -82,7 +82,10 @@ class InvoicesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
+      format.pdf { send_data(PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf, 
+                             :filename => "Invoice #{@invoice.invoice_number}.pdf", 
+                             :type => 'application/pdf',
+                             :disposition  => "inline") }
     end
   end
 
@@ -92,7 +95,11 @@ class InvoicesController < ApplicationController
     
     respond_to do |format|
       format.html { render :layout => "public" }
-      format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
+      # format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
+      format.pdf { send_data(PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf, 
+                             :filename => "Invoice #{@invoice.invoice_number}.pdf", 
+                             :type => 'application/pdf',
+                             :disposition  => "inline") }
     end
   end
 

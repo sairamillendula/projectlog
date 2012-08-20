@@ -3,7 +3,7 @@
      <h1>TIMESHEET
        <div id="actions">
          <% if @report.approved? %><span class="approved_report"%>Approved</span><% end %> 
-         <%= link_to image_tag("file_download.png") + "Download PDF", params.merge(:format => :pdf, :action => "shared") %>
+         <%= link_to image_tag("file_download.png") + "Download PDF", params.merge(:format => :pdf, :action => "shared"), :target => "_blank" %>
        </div>
      </h1>
      <div id="intro" class="info">

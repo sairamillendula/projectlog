@@ -13,7 +13,7 @@
            <span class="small submit"> <%= submit_tag "Filter", :name => nil %></span>
 	       <div id="export" class="right">
 	         <%= link_to 'Email Report', new_report_email_path(@report), :remote => true %> |
-	         <%= link_to "Download PDF", params.merge(:format => :pdf, :action => "shared") %> | 
+	         <%= link_to "Download PDF", params.merge(:format => :pdf, :action => "shared"), :target => "_blank" %> | 
 	         <%= link_to "Export to CSV", params.merge(:format => :csv, :action => "shared") %>  
 	      </div>
         </div>
