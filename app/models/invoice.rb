@@ -40,7 +40,7 @@ class Invoice < ActiveRecord::Base
   end
   
   def discount_amount
-    (subtotal * discount / 100.0).round(2)
+    (subtotal * (try(:discount) || 0) / 100.0).round(2)
   end
   
   def subtotal

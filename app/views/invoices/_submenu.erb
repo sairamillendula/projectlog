@@ -2,7 +2,7 @@
   <%= link_to '← All invoices', invoices_path %> |
   <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
   <%= link_to 'Email Invoice', prepare_email_invoice_path(@invoice), :remote => true %> |
-  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf), :target => "_blank" %> | 
+  <%= link_to 'Download PDF', invoice_path(@invoice, :format => :pdf) %> | 
   <%= link_to 'Share', shared_invoice_path(@invoice) %>
 
   <li><%= link_to '+ New Payment', new_invoice_payment_path(@invoice), :class => 'buttonorange', :remote => true %></li>
