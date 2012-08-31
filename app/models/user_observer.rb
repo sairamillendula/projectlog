@@ -11,7 +11,8 @@ class UserObserver < ActiveRecord::Observer
     #listSubscribe(string apikey, string id, string email_address, array merge_vars, string email_type, bool double_optin, bool update_existing, bool replace_interests, bool send_welcome)
     begin
       h.list_subscribe(list_id, user.email, {'FNAME' => user.first_name, 'LNAME' => user.last_name}, 'html', false, true, true, false)
-    rescue
+    rescue Exception => e
+      logger.error "Failed to subscribe mailchimp due to #{e.message}"
       # ignore MailChimps errors for now
     end
   end
