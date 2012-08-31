@@ -9,11 +9,12 @@ class Project < ActiveRecord::Base
   belongs_to :billing_code
   has_many :activities, :dependent => :destroy
   has_many :transactions
+  has_many :invoices
   
   before_save :clears_if_internal
   
-  attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :total_unit, :budget, :billable_amount,
-                  :unit_left, :customer_name, :user_id
+  attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :total_unit, :budget,
+                  :billable_amount, :unit_left, :customer_name, :user_id
   
   scope :open, where(:status => true)
   scope :closed, where(:status => false)

@@ -21,18 +21,18 @@
   <%= @invoice.due_date %>
 </p>
 
+<% if @invoice.project.present? %>
+<p>
+  <b>Project:</b>
+  <%= @invoice.project.title %>
+</p>
+<% end %>
+
 <% if user_signed_in? %>
   <% if !@invoice.paid? %>
   <p class='no-print'>
     <b>Balance:</b>
-    <span id="invoice-balance"><%= @invoice.balance %></span>
-  </p>
-  <% end %>
-
-  <% unless @invoice.currency.nil? %>
-  <p>
-    <b>Currency:</b>
-    <%= @invoice.currency %>
+    <span id="invoice-balance"><%= @invoice.balance %> <%= @invoice.currency unless @invoice.currency.nil? %></span>
   </p>
   <% end %>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414030959) do
+ActiveRecord::Schema.define(:version => 20120831203100) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -137,6 +137,7 @@ ActiveRecord::Schema.define(:version => 20120414030959) do
     t.float    "tax2"
     t.string   "tax2_label"
     t.boolean  "compound"
+    t.integer  "project_id"
   end
 
   add_index "invoices", ["customer_id"], :name => "index_invoices_on_customer_id"

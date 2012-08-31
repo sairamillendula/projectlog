@@ -5,6 +5,7 @@ class Invoice < ActiveRecord::Base
   belongs_to :customer
   has_many :line_items, :dependent => :destroy, :order => 'position'
   has_many :payments, :dependent => :destroy
+  belongs_to :project
 
   before_create :generate_invoice_number_and_slug
   before_save :update_balance
@@ -21,7 +22,7 @@ class Invoice < ActiveRecord::Base
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount,
-                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound, :user_id
+                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound, :user_id, :project_id
 
   def to_param
     slug
@@ -43,10 +44,12 @@ class Invoice < ActiveRecord::Base
     (subtotal * (try(:discount) || 0) / 100.0).round(2)
   end
   
+  # Before taxes
   def subtotal
     line_items.collect(&:subtotal).sum.round(2)
   end
-
+  
+  # Total with taxes
   def amount_due
     (subtotal + tax1_amount + tax2_amount - discount_amount).round(2)
   end

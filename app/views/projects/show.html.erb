@@ -1,7 +1,7 @@
 <%= render :partial => 'submenu' %>
 
 <div id="project-title">
-   <h1><%= @project.title %>
+   <h1><%= @project.internal? ? "#{@project.title}" : "#{@project.title} - #{@project.customer.name}" %>
      <% if @project.internal? %><span class="status internal">INTERNAL</span> <% end %>
      <% if @project.status? %>
        <span class="status open">OPEN</span>

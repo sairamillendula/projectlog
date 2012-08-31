@@ -85,3 +85,5 @@ td form.edit_activity {
 form.new_report .field_with_errors, form.new_report p {
 	display: inline;
 }
+
+select#report_project_id {max-width: 340px;}

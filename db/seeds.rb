@@ -9,6 +9,11 @@ Plan.create(name: 'Premium', description: 'Sole Paying Plan', price: '15', frequ
 YES Transactions
 YES Invoices')
 
+puts "Creating billing codes..."
+BillingCode.create(name: "Fixed")
+BillingCode.create(name: "Per Diem")
+BillingCode.create(name: "Hourly")
+
 puts "Creating users..."
 user1 = User.find_by_email("user@gmail.com")
 unless user1

@@ -1,27 +1,26 @@
-<p>
-  <label class="label-wide">Customer:</label>
-  <%= link_to @project.customer.name, customer_path(@project.customer) %>
-</p>
-
 <p id="budget">
- <% if !@project.internal? %>
-  <p>
-    <label class="label-wide">Billing Method:</label>
-    <%= @project.billing_code_id.present? ? @project.billing_code.name : link_to('Edit', edit_project_path(@project)) %> <br />
-  </p>
-  <p>
-    <label class="label-wide">Budget:</label>
-    <%= show_budget %> <br />
-  </p>
-  <p>
-    <label class="label-wide"><%= 'Billable Amount:' unless @project.fixed? %></label>
-    <%= show_billable_amount %> <br />
-  </p>
-  <p>
-   <label class="label-wide">
-     <%= @project.hourly? ? "Hours Left:" : "Days Left:" unless (@project.fixed? or @project.billing_code_id.nil?) %>
-   </label>
-   <%= show_unit_left unless @project.fixed? %>
-  </p>
+  <% if !@project.internal? %>
+    <p>
+      <label class="label-wide">Billing Method:</label>
+      <%= @project.billing_code_id.present? ? @project.billing_code.name : link_to('Edit', edit_project_path(@project)) %> <br />
+    </p>
+    <p>
+      <label class="label-wide">Budget:</label>
+      <%= show_budget %> <br />
+    </p>
+    <p>
+      <label class="label-wide"><%= 'Billable Amount:' unless @project.fixed? %></label>
+      <%= show_billable_amount %> <br />
+    </p>
+    <p>
+      <label class="label-wide">
+        <%= @project.hourly? ? "Hours Left:" : "Days Left:" unless (@project.fixed? or @project.billing_code_id.nil?) %>
+      </label>
+      <%= show_unit_left unless @project.fixed? %>
+    </p>
+    <p>
+      <label class="label-wide">Invoiced to date:</label>
+      <%= number_to_currency(@project.invoices.to_a.sum(&:amount_due)) %>
+    </p>
+  <% end %>
 </p>
-<% end %>
