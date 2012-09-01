@@ -45,6 +45,15 @@ class Report < ActiveRecord::Base
     self.approved_at = Time.zone.now
     self.approved_ip = ip_address
   end
+
+  def to_csv(options={})
+    CSV.generate(options) do |csv|
+      csv << ["date","time","description","project"]
+      activities.order('date ASC').each do |activity|
+        csv << [I18n.localize(activity.date), activity.time, activity.description, activity.project.title]
+      end
+    end
+  end
   
   private
 

@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'iconv'
 class ReportsController < ApplicationController
   before_filter :authenticate_user!, :except => [:shared, :approve ]
   set_tab :reports
@@ -34,7 +35,14 @@ class ReportsController < ApplicationController
         render :layout => "public"
       end
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
-      format.csv { response.headers["Content-Disposition"] = "attachment; filename=time_entries.csv;" }      
+      format.csv { 
+        content = @report.to_csv
+        content = Iconv.conv('ISO-8859-15','UTF-8', content)
+        send_data content, 
+          :filename => "time_entries.csv", 
+          :type => 'text/csv; charset=utf-8; header=present',
+          :disposition => "attachment"
+      }
     end
   end
   
