@@ -165,6 +165,11 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def send_reminder_when_due
+    @invoice = Invoice.find_by_slug!(params[:id])
+    InvoicesMailer.send_reminder_when_due(@invoice).deliver
+  end
+
 private
 
   def sort_column

@@ -53,6 +53,7 @@ Projectlog::Application.routes.draw do
       get 'prepare_email'
       post 'send_email'
       post 'sort'
+      post 'send_reminder_when_due'
     end
     collection do
       get 'overdue'
