@@ -47,6 +47,12 @@ class TransactionsController < ApplicationController
 
   def edit
     @transaction = Transaction.find(params[:id])
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @transaction }
+      format.js
+    end
   end
 
   def create
@@ -74,9 +80,11 @@ class TransactionsController < ApplicationController
       if @transaction.update_attributes(params[:transaction])
         format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
         format.json { head :ok }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @transaction.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

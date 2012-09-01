@@ -1,0 +1,13 @@
+<% if @transaction.valid? %>
+  $("#transaction_dialog").dialog("close");  
+  location.reload();
+<% else %>
+   $('<div id="transaction-error"></div>')
+		.html('<div class="alert">Please fix the following errors: <br /><%= escape_javascript @transaction.errors.full_messages.to_sentence %></div>')
+		.dialog({
+			autoOpen: true,
+			buttons: { 'OK' : function(){ $(this).dialog("close"); } },
+			show: "fade",
+			hide: "fade",
+    });
+<% end %>

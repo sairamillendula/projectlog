@@ -10,7 +10,7 @@
 <% else %>
   <h1><%= searching?(params) ? "Listing transactions #{humanize_search_params(params)}" : "Transactions" %></h1>
   <%= render "table_header" %>
-  <table class="activities">
+  <table id ="transactions" class="activities">
 	<tr>
 	  <th style='width:35px;'><%= sortable "expense", { :remote => true } %></th>
 	  <th style='width:66px;'><%= sortable "date", { :remote => true } %></th>
@@ -29,7 +29,7 @@
 	  <td><%= link_to truncate(transaction.note, :length => 34), transaction %></td>
 	  <td><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></td>
 	  <td><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></td>
-	  <td><%= link_to 'Edit', edit_transaction_path(transaction) %>
+	  <td><%= link_to 'Edit', edit_transaction_path(transaction), remote: true %>
 		  <%= link_to image_tag("bin.png"), transaction, :data => { :confirm => 'Are you sure?' }, :method => :delete %>
 	  </td>
 	</tr>

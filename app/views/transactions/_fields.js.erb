@@ -1,0 +1,40 @@
+<%= form_for(@transaction, :remote => true) do |f| %>
+
+  <%= hidden_field_tag :tax1, current_user.profile.try(:tax1) || 0,  :id => "tax1_rate" %>
+  <%= hidden_field_tag :tax2, current_user.profile.try(:tax2) || 0, :id => "tax2_rate" %>
+  <%= hidden_field_tag :compound, current_user.profile.try(:compound) || false, :id => "compound" %>
+  <div class="inline-form">
+    <div class="field">
+      <%= f.label :date, :class => "mandatory" %>
+      <%= f.text_field :date, :class => 'date', :autofocus => true %>
+    </div>
+    <div class="field">
+      <%= f.label :expense, "Type", :class => "mandatory" %>
+      <%= f.radio_button :expense, true %> Expense <%= f.radio_button :expense, false %> <span>Income</span> <%= clear %>
+    </div>
+    <div class="field">
+      <%= f.label :note, "Description", :class => "mandatory" %>
+      <%= f.text_field :note, data: {autocomplete_source: find_by_note_transactions_path}, style: "max-width:286px;" %>
+    </div>
+    <div class="field">
+      <%= f.label :total, :class => "mandatory" %>
+      <%= f.text_field :total, :size => 8, :id => "total" %>
+    </div>
+    <div class="field">
+	  <%= f.label :tax2, current_user.profile.tax1_label.present? ? current_user.profile.tax1_label : 'Tax 1' %>
+      <%= f.text_field :tax1, :size => 8, :id => "tax1" %>
+    </div>
+    <div class="field">
+	  <%= f.label :tax2, current_user.profile.tax2_label.present? ? current_user.profile.tax2_label : 'Tax 2' %>
+      <%= f.text_field :tax2, :size => 8, :id => "tax2" %>
+    </div>
+    <div class="field">
+      <%= f.label :category_name, 'Category' %>
+	  <%= f.text_field :category_name, data: {autocomplete_source: categories_path} %>
+    </div>
+    <div class="field">
+      <%= f.label :project_id %>
+      <%= f.collection_select(:project_id, current_user.projects.order('title ASC'), :id, :title_and_client, :include_blank => 'Please Select') %>
+    </div>
+  </div>
+<% end %>

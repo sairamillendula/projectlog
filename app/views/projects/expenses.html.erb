@@ -31,7 +31,7 @@
       <li class="transactions_list">
         <span id="t_date"><%= l transaction.date, :format => :short %></span>
 	    <span id="t_type"><% if transaction.expense? %><span class="t_expense">Exp.</span><% else %><span class="t_income">Inc.</span> <% end %></span>
-        <span id="t_amount"><%= link_to number_to_currency(transaction.total), transaction_path(transaction) %></span>
+        <span id="t_amount"><%= link_to number_to_currency(transaction.total), edit_transaction_path(transaction), remote: true %></span>
         <span id="t_note_long"><%= truncate(transaction.note, :length => 70) %></span>
 	    <span id="t_category"><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></span>
 	  </li>
