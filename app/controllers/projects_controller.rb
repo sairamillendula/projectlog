@@ -16,6 +16,16 @@ class ProjectsController < ApplicationController
       format.js
     end
   end
+
+  def by_customer
+    # @projects = current_user.projects.of_customer(params[:id]).billable
+    @projects = Project.of_customer(params[:id]).billable
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @projects, only: [:id, :title] }
+    end
+  end
   
   # Show only closed projects
   def closed

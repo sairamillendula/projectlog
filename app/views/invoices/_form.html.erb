@@ -33,7 +33,7 @@
       <%= f.select :customer_id, current_user.customers.collect { |c| [c.name, c.id] }, :prompt => true %>
       or <%= link_to "Add customer", new_customer_path, :remote => true %>
     </div>
-    <div class="field">
+    <div class="field" id="project-field" style="display:<%= @invoice.project_id.present? ? 'block' : 'none' %>;">
       <%= f.label :project_id %>
       <%= f.select :project_id, current_user.projects.billable.collect { |p| [p.title, p.id] }, :prompt => true %>
     </div>

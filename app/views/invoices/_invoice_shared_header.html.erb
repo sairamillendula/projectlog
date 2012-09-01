@@ -13,6 +13,13 @@
   <%= @invoice.due_date %>
 </p>
 
+<% if @invoice.project_id.present? %>
+<p>
+  <b>Project:</b>
+  <%= @invoice.project.title %>
+</p>
+<% end -%>
+
 <p>
   <b>Subject:</b>
   <%= @invoice.subject %>

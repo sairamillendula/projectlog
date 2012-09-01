@@ -39,7 +39,11 @@ Projectlog::Application.routes.draw do
   resource :plan, :only => [:edit, :update]
   
   resources :customers do 
-    resources :contacts, :projects
+    resources :contacts
+    resources :projects, :except => [:index]
+    member do
+      get 'projects', :to => "projects#by_customer"
+    end
   end
   
   resources :invoices do

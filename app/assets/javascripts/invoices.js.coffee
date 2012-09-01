@@ -28,6 +28,23 @@
     $("#invoices th a, #invoices .pagination a").live "click", ->
       $.getScript(this.href)
       return false;
+
+    $("#invoice_customer_id").change ->
+      customer_id = $(this).val()
+      if customer_id != ""
+        $.getJSON "/customers/#{customer_id}/projects.json", (json) ->
+          if json.length > 0
+            $("#invoice_project_id").html("<option value=''>Please select</option>")
+            $.each json, (index, project) ->
+              $("#invoice_project_id").append("<option value='#{project.id}'>#{project.title}</option>")
+
+            $("#project-field").show()
+          else
+            $("#project-field").hide()
+            $("#invoice_project_id").html("<option value=''>Please select</option>")    
+      else
+        $("#project-field").hide()
+        $("#invoice_project_id").html("<option value=''>Please select</option>")
     
   recalc_line: (id) ->
     p = $("#invoice_line_items_attributes_#{id}_price")

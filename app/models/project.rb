@@ -23,6 +23,7 @@ class Project < ActiveRecord::Base
   scope :hourly, lambda { where(:billing_code_id => BillingCode.find_by_name!("Hourly").id) }
   scope :per_diem, lambda { where(:billing_code_id => BillingCode.find_by_name!("Per Diem").id) }
   scope :fixed, lambda { where(:billing_code_id => BillingCode.find_by_name!("Fixed").id) }
+  scope :of_customer, lambda {|customer_id| where(:customer_id => customer_id) }
   
   
   def title_and_client
