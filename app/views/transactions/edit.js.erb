@@ -4,8 +4,9 @@ $('<div id="transaction_dialog"></div>')
 			autoOpen: true,
 			modal: true,
 			title: 'Edit Transaction',
-			buttons: { 'Update Transaction' :  function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("close"); } },
+			buttons: { 'Update Transaction' :  function(){ $(this).find("form").submit(); }, 'Cancel' : function(){ $(this).dialog("close").remove(); } },
 			show: "fade",
 			hide: "fade",
-			width: 420
+			width: 420,
+			close: function(event, ui) { $(this).dialog("destroy").remove(); }
     });

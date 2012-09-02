@@ -16,22 +16,22 @@
     
 
 @Transactions.Form =
-  init: ->
-    $('#transaction_category_name').live 'focus', ->
+  init: (form_scope) ->
+    $("#{form_scope} #transaction_category_name").live 'focus', ->
       $(this).autocomplete
-        source: $('#transaction_category_name').data('autocomplete-source')
-        
-    $('#total').live 'keyup', ->
+        source: $("#{form_scope} #transaction_category_name").data('autocomplete-source')
+    console.log "#{form_scope} #transaction_category_name"    
+    $("#{form_scope} #total").live 'keyup', ->
       total = parseFloat($(this).val())
       total = 0 if isNaN(total)
       
-      tax1_rate = $('#tax1_rate').val()
-      tax1_rate = 0 if isNaN(tax1_rate) || $('#tax1_rate').val() == ''
+      tax1_rate = $("#{form_scope} #tax1_rate").val()
+      tax1_rate = 0 if isNaN(tax1_rate) || $("#{form_scope} #tax1_rate").val() == ''
       
-      tax2_rate = $('#tax2_rate').val()
-      tax2_rate = 0 if isNaN(tax2_rate) || $('#tax2_rate').val() == ''
+      tax2_rate = $("#{form_scope} #tax2_rate").val()
+      tax2_rate = 0 if isNaN(tax2_rate) || $("#{form_scope} #tax2_rate").val() == ''
       
-      compound = $('#compound').val() == "true"
+      compound = $("#{form_scope} #compound").val() == "true"
       
       subtotal = total
       tax1 = 0
@@ -50,8 +50,8 @@
           tax2 = Math.round((subtotal + tax1) * (tax2_rate/100) * 100)/100
         else
           tax2 = Math.round(subtotal * (tax2_rate/100) * 100)/100
-      $('#tax1').val(tax1)
-      $('#tax2').val(tax2)
+      $("#{form_scope} #tax1").val(tax1)
+      $("#{form_scope} #tax2").val(tax2)
 
 @Transactions.MonthlyReport =
   init: ->
