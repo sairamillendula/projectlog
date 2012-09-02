@@ -37,7 +37,7 @@ class ReportsController < ApplicationController
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
       format.csv { 
         content = @report.to_csv
-        content = Iconv.conv('ISO-8859-15','UTF-8', content)
+        content = Iconv.conv('ISO-8859-1','UTF-8', content)
         send_data content, 
           :filename => "time_entries.csv", 
           :type => 'text/csv; charset=utf-8; header=present',
