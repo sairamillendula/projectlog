@@ -33,9 +33,10 @@
       <%= f.select :customer_id, current_user.customers.collect { |c| [c.name, c.id] }, :prompt => true %>
       or <%= link_to "Add customer", new_customer_path, :remote => true %>
     </div>
-    <div class="field" id="project-field" style="display:<%= !@invoice.new_record? || @invoice.project_id.present? ? 'block' : 'none' %>;">
+    <% customer_projects = @invoice.customer_id.present? ? Project.of_customer(@invoice.customer_id).billable.collect { |p| [p.title, p.id] } : [] %>
+    <div class="field" id="project-field" style="display:<%= (!@invoice.new_record? && customer_projects.present?) || @invoice.project_id.present? ? 'block' : 'none' %>;">
       <%= f.label :project_id %>
-      <%= f.select :project_id, current_user.projects.billable.collect { |p| [p.title, p.id] }, :prompt => true %>
+      <%= f.select :project_id, customer_projects, :prompt => true %>
     </div>
     <div class="field">
       <%= f.label :currency %>
