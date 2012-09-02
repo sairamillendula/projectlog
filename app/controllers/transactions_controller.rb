@@ -22,7 +22,14 @@ class TransactionsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @transactions }
       format.js
-      format.csv { response.headers["Content-Disposition"] = "attachment; filename=transactions.csv" }
+      format.csv { 
+        content = Transaction.to_csv(@transactions)
+        content = Iconv.conv('ISO-8859-1','UTF-8', content)
+        send_data content, 
+          :filename => "transactions.csv", 
+          :type => 'text/csv; charset=utf-8; header=present',
+          :disposition => "attachment"
+      }
     end
   end
 

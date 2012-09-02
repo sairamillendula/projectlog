@@ -73,6 +73,15 @@ class Transaction < ActiveRecord::Base
         (from..to)
       end
     end
+
+    def to_csv(transactions, options={})
+      CSV.generate(options) do |csv|
+        csv << ['Date','Type','Total','Tax1','Tax2','Description','Category','Project']
+        transactions.each do |transaction|
+          csv << [I18n.localize(transaction.date), transaction.expense? ? 'Expense' : 'Income', transaction.total, transaction.tax1, transaction.tax2, transaction.note, transaction.category.present? ? transaction.category.name : nil , transaction.project.present? ? transaction.project.title : nil]
+        end
+      end
+    end
   end
   
   private
