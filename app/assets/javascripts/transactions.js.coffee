@@ -20,7 +20,7 @@
     $("#{form_scope} #transaction_category_name").live 'focus', ->
       $(this).autocomplete
         source: $("#{form_scope} #transaction_category_name").data('autocomplete-source')
-    console.log "#{form_scope} #transaction_category_name"    
+        
     $("#{form_scope} #total").live 'keyup', ->
       total = parseFloat($(this).val())
       total = 0 if isNaN(total)
