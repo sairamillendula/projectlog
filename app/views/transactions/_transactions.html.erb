@@ -26,7 +26,7 @@
 	  <td><%= transaction.expense? ? content_tag(:span, 'Exp.', :class => 'expense') : content_tag(:span, 'Inc.', :class => 'income') %></td>
 	  <td><%= l transaction.date, :format => :short %></td>
 	  <td><%= number_to_currency(transaction.total) %></td>
-	  <td><%= link_to truncate(transaction.note, :length => 34), transaction %></td>
+	  <td><%= truncate(transaction.note, :length => 34) %></td>
 	  <td><%= link_to transaction.project.title, expenses_project_path(transaction.project) unless transaction.project.nil? %></td>
 	  <td><%= link_to transaction.category.name, expenses_category_path(transaction.category) unless transaction.category.nil? %></td>
 	  <td><%= link_to 'Edit', edit_transaction_path(transaction), remote: true %>
