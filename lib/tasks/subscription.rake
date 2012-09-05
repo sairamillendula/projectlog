@@ -37,7 +37,7 @@ namespace :user do
 end
 
 namespace :invoice do
-  desc "Send late invoice reminder email"
+  desc "Send late invoice reminder email to creator"
   task :reminder => :environment do
     invoices = Invoice.late.not_reminded
     if invoices.any?
@@ -45,10 +45,10 @@ namespace :invoice do
         InvoicesMailer.send_reminder_when_late(invoice)
         invoice.reminded = true
         invoice.save
-        puts "Sent late invoice reminder to #{invoice.user.email}."
+        puts "Sent reminder to #{invoice.user.email} for late invoice ##{invoice.id}."
       end
     else
-      puts "Looks like all reminders are sent!"
+      puts "Looks like all reminders have already been sent!"
     end
   end
 end
