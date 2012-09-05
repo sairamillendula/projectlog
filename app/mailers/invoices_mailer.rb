@@ -16,4 +16,10 @@ class InvoicesMailer < ActionMailer::Base
     mail(from: "Projectlog <notifications@projectlogapp.com>", subject: "Reminder: Invoice due", 
          to: "#{@invoice.user.full_name} <#{@invoice.user.email}>" )
   end
+
+  def send_reminder_when_late(invoice)
+    @invoice = invoice
+    mail(from: "Projectlog <notifications@projectlogapp.com>", subject: "Reminder: Invoice late", 
+         to: "#{@invoice.user.full_name} <#{@invoice.user.email}>" )
+  end
 end

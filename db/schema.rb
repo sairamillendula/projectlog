@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120831203100) do
+ActiveRecord::Schema.define(:version => 20120905154958) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -118,26 +118,27 @@ ActiveRecord::Schema.define(:version => 20120831203100) do
   add_index "emailings", ["api_key"], :name => "index_emailings_on_api_key"
 
   create_table "invoices", :force => true do |t|
-    t.date     "issued_date",                                                                :null => false
-    t.date     "due_date",                                                                   :null => false
-    t.string   "subject",                                                                    :null => false
-    t.float    "balance",                                                   :default => 0.0, :null => false
-    t.string   "status",                                                                     :null => false
+    t.date     "issued_date",                                                                  :null => false
+    t.date     "due_date",                                                                     :null => false
+    t.string   "subject",                                                                      :null => false
+    t.float    "balance",                                                   :default => 0.0,   :null => false
+    t.string   "status",                                                                       :null => false
     t.text     "note"
-    t.integer  "customer_id",                                                                :null => false
-    t.integer  "user_id",                                                                    :null => false
-    t.datetime "created_at",                                                                 :null => false
-    t.datetime "updated_at",                                                                 :null => false
-    t.string   "invoice_number",                                                             :null => false
-    t.decimal  "discount",                    :precision => 5, :scale => 2, :default => 0.0, :null => false
-    t.string   "currency",       :limit => 3,                                                :null => false
-    t.string   "slug",                                                                       :null => false
+    t.integer  "customer_id",                                                                  :null => false
+    t.integer  "user_id",                                                                      :null => false
+    t.datetime "created_at",                                                                   :null => false
+    t.datetime "updated_at",                                                                   :null => false
+    t.string   "invoice_number",                                                               :null => false
+    t.decimal  "discount",                    :precision => 5, :scale => 2, :default => 0.0,   :null => false
+    t.string   "currency",       :limit => 3,                                                  :null => false
+    t.string   "slug",                                                                         :null => false
     t.float    "tax1"
     t.string   "tax1_label"
     t.float    "tax2"
     t.string   "tax2_label"
     t.boolean  "compound"
     t.integer  "project_id"
+    t.boolean  "reminded",                                                  :default => false
   end
 
   add_index "invoices", ["customer_id"], :name => "index_invoices_on_customer_id"

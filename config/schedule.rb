@@ -14,6 +14,10 @@ every 1.day, :at => '01:04 AM' do
   rake "user:alert_expire"
 end
 
+every 1.day, :at => '02:00 AM' do
+  rake "invoice:reminder"
+end
+
 # Use this file to easily define all of your cron jobs.
 #
 # It's helpful, but not entirely necessary to understand cron before proceeding.

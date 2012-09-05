@@ -13,6 +13,7 @@ class Invoice < ActiveRecord::Base
   scope :current_year, where('year(issued_date) = ?', Date.today.year)
   scope :with_balance, where("balance > ?", 0)
   scope :late, where("due_date < ?", Date.today)
+  scope :not_reminded, where(reminded: false)
   scope :overdue, where("due_date < ? AND balance > ?", Date.today, 0)
 
   validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true
