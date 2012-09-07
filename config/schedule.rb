@@ -1,6 +1,5 @@
 set :output, "#{path}/log/cron_log.log"
-set :environment, 'development'
-
+# set :environment, 'development'
 
 every 1.day, :at => '01:00 AM' do
   rake "subscription:process_modifications"
