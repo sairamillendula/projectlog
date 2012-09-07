@@ -39,7 +39,7 @@ end
 namespace :invoice do
   desc "Send late invoice reminder email to creator"
   task :reminder => :environment do
-    invoices = Invoice.late.not_reminded
+    invoices = Invoice.late.overdue.not_reminded
     if invoices.any?
       invoices.each do |invoice|
         InvoicesMailer.send_reminder_when_late(invoice)
