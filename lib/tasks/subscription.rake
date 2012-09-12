@@ -42,7 +42,7 @@ namespace :invoice do
     invoices = Invoice.late.overdue.not_reminded
     if invoices.any?
       invoices.each do |invoice|
-        InvoicesMailer.send_reminder_when_late(invoice)
+        InvoicesMailer.send_reminder_when_late(invoice).deliver
         invoice.reminded = true
         invoice.save
         puts "Sent reminder to #{invoice.user.email} for late invoice ##{invoice.id}."
