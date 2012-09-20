@@ -1,3 +1,4 @@
+<% @logo_file_url ||= @profile.logo.url(:thumb) %>
 <%= form_for(@profile) do |f| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation" class="alert">
@@ -57,7 +58,7 @@
           <%= f.label :logo %>
           <%= f.file_field :logo %>
           <% unless f.object.logo_file_name.blank? %>
-            <%= image_tag(f.object.logo.url(:thumb)) %>
+            <%= image_tag(@logo_file_url) %>
             <p><%= f.check_box :remove_logo, :class => "fl" %> <span>Remove</span></p>
           <% end %>
         </div>
