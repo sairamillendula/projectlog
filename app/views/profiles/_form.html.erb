@@ -49,11 +49,18 @@
           <%= f.label :phone_number, 'Phone' %>
           <%= f.phone_field :phone_number %>
         </div>
-		<div class="field">
-	      <%= f.label :website %>
-	      <%= f.url_field :website %>
+		    <div class="field">
+  	      <%= f.label :website %>
+  	      <%= f.url_field :website %>
         </div>
-          
+        <div class="field">
+          <%= f.label :logo %>
+          <%= f.file_field :logo %>
+          <% unless f.object.logo_file_name.blank? %>
+            <%= image_tag(f.object.logo.url(:thumb)) %>
+            <p><%= f.check_box :remove_logo, :class => "fl" %> <span>Remove</span></p>
+          <% end %>
+        </div>
         <div class="actions">
 	      <p class="submit"><%= f.submit "Update Settings" %></p>
 	    </div>

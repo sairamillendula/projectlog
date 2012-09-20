@@ -1,12 +1,46 @@
 class Profile < ActiveRecord::Base
   include Taxable
-  
+
+  IMAGE_TYPES = %w{image/png application/png image/jpeg application/jpeg image/jpg application/jpg image/gif application/gif}
+
   belongs_to :user
+
+  has_attached_file :logo, 
+                    :url => "/uploads/logo/:id/:style/:basename.:extension",
+                    :path => ":rails_root/public/uploads/logo/:id/:style/:basename.:extension",
+                    :size => { :in => 0..2.megabytes }, 
+                    :styles => { :thumb => "200x100>" }
+
+  attr_accessor :remove_logo
   attr_accessible :company, :address1, :address2, :city, :province, :postal_code, :country, :phone_number, :localization, :hours_per_day,
-                  :website, :user_id, :user_id, :tax1, :tax2, :tax1_label, :tax2_label, :invoice_signature, :compound, :fiscal_year
+                  :website, :user_id, :user_id, :tax1, :tax2, :tax1_label, :tax2_label, :invoice_signature, :compound, :fiscal_year, :logo, :remove_logo
+
+
 
   validates_numericality_of :hours_per_day, :on => :update, :allow_blank => true, :greater_than_or_equal_to => 2, :less_than_or_equal_to => 10,
                             :message => "must be numeric (no comma) and between 2 and 10."
+
+  validates_attachment_content_type :logo, :content_type => IMAGE_TYPES, :message => 'has to image'
+  validates_attachment_size :logo, :less_than => 2.megabytes, :message => "File size cannot exceed 2MB"
+
+  before_post_process :process_image_only
+
+  def remove_logo=(val)
+    logo.clear if val == '1'
+  end
+
+  def process_image_only
+    set_content_type
+    image?
+  end
+
+  def image?
+    IMAGE_TYPES.include?(logo_content_type)
+  end
+  
+  def set_content_type
+    self.logo_content_type = MIME::Types.type_for(self.logo_file_name).first.to_s
+  end
 
   def fiscal_period(this_year=Time.now.year)
     if fiscal_year.blank?
