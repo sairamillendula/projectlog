@@ -20,7 +20,7 @@ class Profile < ActiveRecord::Base
   validates_numericality_of :hours_per_day, :on => :update, :allow_blank => true, :greater_than_or_equal_to => 2, :less_than_or_equal_to => 10,
                             :message => "must be numeric (no comma) and between 2 and 10."
 
-  validates_attachment_content_type :logo, :content_type => IMAGE_TYPES, :message => 'has to image'
+  validates_attachment_content_type :logo, :content_type => IMAGE_TYPES, :message => 'must be an image (jpeg, png or gif)'
   validates_attachment_size :logo, :less_than => 2.megabytes, :message => "File size cannot exceed 2MB"
 
   before_post_process :process_image_only
