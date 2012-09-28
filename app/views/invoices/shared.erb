@@ -5,7 +5,17 @@
     
 	  <div id="invoice-top">
 	    <div id="companies">
-          <% if get_company_info(@invoice.user.profile).size > 0 %>
+        <p style="text-align: right;">
+          <% if current_user.profile.logo_file_name.present? %>
+            <% if @is_pdf %>
+              <img src="<%= current_user.profile.logo.path(:thumb) %>">
+            <% else %>
+              <img src="<%= current_user.profile.logo.url(:thumb) %>">
+            <% end -%>
+          <% end -%>
+          <%#= image_tag current_user.profile.logo(:thumb).url if current_user.profile.logo_file_name.present? %>
+        </p>
+        <% if get_company_info(@invoice.user.profile).size > 0 %>
 	        <div class="company-info">
 	        From: <%= get_company_info @invoice.user.profile %>
 		    </div>
