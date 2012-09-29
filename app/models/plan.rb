@@ -2,7 +2,7 @@ class Plan < ActiveRecord::Base
   has_many :users, :dependent => :restrict
   
   attr_accessible :name, :description, :features, :price, :active, :displayable, :frequency
-  validates_presence_of :name, :price, :description, :features, :active
+  validates_presence_of :name, :price, :description, :features, :active, :frequency
   validates_uniqueness_of :name
   attr_accessor :perms
   

@@ -14,6 +14,5 @@ class CreatePlans < ActiveRecord::Migration
     add_index :plans, :id
     add_index :plans, :name
     add_index :plans, :price
-    Plan.create(:name => "Free", :description => "Basic Plan free for everyone who sign up", :price => "0", :active => true )
   end
 end
