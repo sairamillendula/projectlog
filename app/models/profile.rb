@@ -27,7 +27,7 @@ class Profile < ActiveRecord::Base
   before_post_process :process_image_only
 
   def set_default_logo
-    ActionController::Base.helpers.asset_path("nophoto.gif")
+    #ActionController::Base.helpers.asset_path("nophoto.gif")
   end
 
   def remove_logo=(val)

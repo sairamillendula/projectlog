@@ -4,18 +4,18 @@
     <div id="invoice-page" class="invoice <%= @invoice.status.parameterize %>">
     
 	  <div id="invoice-top">
+		<div class="inv_header">
+		  <% if @invoice.company_logo.present? %>
+		    <div id="inv_logo" style="background: url('<%= @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;">
+		    </div>
+		  <% end %>
+		  <div id="inv_title">
+		  	<h1>INVOICE</h1>
+		  </div>
+        </div>
+
 	    <div id="companies">
-        <p style="text-align: right;">
-          <% if current_user.profile.logo_file_name.present? %>
-            <% if @is_pdf %>
-              <img src="<%= current_user.profile.logo.path(:thumb) %>">
-            <% else %>
-              <img src="<%= current_user.profile.logo.url(:thumb) %>">
-            <% end -%>
-          <% end -%>
-          <%#= image_tag current_user.profile.logo(:thumb).url if current_user.profile.logo_file_name.present? %>
-        </p>
-        <% if get_company_info(@invoice.user.profile).size > 0 %>
+          <% if get_company_info(@invoice.user.profile).size > 0 %>
 	        <div class="company-info">
 	        From: <%= get_company_info @invoice.user.profile %>
 		    </div>
@@ -25,14 +25,13 @@
 	      </div>
 	    </div>
 
-	    <h1>INVOICE</h1>
-    
         <%= render 'invoice_shared_header' %>
       </div>
 
-	  <div id="line_items_list"><%= render 'line_items_list' %></div>
-    
+	  <div id="line_items_list">
+	    <%= render 'line_items_list' %>
+	  </div>
       <%= render 'note' unless @invoice.note.empty? %>
-
+    </div>
   </section>
 </section>

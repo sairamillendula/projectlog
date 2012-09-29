@@ -109,6 +109,10 @@ class Invoice < ActiveRecord::Base
     self.compound = profile.compound
   end
   
+  def company_logo
+    user.profile.logo if user.profile.logo.present?
+  end
+  
 private
   
   def validate_limit
