@@ -71,7 +71,7 @@
     </tr>
     <tr>
       <td colspan=4><%= f.label :discount, 'Discount % ' %></td>
-      <td ><%= f.number_field :discount %></td>
+      <td ><%= f.number_field :discount, :step => :any %></td>
     </tr>
     <tr>
       <td colspan=4>Amount Due: </td>

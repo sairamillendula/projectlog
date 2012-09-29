@@ -79,7 +79,7 @@
       <div class="field">
         <h2><%= f.label :hours_per_day %></h2>
         <p class="info">How many hours equal a full working day? Required to convert hours to days</p>
-        <%= f.number_field :hours_per_day, :size => 5 %>
+        <%= f.number_field :hours_per_day, :size => 5, :step => :any %>
       </div>
       <div class="field">
         <h2><%= label_tag "Start of fiscal year" %></h2>
@@ -92,9 +92,9 @@
         <div class="field">
           <p class="info">What taxes do you use?</p>
           Tax 1:<%= f.text_field :tax1_label, :size => 6 %>
-          <%= f.number_field :tax1, :size => 5 %> %<br/>
+          <%= f.number_field :tax1, :size => 5, :step => :any %> %<br/>
           Tax 2:<%= f.text_field :tax2_label, :size => 6 %>
-          <%= f.number_field :tax2, :size => 5 %> %
+          <%= f.number_field :tax2, :size => 5, :step => :any %> %
           <%= f.check_box :compound %> <%= f.label :compound %>
         </div>
         <div class="field">

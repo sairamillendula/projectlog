@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
   def index
     return redirect_to upgrade_required_subscriptions_url, notice: "You cannot access this page. Please upgrade plan." unless current_permissions[:project][:accessible]
     
-    @open_projects = current_user.projects.scoped.open.page(params[:page]).per(6)
-    @closed_projects = current_user.projects.closed.page(1).per(10)
+    @open_projects = current_user.projects.includes(:customer).scoped.open.page(params[:page]).per(6)
+    @closed_projects = current_user.projects.includes(:customer).closed.page(1).per(10)
 
     respond_to do |format|
       format.html # index.html.erb

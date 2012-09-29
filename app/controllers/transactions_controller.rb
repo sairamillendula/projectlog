@@ -8,7 +8,7 @@ class TransactionsController < ApplicationController
   before_filter :check_limit, :only => [:new]
   
   def index
-    @transactions = current_user.transactions.order(sort_column + " " + sort_direction).page(params[:page]).per(20) 
+    @transactions = current_user.transactions.includes(:project, :category).order(sort_column + " " + sort_direction).page(params[:page]).per(20) 
     @transactions = @transactions.by_keyword(params[:search]) unless params[:search].blank?
     @transactions = @transactions.by_category(params[:category_id]) unless params[:category_id].blank?
     if !params[:start_date].blank? and !params[:end_date].blank?

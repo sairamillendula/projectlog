@@ -13,7 +13,7 @@
     </tr>
     <tr class="transaction-fields row-one">
       <td><%= f.text_field :date, :class => "date", :tabindex => 1 %></td>
-      <td><%= f.number_field :total, :class => "numbers", :id => "total", :tabindex => 2 %></td>
+      <td><%= f.number_field :total, :class => "numbers", :id => "total", :tabindex => 2, :step => :any %></td>
       <td><%= f.text_field :note, data: {autocomplete_source: find_by_note_transactions_path}, :tabindex => 3 %></td>
       <td><span class="small submit"><%= f.submit 'Create', :name => @transactions.empty? ? "quick" : nil, "data-disable-with" => 'Create' %></span></td>
     </tr>
@@ -22,10 +22,10 @@
 	  <% if current_user.profile.any_taxes? %>
   	    <td style="vertical-align:top; word-wrap: break-word; width: 100px;">
 	    <% unless current_user.profile.tax1.blank? %>
-	    <%= current_user.profile.tax1_name(false) %><br><%= f.text_field :tax1, :class => "numbers", :id => "tax1" %><br>
+	    <%= current_user.profile.tax1_name(false) %><br><%= f.text_field :tax1, :class => "numbers", :id => "tax1", :step => :any %><br>
 	  <% end %>
 	  <% unless current_user.profile.tax2.blank? %>
-  	    <%= current_user.profile.tax2_name(false) %><br><%= f.text_field :tax2, :class => "numbers", :id => "tax2" %>
+  	    <%= current_user.profile.tax2_name(false) %><br><%= f.text_field :tax2, :class => "numbers", :id => "tax2", :step => :any %>
 	  <% end %>
   	  </td>
 	<% end %>

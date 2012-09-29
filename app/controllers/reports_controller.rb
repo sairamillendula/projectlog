@@ -20,7 +20,7 @@ class ReportsController < ApplicationController
   
   def show
     @report = Report.find_by_slug!(params[:id])
-    @activities = @report.activities.search(params[:search]).order(sort_column + " " + sort_direction)
+    @activities = @report.activities.includes(:project).search(params[:search]).order(sort_column + " " + sort_direction)
     respond_to do |format|
       format.html { @activities = @activities.page(params[:page]).per(10) }
       format.js { @activities = @activities.page(params[:page]).per(10) }
