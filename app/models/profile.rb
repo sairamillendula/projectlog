@@ -9,8 +9,7 @@ class Profile < ActiveRecord::Base
                     :url => "/uploads/logo/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/uploads/logo/:id/:style/:basename.:extension",
                     :size => { :in => 0..2.megabytes }, 
-                    :styles => { :thumb => "200x100>" },
-                    :default_url => :set_default_logo
+                    :styles => { :thumb => "200x100>" }
 
   attr_accessor :remove_logo
   attr_accessible :company, :address1, :address2, :city, :province, :postal_code, :country, :phone_number, :localization, :hours_per_day,
@@ -25,10 +24,6 @@ class Profile < ActiveRecord::Base
   validates_attachment_size :logo, :less_than => 2.megabytes, :message => "File size cannot exceed 2MB"
 
   before_post_process :process_image_only
-
-  def set_default_logo
-    #ActionController::Base.helpers.asset_path("nophoto.gif")
-  end
 
   def remove_logo=(val)
     logo.clear if val == '1'

@@ -21,7 +21,6 @@ class ProfilesController < ApplicationController
 
   def update
     @profile = current_user.profile
-    @logo_file_url = @profile.logo.url(:thumb)
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
