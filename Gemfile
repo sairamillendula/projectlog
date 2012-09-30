@@ -42,6 +42,7 @@ group :development, :test do
   gem 'spork-testunit'
   gem 'timecop'
   gem 'bullet'
+  gem 'thin'
 end
 
 group :production do

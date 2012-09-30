@@ -1,10 +1,21 @@
-<h1>INVOICE
+<% if @is_pdf %>
+  <div class="inv_header">
+    <% if @invoice.company_logo.present? %>
+      <div id="inv_logo" style="background: url('<%= @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;"></div>
+    <% end %>
+    <div id="inv_title">
+  	  <h1>INVOICE</h1>
+    </div>
+  </div>
+<% else %>
+  <h1>INVOICE
     <% if @invoice.late_and_overdue? %>
       <span id="invoice-status" class="invoice late">Late</span>
     <% else %>
       <span id="invoice-status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span>
     <% end %>
-</h1>
+  </h1>
+<% end %>
 
 <p>
   <b>ID:</b>
