@@ -81,8 +81,8 @@ class InvoicesController < ApplicationController
     @invoice = current_user.invoices.includes(:customer, :line_items).find_by_slug!(params[:id])
     
     respond_to do |format|
-      format.html
-      format.pdf { send_data(PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf, 
+      format.html { @is_pdf = false }
+      format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf, 
                              :filename => "Invoice #{@invoice.invoice_number}.pdf", 
                              :type => 'application/pdf',
                              :disposition  => "inline") }

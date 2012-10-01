@@ -1,7 +1,9 @@
 <% if @is_pdf %>
   <div class="inv_header">
     <% if @invoice.company_logo.present? %>
-      <div id="inv_logo" style="background: url('<%= @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;"></div>
+      <div id="inv_logo">
+        <%= image_tag @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>
+      </div>
     <% end %>
     <div id="inv_title">
   	  <h1>INVOICE</h1>
