@@ -6,13 +6,17 @@
 	  <div id="invoice-top">
 		<div class="inv_header">
 		  <% if @invoice.company_logo.present? %>
-		    <div id="inv_logo">
-          <%= image_tag @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>
-		    </div>
+		    <% if @is_pdf %>
+		      <div id="inv_logo">
+                <h1 style="line-height:100px;"><%= image_tag @invoice.company_logo.path(:thumb), style: "float:left;" %> <span style="float:right;"> INVOICE</span></h1>
+		      </div>
+		    <% else %>
+		      <div id="inv_logo" style="background: url('<%= @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;"></div>
+		      <div id="inv_title">
+			  	<h1>INVOICE</h1>
+			  </div>
+			<% end %>
 		  <% end %>
-		  <div id="inv_title">
-		  	<h1>INVOICE</h1>
-		  </div>
         </div>
 
 	    <div id="companies">
