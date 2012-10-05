@@ -261,7 +261,7 @@ DEPENDENCIES
   money
   mysql2
   nested_form!
-  paperclip (~> 3.0)
+  paperclip
   paypal_pro_recurring!
   pdfkit
   rails (= 3.2.8)
