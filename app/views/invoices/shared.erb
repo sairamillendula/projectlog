@@ -3,51 +3,27 @@
   <section id="content" role="main">
     <div id="invoice-page" class="invoice <%= @invoice.status.parameterize %>">
     
-<<<<<<< HEAD
-<<<<<<< HEAD
 	  <div id="invoice-top">
-		<div class="inv_header">
-		  <% if @invoice.company_logo.present? %>
-		    <% if @is_pdf %>
-		      <div id="inv_logo">
-                <h1 style="line-height:100px;"><%= image_tag @invoice.company_logo.path(:thumb), style: "float:left;" %> <span style="float:right;"> INVOICE</span></h1>
-		      </div>
-		    <% else %>
-		      <div id="inv_logo" style="background: url('<%= @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;"></div>
-		      <div id="inv_title">
-			  	<h1>INVOICE</h1>
-			  </div>
-			<% end %>
+			<div class="inv_header">
+			  <% if @invoice.company_logo.present? %>
+			    <% if @is_pdf %>
+			      <div id="inv_logo" style="clear:both;">
+	             <h1 style="line-height:100px;"><%= image_tag @invoice.company_logo.path(:thumb), style: "float:left;" %> <span style="float:right;"> INVOICE</span></h1>
+			      </div>
+			    <% else %>
+			      <div id="inv_logo" style="background: url('<%= @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;"></div>
+			      <div id="inv_title">
+				  	  <h1>INVOICE</h1>
+				    </div>
+				  <% end %>
+				</div>
 		  <% end %>
-=======
-	    <div id="invoice-top">
-		    <div class="inv_header">
-		      <% if @invoice.company_logo.present? %>
-		        <div id="inv_logo" style="background: url('<%= @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;">
-		        </div>
-		      <% end %>
-		      <div id="inv_title">
-		  	    <h1>INVOICE</h1>
-		      </div>
->>>>>>> Invoice pdf style (WIP)
-=======
-	  <div id="invoice-top">
-		<div class="inv_header">
-		  <% if @invoice.company_logo.present? %>
-		    <div id="inv_logo" style="background: url('<%= @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;">
-		    </div>
-		  <% end %>
-		  <div id="inv_title">
-		  	<h1>INVOICE</h1>
-		  </div>
->>>>>>> Revert "Invoice pdf style (WIP)"
-        </div>
 
 	    <div id="companies">
-          <% if get_company_info(@invoice.user.profile).size > 0 %>
+        <% if get_company_info(@invoice.user.profile).size > 0 %>
 	        <div class="company-info">
-	        From: <%= get_company_info @invoice.user.profile %>
-		    </div>
+	          From: <%= get_company_info @invoice.user.profile %>
+		      </div>
 	      <% end %>
 	      <div class="customer-info">
 	        To: <%= get_customer_info @invoice.customer %>
