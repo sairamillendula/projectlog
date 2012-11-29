@@ -3,6 +3,7 @@
   <section id="content" role="main">
     <div id="invoice-page" class="invoice <%= @invoice.status.parameterize %>">
     
+<<<<<<< HEAD
 	  <div id="invoice-top">
 		<div class="inv_header">
 		  <% if @invoice.company_logo.present? %>
@@ -17,26 +18,36 @@
 			  </div>
 			<% end %>
 		  <% end %>
+=======
+	    <div id="invoice-top">
+		    <div class="inv_header">
+		      <% if @invoice.company_logo.present? %>
+		        <div id="inv_logo" style="background: url('<%= @is_pdf ? @invoice.company_logo.path(:thumb) : @invoice.company_logo.url(:thumb) %>') no-repeat; background-position: center left;">
+		        </div>
+		      <% end %>
+		      <div id="inv_title">
+		  	    <h1>INVOICE</h1>
+		      </div>
+>>>>>>> Invoice pdf style (WIP)
         </div>
 
-	    <div id="companies">
-          <% if get_company_info(@invoice.user.profile).size > 0 %>
-	        <div class="company-info">
-	        From: <%= get_company_info @invoice.user.profile %>
+		    <div id="companies" style="margin-top:0; padding-top:0;">
+	        <% if get_company_info(@invoice.user.profile).size > 0 %>
+		        <div class="company-info">
+		          From: <%= get_company_info @invoice.user.profile %>
+			      </div>
+		      <% end %>
+		      <div class="customer-info">
+		        To: <%= get_customer_info @invoice.customer %>
+		      </div>
 		    </div>
-	      <% end %>
-	      <div class="customer-info">
-	        To: <%= get_customer_info @invoice.customer %>
-	      </div>
-	    </div>
 
-        <%= render 'invoice_shared_header' %>
-      </div>
+	      <%= render 'invoice_shared_header' %>
 
-	  <div id="line_items_list">
-	    <%= render 'line_items_list' %>
-	  </div>
-      <%= render 'note' unless @invoice.note.empty? %>
+		    <div id="line_items_list">
+		      <%= render 'line_items_list' %>
+		    </div>
+	    <%= render 'note' unless @invoice.note.empty? %>
     </div>
   </section>
 </section>

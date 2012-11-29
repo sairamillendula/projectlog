@@ -1,26 +1,28 @@
-<p>
-  <b>ID:</b>
-  <%= @invoice.invoice_number %>
-</p>
+<div style="width:50%; float:left;">
+  <p style="padding-top:0;">
+    <b>ID:</b>
+    <%= @invoice.invoice_number %>
+  </p>
 
-<p>
-  <b>Issue Date:</b>
-  <%= @invoice.issued_date %>
-</p>
+  <p>
+    <b>Issue Date:</b>
+    <%= @invoice.issued_date %>
+  </p>
 
-<p>
-  <b>Due Date:</b>
-  <%= @invoice.due_date %>
-</p>
+  <p>
+    <b>Due Date:</b>
+    <%= @invoice.due_date %>
+  </p>
 
-<% if @invoice.project_id.present? %>
-<p>
-  <b>Project:</b>
-  <%= @invoice.project.title %>
-</p>
-<% end %>
+  <% if @invoice.project_id.present? %>
+  <p>
+    <b>Project:</b>
+    <%= @invoice.project.title %>
+  </p>
+  <% end %>
 
-<p>
-  <b>Subject:</b>
-  <%= @invoice.subject %>
-</p>
+  <p>
+    <b>Subject:</b>
+    <%= @invoice.subject %>
+  </p>
+</div>
