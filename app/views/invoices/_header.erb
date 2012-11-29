@@ -19,40 +19,38 @@
   </h1>
 <% end %>
 
-<div style="width:50%; float:left;">
-  <p>
-    <b>ID:</b>
-    <%= @invoice.invoice_number %> 
-  </p>
+<p>
+  <b>ID:</b>
+  <%= @invoice.invoice_number %> 
+</p>
 
-  <p>
-    <b>Issue Date:</b>
-    <%= @invoice.issued_date %>
-  </p>
+<p>
+  <b>Issue Date:</b>
+  <%= @invoice.issued_date %>
+</p>
 
-  <p>
-    <b>Due Date:</b>
-    <%= @invoice.due_date %>
-  </p>
+<p>
+  <b>Due Date:</b>
+  <%= @invoice.due_date %>
+</p>
 
-  <% if @invoice.project.present? %>
-  <p>
-    <b>Project:</b>
-    <%= @invoice.project.title %>
+<% if @invoice.project.present? %>
+<p>
+  <b>Project:</b>
+  <%= @invoice.project.title %>
+</p>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if !@invoice.paid? %>
+  <p class='no-print'>
+    <b>Balance:</b>
+    <span id="invoice-balance"><%= @invoice.balance %> <%= @invoice.currency unless @invoice.currency.nil? %></span>
   </p>
   <% end %>
+<% end %>
 
-  <% if user_signed_in? %>
-    <% if !@invoice.paid? %>
-    <p class='no-print'>
-      <b>Balance:</b>
-      <span id="invoice-balance"><%= @invoice.balance %> <%= @invoice.currency unless @invoice.currency.nil? %></span>
-    </p>
-    <% end %>
-  <% end %>
-
-  <p>
-    <b>Subject:</b>
-    <%= @invoice.subject %>
-  </p>
-</div>
+<p>
+  <b>Subject:</b>
+  <%= @invoice.subject %>
+</p>
