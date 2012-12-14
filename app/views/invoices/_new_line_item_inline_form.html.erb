@@ -1,6 +1,6 @@
 <tr id="new_line_item_form" style="display: none;">
   <td>
-    <%= f.select :line_type, options_for_select(['Product', 'Service']) %>
+    <%= f.select :line_type, options_for_select(['Product', 'Service', 'Hours']) %>
     <%= f.hidden_field :invoice_id, value: @invoice.id %>
   </td>
   <td><%= f.text_field :description %></td>

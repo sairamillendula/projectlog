@@ -1,4 +1,4 @@
-<div class="td"><%= f.link_to_remove image_tag("bin.png") %> <%= f.select :line_type, options_for_select(['Product', 'Service'], f.object.line_type) %></div>
+<div class="td"><%= f.link_to_remove image_tag("bin.png") %> <%= f.select :line_type, options_for_select(['Product', 'Service', 'Hours'], f.object.line_type) %></div>
 <div class="td"><%= f.text_field :description, :class => "full-width" %></div>
 <div class="td"><%= f.number_field :quantity, :size => 6, :class => "item-quantity" %></div>
 <div class="td"><%= f.number_field :price, :size => 9, :step => :any, :class => "item-price" %></div>

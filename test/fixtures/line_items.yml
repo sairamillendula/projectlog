@@ -9,12 +9,12 @@ two:
   invoice: one
   line_type: "Service"
   description: 'description'
-  quantity: '2'
-  price: '60'
-    
+  quantity: '1'
+  price: '400'
+
 three:
   invoice: two
-  line_type: "Product"
+  line_type: "Hours"
   description: 'description'
   quantity: '2'
   price: '60'

@@ -7,6 +7,23 @@ unless user1
   user1.admin = true
   user1.save!
 end
+user1.profile.update_attributes(
+  company: "yafoy",
+  localization: "fr-CA",
+  hours_per_day: 7.5,
+  tax1_label: "TPS",
+  tax1: 5,
+  tax2_label: "TVQ",
+  tax2: 9.5,
+  compound: true,
+  fiscal_year: "0001-03-01",
+  invoice_signature:
+"Merci pour votre confiance.
+
+Cordialement,
+
+Olivier"
+)
 user2 = User.find_by_email("user2@gmail.com") || User.create!(:email => "user2@gmail.com", :password => "123456", :first_name => 'Magic', :last_name => 'Johnson')
 
 puts "Creating customers..."

@@ -107,6 +107,7 @@ class Invoice < ActiveRecord::Base
     self.tax2 = profile.tax2
     self.tax2_label = profile.tax2_label
     self.compound = profile.compound
+    self.issued_date = Date.today
   end
   
   def company_logo
