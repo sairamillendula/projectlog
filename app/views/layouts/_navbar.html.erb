@@ -1,16 +1,14 @@
 <div id="menu">
-  <% if user_signed_in? %>
-    
-     <%= tabs_tag do |tab| %>
-	  	<%= tab.dashboard 'Dashboard', root_path %>
+  <% if user_signed_in? %>   
+    <%= tabs_tag do |tab| %>
+	    <%= tab.dashboard 'Dashboard', root_path %>
 		  <%= tab.projects 'Projects', projects_path %>
 		  <%= tab.customers 'Customers', customers_path %>
 		  <%= tab.invoices 'Invoices', invoices_path %>
 		  <%= tab.reports 'Timesheet', new_report_path %>
 		  <%= tab.accounting 'Accounting', transactions_path %>
 		  <li><%= link_to 'Help', "http://getprojectlog.com/help/?app", :target => "_blank" %></li>
-     <% end %>
-     	 
+    <% end %> 	 
   <% else %>
      <li><a href="http://getprojectlog.com/?shared">What is Projectlog?</a></li>
      <li><a href="http://blog.getprojectlog.com">Blog</a></li>

@@ -65,7 +65,7 @@ class InvoicesController < ApplicationController
     @new_line_item = LineItem.new
     recipients = params[:send_invoice][:to].split(",")
     attach = if params[:send_invoice][:attach] == "1" then
-               render_to_string(:action => 'show.html', :layout => 'pdfattach')
+               render_to_string(:action => 'shared.html', :layout => 'pdfattach')
              else
                nil
              end
@@ -82,21 +82,20 @@ class InvoicesController < ApplicationController
     
     respond_to do |format|
       format.html { @is_pdf = false }
-      format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf, 
+      format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(action: 'show.html', layout: 'pdfattach')).to_pdf, 
                              :filename => "Invoice #{@invoice.invoice_number}.pdf", 
                              :type => 'application/pdf',
                              :disposition  => "inline") }
     end
   end
 
-  def shared # Like show, except is public for everybody.
+  def shared # Like show, except is route is public.
     @invoice = Invoice.find_by_slug!(params[:id])
     @skip_approve = true
     
     respond_to do |format|
       format.html { @is_pdf = false; render :layout => "public" }
-      # format.pdf { render :text => PDFKit.new(render_to_string(:action => 'show.html', :layout => 'pdfattach')).to_pdf }
-      format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(:action => 'shared.html', :layout => 'pdfattach')).to_pdf, 
+      format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(action: 'shared.html', layout: 'pdfattach')).to_pdf, 
                              :filename => "Invoice #{@invoice.invoice_number}.pdf", 
                              :type => 'application/pdf',
                              :disposition  => "inline") }
