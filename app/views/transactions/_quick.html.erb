@@ -18,21 +18,27 @@
       <td><span class="small submit"><%= f.submit 'Create', :name => @transactions.empty? ? "quick" : nil, "data-disable-with" => 'Create' %></span></td>
     </tr>
     <tr class="transaction-fields">
-	  <td style="vertical-align:top;"><%= f.radio_button(:expense, true) %> Expense<br> <%= f.radio_button(:expense, false) %> Income</td>
-	  <% if current_user.profile.any_taxes? %>
-  	    <td style="vertical-align:top; word-wrap: break-word; width: 100px;">
-	    <% unless current_user.profile.tax1.blank? %>
-	    <%= current_user.profile.tax1_name(false) %><br><%= f.text_field :tax1, :class => "numbers", :id => "tax1", :step => :any %><br>
-	  <% end %>
-	  <% unless current_user.profile.tax2.blank? %>
-  	    <%= current_user.profile.tax2_name(false) %><br><%= f.text_field :tax2, :class => "numbers", :id => "tax2", :step => :any %>
-	  <% end %>
-  	  </td>
-	<% end %>
-	  <td style="vertical-align:top;" colspan="<%= current_user.profile.any_taxes? ? '1' : '2' %>">Category<br><%= f.text_field :category_name, data: {autocomplete_source: categories_path}, :tabindex => 4 %><br>
-		Project<br><%= collection_select(transaction, :project_id, current_user.projects.order('title ASC'), :id, :title_and_client, {:prompt => true, :class => 'transaction_project'}, :tabindex => 5) %>
-	  </td>
-	  <td></td>
+      <td style="vertical-align:top;"><%= f.radio_button(:expense, true) %> Expense<br> <%= f.radio_button(:expense, false) %> Income</td>
+      <% if current_user.profile.any_taxes? %>
+        <td style="vertical-align:top; word-wrap: break-word; width: 100px;">
+          <% unless current_user.profile.tax1.blank? %>
+            <%= current_user.profile.tax1_name(false) %><br><%= f.text_field :tax1, :class => "numbers", :id => "tax1", :step => :any %><br>
+          <% end %>
+          <% unless current_user.profile.tax2.blank? %>
+            <%= current_user.profile.tax2_name(false) %><br><%= f.text_field :tax2, :class => "numbers", :id => "tax2", :step => :any %>
+          <% end %>
+        </td>
+      <% end %>
+      <td style="vertical-align:top;" colspan="<%= current_user.profile.any_taxes? ? '1' : '2' %>">
+        Category
+        <br>
+        <%= f.text_field :category_name, data: {autocomplete_source: categories_path}, :tabindex => 4 %>
+        <br>
+        Project
+        <br>
+        <%= f.collection_select(:project_id, current_user.projects.order('title ASC'), :id, :title_and_client, {:prompt => true, :class => 'transaction_project'}, :tabindex => 5) %>
+      </td>
+      <td></td>
     </tr>
   </table>
 <% end %>
