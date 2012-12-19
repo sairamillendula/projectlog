@@ -1,4 +1,4 @@
-== Projectlog
+# Projectlog
 
 Projectlog is a simple time tracking and invoicing solution for consultants, freelancers and small & medium businesses.
 
