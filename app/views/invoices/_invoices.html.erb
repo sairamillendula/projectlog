@@ -6,7 +6,7 @@
     <th><%= sortable "balance", { :controller => "invoices", :action => "index"} %></th>
     <th><%= sortable "status", { :controller => "invoices", :action => "index"} %></th>
     <th style='width:55px;'><%= sortable "customer", { :controller => "invoices", :action => "index"} %></th>
-    <th></th>
+    <th style='width:60px;'></th>
   </tr>
 
 <% @invoices.each do |invoice| %>
@@ -14,7 +14,7 @@
     <td><%= link_to "#{invoice.invoice_number}", invoice %></td>
     <td><%= invoice.due_date %></td>
     <td><%= truncate(invoice.subject, length: 40) %></td>
-    <td><%= invoice.balance %></td>
+    <td><%= Money.from_float(invoice.balance, invoice.currency).format(:symbol => true) %></td>
     <td><span id="invoice-status-index" class="invoice <%= invoice.status.parameterize %>"><%= invoice.status %></span></td>
     <td><%= link_to invoice.customer.name, customer_path(invoice.customer) %></td>
     <td><%= link_to 'Edit', edit_invoice_path(invoice) %>
