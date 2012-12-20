@@ -8,7 +8,7 @@ require "whenever/capistrano"
 set :application, "projectlog"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy_via, :remote_cache
+#set :deploy_via, :remote_cache -> speed up deployment but causing issue since repo transfer
 set :use_sudo, true
 
 set :scm, "git"
