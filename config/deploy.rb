@@ -12,7 +12,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, true
 
 set :scm, "git"
-set :repository, "git@github.com:olimart/#{application}.git"
+set :repository, "https://github.com/olimart/#{application}.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
