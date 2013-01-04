@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :load_user
 
+  def show
+    @profile = current_user.profile
+  end
+
   def edit
     @profile = current_user.profile
   end
