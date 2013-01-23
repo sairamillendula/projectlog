@@ -234,7 +234,7 @@ GEM
     uniform_notifier (1.1.0)
     warden (1.1.1)
       rack (>= 1.0)
-    whenever (0.8.1)
+    whenever (0.8.0)
       activesupport (>= 2.3.4)
       chronic (>= 0.6.3)
     wkhtmltopdf-binary (0.9.5.3)
@@ -277,5 +277,5 @@ DEPENDENCIES
   timecop
   uglifier (>= 1.0.3)
   unicorn
-  whenever
+  whenever (= 0.8.0)
   wkhtmltopdf-binary

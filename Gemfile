@@ -22,7 +22,7 @@ gem 'capistrano'
 gem 'therubyracer'
 gem 'activemerchant', :require => 'active_merchant', :git => 'git://github.com/Shopify/active_merchant.git'
 gem 'paypal_pro_recurring', :git => 'git://github.com/olimart/paypal_pro_recurring.git'
-gem 'whenever', :require => false
+gem 'whenever', '=0.8.0', :require => false
 gem 'paperclip'
 
 group :assets do
