@@ -31,9 +31,9 @@ div#select-plan {
 	#subscription_card_name, #subscription_card_number {width:184px;}
 	#subscription_card_code {width: 55px;}
 	
-	&p.submit {
-		margin-left:150px;
-		&input {width: 162px;}
+	p.submit {
+		margin-left: 150px;
+		input { width: 160px; }
 	}
 }
 
