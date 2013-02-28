@@ -25,7 +25,7 @@ module ApplicationHelper
 
   def currency_options
     options = []
-    Money::Currency::TABLE.each_value do |cur|
+    Money::Currency.table.each_value do |cur|
       options << ["#{cur[:name]} (#{cur[:iso_code]})", cur[:iso_code]]
     end
     options
