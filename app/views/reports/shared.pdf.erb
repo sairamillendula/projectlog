@@ -9,40 +9,35 @@
         text-align: left;
         font: 11px;
       }
-
       table th {
         font-weight: bold;
         padding: 8px;
       }
-
       #header th {
         border-bottom: 1px solid #eaeaea;
       }
-
       #total th {
         border-top: 2px solid #eaeaea;
       }
-
       table td {
         padding: 8px;
         margin-right: 10px;
       }
-
       #period {
         font-weight: bold;
       }
-
       .date {
         width: 80px;
       }
-
       .time {
         width: 40px;
       }
-
       .sum {
         text-align: right;
         padding-left: 10px;
+      }
+      .hours_to_days {
+        text-align: left;
       }
     }
   </style>
@@ -85,7 +80,11 @@
       <tr id="total">
         <th class="sum">TOTAL</th>
         <th><%= @report.total_time %></th>
-        <th></th>
+        <th class="hours_to_days">
+          <% if @report.user.profile.hours_per_day.present? %>
+            [ <%= number_with_precision(@report.total_time / @report.user.profile.hours_per_day, precision: 2) %> days]
+          <% end %>
+        </th>
       </tr>
     </table>
   <% end %>
