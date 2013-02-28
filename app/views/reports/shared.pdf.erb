@@ -82,7 +82,7 @@
         <th><%= @report.total_time %></th>
         <th class="hours_to_days">
           <% if @report.user.profile.hours_per_day.present? %>
-            [ <%= number_with_precision(@report.total_time / @report.user.profile.hours_per_day, precision: 2) %> days]
+            [ <%= number_with_precision(@report.total_time / @report.user.profile.hours_per_day, precision: 2) %> days ]
           <% end %>
         </th>
       </tr>
