@@ -80,7 +80,7 @@ Projectlog::Application.configure do
   config.middleware.use ExceptionNotifier,
     :email_prefix         => "[Exception]",
     :sender_address       => %{"Exception Notifier" <app@projectlogapp.com>},
-    :exception_recipients => %w{alert@yafoy.com}  
+    :exception_recipients => %w{alert@yafoy.com}
 
   # PayPal configuration
   config.after_initialize do
