@@ -7,7 +7,7 @@
         <% if get_company_info(@invoice.user.profile).size > 0 %>
       	  From: <%= get_company_info @invoice.user.profile %>
       	<% else %>
-      	  From: <%= link_to 'Edit', settings_path, :class => 'no-print' %>
+      	  From: <%= link_to 'Edit', settings_path, class: 'no-print' %>
       	<% end %>
       </div>
 
@@ -16,7 +16,7 @@
           To: <%= get_customer_info @invoice.customer %>
         <% else %>
           To: <%= get_customer_info @invoice.customer %>
-          <%= link_to 'Edit', edit_customer_path(@invoice.customer), :remote => :true, :class => 'no-print' %>
+          <%= link_to 'Edit', edit_customer_path(@invoice.customer), remote: :true, class: 'no-print' %>
         <% end %>
       </div>
     </div>

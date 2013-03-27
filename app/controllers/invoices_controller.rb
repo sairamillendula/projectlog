@@ -85,7 +85,7 @@ class InvoicesController < ApplicationController
       format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(action: 'show.html', layout: 'pdfattach')).to_pdf, 
                              :filename => "Invoice #{@invoice.invoice_number}.pdf", 
                              :type => 'application/pdf',
-                             :disposition  => "inline") }
+                             :disposition  => "attachment") }
     end
   end
 
@@ -98,7 +98,7 @@ class InvoicesController < ApplicationController
       format.pdf { @is_pdf = true; send_data(PDFKit.new(render_to_string(action: 'shared.html', layout: 'pdfattach')).to_pdf, 
                              :filename => "Invoice #{@invoice.invoice_number}.pdf", 
                              :type => 'application/pdf',
-                             :disposition  => "inline") }
+                             :disposition  => "attachment") }
     end
   end
 
