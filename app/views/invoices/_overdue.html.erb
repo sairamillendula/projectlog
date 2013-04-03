@@ -3,7 +3,7 @@
     <tr>
       <td><%= distance_of_time_in_words_to_now(invoice.due_date) + ' late' %></td>
       <td><%= invoice.customer.name %></td>
-      <td><%= link_to number_to_currency(invoice.balance), invoice_path(invoice) %></td>
+      <td style="width:80px;"><%= link_to number_to_currency(invoice.balance), invoice_path(invoice) %></td>
     </tr>
   <% end %>
 </table>
