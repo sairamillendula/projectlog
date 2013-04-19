@@ -16,14 +16,14 @@ class Project < ActiveRecord::Base
   attr_accessible :title, :description, :status, :default_rate, :customer_id, :billing_code_id, :internal, :total_unit, :budget,
                   :billable_amount, :unit_left, :customer_name, :user_id
   
-  scope :open, where(:status => true)
-  scope :closed, where(:status => false)
-  scope :billable, where(:internal => false)
-  scope :unbillable, where(:internal => true)
-  scope :hourly, lambda { where(:billing_code_id => BillingCode.find_by_name!("Hourly").id) }
-  scope :per_diem, lambda { where(:billing_code_id => BillingCode.find_by_name!("Per Diem").id) }
-  scope :fixed, lambda { where(:billing_code_id => BillingCode.find_by_name!("Fixed").id) }
-  scope :of_customer, lambda {|customer_id| where(:customer_id => customer_id) }
+  scope :open, where(status: true)
+  scope :closed, where(status: false)
+  scope :billable, where(internal: false)
+  scope :unbillable, where(internal: true)
+  scope :hourly, lambda { where(billing_code_id: BillingCode.find_by_name!("Hourly").id) }
+  scope :per_diem, lambda { where(billing_code_id: BillingCode.find_by_name!("Per Diem").id) }
+  scope :fixed, lambda { where(billing_code_id: BillingCode.find_by_name!("Fixed").id) }
+  scope :of_customer, lambda {|customer_id| where(customer_id: customer_id) }
   
   
   def title_and_client

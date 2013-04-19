@@ -4,7 +4,7 @@
 <h1>Recent Activity</h1>
 
  <table class='activities'>
-   <% current_user.activities.includes(:project).order("created_at DESC").limit(5).each do |activity| %>     
+   <% current_user.activities.includes(:project).order("created_at DESC").limit(5).each do |activity| %>
      <%= render :partial => "dashboard/activities/activity", :object => activity %>
    <% end %>
  </table>

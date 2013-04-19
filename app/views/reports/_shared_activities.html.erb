@@ -13,10 +13,10 @@
 
     <% @activities.each do |activity| %>
     <tr>
-      <td class="date"><%= l activity.date, :format => :short %></td>
+      <td class="date"><%= l activity.date, format: :short %></td>
       <td class="time"><%= activity.time %></td>
       <td class="description"><%= activity.description %></td>
-      <td class="project"><%= activity.project.title %></td>      
+      <td class="project"><%= activity.project.title %></td>
     </tr>
     <% end %>
 

@@ -19,8 +19,8 @@
       <%= show_unit_left unless @project.fixed? %>
     </p>
     <p>
-      <label class="label-wide">Invoiced to date:</label>
-      <%= number_to_currency(@project.invoices.to_a.sum(&:amount_due)) %>
+      <label class="label-wide">Invoiced to date (before tax):</label>
+      <%= number_to_currency(@project.invoices.to_a.sum(&:subtotal)) %>
     </p>
   <% end %>
 </p>

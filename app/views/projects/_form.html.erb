@@ -30,7 +30,7 @@
             or <%= link_to "Add customer", new_customer_path, :remote => true %>
           <% else %>
 	        <%= f.text_field :customer_name %>
-	      <% end %>	      
+	      <% end %>
 	    <% else %>
 	      <%= @project.customer.name %> <%= clear %></p>
 	      <%= f.hidden_field :customer_id, :value => @project.customer.id %>

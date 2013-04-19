@@ -14,7 +14,7 @@
 <div id="meta">
 <% if @project.internal? %>
   <% if @project.description.blank? %>
-	  <%= render :partial => 'description' %>
+	  <%= render 'description' %>
   <% else %>
     <div id="project_description">
 	   Description: <%= markdown(@project.description) %>
@@ -23,14 +23,14 @@
 <% else %>
   <div class="column_left">
     <% if @project.description.blank? %>
-	  <%= render :partial => 'description' %>
+	  <%= render 'description' %>
 	<% else %>
 	  <%= markdown(@project.description) %>
     <% end %>
   </div>
 
   <div class="column_right">
-    <%= render :partial => 'column_right' %>
+    <%= render 'column_right' %>
   </div>
 <% end %>
 </div>
@@ -38,5 +38,5 @@
 <%= clear %>
 
 <div id="activities">
-  <%= render :partial => "activities/activities" %>
+  <%= render "activities/activities" %>
 </div>

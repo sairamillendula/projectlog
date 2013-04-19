@@ -32,7 +32,7 @@
 	<% if @customer.note.present? %>
 	   <%= markdown(@customer.note) %>
 	<% else %>
-	   <%= render :partial => 'note' %>
+	   <%= render 'note' %>
 	<% end %>
 	
   </div>
@@ -40,7 +40,7 @@
 </div>
 
 <div id="contacts">
-	<%= render :partial => 'contacts/contacts' %>
+	<%= render 'contacts/contacts' %>
 </div>
 
 <script type="text/javascript" charset="utf-8">

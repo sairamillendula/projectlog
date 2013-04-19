@@ -1,12 +1,12 @@
 <% if @customer.contacts.empty? %>
   <div id="no-contact" class="no-occurence">
-     <p>Add a <%= link_to 'Contact', new_customer_contact_path(@customer), :remote => true %></p>
+     <p>Add a <%= link_to 'Contact', new_customer_contact_path(@customer), remote: true %></p>
   </div>
 <% else %>
 
   <h1>Contacts</h1>
-  <p id="new_contact_link" class="clear"><%= link_to 'New Contact', new_customer_contact_path(@customer, :format => :js), :remote => true %></p>
+  <p id="new_contact_link" class="clear"><%= link_to 'New Contact', new_customer_contact_path(@customer), remote: true %></p>
   <% for contact in @customer.contacts %>
-    <%= render :partial => "contacts/contact", :locals => { :contact => contact } %>
+    <%= render partial: "contacts/contact", locals: { contact: contact } %>
   <% end %>
 <% end %>

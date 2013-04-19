@@ -1,5 +1,5 @@
 <div id="menu">
-  <% if user_signed_in? %>   
+  <% if user_signed_in? %>
     <%= tabs_tag do |tab| %>
 	    <%= tab.dashboard 'Dashboard', root_path %>
 		  <%= tab.projects 'Projects', projects_path %>
