@@ -5,7 +5,7 @@
     <div id="companies">
       <div class="company-info">
         <% if get_company_info(@invoice.user.profile).size > 0 %>
-      	  From: <%= get_company_info @invoice.user.profile %>
+      	  From: <%= @invoice.header.present? ? @invoice.header : (get_company_info @invoice.user.profile) %>
       	<% else %>
       	  From: <%= link_to 'Edit', settings_path, class: 'no-print' %>
       	<% end %>

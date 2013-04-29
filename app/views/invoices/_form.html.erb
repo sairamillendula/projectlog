@@ -1,4 +1,4 @@
-<%= nested_form_for(@invoice, :html => {:id => "invoice-form"}) do |f| %>
+<%= nested_form_for(@invoice, html: {id: "invoice-form"}) do |f| %>
   <% if @invoice.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
@@ -10,33 +10,33 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :tax1, :id => "tax1_rate" %>
+  <%= f.hidden_field :tax1, id: "tax1_rate" %>
   <%= f.hidden_field :tax1_label %>
-  <%= f.hidden_field :tax2, :id => "tax2_rate" %>
+  <%= f.hidden_field :tax2, id: "tax2_rate" %>
   <%= f.hidden_field :tax2_label %>
-  <%= f.hidden_field :compound, :id => "compound" %>
+  <%= f.hidden_field :compound, id: "compound" %>
   <div class="inline-form">
     <div class="field">
-      <%= f.label :subject, :class => 'mandatory' %>
-      <%= f.text_field :subject, :style => "width:650px;", autofocus: true %>
+      <%= f.label :subject, class: 'mandatory' %>
+      <%= f.text_field :subject, style: "width:650px;", autofocus: true %>
     </div>
     <div class="field">
-      <%= f.label :issued_date, 'Issue Date', :class => 'mandatory' %>
-      <%= f.text_field :issued_date, :class => 'date' %>
+      <%= f.label :issued_date, 'Issue Date', class: 'mandatory' %>
+      <%= f.text_field :issued_date, class: 'date' %>
     </div>
     <div class="field">
-      <%= f.label :due_date, 'Due Date', :class => 'mandatory' %>
-      <%= f.text_field :due_date, :class => 'date' %>
+      <%= f.label :due_date, 'Due Date', class: 'mandatory' %>
+      <%= f.text_field :due_date, class: 'date' %>
     </div>
     <div class="field">
-      <%= f.label :customer_id, :class => 'mandatory' %>
-      <%= f.select :customer_id, current_user.customers.collect { |c| [c.name, c.id] }, :prompt => true %>
-      or <%= link_to "Add customer", new_customer_path, :remote => true %>
+      <%= f.label :customer_id, class: 'mandatory' %>
+      <%= f.select :customer_id, current_user.customers.collect { |c| [c.name, c.id] }, prompt: true %>
+      or <%= link_to "Add customer", new_customer_path, remote: true %>
     </div>
     <% customer_projects = @invoice.customer_id.present? ? Project.of_customer(@invoice.customer_id).billable.collect { |p| [p.title, p.id] } : [] %>
     <div class="field" id="project-field" style="display:<%= (!@invoice.new_record? && customer_projects.present?) || @invoice.project_id.present? ? 'block' : 'none' %>;">
       <%= f.label :project_id %>
-      <%= f.select :project_id, customer_projects, :prompt => true %>
+      <%= f.select :project_id, customer_projects, prompt: true %>
     </div>
     <div class="field">
       <%= f.label :currency %>
@@ -71,13 +71,17 @@
     </tr>
     <tr>
       <td colspan=4><%= f.label :discount, 'Discount % ' %></td>
-      <td ><%= f.number_field :discount, :step => :any %></td>
+      <td ><%= f.number_field :discount, step: :any %></td>
     </tr>
     <tr>
       <td colspan=4>Amount Due: </td>
       <td id="amount_due" style="width: 1%"><%= @invoice.amount_due %></td>
     </tr>
   </table>
+
+  <%= f.label :header, class: 'mandatory' %><br>
+  <%= f.text_area :header, placeholder: "If blank, we'll use company information in your profile" %>
+
   <%= f.label :note %><br />
   <%= f.text_area :note %>
 

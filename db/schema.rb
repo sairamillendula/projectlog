@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120920031012) do
+ActiveRecord::Schema.define(:version => 20130428231257) do
 
   create_table "activities", :force => true do |t|
     t.date     "date",        :null => false
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20120920031012) do
     t.boolean  "compound"
     t.integer  "project_id"
     t.boolean  "reminded",                                                  :default => false
+    t.text     "header"
   end
 
   add_index "invoices", ["customer_id"], :name => "index_invoices_on_customer_id"

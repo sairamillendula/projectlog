@@ -16,14 +16,14 @@ class Invoice < ActiveRecord::Base
   scope :not_reminded, where(reminded: false)
   scope :overdue, where("due_date < ? AND balance > ?", Date.today, 0)
 
-  validates :subject, :status, :customer, :due_date, :issued_date, :currency, :presence => true
-  validate :validate_limit, :on => :create
+  validates_presence_of :subject, :status, :customer, :due_date, :issued_date, :currency
+  validate :validate_limit, on: :create
 
   accepts_nested_attributes_for :line_items, :allow_destroy => :true,
                                 :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   attr_accessible :invoice_number, :issued_date, :due_date, :subject, :balance, :status, :note, :currency, :customer_id, :discount,
-                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound, :user_id, :project_id
+                  :line_items_attributes, :tax1, :tax1_label, :tax2, :tax2_label, :compound, :user_id, :project_id, :header
 
   def to_param
     slug
@@ -100,7 +100,7 @@ class Invoice < ActiveRecord::Base
     profile = user.profile
     self.currency ||= profile.localization && Localization.find_by_reference(profile.localization) && Localization.find_by_reference(profile.localization).currency || "USD"
     self.discount ||= 0
-    self.line_items.build(:quantity => 1, :price => 0.0)
+    self.line_items.build(quantity: 1, price: 0.0)
     self.note ||= profile.invoice_signature
     self.tax1 = profile.tax1
     self.tax1_label = profile.tax1_label
@@ -108,6 +108,7 @@ class Invoice < ActiveRecord::Base
     self.tax2_label = profile.tax2_label
     self.compound = profile.compound
     self.issued_date = Date.today
+    self.header = profile.company_info
   end
   
   def company_logo
