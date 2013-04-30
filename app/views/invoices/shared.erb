@@ -22,11 +22,13 @@
 	    <div id="companies">
         <% if get_company_info(@invoice.user.profile).size > 0 %>
 	        <div class="company-info">
-	          From: <%= get_company_info @invoice.user.profile %>
+	        	<span>From</span>
+	          <%= @invoice.header.present? ? markdown(@invoice.header) : (get_company_info @invoice.user.profile) %>
 		      </div>
 	      <% end %>
 	      <div class="customer-info">
-	        To: <%= get_customer_info @invoice.customer %>
+	      	<span>To</span>
+	        <%= get_customer_info @invoice.customer %>
 	      </div>
 	    </div>
 

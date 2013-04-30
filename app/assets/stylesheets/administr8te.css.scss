@@ -1,4 +1,7 @@
-.highlight {background: #fffdc1; font-size: small;}
+.highlight {
+	background: #fffdc1;
+	font-size: small;
+}
 /* Table */
 .admin {
 	font-size: 90%;
@@ -44,9 +47,11 @@ p.revenues {
 	margin-bottom: 20px;
 }
 /* Audit */
-.trail_date {color: #777;}
+.trail_date {
+	color: #777;
+}
 .action {
-	text-transform:uppercase;
+	text-transform: uppercase;
 	color: #fff;
 	
 	&.signed.up {background: indigo;}

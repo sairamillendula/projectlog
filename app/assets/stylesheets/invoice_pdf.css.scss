@@ -73,11 +73,19 @@ h1 { margin-bottom: 50px; font-size: 40px; }
 
 #companies { float: right; }
 div.company-info, div.customer-info {
-    width: 250px;
-    border: solid 1px #e5e5e5;
-    background: #f5f5f5;
-    padding: 10px;
-    clear: both;
+  width: 250px;
+  border: solid 1px #e5e5e5;
+  background: #f5f5f5;
+  padding: 10px;
+  clear: both;
+
+  p {
+    margin: 0;
+  }
+  span {
+    position: relative;
+    float: right;
+  }
 }
 div.company-info { float: right; margin-bottom: 40px; }
 div.customer-info { margin-bottom: 10px; }

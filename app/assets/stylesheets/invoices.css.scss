@@ -205,9 +205,20 @@ div.company-info, div.customer-info {
   padding: 10px;
   margin-bottom: 20px;
   clear: both;
+
+  span {
+    position:relative;
+    float:right;
+  }
 }
 
-div.company-info { float: right; }
+div.company-info {
+  float: right;
+  
+  p { 
+    margin: 0;
+  }
+}
 
 textarea.invoice-sig-area {
   width: 430px;
