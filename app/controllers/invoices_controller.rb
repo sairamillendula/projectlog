@@ -89,7 +89,7 @@ class InvoicesController < ApplicationController
     end
   end
 
-  def shared # Like show, except is route is public.
+  def shared # Like show, except route is public.
     @invoice = Invoice.find_by_slug!(params[:id])
     @skip_approve = true
     
