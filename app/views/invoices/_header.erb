@@ -6,13 +6,13 @@
       </div>
     <% end %>
     <div id="inv_title">
-      <h1><%= t('INVOICE', default: 'INVOICE' %></h1>
+      <h1><%= t('INVOICE', default: 'INVOICE') %></h1>
     </div>
   </div>
 <% else %>
   <h1><%= t('INVOICE', default: 'INVOICE' %>
     <% if @invoice.late_and_overdue? %>
-      <span id="invoice-status" class="invoice late"><%= t('late', default: 'Late' %></span>
+      <span id="invoice-status" class="invoice late"><%= t('late', default: 'Late') %></span>
     <% else %>
       <span id="invoice-status" class="invoice <%= @invoice.status.parameterize %>"><%= @invoice.status %></span>
     <% end %>
@@ -26,18 +26,18 @@
   </p>
 
   <p>
-    <b><%= t('issue_date', default: 'Issue Date' %>:</b>
+    <b><%= t('issue_date', default: 'Issue Date') %>:</b>
     <%= @invoice.issued_date %>
   </p>
 
   <p>
-    <b><%= t('due_date', default: 'Due Date' %>:</b>
+    <b><%= t('due_date', default: 'Due Date') %>:</b>
     <%= @invoice.due_date %>
   </p>
 
   <% if @invoice.project.present? %>
   <p>
-    <b><%= t('project', default: 'Project' %>:</b>
+    <b><%= t('project', default: 'Project') %>:</b>
     <%= @invoice.project.title %>
   </p>
   <% end %>
@@ -45,14 +45,14 @@
   <% if user_signed_in? %>
     <% if !@invoice.paid? %>
     <p class='no-print'>
-      <b><%= t('balance', default: 'Balance' %>:</b>
+      <b><%= t('balance', default: 'Balance') %>:</b>
       <span id="invoice-balance"><%= @invoice.balance %> <%= @invoice.currency unless @invoice.currency.nil? %></span>
     </p>
     <% end %>
   <% end %>
 
   <p>
-    <b><%= t('subject', default: 'Subject' %>:</b>
+    <b><%= t('subject', default: 'Subject') %>:</b>
     <%= @invoice.subject %>
   </p>
 </div>
