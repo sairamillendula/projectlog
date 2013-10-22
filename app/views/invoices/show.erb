@@ -4,7 +4,7 @@
   <div id="invoice-top">
     <div id="companies">
       <div class="company-info">
-        <span>From</span>
+        <span><%= t 'invoice_from', default: 'From' %></span>
         <% if get_company_info(@invoice.user.profile).size > 0 %>
       	  <%= @invoice.header.present? ? markdown(@invoice.header) : (get_company_info @invoice.user.profile) %>
       	<% else %>
@@ -13,7 +13,7 @@
       </div>
 
       <div class="customer-info">
-        <span>To</span>
+        <span><%= t 'invoice_to', default: 'To' %></span>
         <% if @invoice.customer.address1.present? and @invoice.customer.city.present? and @invoice.customer.postal_code.present? %>
           <%= get_customer_info @invoice.customer %>
         <% else %>

@@ -1,26 +1,26 @@
 <p>
-  <b>ID:</b>
+  <b><%= t('invoice_id', default: 'ID') %>:</b>
   <%= @invoice.invoice_number %>
 </p>
 
 <p>
-  <b>Issue Date:</b>
+  <b>I<%= t('issue_date', default: 'Issue Date') %>:</b>
   <%= @invoice.issued_date %>
 </p>
 
 <p>
-  <b>Due Date:</b>
+  <b><%= t('due_date', default: 'Due Date') %>:</b>
   <%= @invoice.due_date %>
 </p>
 
 <% if @invoice.project_id.present? %>
 <p>
-  <b>Project:</b>
+  <b><%= t('project', default: 'Project') %>:</b>
   <%= @invoice.project.title %>
 </p>
 <% end %>
 
 <p>
-  <b>Subject:</b>
+  <b><%= t('subject', default: 'Subject') %>:</b>
   <%= @invoice.subject %>
 </p>

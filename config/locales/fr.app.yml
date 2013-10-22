@@ -1,0 +1,11 @@
+fr:
+  invoice: Facture
+  late: 'En retard'
+  issue_date: 'Date de facturation'
+  due_date: "Date d'échéance"
+  project: 'Projet'
+  balance: 'Solde'
+  subject: 'Sujet'
+  invoice_from: De
+  invoice_to: Pour
+  invoice_id: Référence

@@ -6,11 +6,11 @@
       </div>
     <% end %>
     <div id="inv_title">
-      <h1><%= t('INVOICE', default: 'INVOICE') %></h1>
+      <h1 style="text-transform:uppercase;"><%= t('invoice', default: 'invoice') %></h1>
     </div>
   </div>
 <% else %>
-  <h1><%= t('INVOICE', default: 'INVOICE' %>
+  <h1 style="text-transform:uppercase;"><%= t('invoice', default: 'invoice' %>
     <% if @invoice.late_and_overdue? %>
       <span id="invoice-status" class="invoice late"><%= t('late', default: 'Late') %></span>
     <% else %>
@@ -21,7 +21,7 @@
 
 <div style="width:50%; float:left;">
   <p>
-    <b>ID:</b>
+    <b><%= t('invoice_id', default: 'ID') %>:</b>
     <%= @invoice.invoice_number %> 
   </p>
 
