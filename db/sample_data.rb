@@ -3,7 +3,7 @@
 puts "Creating users..."
 user1 = User.find_by_email("user@gmail.com")
 unless user1
-  user1 = User.new(:email => "user@gmail.com", :password => "123456", :first_name => 'Michael', :last_name => 'Jordan')
+  user1 = User.new(:email => "user@gmail.com", :password => "123123", :first_name => 'Michael', :last_name => 'Jordan')
   user1.admin = true
   user1.save!
 end

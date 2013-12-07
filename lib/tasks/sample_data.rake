@@ -8,3 +8,6 @@ namespace :db do
   desc 'Drop, create, migrate, seed and sample_data'
   task :bootstrap => [:drop, :create, :migrate, :seed, :sample_data]
 end
+
+# rake bs
+task bs: "db:bootstrap"

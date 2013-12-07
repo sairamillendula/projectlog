@@ -10,7 +10,7 @@
     </div>
   </div>
 <% else %>
-  <h1 style="text-transform:uppercase;"><%= t('invoice', default: 'invoice' %>
+  <h1 style="text-transform:uppercase;"><%= t('invoice', default: 'invoice') %>
     <% if @invoice.late_and_overdue? %>
       <span id="invoice-status" class="invoice late"><%= t('late', default: 'Late') %></span>
     <% else %>

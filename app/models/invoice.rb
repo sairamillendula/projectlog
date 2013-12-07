@@ -3,8 +3,8 @@ class Invoice < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :customer
-  has_many :line_items, :dependent => :destroy, :order => 'position'
-  has_many :payments, :dependent => :destroy
+  has_many :line_items, dependent: :destroy, order: 'position'
+  has_many :payments, dependent: :destroy
   belongs_to :project
 
   before_create :generate_invoice_number_and_slug
