@@ -19,7 +19,6 @@ gem 'money'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'hominid'
 gem 'capistrano'
-#gem 'therubyracer'
 gem 'activemerchant', :require => 'active_merchant', :git => 'git://github.com/Shopify/active_merchant.git'
 gem 'paypal_pro_recurring', :git => 'git://github.com/olimart/paypal_pro_recurring.git'
 gem 'whenever', '=0.8.0', :require => false
@@ -36,10 +35,6 @@ group :development do
 end
 
 group :development, :test do
-  #gem 'rb-fsevent'
-  #gem 'guard-livereload'
-  #gem 'mocha'
-  #gem 'spork-testunit'
   gem 'timecop'
   gem 'bullet'
   gem 'thin'
