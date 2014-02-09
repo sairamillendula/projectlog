@@ -18,7 +18,7 @@ gem 'clarity'
 gem 'money'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
 gem 'hominid'
-gem 'capistrano'
+gem 'capistrano', '~> 2.15.0'
 gem 'activemerchant', :require => 'active_merchant', :git => 'git://github.com/Shopify/active_merchant.git'
 gem 'paypal_pro_recurring', :git => 'git://github.com/olimart/paypal_pro_recurring.git'
 gem 'whenever', '=0.8.0', :require => false
@@ -31,7 +31,7 @@ group :assets do
 end 
 
 group :development do
-  gem 'letter_opener' 
+  gem 'letter_opener'
 end
 
 group :development, :test do
