@@ -1,5 +1,5 @@
 <div id="time-entries">
-  
+
 <% if @activities.empty? %>
   <% if params[:search] %>
     <%= render "activities/table_header" %>
@@ -41,7 +41,7 @@
 
   <div class="right">
     <%= paginate @activities, :params => { :controller => "activities", :action => "index", :project_id => @project.id } %>
-  </div>  
+  </div>
 
 <% end %>
 </div>

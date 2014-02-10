@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   before_filter :authenticate_user!
   helper_method :sort_column, :sort_direction
-  
+
   def index
     @project = current_user.projects.find(params[:project_id])
     @activities = @project.activities.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
@@ -63,7 +63,7 @@ class ActivitiesController < ApplicationController
 
   def update
     @project = current_user.projects.find(params[:project_id])
-    @report = current_user.reports.find_by_id(params[:report_id])    
+    @report = current_user.reports.find_by_id(params[:report_id])
     @activity = @project.activities.find(params[:id])
 
     respond_to do |format|
@@ -90,13 +90,14 @@ class ActivitiesController < ApplicationController
       format.js
     end
   end
-  
+
   private
-  def sort_column
-    Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
-  end
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
-  end
+
+    def sort_column
+      Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    end
 end
