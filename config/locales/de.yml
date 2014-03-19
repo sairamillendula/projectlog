@@ -1,4 +1,4 @@
-# German translations for Ruby on Rails 
+# German translations for Ruby on Rails
 # by Clemens Kofler (clemens@railway.at)
 # contributors:
 #  - Alexander Dreher - http://github.com/alexdreher - Rails 3 update
@@ -11,7 +11,7 @@ de:
         truncate: "..."
         last: "Last &raquo;"
         first: "&laquo; First"
-            
+
   date:
     formats:
       default: "%d.%m.%Y"
@@ -23,8 +23,11 @@ de:
     abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
     abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
-    order: [ :day, :month, :year ]
-  
+    order:
+      - :day
+      - :month
+      - :year
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
@@ -34,7 +37,7 @@ de:
 
     am: "vormittags"
     pm: "nachmittags"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -180,7 +183,7 @@ de:
       odd: "muss ungerade sein"
       even: "muss gerade sein"
       not_an_integer: "muss ganzzahlig sein"
-      
+
   activerecord:
     errors:
       template:
@@ -189,7 +192,7 @@ de:
           other:  "Konnte %{model} nicht speichern: %{count} Fehler."
         body: "Bitte überprüfen Sie die folgenden Felder:"
 
-      messages:        
+      messages:
         taken: "ist bereits vergeben"
         record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: %{errors}"
         <<: *errors_messages

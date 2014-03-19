@@ -1,14 +1,15 @@
-require 'iconv'
+# encoding: UTF-8
+
 class TransactionsController < ApplicationController
   before_filter :authenticate_user!
   helper_method :sort_column, :sort_direction
   set_tab :accounting
-  
+
   before_filter :check_accessible, :only => [:index, :new]
   before_filter :check_limit, :only => [:new]
-  
+
   def index
-    @transactions = current_user.transactions.includes(:project, :category).order(sort_column + " " + sort_direction).page(params[:page]).per(20) 
+    @transactions = current_user.transactions.includes(:project, :category).order(sort_column + " " + sort_direction).page(params[:page]).per(20)
     @transactions = @transactions.by_keyword(params[:search]) unless params[:search].blank?
     @transactions = @transactions.by_category(params[:category_id]) unless params[:category_id].blank?
     if !params[:start_date].blank? and !params[:end_date].blank?
@@ -18,18 +19,18 @@ class TransactionsController < ApplicationController
     elsif !params[:end_date].blank?
       @transactions = @transactions.to_date(params[:end_date])
     end
-    
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @transactions }
       format.js
-      format.csv { 
-        content = Transaction.to_csv(@transactions)
-        content = Iconv.conv('ISO-8859-1','UTF-8', content)
-        send_data content, 
-          :filename => "transactions.csv", 
-          :type => 'text/csv; charset=utf-8; header=present',
-          :disposition => "attachment"
+      format.csv {
+        content = Transaction.to_csv(current_user.transactions.includes(:project, :category))
+        content = content.encode("UTF-8")
+        send_data content,
+          filename:    "transactions.csv",
+          type:        "text/csv; charset=utf-8; header=present",
+          disposition: "attachment"
       }
     end
   end
@@ -55,7 +56,7 @@ class TransactionsController < ApplicationController
 
   def edit
     @transaction = Transaction.find(params[:id])
-    
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @transaction }
@@ -106,7 +107,7 @@ class TransactionsController < ApplicationController
       format.json { head :ok }
     end
   end
-  
+
   def monthly_report
     current_period = current_user.profile.fiscal_period
     unless params[:fiscal_year].blank?
@@ -117,23 +118,23 @@ class TransactionsController < ApplicationController
     @periods = current_user.profile.fiscal_range
     @fiscal_year = Profile.period_to_s(current_period.first, current_period.last)
   end
-  
+
   def find_by_note
     @transactions = current_user.transactions.order(:note).where("lower(note) like ?", "%#{params[:term].downcase}%")
-    
+
     render json: @transactions.map(&:note).uniq
   end
-  
+
 private
 
   def sort_column
     Transaction.column_names.include?(params[:sort]) ? params[:sort] : "date"
   end
-  
+
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
-  
+
   def check_accessible
     unless current_user.admin?
       unless current_permissions[:transaction][:accessible]
@@ -141,7 +142,7 @@ private
       end
     end
   end
-  
+
   def check_limit
     unless current_user.admin?
       if current_permissions[:transaction][:limit] > 0 && current_user.transactions.count >= current_permissions[:transaction][:limit]
@@ -149,4 +150,5 @@ private
       end
     end
   end
+
 end

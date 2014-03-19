@@ -8,7 +8,10 @@ sv-SE:
     abbr_day_names: [sön, mån, tis, ons, tor, fre, lör]
     month_names: [~, januari, februari, mars, april, maj, juni, juli, augusti, september, oktober, november, december]
     abbr_month_names: [~, jan, feb, mar, apr, maj, jun, jul, aug, sep, okt, nov, dec]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:
@@ -17,7 +20,7 @@ sv-SE:
       long: "%e %B %Y %H:%M"
     am: ""
     pm: ""
-  
+
   number:
     format:
       separator: ","

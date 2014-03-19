@@ -8,7 +8,10 @@ sk:
     abbr_day_names: [Ne, Po, Ut, St, Št, Pi, So]
     month_names: [~, Január, Február, Marec, Apríl, Máj, Jún, Júl, August, September, Október, November, December]
     abbr_month_names: [~, Jan, Feb, Mar, Apr, Máj, Jún, Júl, Aug, Sep, Okt, Nov, Dec]
-    order: [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:
@@ -17,7 +20,7 @@ sk:
       long: "%A %d. %B %Y %H:%M"
     am: "dopoludnia"
     pm: "popoludní"
-                
+
   number:
     format:
       separator: "."

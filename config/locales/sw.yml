@@ -8,7 +8,10 @@ sw:
     abbr_day_names: [J2, J3, J4, J5, Al, Ij, J1]
     month_names: [~, Mwezi wa kwanza, Mwezi wa pili, Mwezi wa tatu, Mwezi wa nne, Mwezi wa tano, Mwezi wa sita, Mwezi wa saba, Mwezi wa nane, Mwezi wa tisa, Mwezi wa kumi, Mwezi wa kumi na moja, Mwezi wa kumi na mbili]
     abbr_month_names: [~, Jan, Feb, Mac, Apr, Mei, Jun, Jul, Ago, Sep, Okt, Nov, Des]
-    order: [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:

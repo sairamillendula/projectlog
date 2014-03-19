@@ -8,8 +8,11 @@ es-MX:
     month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]  
     abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
     abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-    order: [:day, :month, :year]
-      
+    order:
+      - :day
+      - :month
+      - :year
+
     time:
       formats:
         default: "%a, %d de %b de %Y a las %H:%M:%S %Z"

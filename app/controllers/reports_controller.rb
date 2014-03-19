@@ -1,14 +1,14 @@
 # encoding: utf-8
-require 'iconv'
+
 class ReportsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:shared, :approve ]
+  before_filter :authenticate_user!, except: [:shared, :approve ]
   set_tab :reports
   helper_method :sort_column, :sort_direction
-  
+
   def new
     @report = Report.new
   end
-  
+
   def create
     @report = current_user.reports.new(params[:report])
     if @report.save
@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
       render "new"
     end
   end
-  
+
   def show
     @report = Report.find_by_slug!(params[:id])
     @activities = @report.activities.includes(:project).search(params[:search]).order(sort_column + " " + sort_direction)
@@ -26,26 +26,26 @@ class ReportsController < ApplicationController
       format.js { @activities = @activities.page(params[:page]).per(10) }
     end
   end
-  
+
   def shared # Like show, except is public for everybody.
     @report = Report.find_by_slug!(params[:id])
     @activities = @report.activities.order('date ASC')
     respond_to do |format|
       format.html do
-        render :layout => "public"
+        render layout: "public"
       end
       format.pdf { render :text => PDFKit.new(render_to_string).to_pdf }
-      format.csv { 
+      format.csv {
         content = @report.to_csv
-        content = Iconv.conv('ISO-8859-1','UTF-8', content)
-        send_data content, 
-          :filename => "time_entries.csv", 
-          :type => 'text/csv; charset=utf-8; header=present',
-          :disposition => "attachment"
+        content = content.encode("UTF-8")
+        send_data content,
+          filename:    "time_entries.csv",
+          type:        "text/csv; charset=utf-8; header=present",
+          disposition: "attachment"
       }
     end
   end
-  
+
   def approve
     @report = Report.find_by_slug!(params[:id])
 
@@ -59,15 +59,17 @@ class ReportsController < ApplicationController
       end
     else
       raise ActionController::RoutingError.new('Not Found')
-    end 
+    end
   end
-  
-private
-  def sort_column
-    Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
-  end
-  
-  def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
-  end
+
+  private
+
+    def sort_column
+      Activity.column_names.include?(params[:sort]) ? params[:sort] : "date"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+    end
+
 end
